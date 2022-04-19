@@ -32,19 +32,8 @@
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="index">Home</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="true">
-                        About
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Who we are</a></li>
-                        <li><a class="dropdown-item" href="#">Contact</a></li>
-                        <li><a class="dropdown-item" href="#">Career</a></li>
-                        <li><a class="dropdown-item" href="#">Partner with us</a></li>
-                        <li><img src="assets/images/background/moringa-leaves.jpg" alt="" class="dropdown-image">
-                        </li>
-                    </ul>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="index">Shop</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -68,6 +57,26 @@
                         <li class="mobile"><a class="dropdown-item" href="#">Doctor Moringa for Ortho Aid</a></li>
                         <li class="mobile"><a class="dropdown-item" href="#">Doctor Moringa for Diabetes</a></li>
                         <li class="mobile"><a class="dropdown-item" href="#">Miracle Beauty</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="true">
+                        About
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li class="dropdown-row"><a class="dropdown-item" href="#">Who we are</a></li>
+                        <li class="dropdown-row"><a class="dropdown-item" href="#">Contact</a></li>
+                        <li class="dropdown-row"><a class="dropdown-item" href="#">Career</a></li>
+                        <li class="dropdown-row"><a class="dropdown-item" href="#">Partner with us</a></li>
+                        <li><img src="assets/images/background/moringa-leaves.jpg" alt="" class="dropdown-image">
+                        </li>
+
+                        <li class="mobile"><a class="dropdown-item" href="#">Who we are</a></li>
+                        <li class="mobile"><a class="dropdown-item" href="#">Contact</a></li>
+                        <li class="mobile"><a class="dropdown-item" href="#">Career</a></li>
+                        <li class="mobile"><a class="dropdown-item" href="#">Partner with us</a></li>
                     </ul>
                 </li>
             </ul>
