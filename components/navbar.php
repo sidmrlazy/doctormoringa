@@ -1,6 +1,6 @@
 <div class="top-navbar">
     <div class="col-md-6 top-navbar-brand">
-        <a href="index.php"><img src="assets/images/logo/logo.png" alt=""></a>
+        <a href="index"><img src="assets/images/logo/logo.png" alt=""></a>
     </div>
 
     <div class="col-md-4">
@@ -30,7 +30,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#">Home</a>
+                    <a class="nav-link" aria-current="page" href="index">Home</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
