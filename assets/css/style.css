@@ -640,6 +640,43 @@
   font-size: 20px;
 }
 
+/* ========= Section Heading ========= */
+.section-heading-container {
+  background-color: #fff3ff;
+  padding: 40px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  border-radius: 20px;
+  width: 95%;
+}
+.section-heading-container h1 {
+  font-weight: 600;
+}
+.breadcrumb-item {
+  color: #5bb336 !important;
+  font-weight: bold !important;
+}
+.breadcrumb-item a {
+  text-decoration: none !important;
+  color: #777 !important;
+}
+
+/* ========= Category Wise Products ========= */
+.shop-section {
+  width: 95%;
+  margin-top: 80px;
+}
+.shop-section h4 {
+  margin: 0 !important;
+  font-size: 18px;
+  color: #777;
+}
+.shop-section h1 {
+  margin: 0 !important;
+  color: #5bb336;
+  font-weight: bolder !important;
+}
+
 /* =================== RESPONSIVE =================== */
 @media only screen and (max-width: 768px) {
   /* ======== Top Navbar ======== */

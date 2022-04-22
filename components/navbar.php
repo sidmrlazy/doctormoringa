@@ -38,7 +38,7 @@
                     <a class="nav-link" aria-current="page" href="index">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="index">Shop</a>
+                    <a class="nav-link" aria-current="page" href="shop">Shop</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
