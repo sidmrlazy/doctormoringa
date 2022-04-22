@@ -5,14 +5,19 @@
 
     <div class="col-md-4">
         <div class="top-nav-row">
+
             <div class="top-nav-inner-row">
-                <ion-icon name="cart-outline" class="top-nav-icon"></ion-icon>
-                <p>Cart</p>
+                <a href="#">
+                    <ion-icon name="cart-outline" class="top-nav-icon"></ion-icon>
+                    <p>Cart</p>
+                </a>
             </div>
 
             <div class="top-nav-inner-row">
-                <ion-icon name="person-outline" class="top-nav-icon"></ion-icon>
-                <p>Account</p>
+                <a href="register">
+                    <ion-icon name="person-outline" class="top-nav-icon"></ion-icon>
+                    <p>Login | Register</p>
+                </a>
             </div>
         </div>
     </div>
