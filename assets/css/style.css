@@ -1,5 +1,5 @@
 * {
-  font-family: "Quicksand", sans-serif;
+  font-family: "Quicksand", sans-serif !important;
 }
 
 /* =========== Top Navbar =========== */
@@ -133,6 +133,66 @@
 .mobile {
   display: none;
 }
+
+/* =========== Banner Section =========== */
+.banner {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  background-color: #cbf7be !important;
+}
+.banner-content {
+  padding: 20px;
+}
+.banner-content h1 {
+  font-size: 66px;
+  font-weight: 600 !important;
+  line-height: 55px;
+}
+.banner-img {
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.banner-img img {
+  width: 100%;
+  height: auto;
+  border-top-right-radius: 20px !important;
+}
+#banner-red {
+  background-color: #e6959d !important;
+}
+.carousel-control-prev-banner {
+  content: url("../images/icons/arrow-back-circle-outline.svg");
+  background: #00000000;
+  width: 30px;
+  margin-top: 300px;
+  color: #fff;
+}
+.carousel-control-prev-banner:hover {
+  content: url("../images/icons/arrow-back-circle-dark.svg");
+  background: #00000000;
+  width: 30px;
+  margin-top: 300px;
+}
+.carousel-control-next-banner {
+  content: url("../images/icons/arrow-forward-circle-outline.svg");
+  background: #00000000;
+  width: 30px;
+  margin-top: 300px;
+}
+.carousel-control-next-banner:hover {
+  content: url("../images/icons/arrow-forward-circle-dark.svg");
+  background: #00000000;
+  width: 30px;
+  margin-top: 300px;
+}
+
 /* =========== Category Slider Section =========== */
 .category-slider-mobile {
   display: none !important;
@@ -186,93 +246,107 @@
   background-color: #feefea !important;
 }
 
-/* =========== Customer Feedback Section =========== */
-#mobile {
-  display: none;
-}
-.feedback-section-main {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin-bottom: 50px;
-}
-.static-poster {
-  width: 300px;
-  height: 400px;
-  display: flex !important;
-  justify-content: flex-end !important;
-  align-items: flex-end !important;
-  border: 1px solid #c7c7c7c7;
+/* =========== Bestseller Section =========== */
+.section-label {
+  margin-top: 50px !important;
+  margin-bottom: 10px;
   padding: 10px;
-  border-radius: 10px;
-  background-image: url("../images/background/static-image-moringa.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-.static-poster h1 {
-  font-weight: bold !important;
-  text-align: right;
-  color: #fff;
-  text-transform: uppercase;
-  line-height: 25px;
+  font-weight: 600;
   font-size: 30px;
 }
-.reusable-carousel {
+.best-seller-section {
+  padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 100% !important;
-  margin: 15px;
 }
-.carousel-control-prev-icon-reusable {
-  content: url("../images/icons/arrow-back-circle-outline.svg");
-  background: #00000000;
-  margin-left: -80px;
-  width: 30px;
+.best-seller-section h1 {
+  font-weight: 600;
+  margin-bottom: 30px;
 }
-.carousel-control-next-icon-reusable {
-  content: url("../images/icons/arrow-forward-circle-outline.svg");
-  background: #00000000;
-  margin-right: -80px;
-  width: 30px;
-}
-.slider-inner-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: 100%;
-  padding: 50px;
-}
-.slider-card {
+.best-seller-card {
   width: 250px;
-  height: 350px;
-  border: 1px solid #e7e7e7e7;
-  border-radius: 10px;
+  height: 400px;
+  border: 1px solid #c7c7c7c7;
+  border-radius: 30px !important;
+  /* border-top-left-radius: 30px;
+  border-bottom-right-radius: 30px; */
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
   flex-direction: column;
   margin: 10px;
-  padding: 20px 0 0 20px;
 }
-.slider-card:hover {
-  -webkit-box-shadow: 0px 0px 15px 1px rgba(91, 179, 54, 1);
-  -moz-box-shadow: 0px 0px 15px 1px rgba(91, 179, 54, 1);
-  box-shadow: 0px 0px 15px 1px rgba(91, 179, 54, 1);
+.best-seller-card-img {
+  width: 249px;
+  height: 350px !important;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  margin: 0;
+  background-image: url("../images/background/moringa-leaves.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  align-self: center !important;
+  justify-self: center !important;
+}
+.best-seller-card-img:hover {
+  width: 249px;
+  height: 350px !important;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  margin: 0;
+  background-image: url("../images/background/moringa-leaves-2.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
   transition: all 0.5s;
-  border: 0;
 }
-.slider-card h4 {
-  font-weight: 900;
-  margin-top: 10px;
+.best-seller-card-content {
+  padding: 10px;
 }
-.slider-card img {
-  width: 20% !important;
-  height: auto;
+.best-seller-card p {
+  font-size: 12px;
+  color: #333;
+  margin: 0;
 }
-.slider-card p {
-  text-align: center;
-  margin-top: 10px;
+.best-seller-card h5 {
+  color: #000;
+  margin: 0;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.best-seller-mrp-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.best-seller-mrp-section p {
+  font-size: 18px;
+  font-weight: 600;
+  flex: 1;
+  color: #5bb336;
+}
+.best-seller-mrp-section a {
+  text-decoration: none;
+  background-color: #5bb336;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  border-radius: 5px;
+  color: #fff;
+}
+#cart-icon {
+  color: #fff;
+  font-weight: bold;
+  font-size: 24px;
+  margin-right: 5px;
+}
+.checked {
+  color: orange !important;
 }
 
 /* =========== Newsletter Section =========== */
@@ -332,6 +406,111 @@
   width: 300px;
   height: 300px;
 }
+
+/* =========== Customer Feedback Section =========== */
+#mobile {
+  display: none;
+}
+.feedback-section-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+  width: 100%;
+}
+.static-poster {
+  width: 300px;
+  height: 400px;
+  display: flex !important;
+  justify-content: flex-end !important;
+  align-items: flex-end !important;
+  border: 1px solid #c7c7c7c7;
+  padding: 10px;
+  border-radius: 10px;
+  background-image: url("../images/background/static-image-moringa.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.static-poster h1 {
+  font-weight: bold !important;
+  text-align: right;
+  color: #fff;
+  text-transform: uppercase;
+  line-height: 25px;
+  font-size: 30px;
+}
+.reusable-carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100% !important;
+  margin: 15px;
+}
+.carousel-control-prev-icon-reusable {
+  content: url("../images/icons/caret-back-circle-outline.svg");
+  background: #00000000;
+  margin-left: -80px;
+  width: 30px;
+}
+.carousel-control-prev-icon-reusable:hover {
+  content: url("../images/icons/caret-back-circle-dark.svg");
+  transition: all 0.5s;
+  width: 40px;
+  background-color: #5bb336 !important;
+  border-radius: 100%;
+}
+.carousel-control-next-icon-reusable {
+  content: url("../images/icons/caret-forward-circle-outline.svg");
+  background: #00000000;
+  margin-right: -80px;
+  width: 30px;
+}
+.carousel-control-next-icon-reusable:hover {
+  content: url("../images/icons/caret-forward-circle-dark.svg");
+  transition: all 0.5s;
+  width: 40px;
+  background-color: #5bb336 !important;
+  border-radius: 100%;
+}
+.slider-inner-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  padding: 50px;
+}
+.slider-card {
+  width: 250px;
+  height: 350px;
+  border: 1px solid #e7e7e7e7;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 10px;
+  padding: 20px 0 0 20px;
+}
+.slider-card:hover {
+  -webkit-box-shadow: 0px 0px 15px 1px rgba(91, 179, 54, 1);
+  -moz-box-shadow: 0px 0px 15px 1px rgba(91, 179, 54, 1);
+  box-shadow: 0px 0px 15px 1px rgba(91, 179, 54, 1);
+  transition: all 0.5s;
+  border: 0;
+}
+.slider-card h4 {
+  font-weight: 900;
+  margin-top: 10px;
+}
+.slider-card img {
+  width: 20% !important;
+  height: auto;
+}
+.slider-card p {
+  text-align: center;
+  margin-top: 10px;
+}
+
 /* =================== RESPONSIVE =================== */
 @media only screen and (max-width: 768px) {
   /* ======== Top Navbar ======== */
@@ -392,6 +571,48 @@
     display: initial;
   }
 
+  /* =========== Banner Section =========== */
+  .banner {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border-radius: 20px;
+    background-color: #cbf7be !important;
+  }
+  .banner-content {
+    padding: 20px;
+    width: 100% !important;
+    flex-direction: column !important;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .banner-content h1 {
+    font-size: 30px !important;
+    font-weight: bolder;
+    line-height: 30px;
+  }
+  .banner-img {
+    max-width: 50% !important;
+  }
+  .banner-img img {
+    width: 100%;
+    height: auto;
+    border-top-right-radius: 20px !important;
+  }
+  #banner-red {
+    background-color: #e6959d !important;
+  }
+  .carousel-control-prev-banner {
+    display: none;
+  }
+  .carousel-control-next-banner {
+    display: none;
+  }
+
   /* =========== Category Slider Section =========== */
   .category-slider {
     display: none;
@@ -438,6 +659,88 @@
     content: url("../images/icons/arrow-forward-circle-outline.svg");
     background: #00000000;
     margin: 0;
+  }
+
+  /* =========== Bestseller Section =========== */
+  .section-label {
+    margin-top: 100px;
+    margin-bottom: 5px !important;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 30px;
+    text-align: center;
+  }
+  .best-seller-section {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  /* =========== Newsletter Section =========== */
+  .newsletter-section {
+    margin-top: 100px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column !important;
+    padding: 20px 20px 0 20px;
+    background-color: #d8f1e5 !important;
+    border-radius: 10px;
+    max-width: 100%;
+  }
+  .newsletter-section h1 {
+    font-weight: 700 !important;
+    font-size: 30px;
+    text-align: left;
+  }
+  .newsletter-section p {
+    color: #777;
+    font-size: 16px;
+    text-align: left;
+  }
+  .newsletter-btn {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 100px;
+    margin-top: 30px !important;
+  }
+  #plane-icon {
+    margin-right: 20px;
+    color: #777;
+    font-size: 30px;
+    padding-left: 15px;
+    color: #5bb336 !important;
+  }
+  .newsletter-btn input {
+    border: 0 !important;
+    width: 100%;
+  }
+  .newsletter-btn input:focus {
+    outline: 0 !important;
+  }
+  .newsletter-btn a {
+    margin: 0;
+    padding: 15px;
+    text-decoration: none;
+    text-align: center;
+    align-self: center !important;
+    justify-self: center;
+    width: 100%;
+    background-color: #5bb336;
+    top: 0 !important;
+    border-radius: 100px;
+    color: #fff;
+    font-weight: bold;
+  }
+  .newletter-lottie {
+    max-width: 200px;
+    height: 200px;
+    margin-top: 50px;
   }
 
   /* =========== Customer Feedback Section =========== */
@@ -518,70 +821,5 @@
   #prev,
   #next {
     margin: 0 !important;
-  }
-
-  /* =========== Newsletter Section =========== */
-  .newsletter-section {
-    margin-top: 100px !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column !important;
-    padding: 20px 20px 0 20px;
-    background-color: #d8f1e5 !important;
-    border-radius: 10px;
-    max-width: 100%;
-  }
-  .newsletter-section h1 {
-    font-weight: 700 !important;
-    font-size: 30px;
-    text-align: left;
-  }
-  .newsletter-section p {
-    color: #777;
-    font-size: 16px;
-    text-align: left;
-  }
-  .newsletter-btn {
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    background-color: #fff;
-    border-radius: 100px;
-    margin-top: 30px !important;
-  }
-  #plane-icon {
-    margin-right: 20px;
-    color: #777;
-    font-size: 30px;
-    padding-left: 15px;
-    color: #5bb336 !important;
-  }
-  .newsletter-btn input {
-    border: 0 !important;
-    width: 100%;
-  }
-  .newsletter-btn input:focus {
-    outline: 0 !important;
-  }
-  .newsletter-btn a {
-    margin: 0;
-    padding: 15px;
-    text-decoration: none;
-    text-align: center;
-    align-self: center !important;
-    justify-self: center;
-    width: 100%;
-    background-color: #5bb336;
-    top: 0 !important;
-    border-radius: 100px;
-    color: #fff;
-    font-weight: bold;
-  }
-  .newletter-lottie {
-    max-width: 200px;
-    height: 200px;
-    margin-top: 50px;
   }
 }

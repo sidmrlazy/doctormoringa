@@ -1,4 +1,4 @@
-<div class="container newsletter-section">
+<div class="container-fluid newsletter-section">
     <div class="col-md-8">
         <h1>Stay home & get your daily
             needs from our shop</h1>
