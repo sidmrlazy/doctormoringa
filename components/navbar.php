@@ -51,6 +51,21 @@
                             <a class="dropdown-item" href="#">Doctor Moringa for Heart Diseases</a>
                         </li>
 
+                        <li class="dropdown-row">
+                            <img src="assets/images/icons/ortho.png" alt="">
+                            <a class="dropdown-item" href="#">Doctor Moringa for Ortho Aid</a>
+                        </li>
+
+                        <li class="dropdown-row">
+                            <img src="assets/images/icons/diabetes.png" alt="">
+                            <a class="dropdown-item" href="#">Doctor Moringa for Diabetes</a>
+                        </li>
+
+                        <li class="dropdown-row">
+                            <img src="assets/images/icons/beauty.png" alt="">
+                            <a class="dropdown-item" href="#">Miracle Beauty</a>
+                        </li>
+
                         <!-- Mobile View -->
                         <li class="mobile"><a class="dropdown-item" href="#">Doctor Moringa for Weight Loss</a></li>
                         <li class="mobile"><a class="dropdown-item" href="#">Doctor Moringa for Heart Diseases</a></li>
