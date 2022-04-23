@@ -8,5 +8,3 @@
 <?php include('components/footer.php') ?>
 
 <!-- Test from Aamir -->
-
-<!-- Test From Sid -->
