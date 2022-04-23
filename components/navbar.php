@@ -86,7 +86,7 @@
                         About
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li class="dropdown-row"><a class="dropdown-item" href="#">Who we are</a></li>
+                        <li class="dropdown-row"><a class="dropdown-item" href="about">Who we are</a></li>
                         <li class="dropdown-row"><a class="dropdown-item" href="#">Contact</a></li>
                         <li class="dropdown-row"><a class="dropdown-item" href="#">Career</a></li>
                         <li class="dropdown-row"><a class="dropdown-item" href="#">Partner with us</a></li>

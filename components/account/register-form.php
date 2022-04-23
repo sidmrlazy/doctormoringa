@@ -1,5 +1,4 @@
 <div class="container register-section">
-
     <div class="col-md-6">
         <div class="register-header">
             <h1>Create an Account</h1>
@@ -8,7 +7,11 @@
         <form action="">
             <div class="form-floating mb-3">
                 <input type="text" class="form-control" id="floatingInput" placeholder="Username">
-                <label for="floatingInput">Username</label>
+                <label for="floatingInput">Full Name</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="number" class="form-control" id="floatingEmailAddress" placeholder="name@example.com">
+                <label for="floatingInput">Mobile Number</label>
             </div>
             <div class="form-floating mb-3">
                 <input type="email" class="form-control" id="floatingEmailAddress" placeholder="name@example.com">

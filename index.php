@@ -6,5 +6,3 @@
 <?php include('components/elements/newsletter.php') ?>
 <?php include('components/elements/customer-feedback.php') ?>
 <?php include('components/footer.php') ?>
-
-<!-- Test from Aamir -->

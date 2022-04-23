@@ -1,7 +1,10 @@
 <footer class="footer-section">
     <div class="footer-section-col col-md-3">
-        <img src="assets/images/logo/logo.png" alt="">
+        <a href="index">
+            <img src="assets/images/logo/logo.png" alt="">
+        </a>
         <p>Awesome grocery store website template</p>
+
 
         <div class="footer-row mt-5">
             <ion-icon name="location" id="footer-icon"></ion-icon>
@@ -51,6 +54,9 @@
 
 <!-- Lottie -->
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+<!-- Custom JavaScript -->
+<script src="assets/js/custom.js"></script>
 
 </body>
 

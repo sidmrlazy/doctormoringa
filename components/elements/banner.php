@@ -1,3 +1,4 @@
+<button onclick="topFunction()" id="myBtn" title="Go to top" class="back-to-top">Back to Top</button>
 <div id="banner-section" class="carousel slide carousel-fade" data-bs-ride="carousel">
     <div class="carousel-inner">
         <div class="carousel-item active">

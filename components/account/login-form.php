@@ -2,7 +2,7 @@
     <div class="col-md-6">
         <div class="register-header">
             <h1>Login </h1>
-            <p>New User? <span><a href="regiser">Register Here </a></span></p>
+            <p>New User? <span><a href="register">Register Here </a></span></p>
         </div>
         <form action="">
             <div class="form-floating mb-3">
