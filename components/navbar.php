@@ -48,7 +48,7 @@
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li class="dropdown-row">
                             <img src="assets/images/icons/weight-loss.png" alt="">
-                            <a class="dropdown-item" href="#">Doctor Moringa for Weight Loss</a>
+                            <a class="dropdown-item" href="shop#weight-loss">Doctor Moringa for Weight Loss</a>
                         </li>
 
                         <li class="dropdown-row">

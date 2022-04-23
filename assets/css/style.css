@@ -563,6 +563,10 @@
   margin-bottom: 10px;
   font-size: 16px;
 }
+.footer-section-col li:hover {
+  color: #5bb336;
+  font-weight: bold;
+}
 .footer-row {
   display: flex;
   justify-content: flex-start;
@@ -663,8 +667,9 @@
 
 /* ========= Category Wise Products ========= */
 .shop-section {
-  width: 95%;
+  width: 100%;
   margin-top: 80px;
+  padding: 25px;
 }
 .shop-section h4 {
   margin: 0 !important;
