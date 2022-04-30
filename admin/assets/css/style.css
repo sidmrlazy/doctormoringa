@@ -1,0 +1,121 @@
+* {
+  font-family: "Raleway", sans-serif;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Login Form */
+.login-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+}
+.form-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.form-section img {
+  margin-bottom: 50px;
+  width: 40%;
+}
+.admin-form {
+  width: 80%;
+}
+.admin-login-btn {
+  border: 0;
+  width: 100%;
+  margin-top: 30px;
+  height: 50px;
+  background-color: #5bb336 !important;
+  font-weight: 900;
+  font-size: 18px;
+}
+.login-section-banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: fit-content !important;
+  height: fit-content;
+  margin: 0 !important;
+  padding: 0 !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  right: 0 !important;
+  flex: 1;
+}
+.login-section-banner img {
+  width: 100% !important;
+  height: auto !important;
+}
+
+/* Navbar */
+.navbar-brand img {
+  width: 25%;
+  height: auto;
+}
+.nav-link {
+  margin-right: 10px;
+  font-size: 16px;
+}
+.outer-nav-icon {
+  font-size: 20px !important;
+  margin-right: 5px;
+}
+.inner-nav-icon {
+  font-size: 14px;
+  margin-right: 5px;
+}
+
+/* Users */
+.user-section {
+  margin-top: 20px;
+}
+.user-section h1 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+.card {
+  padding: 30px;
+}
+.custom-form-button {
+  width: 100%;
+  margin-top: 10px;
+  height: 50px;
+  background-color: #5bb336 !important;
+  font-size: 20px !important;
+  font-weight: 900 !important;
+  border: 0 !important;
+}
+.lottie-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.lottie {
+  width: 400px;
+  height: 400px;
+}
+.table {
+  padding: 20px;
+}
+.single-input-form {
+  border: 1px solid #efefefef;
+  padding: 20px;
+}
