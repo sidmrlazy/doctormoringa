@@ -68,7 +68,7 @@
                     <option selected>----- Choose User Type -----</option>
                     <option name="user_type" value="1">Admin</option>
                     <option name="user_type" value="2">Customer</option>
-                    <option name="user_type">Partner</option>
+                    <option name="user_type" value="3">Partner</option>
                 </select>
                 <label for="floatingSelect">Select User Type</label>
             </div>

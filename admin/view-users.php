@@ -3,10 +3,10 @@
 <div class="container w-100 d-flex justify-content-center align-content-center">
     <div class="container col-md-10 card user-section">
         <h1>View All Users</h1>
-        <table class="table table-bordered">
+        <table class="table table-striped table-bordered">
             <thead>
                 <tr>
-                    <th scope="col">User ID</th>
+                    <th scope="col">ID</th>
                     <th scope="col">Full Name</th>
                     <th scope="col">Email</th>
                     <th scope="col">Contact</th>

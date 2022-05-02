@@ -13,19 +13,19 @@
                 $result = mysqli_query($connection, $query);
 
                 if (!$result) {
-                    echo "<div class='alert alert-danger' role='alert'>Something went wrong!</div>";
+                    echo "<div class='alert w-100 alert-danger' role='alert'>Something went wrong!</div>";
                 } else {
-                    echo "<div class='alert alert-success' role='alert'>Category Added!</div>";
+                    echo "<div class='alert w-100 alert-success' role='alert'>Category Added!</div>";
                 }
             }
 
             ?>
-            <div class="form-floating mb-3">
+            <div class="form-floating mb-3 w-100">
                 <input type="text" name="category_name" class="form-control" id="floatingInput" placeholder="Full Name">
                 <label for="floatingInput">Category Name</label>
             </div>
 
-            <div class="form-floating">
+            <div class="form-floating w-100">
                 <textarea class="form-control" type="text" name="category_description"
                     placeholder="Add Category Description" id="floatingTextarea2" style="height: 150px"></textarea>
                 <label for="floatingTextarea2">Description</label>

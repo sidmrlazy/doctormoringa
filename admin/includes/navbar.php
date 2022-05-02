@@ -18,16 +18,35 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
+                        <ion-icon name="cart-outline" class="outer-nav-icon"></ion-icon>Orders
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">
+                                <ion-icon name="bag-add-outline" class="inner-nav-icon"></ion-icon>New Orders
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <ion-icon name="bag-check-outline" class="inner-nav-icon"></ion-icon>Completed Orders
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
                         <ion-icon name="people-outline" class="outer-nav-icon"></ion-icon>Users
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="view-users.php">
-                                <ion-icon name="add-circle-outline" class="inner-nav-icon"></ion-icon>View Users
+                                <ion-icon name="people-circle-outline" class="inner-nav-icon"></ion-icon>View Users
                             </a>
                         </li>
                         <li>
                             <a class="dropdown-item" href="add-users.php">
-                                <ion-icon name="eye-outline" class="inner-nav-icon"></ion-icon>Add Users
+                                <ion-icon name="person-add-outline" class="inner-nav-icon"></ion-icon>Add Users
                             </a>
                         </li>
 
@@ -41,24 +60,60 @@
                         Inventory
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="add-category.php">Add Category</a></li>
-                        <li><a class="dropdown-item" href="view-category.php">View Category</a></li>
-                        <li><a class="dropdown-item" href="add-inventory.php">Add Inventory</a></li>
-                        <li><a class="dropdown-item" href="#">View Inventory</a></li>
+                        <li><a class="dropdown-item" href="add-category.php">
+                                <ion-icon class="inner-nav-icon" name="duplicate-outline"></ion-icon>Add Category
+                            </a></li>
+                        <li><a class="dropdown-item" href="view-category.php">
+                                <ion-icon class="inner-nav-icon" name="options-outline"></ion-icon>View Category
+                            </a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="add-items.php">
+                                <ion-icon class="inner-nav-icon" name="fast-food-outline"></ion-icon>Add Items
+                            </a></li>
+                        <li><a class="dropdown-item" href="view-inventory.php">
+                                <ion-icon class="inner-nav-icon" name="receipt-outline"></ion-icon>View Inventory
+                            </a></li>
                     </ul>
                 </li>
 
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link" href="#">Inventory</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="logout.php"> Logout</a>
-                </li>
+                </li> -->
             </ul>
-            <!-- <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form> -->
+            <form class="d-flex">
+                <ul class="navbar-nav ml-auto me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="logout.php">
+                            <ion-icon name="log-out-outline" class="outer-nav-icon"></ion-icon> Logout
+                        </a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <ion-icon name="key-outline" class="outer-nav-icon"></ion-icon>
+                            <?php echo $_SESSION["user_name"]; ?>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="view-users.php">
+                                    <ion-icon name="people-circle-outline" class="inner-nav-icon"></ion-icon>View Users
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="add-users.php">
+                                    <ion-icon name="person-add-outline" class="inner-nav-icon"></ion-icon>Add Users
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                </ul>
+                <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button> -->
+            </form>
         </div>
     </div>
 </nav>

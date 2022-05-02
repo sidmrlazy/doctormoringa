@@ -14,7 +14,7 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
-/* Login Form */
+/* ================ Login Form ================ */
 .login-section {
   display: flex;
   justify-content: center;
@@ -64,25 +64,44 @@ input[type="number"] {
   height: auto !important;
 }
 
-/* Navbar */
+/* ================ Navbar ================ */
+.navbar {
+  background-color: #00000000 !important;
+}
 .navbar-brand img {
   width: 25%;
   height: auto;
 }
 .nav-link {
   margin-right: 10px;
-  font-size: 16px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.nav-link:hover {
+  color: #5bb336 !important;
+  font-weight: bold;
+  transition: all 0.5s;
 }
 .outer-nav-icon {
-  font-size: 20px !important;
+  font-size: 18px !important;
   margin-right: 5px;
 }
 .inner-nav-icon {
+  font-size: 16px;
+  margin-right: 10px;
+}
+.dropdown-item {
   font-size: 14px;
-  margin-right: 5px;
+  font-weight: 600;
+}
+.dropdown-item:hover {
+  color: #5bb336 !important;
+  font-weight: bold;
+  transition: all 0.5s;
+  background-color: #00000000 !important;
 }
 
-/* Users */
+/* ================ Users ================ */
 .user-section {
   margin-top: 20px;
 }
@@ -118,4 +137,62 @@ input[type="number"] {
 .single-input-form {
   border: 1px solid #efefefef;
   padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+.items-image-container {
+  width: 300px;
+  height: 350px;
+  border: 1px solid #efefefef;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+}
+.items-image-container img {
+  width: fit-content;
+  height: 300px;
+  border-radius: 10px;
+}
+.db_img {
+  width: 100px !important;
+  height: 100px !important;
+}
+
+/* ================ Users ================ */
+.new-order-tab {
+  background: rgb(59, 139, 24);
+  background: linear-gradient(
+    90deg,
+    rgba(59, 139, 24, 0.8099614845938375) 0%,
+    rgba(41, 207, 23, 0.7707457983193278) 78%
+  );
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.new-order-tab h5 {
+  font-weight: bold;
+  color: #fff !important;
+  flex: 1;
+}
+.close-btn {
+  font-size: 24px;
+  color: #fff;
+  margin-right: 20px;
+}
+
+/* ================ Inventory ================ */
+.inventory-table-img {
+  width: 100px !important;
+  height: auto;
+  display: flex;
+  justify-self: center;
+  align-self: center;
 }
