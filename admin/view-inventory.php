@@ -16,8 +16,6 @@
             <tbody>
                 <?php
                 include('includes/server/config.php');
-
-
                 $query = "SELECT * FROM `items` WHERE item_status = 1";
                 $get_details = mysqli_query($connection, $query);
 
