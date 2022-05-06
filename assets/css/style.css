@@ -11,6 +11,18 @@
   background: #5bb336;
 }
 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
 /* =========== Top Navbar =========== */
 .top-navbar {
   display: flex;
@@ -660,13 +672,15 @@
   margin-top: 30px;
   border-radius: 10px;
   text-align: center;
-}
-.register-btn a {
+  border: 0 !important;
   text-decoration: none;
   color: #fff;
   text-align: center;
   font-weight: 600;
   font-size: 20px;
+}
+.register-btn:hover {
+  font-weight: bold !important;
 }
 
 /* ========= Section Heading ========= */
@@ -705,6 +719,38 @@
   margin: 0 !important;
   color: #5bb336;
   font-weight: bolder !important;
+}
+
+/* ========= Profile Section ========= */
+.profile-section {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.profile-section-buttons {
+  border-bottom: 1px solid #e7e7e7e7;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  text-decoration: none;
+}
+.profile-section-buttons ion-icon {
+  font-size: 24px;
+  margin-right: 15px;
+  padding: 0;
+  text-decoration: none;
+  color: #000;
+}
+.profile-section-buttons p {
+  font-size: 24px;
+  font-weight: bold !important;
+  padding: 0;
+  margin: 0 !important;
+  color: #000;
 }
 
 /* =================== RESPONSIVE =================== */

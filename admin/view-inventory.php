@@ -6,44 +6,55 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
+                    <th scope="col">ID</th>
                     <th scope="col">Product Image</th>
                     <th scope="col">Category Name</th>
                     <th scope="col">Item Name</th>
                     <th scope="col">Item Description</th>
                     <th scope="col">Item Price</th>
+                    <th scope="col">Actions</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
                 include('includes/server/config.php');
+
                 $query = "SELECT * FROM `items` WHERE item_status = 1";
                 $get_details = mysqli_query($connection, $query);
 
                 if (@$get_details->num_rows > 0) {
                     $previous_category = "";
                     while ($row = $get_details->fetch_assoc()) {
+                        $item_id = $row['item_id'];
                         $item_filename = $row['item_filename'];
                         $item_category = $row['item_category'];
                         $item_name = $row['item_name'];
                         $item_description = $row['item_description'];
                         $item_price = $row['item_price'];
-
-
                         if ($previous_category !== $item_category) {
                             $previous_category = $item_category;
                         }
-
-
                 ?>
                 <tr>
+                    <td name="item_id"><?php echo $item_id ?></td>
                     <td><img class="inventory-table-img" src="assets/images/uploaded/<?php echo $item_filename ?>"></td>
                     <th scope="row"><?php echo $item_category ?></th>
                     <td><?php echo $item_name ?></td>
                     <td><?php echo $item_description ?></td>
                     <td><?php echo $item_price ?></td>
+
+                    <td>
+                        <div class="col-md-6">
+                            <button type="button" class="btn btn-sm btn-outline-success">Edit</button>
+                        </div>
+                        <div class="col-md-6">
+                            <button type="button" name="delete" value="delete"
+                                class="btn btn-sm btn-outline-danger">Delete</button>
+                        </div>
+                    </td>
+
                 </tr>
                 <?php
-
                     }
                 }
                 ?>

@@ -7,7 +7,7 @@
             <?php
             session_start();
             if (isset($_SESSION["user_name"])) {
-                header("location: dashboard.php");
+                header("location:dashboard.php");
             }
 
             if (isset($_POST['submit'])) {
@@ -34,7 +34,7 @@
                                 session_start();
                                 $_SESSION['user_name'] = $user_name;
                                 if (isset($_SESSION['user_name'])) {
-                                    header("location: dashboard.php");
+                                    header("location:dashboard.php");
                                 }
                                 return true;
                             } else {
@@ -46,9 +46,6 @@
                     }
                 }
             }
-
-
-
             ?>
             <div class="form-floating mb-3">
                 <input type="text" class="form-control" name="user_name" id="floatingInput"

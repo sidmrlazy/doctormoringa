@@ -5,19 +5,38 @@
 
     <div class="col-md-4">
         <div class="top-nav-row">
-
             <div class="top-nav-inner-row">
                 <a href="#">
                     <ion-icon name="cart-outline" class="top-nav-icon"></ion-icon>
                     <p>Cart</p>
                 </a>
             </div>
-
             <div class="top-nav-inner-row">
-                <a href="register">
-                    <ion-icon name="person-outline" class="top-nav-icon"></ion-icon>
+                <!-- <a href='login'>
+                    <ion-icon name='person-outline' class='top-nav-icon'></ion-icon>
                     <p>Login | Register</p>
-                </a>
+                </a> -->
+                <!-- <a href='login'>
+                    <ion-icon name='person-outline' class='top-nav-icon'></ion-icon>
+                    <p>Login | Register</p>
+                </a> -->
+                <?php
+                if (isset($_SESSION['user_name'])) {
+                    $user_name = $_SESSION['user_name'];
+                    echo "<a href='profile'><ion-icon name='person-outline' class='top-nav-icon'></ion-icon><p>$user_name</p></a>";
+                } else {
+                    echo "<a href='login'><ion-icon name='person-outline' class='top-nav-icon'></ion-icon><p>Login | Register</p></a>";
+                }
+                ?>
+            </div>
+            <div class="top-nav-inner-row">
+                <?php
+                if (isset($_SESSION['user_name'])) {
+                    echo "<a href='logout.php'><ion-icon name='log-out-outline' class='top-nav-icon'></ion-icon><p>Logout</p></a>";
+                } else {
+                    echo "<a href='logout.php' class='d-none'><ion-icon name='log-out-outline' class='top-nav-icon'></ion-icon><p>Logout</p></a>";
+                }
+                ?>
             </div>
         </div>
     </div>

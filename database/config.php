@@ -1,13 +1,18 @@
 <?php
-define('DB_SERVER', 'localhost');
-define('DB_USERNAME', 'root');
-define('DB_PASSWORD', '');
-define('DB_NAME', 'doctor_moringa');
+// Production
+// $servername = "localhost";
+// $username = "u976956619_doctor_moringa";
+// $database = "u976956619_doctor_moringa";
+// $password = "Darthvader@order66";
 
-/* Attempt to connect to MySQL database */
-$link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+// Development
+$servername = "localhost";
+$username = "root";
+$database = "doctor_moringa";
+$password = "";
 
-// Check connection
-if ($link === false) {
-    die("ERROR: Could not connect. " . mysqli_connect_error());
+// Validate Connection
+$connection = new mysqli($servername, $username, $password, $database);
+if ($connection->connect_error) {
+    die("Error 404: " . $connection->connect_error);
 }

@@ -196,3 +196,9 @@ input[type="number"] {
   justify-self: center;
   align-self: center;
 }
+.table-data-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px !important;
+}
