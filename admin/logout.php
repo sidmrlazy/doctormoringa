@@ -5,4 +5,5 @@ if (!isset($_SESSION)) {
 $_SESSION = array();
 session_destroy();
 header("Location: ./index.php"); // Or wherever you want to redirect
+
 exit();

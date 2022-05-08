@@ -18,13 +18,13 @@
                 $fetch_data = "SELECT * FROM `user`";
                 $result = $connection->query($fetch_data);
 
-
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
                         $fetched_password =  $row['user_password'];
+                        $user_type =  $row['user_type'];
 
                         if (password_verify($user_password, $fetched_password)) {
-                            $query = "SELECT * FROM user WHERE user_name = '$user_name' AND user_password = '$fetched_password'";
+                            $query = "SELECT * FROM user WHERE user_name = '$user_name' AND user_password = '$fetched_password' AND $user_type = 1";
                             $result = mysqli_query($connection, $query);
                             $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
@@ -33,15 +33,17 @@
                             if ($count == 1 && $row) {
                                 session_start();
                                 $_SESSION['user_name'] = $user_name;
+                                $_SESSION['user_type'] = $user_type;
                                 if (isset($_SESSION['user_name'])) {
+                                    // echo $_SESSION['user_name'];
                                     header("location:dashboard.php");
                                 }
                                 return true;
+                            } elseif ($user_type !== 1) {
+                                echo "<div class='alert alert-danger text-center' role='aler'>Access Denied! Unauthorized User.</div>";
                             } else {
                                 echo "<div class='alert alert-danger text-center' role='aler'>Username or Password is Incorrect!</div>";
                             }
-                        } else {
-                            echo "<div class='alert alert-danger text-center' role='aler'>Error 404</div>";
                         }
                     }
                 }

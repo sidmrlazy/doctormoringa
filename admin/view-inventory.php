@@ -7,7 +7,8 @@
             <thead>
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Product Image</th>
+                    <th scope="col">Front Image</th>
+                    <th scope="col">Back Image</th>
                     <th scope="col">Category Name</th>
                     <th scope="col">Item Name</th>
                     <th scope="col">Item Description</th>
@@ -19,7 +20,7 @@
                 <?php
                 include('includes/server/config.php');
 
-                $query = "SELECT * FROM `items` WHERE item_status = 1";
+                $query = "SELECT * FROM `items` GROUP BY `item_category`";
                 $get_details = mysqli_query($connection, $query);
 
                 if (@$get_details->num_rows > 0) {
@@ -27,6 +28,7 @@
                     while ($row = $get_details->fetch_assoc()) {
                         $item_id = $row['item_id'];
                         $item_filename = $row['item_filename'];
+                        $item_filename_back = $row['item_filename_back'];
                         $item_category = $row['item_category'];
                         $item_name = $row['item_name'];
                         $item_description = $row['item_description'];
@@ -38,6 +40,8 @@
                 <tr>
                     <td name="item_id"><?php echo $item_id ?></td>
                     <td><img class="inventory-table-img" src="assets/images/uploaded/<?php echo $item_filename ?>"></td>
+                    <td><img class="inventory-table-img" src="assets/images/uploaded/<?php echo $item_filename_back ?>">
+                    </td>
                     <th scope="row"><?php echo $item_category ?></th>
                     <td><?php echo $item_name ?></td>
                     <td><?php echo $item_description ?></td>

@@ -336,9 +336,10 @@ input[type="number"] {
   flex-direction: column;
   margin: 10px;
 }
-.best-seller-card-img {
+
+.best-seller-card-img img {
   width: 249px;
-  height: 350px !important;
+  height: auto !important;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
   margin: 0;
@@ -363,7 +364,8 @@ input[type="number"] {
   padding: 10px;
 }
 .best-seller-card p {
-  font-size: 12px;
+  font-size: 16px;
+  font-weight: bold;
   color: #333;
   margin: 0;
 }
@@ -372,6 +374,7 @@ input[type="number"] {
   margin: 0;
   font-weight: 600;
   margin-bottom: 10px;
+  font-size: 14px;
 }
 .best-seller-mrp-section {
   display: flex;
@@ -709,6 +712,9 @@ input[type="number"] {
   width: 100%;
   margin-top: 80px;
   padding: 25px;
+  /* display: flex;
+  flex-wrap: wrap;
+  flex: 1 1 100%; */
 }
 .shop-section h4 {
   margin: 0 !important;
@@ -857,7 +863,10 @@ input[type="number"] {
 
   /* =========== Category Slider Section =========== */
   .category-slider {
-    display: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
   .carousel {
     background: none;
@@ -873,16 +882,18 @@ input[type="number"] {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    max-width: 200px !important;
+    width: 100% !important;
     height: 210px;
     border-radius: 10px;
     margin: 10px;
+    padding: 0 !important;
   }
   .inner-card img {
-    width: 50% !important;
+    width: 25% !important;
   }
   .inner-card p {
     font-weight: 700;
+    font-size: 18px;
     margin-top: 15px;
     text-align: center;
   }

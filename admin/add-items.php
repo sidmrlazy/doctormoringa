@@ -8,9 +8,15 @@
             if (isset($_POST['submit'])) {
                 $item_name = mysqli_real_escape_string($connection, $_POST['item_name']);
                 $item_description = mysqli_real_escape_string($connection, $_POST['item_description']);
+
                 $item_filename = $_FILES["item_filename"]["name"];
                 $item_temp_filename = $_FILES["item_filename"]["tmp_name"];
                 $folder = "assets/images/uploaded/" . $item_filename;
+
+                $item_back_img = $_FILES["item_filename_back"]["name"];
+                $item_back_img_temp = $_FILES["item_filename_back"]["tmp_name"];
+                $folder2 = "assets/images/uploaded/" . $item_back_img;
+
                 $item_price = mysqli_real_escape_string($connection, $_POST['item_price']);
                 $item_category = mysqli_real_escape_string($connection, $_POST['item_category']);
                 $item_status = 1;
@@ -19,34 +25,39 @@
                     item_name, 
                     item_description,
                     item_filename,
+                    item_filename_back,      
                     item_category,
                     item_price,
-                    item_status
+                    item_status                    
                     ) VALUES (
                         '$item_name',
                         '$item_description',
                         '$item_filename',
+                        '$item_back_img',                        
                         '$item_category',
                         '$item_price',
-                        '$item_status'
+                        '$item_status'                        
                         )";
                 $result = mysqli_query($connection, $query);
 
-                if (!$result) {
-                    echo "<div class='alert alert-danger' role='alert'>Something went wrong!</div>";
+                if ($result) {
+                    $msg = "Item Added in Inventory";
+                    echo "<div class='alert alert-success' role='alert'>$msg</div>";
                 } else {
-                    if (move_uploaded_file($item_temp_filename, $folder)) {
-                        $msg = "Image uploaded successfully";
-                    } else {
-                        $msg = "Failed to upload image";
-                    }
-                    echo "<div class='alert alert-success w-100' role='alert'>Item Added!</div>";
+                    echo "<div class='alert alert-danger w-100' role='alert'>Upload Failed!</div>";
                 }
             }
 
             ?>
+            <label class="text-left w-100" for="floatingInput">Product Front Image</label>
             <div class="input-group mb-3">
-                <input type="file" name="item_filename" value="" class="form-control" id="inputGroupFile02">
+                <input type="file" name="item_filename" value="" class="form-control" id="inputGroupFile01">
+
+            </div>
+            <label class="text-left w-100" for="floatingInput">Product Back Image</label>
+            <div class="input-group mb-3">
+                <input type="file" name="item_filename_back" value="" class="form-control" id="inputGroupFile02">
+
             </div>
             <div class="form-floating mb-3 w-100">
                 <input type="text" name="item_name" class="form-control" id="floatingInput" placeholder="Full Name">

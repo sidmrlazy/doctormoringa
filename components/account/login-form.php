@@ -7,107 +7,57 @@
         <form action="" method="POST">
             <?php
             include('database/config.php');
-            ob_start();
             // session_start();
-
-            if (isset($_SESSION["user_name"])) {
-                header("Location:index");
-            }
+            // if (isset($_SESSION["user_name"])) {
+            //     header("location:index.php");
+            // }
 
             if (isset($_POST['submit'])) {
                 $user_contact = mysqli_real_escape_string($connection, $_POST['user_contact']);
                 $user_password = mysqli_real_escape_string($connection, $_POST['user_password']);
+                // $rememberme = $_POST['rememberme'];
 
                 $fetch_data = "SELECT * FROM `user`";
                 $result = $connection->query($fetch_data);
 
-
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
                         $fetched_password =  $row['user_password'];
-                        $user_contact =  $row['user_contact'];
-                        $user_name =  $row['user_name'];
+                        $user_type = $row['user_type'];
+                        $user_name = $row['user_name'];
+                        $user_id = $row['user_id'];
 
                         if (password_verify($user_password, $fetched_password)) {
-                            $query = "SELECT * FROM user WHERE user_contact = '$user_contact' AND user_password = '$fetched_password'";
+                            $query = "SELECT * FROM user WHERE user_contact = '$user_contact' AND user_password = '$fetched_password' AND $user_type = 2";
                             $result = mysqli_query($connection, $query);
                             $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-
                             $count = mysqli_num_rows($result);
 
                             if ($count == 1 && $row) {
-                                ob_start();
+                                // session_start();
                                 $_SESSION['user_name'] = $user_name;
-                                if (isset($_SESSION['user_name'])) {
-                                    header("Location:index", true, 301);
-                                    exit();
+                                // echo "Session Status: " . " " . session_status();
+
+                                if (session_status() !== PHP_SESSION_ACTIVE) {
+                                    session_start();
+                                    header('Location:index', true, 301);
+                                    exit;
                                 }
-                                return true;
+
+                                // if (isset($_SESSION['user_name'])) {
+                                //     header("location:index.php");
+                                // }
+                                // return true;
+
+                            } elseif ($user_type !== 2) {
+                                echo "<div class='alert alert-danger text-center' role='aler'>Oops, looks like your'e not registered with us.</div>";
+                            } else {
+                                echo "<div class='alert alert-danger text-center' role='aler'>Username or Password is Incorrect!</div>";
                             }
-                        } else {
-                            echo "<div class='alert alert-danger text-center' role='aler'>Error 404</div>";
                         }
                     }
-                    header("Location:index");
-                } else {
-                    echo "<div class='alert alert-danger text-center' role='aler'>Username or Password is Incorrect!</div>";
                 }
             }
-
-            // session_start();
-
-            // if (!isset($_SESSION["user_name"])) {
-            //     //  header("location:index");
-            //     header("location:index",  true,  301);
-            //     exit;
-            // }
-            // if (isset($_POST['submit'])) {
-            //     $user_contact = mysqli_real_escape_string($connection, $_POST['user_contact']);
-            //     $user_password = mysqli_real_escape_string($connection, $_POST['user_password']);
-
-            //     $fetch_data = "SELECT * FROM `user`";
-            //     $result = $connection->query($fetch_data);
-
-            //     if ($result->num_rows > 0) {
-            //         while ($row = $result->fetch_assoc()) {
-            //             $fetched_password =  $row['user_password'];
-            //             $user_name =  $row['user_name'];
-
-            //             if (password_verify($user_password, $fetched_password)) {
-            //                 $query = "SELECT * FROM user WHERE user_contact = '$user_contact' AND user_password = '$fetched_password'";
-            //                 $result = mysqli_query($connection, $query);
-            //                 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-            //                 $count = mysqli_num_rows($result);
-
-            //                 if ($count == 1 && $row) {
-
-            //                     // echo "Success";
-            //                     // echo $user_name;
-            //                     return true;
-            //                 }
-
-            //                 // if ($count === 1 && $row) {
-            //                 //     if (isset($_SESSION['user_name'])) {
-            //                 //         header("location:index");
-            //                 //         // echo "<div class='alert alert-success text-center' role='alert'>Success!</div>";
-            //                 //     }
-            //                 //     return true;
-            //                 //     // header('location:index.php');
-            //                 //     // $_SESSION['user_name'] = $user_name;
-            //                 //     // header("location:login.php");
-            //                 //     // if (isset($_SESSION['user_name'])) {
-            //                 //     // }
-            //                 //     // return true;
-            //                 // }
-            //                 // header("location:index");
-            //             }
-            //         }
-            //         header("location:index",  true,  301);
-            //         exit;
-            //     } else {
-            //         echo "<div class='alert alert-danger text-center' role='alert'>Username or Password is Incorrect!</div>";
-            //     }
-            // }
             ?>
             <div class="form-floating mb-3">
                 <input name="user_contact" type="text" class="form-control" id="floatingInput" placeholder="Username">

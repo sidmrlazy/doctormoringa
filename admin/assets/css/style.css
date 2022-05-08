@@ -190,11 +190,11 @@ input[type="number"] {
 
 /* ================ Inventory ================ */
 .inventory-table-img {
-  width: 100px !important;
+  width: 50px !important;
   height: auto;
   display: flex;
-  justify-self: center;
-  align-self: center;
+  justify-self: center !important;
+  align-self: center !important;
 }
 .table-data-row {
   display: flex;
