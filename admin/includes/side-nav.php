@@ -37,7 +37,7 @@
                 <div class="collapse" id="users-collapse">
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                         <li><a href="add-users.php" class="link-dark rounded">Add Users</a></li>
-                        <li><a href="#" class="link-dark rounded">View Users</a></li>
+                        <li><a href="view-users.php" class="link-dark rounded">View Users</a></li>
                     </ul>
                 </div>
             </li>
@@ -50,9 +50,10 @@
                 </button>
                 <div class="collapse" id="inventory-collapse">
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                        <li><a href="#" class="link-dark rounded">Overview</a></li>
-                        <li><a href="#" class="link-dark rounded">Orders</a></li>
-                        <li><a href="#" class="link-dark rounded">Reports</a></li>
+                        <li><a href="add-category.php" class="link-dark rounded">Add Category</a></li>
+                        <li><a href="view-category.php" class="link-dark rounded">View all category</a></li>
+                        <li><a href="add-items.php" class="link-dark rounded">Add Products</a></li>
+                        <li><a href="view-inventory.php" class="link-dark rounded">View all products</a></li>
                     </ul>
                 </div>
             </li>

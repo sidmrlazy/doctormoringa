@@ -84,12 +84,6 @@
             </ul>
             <form class="d-flex">
                 <ul class="navbar-nav ml-auto me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="logout.php">
-                            <ion-icon name="log-out-outline" class="outer-nav-icon"></ion-icon> Logout
-                        </a>
-                    </li>
-
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
@@ -97,18 +91,26 @@
                             <?php echo $_SESSION["user_name"]; ?>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="view-users.php">
-                                    <ion-icon name="people-circle-outline" class="inner-nav-icon"></ion-icon>View Users
+                            <li><a class="dropdown-item" href="#">
+                                    <ion-icon name="people-circle-outline" class="inner-nav-icon"></ion-icon>Profile
                                 </a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="add-users.php">
-                                    <ion-icon name="person-add-outline" class="inner-nav-icon"></ion-icon>Add Users
+                                <a class="dropdown-item" href="#">
+                                    <ion-icon name="headset-outline" class="inner-nav-icon"></ion-icon>Contact
+                                    Support
                                 </a>
                             </li>
 
                         </ul>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="logout.php">
+                            <ion-icon name="log-out-outline" class="outer-nav-icon"></ion-icon> Logout
+                        </a>
+                    </li>
+
+
 
                 </ul>
                 <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
