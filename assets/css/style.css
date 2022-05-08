@@ -22,7 +22,32 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
-
+.under-maintenance {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 150px;
+  margin-bottom: 150px;
+  flex-direction: column;
+}
+.under-maintenance h1 {
+  margin-top: 20px;
+  font-size: 30px;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: #5bb336;
+}
+.under-maintenance p {
+  margin: 0;
+  color: #000;
+  top: 0;
+}
+.maintenance-lottie {
+  width: 100px;
+  height: 100px;
+  margin-bottom: -115px;
+  margin-left: 5px;
+}
 /* =========== Top Navbar =========== */
 .top-navbar {
   display: flex;
@@ -336,7 +361,7 @@ input[type="number"] {
   flex-direction: column;
   margin: 10px;
 }
-.best-seller-card-img-new img {
+.seller-card-img img {
   width: 249px;
   height: 350px !important;
   border-top-left-radius: 30px;
@@ -348,31 +373,7 @@ input[type="number"] {
   align-self: center !important;
   justify-self: center !important;
 }
-.best-seller-card-img-new:hover {
-  width: 249px;
-  height: 350px !important;
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
-  margin: 0;
-  background-image: url("../images/background/moringa-leaves-2.jpg") !important;
-  background-size: contain;
-  background-repeat: no-repeat;
-  transition: all 0.5s;
-}
-
-.best-seller-card-img img {
-  width: 249px;
-  height: 350px !important;
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
-  margin: 0;
-  background-image: url("../images/background/moringa-leaves.jpg") !important;
-  background-size: contain;
-  background-repeat: no-repeat;
-  align-self: center !important;
-  justify-self: center !important;
-}
-.best-seller-card-img:hover {
+.seller-card-img:hover {
   width: 249px;
   height: 350px !important;
   border-top-left-radius: 30px;

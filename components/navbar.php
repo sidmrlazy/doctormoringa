@@ -104,9 +104,9 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li class="dropdown-row"><a class="dropdown-item" href="about">Who we are</a></li>
-                        <li class="dropdown-row"><a class="dropdown-item" href="#">Contact</a></li>
-                        <li class="dropdown-row"><a class="dropdown-item" href="#">Career</a></li>
-                        <li class="dropdown-row"><a class="dropdown-item" href="#">Partner with us</a></li>
+                        <li class="dropdown-row"><a class="dropdown-item" href="contact">Contact</a></li>
+                        <li class="dropdown-row"><a class="dropdown-item" href="contact">Career</a></li>
+                        <li class="dropdown-row"><a class="dropdown-item" href="contact">Partner with us</a></li>
                         <li><img src="assets/images/background/moringa-leaves.jpg" alt="" class="dropdown-image">
                         </li>
 

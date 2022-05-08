@@ -1,4 +1,4 @@
-<footer class="footer-section">
+<!-- <footer class="footer-section">
     <div class="footer-section-col col-md-3">
         <a href="index">
             <img src="assets/images/logo/logo.png" alt="">
@@ -46,7 +46,7 @@
         <li>Franchisee Opportunity</li>
         <li>Promotions</li>
     </div>
-</footer>
+</footer> -->
 
 <!-- Ionicons -->
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
