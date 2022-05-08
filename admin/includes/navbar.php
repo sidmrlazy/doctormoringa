@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="dashboard.php">
             <img src="assets/images/logo/logo.png" alt="">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -9,13 +9,13 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="dashboard.php">
                         <ion-icon name="home-outline" class="outer-nav-icon"></ion-icon>Home
                     </a>
-                </li>
+                </li> -->
 
-                <li class="nav-item dropdown">
+                <!-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         <ion-icon name="cart-outline" class="outer-nav-icon"></ion-icon>Orders
@@ -32,9 +32,9 @@
                         </li>
 
                     </ul>
-                </li>
+                </li> -->
 
-                <li class="nav-item dropdown">
+                <!-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         <ion-icon name="people-outline" class="outer-nav-icon"></ion-icon>Users
@@ -51,9 +51,9 @@
                         </li>
 
                     </ul>
-                </li>
+                </li> -->
 
-                <li class="nav-item dropdown">
+                <!-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         <ion-icon name="apps-outline" class="outer-nav-icon"></ion-icon>
@@ -76,7 +76,7 @@
                                 <ion-icon class="inner-nav-icon" name="receipt-outline"></ion-icon>View Inventory
                             </a></li>
                     </ul>
-                </li>
+                </li> -->
 
                 <!-- <li class="nav-item">
                     <a class="nav-link" href="#">Inventory</a>

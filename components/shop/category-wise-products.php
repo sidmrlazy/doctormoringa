@@ -1,7 +1,6 @@
 <div class="container-fluid shop-section" id="weight-loss">
     <?php
     include('database/config.php');
-    // $query = "SELECT * FROM `items` join `category` WHERE items.item_category = category.category_name GROUP BY items.item_id";
     $query = "SELECT * FROM items JOIN category WHERE category.category_name = items.item_category GROUP BY items.item_category;";
     $get_details = mysqli_query($connection, $query);
     if (@$get_details->num_rows > 0) {

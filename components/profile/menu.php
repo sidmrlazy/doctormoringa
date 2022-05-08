@@ -13,9 +13,4 @@
         <ion-icon name="ribbon-outline"></ion-icon>
         <p>Offers</p>
     </a>
-
-    <!-- <a href="logout.php" class="profile-section-buttons">
-        <ion-icon name="log-out-outline"></ion-icon>
-        <p>Signout</p>
-    </a> -->
 </div>

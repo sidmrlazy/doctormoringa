@@ -1,7 +1,8 @@
 <?php include('includes/header.php') ?>
 <?php include('includes/navbar.php') ?>
-<div class="container w-100 d-flex justify-content-center align-content-center">
-    <div class="container col-md-6 card add-user-section mb-5" id="add-users">
+<?php include('includes/side-nav.php') ?>
+<div class="container w-100 d-flex mt-3 justify-content-center align-content-center">
+    <div class="container col-md-6 card user-section mb-5" id="add-users">
         <form class="" method="POST">
             <?php
             include 'includes/server/config.php';
@@ -76,7 +77,7 @@
         </form>
     </div>
 
-    <div class="col-md-6 lottie-container">
+    <div class="col-md-2 lottie-container">
         <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_zzasoagh.json" background="transparent"
             speed="1" class="lottie" loop autoplay></lottie-player>
     </div>

@@ -39,6 +39,8 @@ if (!isset($_SESSION['user_name']) || empty($_SESSION['user_name'])) {
     <!-- Favicon -->
     <link rel="shortcut icon" href="assets/images/logo/logo.png" type="image/x-icon">
 
+
+
     <!-- Animate.css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 

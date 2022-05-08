@@ -7,15 +7,10 @@
         <form action="" method="POST">
             <?php
             include('database/config.php');
-            // session_start();
-            // if (isset($_SESSION["user_name"])) {
-            //     header("location:index.php");
-            // }
 
             if (isset($_POST['submit'])) {
                 $user_contact = mysqli_real_escape_string($connection, $_POST['user_contact']);
                 $user_password = mysqli_real_escape_string($connection, $_POST['user_password']);
-                // $rememberme = $_POST['rememberme'];
 
                 $fetch_data = "SELECT * FROM `user`";
                 $result = $connection->query($fetch_data);
@@ -34,21 +29,15 @@
                             $count = mysqli_num_rows($result);
 
                             if ($count == 1 && $row) {
-                                // session_start();
                                 $_SESSION['user_name'] = $user_name;
-                                // echo "Session Status: " . " " . session_status();
 
                                 if (session_status() !== PHP_SESSION_ACTIVE) {
                                     session_start();
                                     header('Location:index', true, 301);
                                     exit;
+                                    return true;
                                 }
-
-                                // if (isset($_SESSION['user_name'])) {
-                                //     header("location:index.php");
-                                // }
-                                // return true;
-
+                                echo "<div class='alert alert-success text-center' role='aler'>Success, Please go to Home Screen to start shopping!</div>";
                             } elseif ($user_type !== 2) {
                                 echo "<div class='alert alert-danger text-center' role='aler'>Oops, looks like your'e not registered with us.</div>";
                             } else {

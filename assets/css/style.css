@@ -336,14 +336,37 @@ input[type="number"] {
   flex-direction: column;
   margin: 10px;
 }
-
-.best-seller-card-img img {
+.best-seller-card-img-new img {
   width: 249px;
-  height: auto !important;
+  height: 350px !important;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
   margin: 0;
-  background-image: url("../images/background/moringa-leaves.jpg");
+  background-image: url("../images/background/moringa-leaves.jpg") !important;
+  background-size: contain;
+  background-repeat: no-repeat;
+  align-self: center !important;
+  justify-self: center !important;
+}
+.best-seller-card-img-new:hover {
+  width: 249px;
+  height: 350px !important;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  margin: 0;
+  background-image: url("../images/background/moringa-leaves-2.jpg") !important;
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: all 0.5s;
+}
+
+.best-seller-card-img img {
+  width: 249px;
+  height: 350px !important;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  margin: 0;
+  background-image: url("../images/background/moringa-leaves.jpg") !important;
   background-size: contain;
   background-repeat: no-repeat;
   align-self: center !important;
@@ -355,7 +378,7 @@ input[type="number"] {
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
   margin: 0;
-  background-image: url("../images/background/moringa-leaves-2.jpg");
+  background-image: url("../images/background/moringa-leaves-2.jpg") !important;
   background-size: contain;
   background-repeat: no-repeat;
   transition: all 0.5s;
@@ -733,6 +756,7 @@ input[type="number"] {
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
+  width: 100% !important;
 }
 .profile-section-buttons {
   border-bottom: 1px solid #e7e7e7e7;
@@ -741,7 +765,7 @@ input[type="number"] {
   justify-content: flex-start;
   align-items: center;
   padding-bottom: 15px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   text-decoration: none;
 }
 .profile-section-buttons ion-icon {

@@ -25,7 +25,7 @@
     </div>
 
     <div class="best-seller-card">
-        <div class="best-seller-card-img"></div>
+        <div class="best-seller-card-img-new"></div>
         <div class="best-seller-card-content">
             <p>Powder</p>
             <h5>Doctor Moringa 1 minute Miracle Sattu Powder</h5>

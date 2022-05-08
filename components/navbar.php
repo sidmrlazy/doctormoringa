@@ -12,14 +12,6 @@
                 </a>
             </div>
             <div class="top-nav-inner-row">
-                <!-- <a href='login'>
-                    <ion-icon name='person-outline' class='top-nav-icon'></ion-icon>
-                    <p>Login | Register</p>
-                </a> -->
-                <!-- <a href='login'>
-                    <ion-icon name='person-outline' class='top-nav-icon'></ion-icon>
-                    <p>Login | Register</p>
-                </a> -->
                 <?php
                 if (isset($_SESSION['user_name'])) {
                     $user_name = $_SESSION['user_name'];
@@ -43,7 +35,7 @@
 </div>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="index">
             <img src="assets/images/logo/logo.png" alt="">
         </a>
 
@@ -65,37 +57,43 @@
                         Browse All Category
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li class="dropdown-row">
-                            <img src="assets/images/icons/weight-loss.png" alt="">
-                            <a class="dropdown-item" href="shop#weight-loss">Doctor Moringa for Weight Loss</a>
-                        </li>
+                        <?php
+                        include('database/config.php');
+                        $query = "SELECT * FROM category";
+                        $result = $connection->query($query);
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                                $category_image = $row['category_image'];
+                                $category_name =  $row['category_name'];
 
+                        ?>
                         <li class="dropdown-row">
-                            <img src="assets/images/icons/heart-disease.png" alt="">
-                            <a class="dropdown-item" href="#">Doctor Moringa for Heart Diseases</a>
+                            <img src="assets/images/category-icons/<?php echo $category_image ?>" />
+                            <a class="dropdown-item" href="shop">Doctor Moringa for
+                                <?php echo $category_name; ?></a>
                         </li>
-
-                        <li class="dropdown-row">
-                            <img src="assets/images/icons/ortho.png" alt="">
-                            <a class="dropdown-item" href="#">Doctor Moringa for Ortho Aid</a>
-                        </li>
-
-                        <li class="dropdown-row">
-                            <img src="assets/images/icons/diabetes.png" alt="">
-                            <a class="dropdown-item" href="#">Doctor Moringa for Diabetes</a>
-                        </li>
-
-                        <li class="dropdown-row">
-                            <img src="assets/images/icons/beauty.png" alt="">
-                            <a class="dropdown-item" href="#">Miracle Beauty</a>
-                        </li>
+                        <?php
+                            }
+                        }
+                        ?>
 
                         <!-- Mobile View -->
-                        <li class="mobile"><a class="dropdown-item" href="#">Doctor Moringa for Weight Loss</a></li>
-                        <li class="mobile"><a class="dropdown-item" href="#">Doctor Moringa for Heart Diseases</a></li>
-                        <li class="mobile"><a class="dropdown-item" href="#">Doctor Moringa for Ortho Aid</a></li>
-                        <li class="mobile"><a class="dropdown-item" href="#">Doctor Moringa for Diabetes</a></li>
-                        <li class="mobile"><a class="dropdown-item" href="#">Miracle Beauty</a></li>
+                        <?php
+                        include('database/config.php');
+                        $query = "SELECT * FROM category";
+                        $result = $connection->query($query);
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                                $category_image = $row['category_image'];
+                                $category_name =  $row['category_name'];
+
+                        ?>
+                        <li class="mobile"><a class="dropdown-item" href="#">Doctor Moringa for
+                                <?php echo $category_name; ?></a></li>
+                        <?php
+                            }
+                        }
+                        ?>
                     </ul>
                 </li>
 
