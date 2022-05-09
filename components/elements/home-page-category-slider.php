@@ -1,6 +1,6 @@
 <div class="container mt-4 category-slider">
     <?php
-    include('database/config.php');
+    include('admin/includes/server/config.php');
     $query = "SELECT * FROM category";
     $result = $connection->query($query);
     if ($result->num_rows > 0) {

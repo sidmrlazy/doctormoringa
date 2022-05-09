@@ -6,7 +6,7 @@
         </div>
         <form action="" method="POST">
             <?php
-            include('database/config.php');
+            include('admin/includes/server/config.php');
 
             if (isset($_POST['submit'])) {
                 $user_contact = mysqli_real_escape_string($connection, $_POST['user_contact']);

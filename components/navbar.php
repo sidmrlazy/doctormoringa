@@ -6,7 +6,7 @@
     <div class="col-md-4">
         <div class="top-nav-row">
             <div class="top-nav-inner-row">
-                <a href="#">
+                <a href="cart">
                     <ion-icon name="cart-outline" class="top-nav-icon"></ion-icon>
                     <p>Cart</p>
                 </a>
@@ -58,7 +58,7 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <?php
-                        include('database/config.php');
+                        include('admin/includes/server/config.php');
                         $query = "SELECT * FROM category";
                         $result = $connection->query($query);
                         if ($result->num_rows > 0) {
@@ -79,7 +79,7 @@
 
                         <!-- Mobile View -->
                         <?php
-                        include('database/config.php');
+                        include('admin/includes/server/config.php');
                         $query = "SELECT * FROM category";
                         $result = $connection->query($query);
                         if ($result->num_rows > 0) {

@@ -52,6 +52,7 @@
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                         <li><a href="add-category.php" class="link-dark rounded">Add Category</a></li>
                         <li><a href="view-category.php" class="link-dark rounded">View all category</a></li>
+                        <hr>
                         <li><a href="add-items.php" class="link-dark rounded">Add Products</a></li>
                         <li><a href="view-inventory.php" class="link-dark rounded">View all products</a></li>
                     </ul>

@@ -38,6 +38,8 @@ session_start();
     <!-- StyleSheet -->
     <link rel="stylesheet" href="assets/css/style.css">
 
+
+
     <title>Products from the Miracle Tree</title>
 </head>
 
