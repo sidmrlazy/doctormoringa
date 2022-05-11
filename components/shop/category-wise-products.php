@@ -1,8 +1,13 @@
 <div class="container-fluid shop" id="weight-loss">
     <?php
     include('admin/includes/server/config.php');
+
+
     $query = "SELECT * FROM items order BY item_category;";
     $get_details = mysqli_query($connection, $query);
+
+
+
     if (@$get_details->num_rows > 0) {
         $previous_category = "";
         while ($row = mysqli_fetch_assoc($get_details)) {
@@ -15,14 +20,15 @@
             if ($previous_category != $item_category) {
     ?>
     <div class="shop-heading-section">
+
         <h4>Doctor Moringa for</h4>
         <h1><?php echo $item_category ?></h1>
     </div>
     <?php $previous_category = $item_category;
             } ?>
+
     <!-- <div class="shop-items"> -->
     <div class="shop-card">
-
 
         <div class="shop-card-img">
             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
@@ -43,10 +49,15 @@
                 </button>
             </div>
         </div>
-        <div class="shop-card-content">
+        <form method="POST" class="shop-card-content">
+            <?php
+                    if (isset($_POST['submit'])) {
+                        echo "Item Added";
+                    }
+                    ?>
             <p><?php echo $item_name ?></p>
             <h5><?php echo $item_description ?></h5>
-            <div>
+            <!-- <div>
                 <span class="checked">
                     <ion-icon name="star-outline"></ion-icon>
                 </span>
@@ -62,16 +73,16 @@
                 <span class="">
                     <ion-icon name="star-outline"></ion-icon>
                 </span>
-            </div>
+            </div> -->
 
             <div class="best-seller-mrp-section">
                 <p><?php echo "₹" . $item_price ?></p>
-                <a href="components/shop/cart.php?id=$_SESSION">
+                <button type="submit" name="submit" value="submit" class="btn add-btn">
                     <ion-icon name="cart-outline" id="cart-icon"></ion-icon>
                     Add
-                </a>
+                </button>
             </div>
-        </div>
+        </form>
     </div>
     <!-- </div> -->
 

@@ -889,6 +889,17 @@ input[type="number"] {
   color: #5bb336;
   font-weight: bolder !important;
 }
+.add-btn {
+  background-color: #44ad40;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+.add-btn:hover {
+  border: 0;
+  color: #fff;
+}
 
 /* ========= Profile Section ========= */
 .profile-section {

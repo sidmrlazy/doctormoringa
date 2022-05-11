@@ -7,7 +7,13 @@
         </button>
     </div>
 
-    <form class="main-cart">
+    <form method="POST" class="main-cart">
+        <?php
+        include('admin/includes/server/config.php');
+
+        $get_products_query = "SELECT * FROM items";
+
+        ?>
         <div class="cart-product-img">
             <img src="assets/images/background/moringa-leaves.jpg" alt="">
         </div>
