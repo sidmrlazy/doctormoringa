@@ -900,13 +900,65 @@ input[type="number"] {
   border: 0;
   color: #fff;
 }
+.pricing-tab {
+  width: 50%;
+  margin-top: 50px;
+  border: 1px solid #e7e7e7e7;
+  border-radius: 10px;
+  padding: 20px;
+}
+.inner-headings {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#heading {
+  flex: 1;
+  font-weight: 700;
+}
+.checkout-btn {
+  background-color: #44ad40;
+  border: 0;
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+}
+.checkout-btn:hover {
+  font-weight: 900;
+  color: #fff;
+}
+
+/* ========= Checkout Section ========= */
+.checkout-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding: 40px;
+  margin-top: 20px;
+  border: 1px solid #e7e7e7e7;
+  border-radius: 5px;
+}
+.form-floating {
+  width: 100%;
+}
+.payment-btn {
+  width: 100%;
+  background-color: #44ad40;
+  border: 0;
+  border-radius: 5px;
+  padding: 20px;
+  color: #fff;
+  font-size: 18px;
+}
 
 /* ========= Profile Section ========= */
 .profile-section {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
   width: 100% !important;
 }
 .profile-section-buttons {
