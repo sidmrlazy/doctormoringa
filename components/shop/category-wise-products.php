@@ -2,12 +2,9 @@
     <?php
     include('admin/includes/server/config.php');
 
-
+    // Query to Fetch Items from Database
     $query = "SELECT * FROM items order BY item_category;";
     $get_details = mysqli_query($connection, $query);
-
-
-
     if (@$get_details->num_rows > 0) {
         $previous_category = "";
         while ($row = mysqli_fetch_assoc($get_details)) {
@@ -24,12 +21,12 @@
         <h4>Doctor Moringa for</h4>
         <h1><?php echo $item_category ?></h1>
     </div>
+
+    <!-- Get Products Category Wise -->
     <?php $previous_category = $item_category;
             } ?>
 
-    <!-- <div class="shop-items"> -->
     <div class="shop-card">
-
         <div class="shop-card-img">
             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
@@ -49,42 +46,28 @@
                 </button>
             </div>
         </div>
-        <form method="POST" class="shop-card-content">
-            <?php
-                    if (isset($_POST['submit'])) {
-                        echo "Item Added";
-                    }
-                    ?>
-            <p><?php echo $item_name ?></p>
-            <h5><?php echo $item_description ?></h5>
-            <!-- <div>
-                <span class="checked">
-                    <ion-icon name="star-outline"></ion-icon>
-                </span>
-                <span class="checked">
-                    <ion-icon name="star-outline"></ion-icon>
-                </span>
-                <span class="checked">
-                    <ion-icon name="star-outline"></ion-icon>
-                </span>
-                <span class="">
-                    <ion-icon name="star-outline"></ion-icon>
-                </span>
-                <span class="">
-                    <ion-icon name="star-outline"></ion-icon>
-                </span>
-            </div> -->
+
+        <form enctype="multipart/form-data" method="POST" class="w-100 shop-card-content">
+            <div class="w-100">
+                <input id="item_name" disabled="disabled" name="item_name" placeholder="<?php echo $item_name ?>" />
+            </div>
+
+            <div class="w-100">
+                <input id="item_description" class="w-100" disabled="disabled" name="item_description"
+                    placeholder="<?php echo $item_description ?>" />
+            </div>
 
             <div class="best-seller-mrp-section">
-                <p><?php echo "₹" . $item_price ?></p>
-                <button type="submit" name="submit" value="submit" class="btn add-btn">
+                <input id="item_price" disabled="disabled" name="item_price"
+                    placeholder="<?php echo "₹" . $item_price ?>" />
+                <button type="submit" name="submit" class="btn add-btn">
                     <ion-icon name="cart-outline" id="cart-icon"></ion-icon>
                     Add
                 </button>
             </div>
         </form>
     </div>
-    <!-- </div> -->
+
 
     <?php
         }

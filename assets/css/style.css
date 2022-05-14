@@ -456,12 +456,7 @@ input[type="number"] {
   margin-top: 30px;
   margin-bottom: 30px;
 }
-.best-seller-mrp-section p {
-  font-size: 18px;
-  font-weight: 600;
-  flex: 1;
-  color: #5bb336;
-}
+
 .best-seller-mrp-section a {
   text-decoration: none;
   background-color: #5bb336;
@@ -508,6 +503,7 @@ input[type="number"] {
   border-radius: 5px;
   padding: 20px;
   margin-bottom: 10px;
+  width: 100%;
 }
 .shop-card-img {
   width: 30%;
@@ -517,10 +513,28 @@ input[type="number"] {
 .shop-card-img img {
   width: 100%;
 }
-.shop-card-content p {
+#item_name {
   font-size: 30px;
   font-weight: 800;
   margin: 0;
+  background-color: #00000000;
+  border: 0;
+  color: #000;
+}
+#item_description {
+  font-size: 16px;
+  margin: 0;
+  background-color: #00000000;
+  border: 0;
+  color: #000;
+}
+#item_price {
+  font-size: 24px;
+  font-weight: 600;
+  flex: 1;
+  color: #5bb336 !important;
+  background-color: #00000000;
+  border: 0;
 }
 .shop-card-content h5 {
   font-size: 16px;
