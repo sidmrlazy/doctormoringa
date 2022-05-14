@@ -1,4 +1,5 @@
 <?php include('components/header.php') ?>
+<?php include('components/elements/conditional-login-modal.php') ?>
 <?php //include('components/maintenance.php') 
 ?>
 <?php include('components/navbar.php')

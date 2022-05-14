@@ -56,7 +56,10 @@
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
 <!-- Custom JavaScript -->
-<script src="assets/js/custom.js"></script>
+<script type="text/javascript" src="assets/js/custom.js"></script>
+
+
+
 
 </body>
 
