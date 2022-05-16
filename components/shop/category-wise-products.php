@@ -47,19 +47,31 @@
             </div>
         </div>
 
-        <form enctype="multipart/form-data" method="POST" class="w-100 shop-card-content">
+        <form method="POST" action="components/shop/add-to-cart" class="w-100 shop-card-content">
             <div class="w-100">
-                <input id="item_name" disabled="disabled" name="item_name" placeholder="<?php echo $item_name ?>" />
+                <input type="text" class="item_name" readonly name="item_name" value="<?php echo $item_name ?>"
+                    placeholder="<?php echo $item_name ?>" />
             </div>
 
             <div class="w-100">
-                <input id="item_description" class="w-100" disabled="disabled" name="item_description"
-                    placeholder="<?php echo $item_description ?>" />
+                <input type="text" class="w-100 item_description" readonly value="<?php echo $item_description ?>"
+                    name="item_description" placeholder="<?php echo $item_description ?>" />
             </div>
 
             <div class="best-seller-mrp-section">
-                <input id="item_price" disabled="disabled" name="item_price"
+                <input type="text" class="item_price" readonly name="item_price" value="<?php echo "₹" . $item_price ?>"
                     placeholder="<?php echo "₹" . $item_price ?>" />
+
+                <div class="cart-calculator">
+                    <div class="`value-button`" id="decrease" onclick="decreaseValue()" value="Decrease Value">
+                        <ion-icon name="remove-circle-outline" class="chevron-up-outline"></ion-icon>
+                    </div>
+                    <input type="number" id="number" value="0" />
+                    <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value">
+                        <ion-icon name="add-circle-outline" class="chevron-down-outline"></ion-icon>
+                    </div>
+                </div>
+
                 <button type="submit" name="submit" class="btn add-btn">
                     <ion-icon name="cart-outline" id="cart-icon"></ion-icon>
                     Add

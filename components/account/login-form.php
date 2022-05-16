@@ -23,7 +23,7 @@
                         $user_id = $row['user_id'];
 
                         if (password_verify($user_password, $fetched_password)) {
-                            $query = "SELECT * FROM user WHERE user_contact = '$user_contact' AND user_password = '$fetched_password' AND $user_type = 2";
+                            $query = "SELECT * FROM user WHERE user_contact = '$user_contact' AND user_password = '$fetched_password' AND $user_type = '2'";
                             $result = mysqli_query($connection, $query);
                             $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
                             $count = mysqli_num_rows($result);

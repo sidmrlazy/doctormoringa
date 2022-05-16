@@ -513,28 +513,28 @@ input[type="number"] {
 .shop-card-img img {
   width: 100%;
 }
-#item_name {
-  font-size: 30px;
-  font-weight: 800;
+.item_name {
+  font-size: 30px !important;
+  font-weight: 800 !important;
   margin: 0;
   background-color: #00000000;
   border: 0;
   color: #000;
 }
-#item_description {
+.item_description {
   font-size: 16px;
   margin: 0;
   background-color: #00000000;
   border: 0;
   color: #000;
 }
-#item_price {
-  font-size: 24px;
+.item_price {
+  font-size: 24px !important;
   font-weight: 600;
   flex: 1;
-  color: #5bb336 !important;
-  background-color: #00000000;
+  background-color: #00000000 !important;
   border: 0;
+  color: #44ad40 !important;
 }
 .shop-card-content h5 {
   font-size: 16px;
@@ -608,18 +608,19 @@ input[type="number"] {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
   margin-right: 30px;
 }
 .chevron-up-outline {
-  margin-bottom: 5px;
   font-size: 24px;
   color: #bd5046;
 }
 .chevron-down-outline {
-  margin-top: 10px;
   font-size: 24px;
   color: #44ad40;
+}
+.value-button {
+  margin: 5px;
 }
 .cart-calculator input {
   border: 1px solid #e7e7e7;
@@ -634,6 +635,25 @@ input[type="number"] {
   font-weight: 800;
   font-size: 30px;
   margin-left: 20px;
+}
+.final-section {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.user-details {
+  margin-bottom: 10px;
+  flex: 1;
+}
+.user-details p {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+#user-details-heading {
+  font-size: 16px;
+  color: #777;
+  font-weight: 400;
 }
 
 /* =========== Newsletter Section =========== */
