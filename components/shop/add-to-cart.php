@@ -22,15 +22,16 @@ if (isset($_POST['submit'])) {
         $item_price = $_POST['item_price']
     );
 
+
     $query = 'INSERT INTO cart(
-        `cart_user_id`,
-        `cart_user_name`,
-        `cart_user_contact`,
-        `cart_user_email`,
-        `cart_item_name`,
-        `cart_item_description`,
-        `cart_price`
-    ) VALUES ("' . implode('", "', $insert_array) . '")';
+            `cart_user_id`,
+            `cart_user_name`,
+            `cart_user_contact`,
+            `cart_user_email`,
+            `cart_item_name`,
+            `cart_item_description`,
+            `cart_price`
+        ) VALUES ("' . implode('", "', $insert_array) . '")';
     $result = mysqli_query($connection, $query);
 
     if ($result) {
