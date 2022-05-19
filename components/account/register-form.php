@@ -43,7 +43,7 @@
                     if ($user_password != $user_confirm_password) {
                         echo "<div class='alert alert-danger' role='alert'>Oops! Passwords do not match.</div>";
                     } else {
-                        $secure_password = password_hash($user_password, PASSWORD_BCRYPT);
+                        $secure_password = password_hash($user_password, PASSWORD_DEFAULT);
                         $query = "INSERT INTO user (
                                 user_name, 
                                 user_password, 
