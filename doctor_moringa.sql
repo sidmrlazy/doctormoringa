@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 11, 2022 at 08:44 AM
+-- Generation Time: May 19, 2022 at 12:00 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -20,6 +20,37 @@ SET time_zone = "+00:00";
 --
 -- Database: `doctor_moringa`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cart`
+--
+
+CREATE TABLE `cart` (
+  `cart_id` int(100) NOT NULL,
+  `cart_item_name` varchar(100) NOT NULL,
+  `cart_item_description` varchar(100) NOT NULL,
+  `cart_price` varchar(100) NOT NULL,
+  `cart_user_id` varchar(100) NOT NULL,
+  `cart_user_name` varchar(100) NOT NULL,
+  `cart_user_contact` varchar(100) NOT NULL,
+  `cart_user_email` varchar(100) NOT NULL,
+  `cart_user_state` varchar(100) NOT NULL,
+  `cart_user_city` varchar(100) NOT NULL,
+  `cart_user_address` varchar(100) NOT NULL,
+  `cart_user_pincode` varchar(100) NOT NULL,
+  `cart_added_date` datetime NOT NULL DEFAULT current_timestamp(),
+  `cart_order_id` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`cart_id`, `cart_item_name`, `cart_item_description`, `cart_price`, `cart_user_id`, `cart_user_name`, `cart_user_contact`, `cart_user_email`, `cart_user_state`, `cart_user_city`, `cart_user_address`, `cart_user_pincode`, `cart_added_date`, `cart_order_id`) VALUES
+(5, 'Test', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas commodo dapibus cursus. Suspendiss', '₹123', '12', 'Customer', '9876543210', 'sid.asthana0290@gmail.com', '', '', '', '', '2022-05-14 21:44:51', ''),
+(6, 'Test', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas commodo dapibus cursus. Suspendiss', '₹100', '12', 'Customer', '9876543210', 'sid.asthana0290@gmail.com', '', '', '', '', '2022-05-15 11:14:50', '');
 
 -- --------------------------------------------------------
 
@@ -98,6 +129,10 @@ CREATE TABLE `user` (
   `user_password` varchar(100) NOT NULL,
   `user_contact` varchar(100) NOT NULL,
   `user_email` varchar(100) NOT NULL,
+  `user_state` varchar(100) NOT NULL,
+  `user_city` varchar(100) NOT NULL,
+  `user_address` varchar(100) NOT NULL,
+  `user_pincode` varchar(100) NOT NULL,
   `user_created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `user_type` int(100) NOT NULL COMMENT '1=Admin, 2=Customer',
   `user_tnc` varchar(100) NOT NULL COMMENT '1=Accepted'
@@ -107,13 +142,21 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`user_id`, `user_name`, `user_password`, `user_contact`, `user_email`, `user_created_at`, `user_type`, `user_tnc`) VALUES
-(1, 'admin', '$2y$10$HBLqmPc7YLWgLTLKvv1Sz.HjOeZr53DBEe4QWKKjWkvvNISDFLraS', '9727545445', 'sid@xcy.com', '2022-04-30 10:12:11', 1, ''),
-(12, 'Customer', '$2y$10$8bs9CjaKPbEXRR9P8wTPYO2PBf064WMHPzx7Kd5xW..ZrXFG2uAyG', '9876543210', 'sid.asthana0290@gmail.com', '2022-05-07 13:50:37', 2, '');
+INSERT INTO `user` (`user_id`, `user_name`, `user_password`, `user_contact`, `user_email`, `user_state`, `user_city`, `user_address`, `user_pincode`, `user_created_at`, `user_type`, `user_tnc`) VALUES
+(1, 'admin', '$2y$10$HBLqmPc7YLWgLTLKvv1Sz.HjOeZr53DBEe4QWKKjWkvvNISDFLraS', '9727545445', 'sid@xcy.com', '', '', '', '', '2022-04-30 10:12:11', 1, ''),
+(12, 'Customer', '$2y$10$8bs9CjaKPbEXRR9P8wTPYO2PBf064WMHPzx7Kd5xW..ZrXFG2uAyG', '9876543210', 'sid.asthana0290@gmail.com', '', '', '', '', '2022-05-07 13:50:37', 2, ''),
+(14, 'Samiksha Asthana', '$2y$10$mepkYpRrjD4fXmhVVopFBexE5RDG3w6CzX/XkrOPuWPEwzLWJ7fY6', '7355410185', 'samiksha7sen@gmail.com', 'UP', 'Almorah', 'Villa 5, Kesto Residency, Jankipuram Extension. Lucknow', '226031', '2022-05-15 11:30:15', 2, ''),
+(16, 'TEST CUSTOMER', '$2y$10$J2Q6ahGepzdDKb/VGRgtN.DcdMMLDDlPT8.TyWtNr.ByP5Gz.ZufK', '1234567890', 'admin@admin.com', 'UK', 'Bareilly', 'asbjand ajklsnlkasdn ', '123456', '2022-05-19 09:55:09', 2, '');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `cart`
+--
+ALTER TABLE `cart`
+  ADD PRIMARY KEY (`cart_id`);
 
 --
 -- Indexes for table `category`
@@ -144,6 +187,12 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `cart`
+--
+ALTER TABLE `cart`
+  MODIFY `cart_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
@@ -165,7 +214,7 @@ ALTER TABLE `items`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

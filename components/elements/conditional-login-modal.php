@@ -65,7 +65,12 @@ if (isset($_SESSION["user_name"]) != true) {
                 }
             }
             ?>
+
             <form method="POST" class="login-modal-form col-md-8">
+                <div class="register-header mb-4">
+                    <h1>Login </h1>
+                    <p>New User? <span><a href="register">Register Here </a></span></p>
+                </div>
                 <div class="form-floating mb-3">
                     <input type="text" name="user_contact" class="form-control" id="floatingInput"
                         placeholder="Mobile Number">
@@ -80,7 +85,9 @@ if (isset($_SESSION["user_name"]) != true) {
                 <div class="login-modal-disclaimer">
                     <p>By continuing, you agree to Doctor Moringa's Terms of Use and Privacy Policy.</p>
                 </div>
-                <input class="login-modal-btn" type="submit" name="submit">
+                <input class="login-modal-btn pb-4" type="submit" name="submit">
+
+
             </form>
         </div>
     </div>

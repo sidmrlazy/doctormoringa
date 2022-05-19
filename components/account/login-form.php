@@ -34,7 +34,6 @@
                                 if (session_status() !== PHP_SESSION_ACTIVE) {
                                     session_start();
                                     header('Location:index', true, 301);
-
                                     return true;
                                 }
                                 echo "<div class='alert alert-success text-center' role='aler'>Success, Please go to Home Screen to start shopping!</div>";
