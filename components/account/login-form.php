@@ -12,6 +12,7 @@
                 $user_contact = mysqli_real_escape_string($connection, $_POST['user_contact']);
                 $user_password = mysqli_real_escape_string($connection, $_POST['user_password']);
 
+
                 $fetch_data = "SELECT * FROM `user`";
                 $result = $connection->query($fetch_data);
 
@@ -23,18 +24,18 @@
                         $user_id = $row['user_id'];
 
                         if (password_verify($user_password, $fetched_password)) {
-                            $query = "SELECT * FROM user WHERE user_contact = '$user_contact' AND user_password = '$fetched_password' AND $user_type = '2'";
+                            $query = "SELECT * FROM user WHERE user_contact = '$user_contact' AND user_password = '$user_password' AND user_type = 2";
                             $result = mysqli_query($connection, $query);
                             $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
                             $count = mysqli_num_rows($result);
-
+                            
                             if ($count == 1 && $row) {
                                 $_SESSION['user_name'] = $user_name;
 
                                 if (session_status() !== PHP_SESSION_ACTIVE) {
                                     session_start();
                                     header('Location:index', true, 301);
-                                    exit;
+                                    
                                     return true;
                                 }
                                 echo "<div class='alert alert-success text-center' role='aler'>Success, Please go to Home Screen to start shopping!</div>";
