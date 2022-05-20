@@ -77,9 +77,9 @@ if (isset($_SESSION["user_name"]) != true) {
                     <label for="floatingInput">Mobile Number</label>
                 </div>
                 <div class="form-floating">
-                    <input type="password" name="user_password" class="form-control" id="floatingPassword"
-                        placeholder="Password">
-                    <label for="floatingPassword">Password</label>
+                    <input type="current-password" name="user_password" class="form-control" id="currentPassword"
+                        placeholder="Current Password">
+                    <label for="currentPassword">Password</label>
                 </div>
 
                 <div class="login-modal-disclaimer">

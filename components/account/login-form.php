@@ -36,12 +36,14 @@
                                     header('Location:index', true, 301);
                                     return true;
                                 }
-                                echo "<div class='alert alert-success text-center' role='aler'>Success, Please go to Home Screen to start shopping!</div>";
-                            } elseif ($user_type !== 2) {
-                                echo "<div class='alert alert-danger text-center' role='aler'>Oops, looks like your'e not registered with us.</div>";
+                                echo "<div class='alert alert-success text-center' role='alert'>Success, Please go to Home Screen to start shopping!</div>";
+                            } else {
+                                echo "<div class='alert alert-danger text-center' role='alert'>Username or Password is Incorrect!</div>";
                             }
-                        } else {
-                            echo "<div class='alert alert-danger text-center' role='aler'>Username or Password is Incorrect!</div>";
+
+                            // elseif ($user_type !== 2) {
+                            //     echo "<div class='alert alert-danger text-center' role='aler'>Oops, looks like your'e not registered with us.</div>";
+                            // }
                         }
                     }
                 }
