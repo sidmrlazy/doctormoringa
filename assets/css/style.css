@@ -1038,11 +1038,7 @@ input[type="number"] {
 }
 
 /* ========= Profile Section ========= */
-.profile-section {
-  width: 100% !important;
-}
 .profile-section-buttons {
-  border-bottom: 1px solid #e7e7e7e7;
   width: 100%;
   display: flex;
   justify-content: flex-start;
