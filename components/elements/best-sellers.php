@@ -1,7 +1,7 @@
 <h1 class="section-label">Popular Products</h1>
 <div class="best-seller-section">
-    <div class="best-seller-card">
-        <div class="seller-card-img"></div>
+    <div class="best-product-card">
+        <div class="product-img"></div>
         <div class="best-seller-card-content">
             <p>Powder</p>
             <h5>Doctor Moringa 1 minute Miracle Sattu Powder</h5>
@@ -23,8 +23,8 @@
         </div>
     </div>
 
-    <div class="best-seller-card">
-        <div class="best-seller-card-img-new"></div>
+    <div class="best-product-card">
+        <div class="product-img"></div>
         <div class="best-seller-card-content">
             <p>Powder</p>
             <h5>Doctor Moringa 1 minute Miracle Sattu Powder</h5>
@@ -47,8 +47,8 @@
         </div>
     </div>
 
-    <div class="best-seller-card">
-        <div class="best-seller-card-img"></div>
+    <div class="best-product-card">
+        <div class="product-img"></div>
         <div class="best-seller-card-content">
             <p>Powder</p>
             <h5>Doctor Moringa 1 minute Miracle Sattu Powder</h5>
