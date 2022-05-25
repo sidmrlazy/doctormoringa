@@ -1,11 +1,11 @@
 <?php
-if (isset($_SESSION["user_name"]) != true) {
-    echo "<script type='text/javascript'>
-    $(document).ready(function() {
-        $('#loginModal').modal('show');
-    });
-    </script>";
-}
+// if (isset($_SESSION["user_name"]) != true) {
+//     echo "<script type='text/javascript'>
+//     $(document).ready(function() {
+//         $('#loginModal').modal('show');
+//     });
+//     </script>";
+// }
 ?>
 
 <!-- Login Modal -->
@@ -19,7 +19,7 @@ if (isset($_SESSION["user_name"]) != true) {
                     background="transparent" speed="1" class="login-lottie" loop autoplay></lottie-player>
             </div>
             <?php
-            include('admin/includes/server/config.php');
+            include('server/config.php');
 
             if (isset($_POST['submit'])) {
                 $user_contact = mysqli_real_escape_string($connection, $_POST['user_contact']);

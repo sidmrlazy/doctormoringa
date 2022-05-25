@@ -12,10 +12,14 @@
                 </a>
             </div>
             <div class="top-nav-inner-row">
+                <!-- <a href='login'>
+                    <ion-icon name='person-outline' class='top-nav-icon'></ion-icon>
+                    <p>Login | Register</p>
+                </a> -->
                 <?php
-                if (isset($_SESSION['user_name'])) {
-                    $user_name = $_SESSION['user_name'];
-                    echo "<a href='profile'><ion-icon name='person-outline' class='top-nav-icon'></ion-icon><p>$user_name</p></a>";
+                if (isset($_SESSION['user_contact'])) {
+                    $user_contact = $_SESSION['user_contact'];
+                    echo "<a href='profile'><ion-icon name='person-outline' class='top-nav-icon'></ion-icon><p>$user_contact</p></a>";
                 } else {
                     echo "<a href='login'><ion-icon name='person-outline' class='top-nav-icon'></ion-icon><p>Login | Register</p></a>";
                 }
@@ -23,7 +27,7 @@
             </div>
             <div class="top-nav-inner-row">
                 <?php
-                if (isset($_SESSION['user_name'])) {
+                if (isset($_SESSION['user_contact'])) {
                     echo "<a href='logout.php'><ion-icon name='log-out-outline' class='top-nav-icon'></ion-icon><p>Logout</p></a>";
                 } else {
                     echo "<a href='logout.php' class='d-none'><ion-icon name='log-out-outline' class='top-nav-icon'></ion-icon><p>Logout</p></a>";
@@ -58,7 +62,7 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <?php
-                        include('admin/includes/server/config.php');
+                        include('server/config.php');
                         $query = "SELECT * FROM category";
                         $result = $connection->query($query);
                         if ($result->num_rows > 0) {
@@ -68,9 +72,11 @@
 
                         ?>
                         <li class="dropdown-row">
-                            <img src="assets/images/category-icons/<?php echo $category_image ?>" />
+                            <img src="assets/images/category-icons/<?php echo $category_image
+                                                                            ?>" />
                             <a class="dropdown-item" href="shop">Doctor Moringa for
-                                <?php echo $category_name; ?></a>
+                                <?php echo $category_name;
+                                        ?></a>
                         </li>
                         <?php
                             }
@@ -79,7 +85,7 @@
 
                         <!-- Mobile View -->
                         <?php
-                        include('admin/includes/server/config.php');
+                        include('server/config.php');
                         $query = "SELECT * FROM category";
                         $result = $connection->query($query);
                         if ($result->num_rows > 0) {
@@ -89,7 +95,8 @@
 
                         ?>
                         <li class="mobile"><a class="dropdown-item" href="#">Doctor Moringa for
-                                <?php echo $category_name; ?></a></li>
+                                <?php echo $category_name;
+                                        ?></a></li>
                         <?php
                             }
                         }
