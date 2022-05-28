@@ -17,5 +17,3 @@
 ?>
 <?php include('components/footer.php')
 ?>
-
-<!-- Ab koi bhi kaam karo jaise ye likha raha, dekhna left side pe apne aap  -->
