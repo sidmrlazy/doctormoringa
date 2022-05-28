@@ -36,58 +36,87 @@
                 $user_password = trim($_POST["user_password"]);
             }
 
+            // echo  " Contact " . $user_contact . " Password " . $user_password;
             // Validate credentials
             if (empty($user_contact_err) && empty($user_password_err)) {
                 // Prepare a select statement
-                $sql = "SELECT user_id, user_contact, user_password, user_name FROM user WHERE user_contact = ?";
 
-                if ($stmt = mysqli_prepare($connection, $sql)) {
-                    // Bind variables to the prepared statement as parameters
-                    mysqli_stmt_bind_param($stmt, "s", $param_user_contact);
-
-                    // Set parameters
-                    $param_user_contact = $user_contact;
-
-                    // Attempt to execute the prepared statement
-                    if (mysqli_stmt_execute($stmt)) {
-                        // Store result
-                        mysqli_stmt_store_result($stmt);
-
-                        // Check if username exists, if yes then verify password
-                        if (mysqli_stmt_num_rows($stmt) == 1) {
-                            // Bind result variables
-                            mysqli_stmt_bind_result($stmt, $id, $user_contact, $hashed_password);
-                            if (mysqli_stmt_fetch($stmt)) {
-                                if (password_verify($user_password, $hashed_password)) {
-                                    // Password is correct, so start a new session
-                                    // session_start();
-
-                                    // Store data in session variables
-                                    $_SESSION["loggedin"] = true;
-                                    $_SESSION["user_id"] = $id;
-                                    $_SESSION["user_contact"] = $user_contact;
-
-                                    // Redirect user to welcome page
-                                    // header("location: index.php");
-                                    echo "<div class='alert alert-success' role='alert'>
-                                    Logged In! Start shopping.
-                                  </div>";
-                                } else {
-                                    // Password is not valid, display a generic error message
-                                    $login_err = "Invalid username or password.";
-                                }
-                            }
-                        } else {
-                            // Username doesn't exist, display a generic error message
-                            $login_err = "Invalid username or password.";
-                        }
-                    } else {
-                        echo "Oops! Something went wrong. Please try again later.";
+                $res = mysqli_query($connection, "SELECT user_id, user_contact, user_password, user_name FROM user WHERE user_contact ='$user_contact' and user_password='$user_password'");
+                $check_user = mysqli_num_rows($res);
+                if ($check_user > 0) {
+                    $row = mysqli_fetch_assoc($res);
+                    $_SESSION['USER_LOGIN'] = 'yes';
+                    $_SESSION['USER_ID'] = $row['user_id'];
+                    $_SESSION['USER_NAME'] = $row['name'];
+                    if (isset($_SESSION['WISHLIST_ID']) && $_SESSION['WISHLIST_ID'] != '') {
+                        wishlist_add($connection, $_SESSION['USER_ID'], $_SESSION['WISHLIST_ID']);
+                        unset($_SESSION['WISHLIST_ID']);
                     }
+                    echo "valid";
 
-                    // Close statement
-                    mysqli_stmt_close($stmt);
+                    $_SESSION["loggedin"] = true;
+                    $_SESSION["user_id"] = $row['user_id'];
+                    $_SESSION["user_contact"] = $row['user_contact'];
+                    // Redirect user to welcome page
+                    // header("location: index.php");
+                    echo "<div class='alert alert-success' role='alert'>
+                    Logged In!.
+                    </div>";
+                    header("location: shop.php");
+                } else {
+                    $login_err = "Invalid username or password.";
                 }
+
+
+                // $sql = "SELECT user_id, user_contact, user_password, user_name FROM user WHERE user_contact = ?";
+
+                // if ($stmt = mysqli_prepare($connection, $sql)) {
+                //     // Bind variables to the prepared statement as parameters
+                //     mysqli_stmt_bind_param($stmt, "s", $param_user_contact);
+
+                //     // Set parameters
+                //     $param_user_contact = $user_contact;
+
+                //     // Attempt to execute the prepared statement
+                //     if (mysqli_stmt_execute($stmt)) {
+                //         // Store result
+                //         mysqli_stmt_store_result($stmt);
+
+                //         // Check if username exists, if yes then verify password
+                //         if (mysqli_stmt_num_rows($stmt) == 1) {
+                //             // Bind result variables
+                //             mysqli_stmt_bind_result($stmt, $id, $user_contact, $hashed_password);
+                //             if (mysqli_stmt_fetch($stmt)) {
+                //                 if (password_verify($user_password, $hashed_password)) {
+                //                     // Password is correct, so start a new session
+                //                     // session_start();
+
+                //                     // Store data in session variables
+                //                     $_SESSION["loggedin"] = true;
+                //                     $_SESSION["user_id"] = $id;
+                //                     $_SESSION["user_contact"] = $user_contact;
+
+                //                     // Redirect user to welcome page
+                //                     // header("location: index.php");
+                //                     echo "<div class='alert alert-success' role='alert'>
+                //                     Logged In! Start shopping.
+                //                   </div>";
+                //                 } else {
+                //                     // Password is not valid, display a generic error message
+                //                     $login_err = "Invalid username or password.";
+                //                 }
+                //             }
+                //         } else {
+                //             // Username doesn't exist, display a generic error message
+                //             $login_err = "Invalid username or password.";
+                //         }
+                //     } else {
+                //         echo "Oops! Something went wrong. Please try again later.";
+                //     }
+
+                //     // Close statement
+                //     mysqli_stmt_close($stmt);
+                // }
             }
 
             // Close connection

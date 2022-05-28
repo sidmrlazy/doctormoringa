@@ -58,7 +58,8 @@
                 if ($stmt = mysqli_prepare($connection, $sql)) {
                     mysqli_stmt_bind_param($stmt, "ss", $param_user_contact, $param_user_password);
                     $param_user_contact = $user_contact;
-                    $param_user_password = password_hash($user_password, PASSWORD_DEFAULT);
+                    // $param_user_password = password_hash($user_password, PASSWORD_DEFAULT);
+                    $param_user_password = $user_password;
                     if (mysqli_stmt_execute($stmt)) {
                         header("location: login.php");
                     } else {

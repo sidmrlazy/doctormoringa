@@ -494,7 +494,7 @@ input[type="number"] {
   color: #5bb336;
 }
 .shop-card {
-  display: flex;
+  display: flex !important;
   justify-content: flex-start;
   align-items: flex-start;
   border: 1px solid #e7e7e7e7;
@@ -529,7 +529,7 @@ input[type="number"] {
 .item_price {
   font-size: 24px !important;
   font-weight: 600;
-  flex: 1;
+  flex: 1 !important;
   background-color: #00000000 !important;
   border: 0;
   color: #44ad40 !important;
