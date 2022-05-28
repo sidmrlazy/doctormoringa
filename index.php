@@ -18,4 +18,4 @@
 <?php include('components/footer.php')
 ?>
 
-<!-- Ye maine apne side se push kiya hai : Sid -->
+<!-- Ab koi bhi kaam karo jaise ye likha raha, dekhna left side pe apne aap  -->
