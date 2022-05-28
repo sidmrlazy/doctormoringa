@@ -47,7 +47,7 @@
                     $row = mysqli_fetch_assoc($res);
                     $_SESSION['USER_LOGIN'] = 'yes';
                     $_SESSION['USER_ID'] = $row['user_id'];
-                    $_SESSION['USER_NAME'] = $row['name'];
+                    $_SESSION['USER_NAME'] = $row['user_name'];
                     if (isset($_SESSION['WISHLIST_ID']) && $_SESSION['WISHLIST_ID'] != '') {
                         wishlist_add($connection, $_SESSION['USER_ID'], $_SESSION['WISHLIST_ID']);
                         unset($_SESSION['WISHLIST_ID']);
@@ -62,7 +62,7 @@
                     echo "<div class='alert alert-success' role='alert'>
                     Logged In!.
                     </div>";
-                    header("location: shop.php");
+                    header("location: shop");
                 } else {
                     $login_err = "Invalid username or password.";
                 }
