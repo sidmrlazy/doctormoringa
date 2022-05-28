@@ -18,4 +18,4 @@
 <?php include('components/footer.php')
 ?>
 
-<!-- Dekha Jadoooo sid -->
+<!-- Ye maine apne side se push kiya hai : Sid -->
