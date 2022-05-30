@@ -13,11 +13,16 @@
     if (isset($_POST['add_to_cart'])) {
         if (!isset($_SESSION['user_contact'])) {
             // header("location: login.php");
-            echo "<center><div class='alert alert-danger' role='alert'>
-            Oops! Looks like you have not logged in. <a href='login' >Click here to Login </a>
-          </div>
-          </center>
-          ";
+            echo "<script type='text/javascript'>
+                 $(document).ready(function() {
+                     $('#loginModal').modal('show');
+                 });
+                 </script>";
+            //     echo "<center><div class='alert alert-danger' role='alert'>
+            //     Oops! Looks like you have not logged in. <a href='login' >Click here to Login </a>
+            //   </div>
+            //   </center>
+            //   ";
 
             include('components/footer.php');
             exit;

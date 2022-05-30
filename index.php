@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <?php include('components/header.php') ?>
 <?php //include('components/elements/conditional-login-modal.php') 
 ?>
@@ -7,7 +10,7 @@
 ?>
 <?php include('components/elements/banner.php')
 ?>
-<?php //include('components/elements/home-page-category-slider.php')
+<?php include('components/elements/home-page-category-slider.php')
 ?>
 <?php include('components/elements/best-sellers.php')
 ?>
