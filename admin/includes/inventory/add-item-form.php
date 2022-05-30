@@ -5,15 +5,13 @@
             include 'includes/server/config.php';
             if (isset($_POST['submit'])) {
                 $item_name = mysqli_real_escape_string($connection, $_POST['item_name']);
-                $item_description = mysqli_real_escape_string($connection, $_POST['item_description']);
+                $item_ingredients = mysqli_real_escape_string($connection, $_POST['item_ingredients']);
+                $item_benefits = mysqli_real_escape_string($connection, $_POST['item_benefits']);
+                $item_usage = mysqli_real_escape_string($connection, $_POST['item_usage']);
 
-                $item_filename = $_FILES["item_filename"]["name"];
-                $item_temp_filename = $_FILES["item_filename"]["tmp_name"];
-                $folder = "assets/images/uploaded/" . $item_filename;
-
-                $item_back_img = $_FILES["item_filename_back"]["name"];
-                $item_back_img_temp = $_FILES["item_filename_back"]["tmp_name"];
-                $folder2 = "assets/images/uploaded/" . $item_back_img;
+                $item_image = $_FILES["item_image"]["name"];
+                $item_image_temp = $_FILES["item_image"]["tmp_name"];
+                $folder = "assets/images/products/" . $item_image;
 
                 $item_price = mysqli_real_escape_string($connection, $_POST['item_price']);
                 $item_category = mysqli_real_escape_string($connection, $_POST['item_category']);
@@ -21,22 +19,32 @@
 
                 $query = "INSERT INTO items (
                     item_name, 
-                    item_description,
-                    item_filename,
-                    item_filename_back,      
+                    item_ingredients,
+                    item_benefits,
+                    item_usage,
+                    item_image,
                     item_category,
                     item_price,
                     item_status                    
                     ) VALUES (
                         '$item_name',
-                        '$item_description',
-                        '$item_filename',
-                        '$item_back_img',                        
+                        '$item_ingredients',
+                        '$item_benefits',
+                        '$item_usage',
+                        '$item_image',
                         '$item_category',
                         '$item_price',
                         '$item_status'                        
                         )";
                 $result = mysqli_query($connection, $query);
+
+                if (move_uploaded_file($item_image_temp, $folder)) {
+                    $msg = "Image added";
+                    echo "<div class='alert alert-success' role='alert'>$msg</div>";
+                } else {
+                    $msg = "Image upload failed";
+                    echo "<div class='alert alert-danger' role='alert'>$msg</div>";
+                }
 
                 if ($result) {
                     $msg = "Item Added in Inventory";
@@ -49,23 +57,31 @@
             ?>
             <label class="text-left w-100" for="floatingInput">Product Front Image</label>
             <div class="input-group mb-3">
-                <input type="file" name="item_filename" value="" class="form-control" id="inputGroupFile01">
+                <input type="file" name="item_image" value="" class="form-control" id="inputGroupFile01">
 
             </div>
-            <label class="text-left w-100" for="floatingInput">Product Back Image</label>
-            <div class="input-group mb-3">
-                <input type="file" name="item_filename_back" value="" class="form-control" id="inputGroupFile02">
 
-            </div>
             <div class="form-floating mb-3 w-100">
                 <input type="text" name="item_name" class="form-control" id="floatingInput" placeholder="Full Name">
-                <label for="floatingInput">Category Name</label>
+                <label for="floatingInput">Product Name</label>
             </div>
 
             <div class="form-floating w-100 mb-3">
-                <textarea class="form-control" type="text" name="item_description"
+                <textarea class="form-control" type="text" name="item_ingredients"
                     placeholder="Add Category Description" id="floatingTextarea2" style="height: 100px"></textarea>
-                <label for="floatingTextarea2">Description</label>
+                <label for="floatingTextarea2">Ingredients</label>
+            </div>
+
+            <div class="form-floating w-100 mb-3">
+                <textarea class="form-control" type="text" name="item_benefits" placeholder="Add Category Description"
+                    id="floatingTextarea2" style="height: 100px"></textarea>
+                <label for="floatingTextarea2">Benefits</label>
+            </div>
+
+            <div class="form-floating w-100 mb-3">
+                <textarea class="form-control" type="text" name="item_usage" placeholder="Add Category Description"
+                    id="floatingTextarea2" style="height: 100px"></textarea>
+                <label for="floatingTextarea2">Usage</label>
             </div>
 
             <div class="input-group mb-3 w-100">

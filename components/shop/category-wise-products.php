@@ -1,3 +1,12 @@
+<!-- 
+Product Name
+ingredients
+benefits
+how to use
+price
+qty
+ -->
+
 <div class="container-fluid shop" id="weight-loss">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <?php
@@ -107,13 +116,12 @@
     if (@$get_details->num_rows > 0) {
         $previous_category = "";
 
-        while ($row = mysqli_fetch_assoc($get_details)) {
+        while ($row = mysqli_fetch_array($get_details)) {
             $item_category = $row['item_category'];
-            $item_filename = $row['item_filename'];
-            $item_filename_back = $row['item_filename_back'];
+            $item_image = "admin/assets/images/products/" . $row['item_image'];
             $item_name = $row['item_name'];
             $item_id = $row['item_id'];
-            $item_description = $row['item_description'];
+            $item_description = $row['item_ingredients'];
             $item_price = $row['item_price'];
             $cart_user_id = $row['cart_user_id'];
             $cart_qty = $row['cart_qty'];
@@ -135,8 +143,12 @@
             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="assets/images/background/moringa-leaves.jpg" alt="">
+                        <img src="<?php echo $item_image;  ?>" alt="" />
                     </div>
+                    <!-- <div class="carousel-item">
+                        <img src="<?php //echo $item_image[1];  
+                                    ?>" />
+                    </div> -->
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
                     data-bs-slide="prev">
@@ -164,6 +176,7 @@
                 <input type="text" class="w-100 item_description" readonly value="<?php echo $item_description ?>"
                     name="item_description" placeholder="<?php echo $item_description ?>" />
             </div>
+
 
             <div class="best-seller-mrp-section">
                 <input type="text" class="item_price" readonly name="item_price" value="<?php echo "₹" . $item_price ?>"

@@ -54,7 +54,7 @@
 
             if (empty($user_contact_err) && empty($user_password_err) && empty($confirm_user_password_err)) {
 
-                $sql = "INSERT INTO user (user_contact, user_password) VALUES (?, ?)";
+                $sql = "INSERT INTO user (user_contact, user_password, user_type) VALUES (?, ?, 2)";
                 if ($stmt = mysqli_prepare($connection, $sql)) {
                     mysqli_stmt_bind_param($stmt, "ss", $param_user_contact, $param_user_password);
                     $param_user_contact = $user_contact;
