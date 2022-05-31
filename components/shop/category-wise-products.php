@@ -52,7 +52,7 @@
             $user_pincode,
             $cart_item_name = $_POST['item_name'],
             $cart_item_id = $_POST['item_id'],
-            $cart_item_description = $_POST['item_description'],
+            // $cart_item_description = $_POST['item_description'],
             $cart_item_price = $_POST['item_price'],
             $cart_item_qty = $_POST['item_qty']
         );

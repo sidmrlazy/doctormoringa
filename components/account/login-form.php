@@ -48,10 +48,11 @@
                     $_SESSION['USER_LOGIN'] = 'yes';
                     $_SESSION['USER_ID'] = $row['user_id'];
                     $_SESSION['user_contact'] = $row['user_contact'];
-                    if (isset($_SESSION['WISHLIST_ID']) && $_SESSION['WISHLIST_ID'] != '') {
-                        wishlist_add($connection, $_SESSION['USER_ID'], $_SESSION['WISHLIST_ID']);
-                        unset($_SESSION['WISHLIST_ID']);
-                    }
+
+                    // if (isset($_SESSION['WISHLIST_ID']) && $_SESSION['WISHLIST_ID'] != '') {
+                    //     wishlist_add($connection, $_SESSION['USER_ID'], $_SESSION['WISHLIST_ID']);
+                    //     unset($_SESSION['WISHLIST_ID']);
+                    // }
                     // echo "valid";
 
                     $_SESSION["loggedin"] = true;

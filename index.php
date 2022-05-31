@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <?php include('components/header.php') ?>
 <?php //include('components/elements/conditional-login-modal.php') 
 ?>

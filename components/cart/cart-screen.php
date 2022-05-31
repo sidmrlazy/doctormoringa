@@ -62,11 +62,11 @@
         <?php
                                                                                                                         while ($row = mysqli_fetch_assoc($get_details)) {
                                                                                                                             $item_category = $row['item_category'];
-                                                                                                                            $item_filename = $row['item_filename'];
-                                                                                                                            $item_filename_back = $row['item_filename_back'];
+                                                                                                                            $item_image = $row['item_image'];
+                                                                                                                            // $item_filename_back = $row['item_filename_back'];
                                                                                                                             $item_name = $row['item_name'];
                                                                                                                             $item_id = $row['item_id'];
-                                                                                                                            $item_description = $row['item_description'];
+                                                                                                                            //$item_description = $row['item_description'];
                                                                                                                             $item_price = $row['item_price'];
                                                                                                                             $cart_user_id = $row['cart_user_id'];
                                                                                                                             $cart_qty = $row['cart_qty'];
@@ -81,7 +81,8 @@
             <div class="cart-product-details">
                 <h3><?php echo $item_category; ?></h3>
                 <h1><?php echo $item_name; ?></h1>
-                <p><?php echo $item_description; ?> </p>
+                <p><?php //echo $item_description; 
+                                ?> </p>
                 <h5>Quantity: <?php echo $cart_qty; ?></h5>
             </div>
             <div class="cart-product-price">
