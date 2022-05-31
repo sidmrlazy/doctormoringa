@@ -1,4 +1,4 @@
-<footer class="footer-section">
+<footer class="footer-section mt-5">
     <div class="footer-section-col col-md-3">
         <a href="index">
             <img src="assets/images/logo/logo.png" alt="">

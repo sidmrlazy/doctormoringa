@@ -5,6 +5,7 @@
             include 'includes/server/config.php';
             if (isset($_POST['submit'])) {
                 $item_name = mysqli_real_escape_string($connection, $_POST['item_name']);
+                $item_weight = mysqli_real_escape_string($connection, $_POST['item_weight']);
                 $item_ingredients = mysqli_real_escape_string($connection, $_POST['item_ingredients']);
                 $item_benefits = mysqli_real_escape_string($connection, $_POST['item_benefits']);
                 $item_usage = mysqli_real_escape_string($connection, $_POST['item_usage']);
@@ -18,7 +19,8 @@
                 $item_status = 1;
 
                 $query = "INSERT INTO items (
-                    item_name, 
+                    item_name,
+                    item_weight, 
                     item_ingredients,
                     item_benefits,
                     item_usage,
@@ -28,6 +30,7 @@
                     item_status                    
                     ) VALUES (
                         '$item_name',
+                        '$item_weight',
                         '$item_ingredients',
                         '$item_benefits',
                         '$item_usage',
@@ -40,17 +43,17 @@
 
                 if (move_uploaded_file($item_image_temp, $folder)) {
                     $msg = "Image added";
-                    echo "<div class='alert alert-success' role='alert'>$msg</div>";
+                    echo "<div class='alert w-100 alert-success' role='alert'>$msg</div>";
                 } else {
                     $msg = "Image upload failed";
-                    echo "<div class='alert alert-danger' role='alert'>$msg</div>";
+                    echo "<div class='alert w-100 alert-danger' role='alert'>$msg</div>";
                 }
 
                 if ($result) {
                     $msg = "Item Added in Inventory";
-                    echo "<div class='alert alert-success' role='alert'>$msg</div>";
+                    echo "<div class='alert w-100 alert-success' role='alert'>$msg</div>";
                 } else {
-                    echo "<div class='alert alert-danger w-100' role='alert'>Upload Failed!</div>";
+                    echo "<div class='alert w-100 alert-danger w-100' role='alert'>Upload Failed!</div>";
                 }
             }
 
@@ -64,6 +67,12 @@
             <div class="form-floating mb-3 w-100">
                 <input type="text" name="item_name" class="form-control" id="floatingInput" placeholder="Full Name">
                 <label for="floatingInput">Product Name</label>
+            </div>
+
+            <div class="form-floating mb-3 w-100">
+                <input type="text" name="item_weight" class="form-control" id="floatingInput"
+                    placeholder="gm/kg/ml/ltr/box">
+                <label for="floatingInput">Product Weight</label>
             </div>
 
             <div class="form-floating w-100 mb-3">
