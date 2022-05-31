@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 28, 2022 at 01:07 PM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 7.3.1
+-- Generation Time: May 31, 2022 at 12:45 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -43,7 +42,7 @@ CREATE TABLE `cart` (
   `cart_user_address` varchar(100) NOT NULL,
   `cart_user_pincode` varchar(100) NOT NULL,
   `cart_qty` varchar(100) NOT NULL,
-  `cart_added_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `cart_added_date` datetime NOT NULL DEFAULT current_timestamp(),
   `cart_order_id` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -66,7 +65,7 @@ CREATE TABLE `category` (
   `category_image` varchar(100) NOT NULL,
   `category_name` varchar(100) NOT NULL,
   `category_description` varchar(100) NOT NULL,
-  `category_added_on` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `category_added_on` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -103,9 +102,11 @@ CREATE TABLE `inventory` (
 CREATE TABLE `items` (
   `item_id` int(11) NOT NULL,
   `item_name` varchar(100) NOT NULL,
-  `item_description` varchar(100) NOT NULL,
-  `item_filename` varchar(100) NOT NULL,
-  `item_filename_back` varchar(100) NOT NULL,
+  `item_weight` varchar(255) NOT NULL,
+  `item_ingredients` varchar(255) NOT NULL,
+  `item_benefits` varchar(255) NOT NULL,
+  `item_usage` varchar(255) NOT NULL,
+  `item_image` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `item_price` varchar(100) NOT NULL,
   `item_category` varchar(100) NOT NULL,
   `item_status` varchar(100) NOT NULL COMMENT '1=Active, 2=Inactive'
@@ -115,10 +116,9 @@ CREATE TABLE `items` (
 -- Dumping data for table `items`
 --
 
-INSERT INTO `items` (`item_id`, `item_name`, `item_description`, `item_filename`, `item_filename_back`, `item_price`, `item_category`, `item_status`) VALUES
-(50, 'itom 1', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas commodo dapibus cursus. Suspendiss', 'front.jpg', 'back.jpg', '100', 'Weight Loss', '1'),
-(51, 'item 2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas commodo dapibus cursus. Suspendiss', 'front.jpg', 'back.jpg', '123', 'Weight Loss', '1'),
-(52, 'item 3', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas commodo dapibus cursus. Suspendiss', 'GSB Paaniwaala brothers 1.png', 'GSB Paaniwaala brothers 2.png', '123', 'Weight Loss', '1');
+INSERT INTO `items` (`item_id`, `item_name`, `item_weight`, `item_ingredients`, `item_benefits`, `item_usage`, `item_image`, `item_price`, `item_category`, `item_status`) VALUES
+(78, 'Sattu Powder 1', '200gm', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', '1. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in\r\n2. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essenti', '1. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in\r\n2. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essenti', '5.png', '150', 'Weight Loss', '1'),
+(79, 'Sattu Powder 2', '150gm', 'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in', 'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised inIt has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unc', 'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised inIt has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unc', '4.png', '200', 'Weight Loss', '1');
 
 -- --------------------------------------------------------
 
@@ -138,7 +138,7 @@ CREATE TABLE `uder_order` (
   `order_time` varchar(255) NOT NULL,
   `order_total_amount` varchar(50) NOT NULL DEFAULT '0',
   `order_tax` varchar(50) NOT NULL DEFAULT '0',
-  `order_status` int(11) NOT NULL DEFAULT '0'
+  `order_status` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -160,7 +160,7 @@ CREATE TABLE `uder_order_details` (
   `uod_item_id` varchar(255) NOT NULL,
   `uod_item_cat` varchar(255) NOT NULL,
   `uod_price` varchar(255) NOT NULL,
-  `uod_status` int(11) NOT NULL DEFAULT '0'
+  `uod_status` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -186,7 +186,7 @@ CREATE TABLE `user` (
   `user_city` varchar(100) NOT NULL,
   `user_address` varchar(100) NOT NULL,
   `user_pincode` varchar(100) NOT NULL,
-  `user_created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `user_created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `user_type` int(100) NOT NULL COMMENT '1=Admin, 2=Customer',
   `user_tnc` varchar(100) NOT NULL COMMENT '1=Accepted'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -197,13 +197,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`user_id`, `user_name`, `user_password`, `user_contact`, `user_email`, `user_state`, `user_city`, `user_address`, `user_pincode`, `user_created_at`, `user_type`, `user_tnc`) VALUES
 (1, 'admin', '$2y$10$HBLqmPc7YLWgLTLKvv1Sz.HjOeZr53DBEe4QWKKjWkvvNISDFLraS', '9727545445', 'sid@xcy.com', '', '', '', '', '2022-04-30 10:12:11', 1, ''),
-(12, 'Customer', '$2y$10$8bs9CjaKPbEXRR9P8wTPYO2PBf064WMHPzx7Kd5xW..ZrXFG2uAyG', '9876543210', 'sid.asthana0290@gmail.com', '', '', '', '', '2022-05-07 13:50:37', 2, ''),
-(18, 'Test New Customer', '$2y$10$GqktY3YhKQOsEwp4sGqkiOE1J/nWotKasEd/kIiGUcsHrtKqmyGRe', '1234567890', 'admin@test.com', 'UP', 'Lucknow', 'Test', '123456', '2022-05-22 10:49:16', 2, ''),
-(31, '', '$2y$10$kE4qrMAzFCF0wTkGBuP5tOap4PXmysh6eiTFb/ImC2pR9M.NkYhre', '7355410185', '', '', '', '', '', '2022-05-25 14:23:49', 0, ''),
-(32, 'admin2', '123', '9727545444', 'sid@xcy.com', '', '', '', '', '2022-04-30 10:12:11', 1, ''),
-(33, '', '$2y$10$KwF.4xGbqNW72KfrBtKYoOFXxumgVn9gRD1HCerQQe.KDhLFRj0w.', '9727545443', '', '', '', '', '', '2022-05-27 23:40:10', 0, ''),
-(34, '', '8052738410', '8052738410', '', '', '', '', '', '2022-05-27 23:42:45', 0, ''),
-(35, '', '8052738420', '8052738420', '', '', '', '', '', '2022-05-28 00:24:22', 0, '');
+(37, '', '123456', '7355410185', '', '', '', '', '', '2022-05-30 11:20:08', 0, '');
 
 --
 -- Indexes for dumped tables
@@ -277,7 +271,7 @@ ALTER TABLE `inventory`
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
 
 --
 -- AUTO_INCREMENT for table `uder_order`
@@ -295,7 +289,7 @@ ALTER TABLE `uder_order_details`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
