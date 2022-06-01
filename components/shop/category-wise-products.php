@@ -45,7 +45,7 @@
             $user_pincode,
             $cart_item_name = $_POST['item_name'],
             $cart_item_id = $_POST['item_id'],
-            // $cart_item_description = $_POST['item_description'],
+            $cart_item_description = $_POST['item_id'],
             $cart_item_price = $_POST['item_price'],
             $cart_item_qty = $_POST['item_qty']
         );
@@ -90,7 +90,7 @@
     <?php
     include('admin/includes/server/config.php');
 
-    $query = "SELECT * FROM `items` i LEFT JOIN cart c ON i.item_id=c.cart_id AND c.cart_user_id='$user_id'";
+    $query = "SELECT * FROM `items` i LEFT JOIN cart c ON i.item_id=c.cart_item_id  AND c.cart_user_id='$user_id'";
     $get_details = mysqli_query($connection, $query);
     if (@$get_details->num_rows > 0) {
         $previous_category = "";
