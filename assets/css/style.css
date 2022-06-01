@@ -1562,7 +1562,7 @@ input[type="number"] {
     margin: 5px;
   }
   .product-card img {
-    width: fit-content;
+    width: 300px;
     height: auto;
   }
   .product-description {

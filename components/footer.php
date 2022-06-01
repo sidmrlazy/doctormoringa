@@ -13,7 +13,7 @@
 
         <div class="footer-row">
             <ion-icon name="headset" id="footer-icon"></ion-icon>
-            <p>+91 9876543210</p>
+            <p>+91 88403 46183</p>
         </div>
 
         <div class="footer-row">
