@@ -819,13 +819,13 @@ input[type="number"] {
 
 /* =========== Footer =========== */
 .footer-section {
-  padding: 20px;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  width: 100%;
+  width: 100% !important;
   border-top: 1px solid #c7c7c7c7;
-  margin-top: 350px !important;
+  padding: 20px;
+  position: absolute;
 }
 .footer-section-col {
   max-width: 100%;
@@ -975,18 +975,17 @@ input[type="number"] {
   margin: 0;
   font-weight: 600;
   color: #44ad40;
+  margin-bottom: 40px;
 }
 .product-wrapper {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 40px;
 }
 .product-section {
-  flex: 1 1 100px !important;
-  margin: 20px;
+  flex: 1 1 1 100px !important;
 }
 .product-card {
-  width: 300px;
+  width: fit-content;
   height: 450px;
   border: 1px solid #e7e7e7;
   display: flex;
@@ -994,25 +993,30 @@ input[type="number"] {
   align-items: center;
   flex-direction: column;
   border-radius: 5px;
+  margin: 5px;
 }
 .product-card img {
-  width: fit-content;
+  width: 300px;
   height: auto;
 }
 .product-description {
   padding: 20px;
   border-top: 1px solid #e7e7e7;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
 }
 .product_name {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: bolder;
   margin: 0;
   border: 0;
 }
 .product-weight {
   color: #777 !important;
-  font-size: 16px !important;
+  font-size: 18px !important;
   font-weight: 400 !important;
   margin-bottom: 20px !important;
   border: 0;
@@ -1021,12 +1025,15 @@ input[type="number"] {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  padding-bottom: 30px;
 }
 .product_price {
   color: #5bb336 !important;
   font-weight: 600;
   margin-right: 10px;
   border: 0;
+  flex: 1;
+  font-size: 24px;
 }
 .product-qty-calculator {
   display: flex;
@@ -1039,6 +1046,17 @@ input[type="number"] {
   width: 50px;
   border-radius: 20px;
   font-weight: bold;
+}
+.add-btn {
+  background-color: #44ad40;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+.add-btn:hover {
+  border: 0;
+  color: #fff;
 }
 
 /* ========= Category Wise Products ========= */
@@ -1070,17 +1088,7 @@ input[type="number"] {
   color: #5bb336;
   font-weight: bolder !important;
 }
-.add-btn {
-  background-color: #44ad40;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-}
-.add-btn:hover {
-  border: 0;
-  color: #fff;
-}
+
 .pricing-tab {
   width: 50%;
   margin-top: 50px;
@@ -1528,5 +1536,92 @@ input[type="number"] {
   .breadcrumb-item a {
     text-decoration: none !important;
     color: #777 !important;
+  }
+
+  /* ========= Shop ========= */
+  .shop-section-heading img {
+    width: 80%;
+  }
+  .product-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .product-section {
+    flex: 1 1 1 100px !important;
+    max-width: fit-content !important;
+  }
+  .product-card {
+    width: fit-content !important;
+    height: 450px;
+    border: 1px solid #e7e7e7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 5px;
+    margin: 5px;
+  }
+  .product-card img {
+    width: fit-content;
+    height: auto;
+  }
+  .product-description {
+    padding: 20px;
+    border-top: 1px solid #e7e7e7;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .product_name {
+    font-size: 24px;
+    font-weight: bolder;
+    margin: 0;
+    border: 0;
+  }
+  .product-weight {
+    color: #777 !important;
+    font-size: 18px !important;
+    font-weight: 400 !important;
+    margin-bottom: 20px !important;
+    border: 0;
+  }
+  .product-action-section {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-bottom: 30px;
+  }
+  .product_price {
+    color: #5bb336 !important;
+    font-weight: 600;
+    margin-right: 10px;
+    border: 0;
+    flex: 1;
+    font-size: 24px;
+  }
+  .product-qty-calculator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .product-qty-calculator input {
+    border: 1px solid #e7e7e7;
+    text-align: center;
+    width: 50px;
+    border-radius: 20px;
+    font-weight: bold;
+  }
+  .add-btn {
+    background-color: #44ad40;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+  }
+  .add-btn:hover {
+    border: 0;
+    color: #fff;
   }
 }

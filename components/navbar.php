@@ -12,10 +12,6 @@
                 </a>
             </div>
             <div class="top-nav-inner-row">
-                <!-- <a href='login'>
-                    <ion-icon name='person-outline' class='top-nav-icon'></ion-icon>
-                    <p>Login | Register</p>
-                </a> -->
                 <?php
                 if (isset($_SESSION['user_contact'])) {
                     $user_contact = $_SESSION['user_contact'];
