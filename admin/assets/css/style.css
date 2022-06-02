@@ -14,7 +14,7 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
-/* ================ Login Form ================ */
+/* ================================================ Login Form ================================================ */
 .login-section {
   display: flex;
   justify-content: center;
@@ -64,7 +64,7 @@ input[type="number"] {
   height: auto !important;
 }
 
-/* ================ Navbar ================ */
+/* ================================================ Navbar ================================================ */
 .navbar {
   background-color: #00000000 !important;
 }
@@ -94,7 +94,7 @@ input[type="number"] {
   background-color: #00000000 !important;
 }
 
-/* ================ Side Nav ================ */
+/* ================================================ Side Nav ================================================ */
 .side-nav-custom {
   border-right: 1px solid #e7e7e7e7;
   height: 100%;
@@ -205,7 +205,7 @@ input[type="number"] {
   line-height: 1.25;
 } */
 
-/* ================ Users ================ */
+/* ================================================ Users ================================================ */
 .user-section {
   margin-top: 20px;
   margin-left: 150px !important;
@@ -260,7 +260,7 @@ input[type="number"] {
   height: 100px !important;
 }
 
-/* ================ Users ================ */
+/* ================================================ Orders ================================================ */
 .new-order-tab {
   background: rgb(59, 139, 24);
   background: linear-gradient(
@@ -285,7 +285,7 @@ input[type="number"] {
   margin-right: 20px;
 }
 
-/* ================ Inventory ================ */
+/* ================================================ Inventory ================================================ */
 .inventory-section {
   margin-left: 200px !important;
   margin-top: 30px;
@@ -295,7 +295,6 @@ input[type="number"] {
 }
 .invenotry-card {
   flex: 1 1 1 200px;
-  border: 1px solid #e7e7e7e7;
   margin: 5px;
   border-radius: 10px;
   padding: 20px;
@@ -306,11 +305,20 @@ input[type="number"] {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  border: 1px solid #e7e7e7;
+  border-radius: 10px;
+  padding: 10px;
+  width: 250px;
+  height: 250px;
+}
+.inventory-details img {
+  width: 150px;
+  height: auto;
 }
 .inventory-details input {
   border: 0;
   text-align: center;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 600;
   color: #000;
 }
@@ -382,6 +390,13 @@ input[type="number"] {
   border: 0 !important;
   margin: 5px;
   color: #fff;
+}
+.no-products {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
 }
 /* .inventory-table-img {
   width: 50px !important;

@@ -43,6 +43,18 @@
     </form>
     <?php
         }
+    } else {
+        ?>
+    <div class="no-products">
+        <div class="col-md-4 lottie-container">
+            <lottie-player src="https://assets8.lottiefiles.com/private_files/lf30_oqpbtola.json"
+                background="transparent" speed="1" class="lottie" loop autoplay></lottie-player>
+        </div>
+        <div class='alert alert-danger' role='alert'>
+            You havent added any products in your Inventory!
+        </div>
+    </div>
+    <?php
     }
     ?>
 </div>

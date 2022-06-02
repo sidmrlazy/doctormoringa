@@ -111,8 +111,8 @@
             </div>
 
             <div class="form-floating w-100 mb-3">
-                <input type="text" name="item_price" class="form-control" value="<?php echo "₹" . $item_price; ?>"
-                    id="floatingInput" placeholder="<?php echo "₹" . $item_price; ?>">
+                <input type="text" name="item_price" class="form-control" value="<?php echo $item_price; ?>"
+                    id="floatingInput" placeholder="₹<?php echo $item_price; ?>">
                 <label for="floatingInput">Price</label>
             </div>
 

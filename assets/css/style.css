@@ -824,7 +824,6 @@ input[type="number"] {
   width: 100% !important;
   border-top: 1px solid #c7c7c7c7;
   padding: 20px;
-  position: absolute;
 }
 .footer-section-col {
   max-width: 100%;
@@ -964,7 +963,7 @@ input[type="number"] {
 .shop-section-heading img {
   width: 60%;
 }
-.product {
+/* .product {
   margin-top: 100px;
 }
 .product p {
@@ -1060,7 +1059,7 @@ input[type="number"] {
 .read-more-btn {
   color: #5bb336;
   background-color: #00000000;
-}
+} */
 
 /* ========= Category Wise Products ========= */
 .shop-card-label {
