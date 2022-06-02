@@ -11,11 +11,18 @@
     include('admin/includes/server/config.php');
     if (isset($_POST['add_to_cart'])) {
         if (!isset($_SESSION['user_contact'])) {
+            // header("location: login.php");
             echo "<script type='text/javascript'>
              $(document).ready(function() {
                  $('#loginModal').modal('show');
              });
              </script>";
+            //     echo "<center><div class='alert alert-danger' role='alert'>
+            //     Oops! Looks like you have not logged in. <a href='login' >Click here to Login </a>
+            //   </div>
+            //   </center>
+            //   ";
+
             include('components/footer.php');
             exit;
         }
@@ -57,8 +64,10 @@
             $query_check_cart = "SELECT * FROM `cart` WHERE `cart_item_id` LIKE '$cart_item_id' AND `cart_user_id` LIKE '$user_id';";
             $query_check_cart_details = mysqli_query($connection, $query_check_cart);
             if (@$query_check_cart_details->num_rows > 0) {
+                // echo "update already in cart";
                 while ($cart_row = mysqli_fetch_assoc($query_check_cart_details)) {
                     $cart_is = $cart_row['cart_id'];
+                    // echo "<br> id...".$cart_is; 
                 }
                 echo "<div class='alert alert-success text-center' role='alert'>Item Already in cart</div>";
             } else {
@@ -73,12 +82,14 @@
                             `cart_user_pincode`,
                             `cart_item_name`,
                             `cart_item_id`,
+                            `cart_item_description`,
                             `cart_price`,
                             `cart_qty`
                                 ) VALUES ("' . implode('", "', $insert_array) . '")';
                 $result = mysqli_query($connection, $query);
                 if ($result) {
                     echo "<div class='alert alert-success text-center' role='alert'>Item Added to cart</div>";
+                    // return true;
                 } else {
                     echo "<div class='alert alert-danger text-center' role='alert'>There was some problem adding product in cart</div>";
                 }
@@ -126,16 +137,18 @@
                         placeholder="<?php echo $item_id ?>" />
                     <input type="text" name="item_weight" class="product-weight" value="<?php echo $item_weight
                                                                                                 ?>" />
+
                     <div class="product-action-section">
                         <input type="text" class="product_price" readonly name="item_price"
                             value="<?php echo "₹" . $item_price ?>" placeholder="<?php echo "₹" . $item_price ?>" />
+                        <!-- <p>₹250</p> -->
 
                         <?php
                                 if (!empty($cart_user_id) && $cart_user_id == $user_id) { ?>
 
                         <!-- =================== Increase Decrease Value Button =================== -->
                         <div class="product-qty-calculator">
-                            <!-- ======== remove ======== -->
+                            <!-- ..............remove -->
                             <div class="`value-button`" id="decrease" value="remove Value">
                                 <!-- onclick="decreaseValue()" -->
                                 <span class="label label-primary">
@@ -154,7 +167,7 @@
                                     </form>
                                 </span>
                             </div>
-                            <!-- ======== Decrease ======== -->
+                            <!-- .........Decrease........-->
                             <div class="`value-button`" id="decrease" value="Decrease Value">
                                 <!-- onclick="decreaseValue()" -->
                                 <span class="label label-primary">
@@ -163,13 +176,13 @@
                                             value="<?php echo $item_id ?>" />
                                         <input type="text" class="user_id" hidden name="user_id"
                                             value="<?php echo $user_id ?>" />
-                                        <input type="number" hidden name="item_qty" id="item_qty"
+                                        <input type="number" hidden name="item_qty" id="number"
                                             value="<?php
-                                                                                                                        if (!empty($cart_user_id) && $cart_user_id == $user_id) {
-                                                                                                                            echo $cart_qty;
-                                                                                                                        } else {
-                                                                                                                            echo "1";
-                                                                                                                        } ?>" />
+                                                                                                                    if (!empty($cart_user_id) && $cart_user_id == $user_id) {
+                                                                                                                        echo $cart_qty;
+                                                                                                                    } else {
+                                                                                                                        echo "1";
+                                                                                                                    } ?>" />
                                         <button style="  border: none; background: #ffffff; " type="Submit">
                                             <ion-icon name="remove-circle-outline" class="chevron-up-outline">
                                             </ion-icon>
@@ -178,7 +191,7 @@
                                 </span>
                             </div>
 
-                            <!-- ======== quantity ======== -->
+                            <!-- ........quantity------- -->
                             <div>
                                 <input type="number" readonly name="item_qty" id="number" value="<?php
                                                                                                                 if (!empty($cart_user_id) && $cart_user_id == $user_id) {
@@ -190,7 +203,7 @@
                                                                                                                 ?>" />
                             </div>
 
-                            <!-- ======== Increase ======== -->
+                            <!-- ........Increase------- -->
                             <div class="`value-button`" id="increase" value="Increase Value">
                                 <span class="label label-primary">
                                     <form action="add_quantity.php" method="post">
@@ -216,6 +229,7 @@
 
 
                         <!-- =================== Add to Cart Section =================== -->
+
                         <form action="" method="post">
                             <input type="text" class="product_name" hidden name="item_name"
                                 value="<?php echo $item_name ?>" />
@@ -254,7 +268,6 @@
         ?>
 
     </div>
-</div>
 
 
 </div>
