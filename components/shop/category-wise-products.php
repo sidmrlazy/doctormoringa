@@ -114,6 +114,8 @@
             $cart_qty = $row['cart_qty'];
             if ($previous_category != $item_category) {
     ?>
+
+    <!-- ?Test -->
     <div class="shopping-section-heading">
         <h1><?php echo $item_category ?></h1>
     </div>
