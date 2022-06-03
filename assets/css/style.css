@@ -1044,6 +1044,17 @@ input[type="number"] {
   border-radius: 20px;
   font-weight: bold;
 }
+.add-cart-btn {
+  width: 100px;
+  border: 1px solid #44ad40;
+  padding: 5px;
+  color: #44ad40;
+  border-radius: 5px;
+}
+.add-cart-btn:hover {
+  color: #fff;
+  background-color: #44ad40;
+}
 
 /* .product {
   margin-top: 100px;

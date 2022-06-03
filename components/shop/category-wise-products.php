@@ -244,8 +244,8 @@
                                                                                                 }
                                                                                                 ?>" />
 
-                    <button type="submit" name="add_to_cart" class="btn add-btn">
-                        <ion-icon name="cart-outline" id="cart-icon"></ion-icon>Add
+                    <button type="submit" name="add_to_cart" class="btn add-btn add-cart-btn">
+                        Add
                     </button>
                 </form>
                 <?php } ?>
