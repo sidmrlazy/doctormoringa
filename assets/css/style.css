@@ -973,10 +973,12 @@ input[type="number"] {
   color: #5bb336;
 }
 .shopping-section-wrapper {
-  display: flex;
+  /* display: flex;
   justify-content: flex-start;
-  align-items: center;
+  align-items: center; */
   margin-top: 30px;
+  display: flex !important;
+  flex-wrap: wrap;
 }
 .shopping-section-card {
   border: 1px solid #e7e7e7;
@@ -987,6 +989,7 @@ input[type="number"] {
   flex-direction: column;
   width: 350px;
   height: auto;
+  flex: 1 1 1 300px;
 }
 .shopping-section-card img {
   width: 200px;
@@ -997,7 +1000,7 @@ input[type="number"] {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  flex-direction: column !important;
   width: 100%;
   border-top: 1px solid #e7e7e7;
   margin-bottom: 40px;

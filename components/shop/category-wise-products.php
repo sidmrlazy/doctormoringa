@@ -1,6 +1,6 @@
 <div class="shopping-section">
     <?php
-
+    include('admin/includes/server/config.php');
     if (!empty($_SESSION['user_id'])) {
         $user_id = $_SESSION['user_id'];
     } else {
@@ -8,7 +8,6 @@
     }
     $quantity = 1;
 
-    include('admin/includes/server/config.php');
     if (isset($_POST['add_to_cart'])) {
         if (!isset($_SESSION['user_contact'])) {
             echo "<script type='text/javascript'>
@@ -54,7 +53,6 @@
         if ($cart_item_qty == 0) {
             echo "<div class='alert alert-danger text-center' role='alert'>Please select the Quantity of Product you want</div>";
         } else {
-
             $query_check_cart = "SELECT * FROM `cart` WHERE `cart_item_id` LIKE '$cart_item_id' AND `cart_user_id` LIKE '$user_id';";
             $query_check_cart_details = mysqli_query($connection, $query_check_cart);
             if (@$query_check_cart_details->num_rows > 0) {
@@ -94,7 +92,6 @@
 
     <?php
     include('admin/includes/server/config.php');
-
     $query = "SELECT * FROM `items` i LEFT JOIN cart c ON i.item_id=c.cart_item_id  AND c.cart_user_id='$user_id'";
     $get_details = mysqli_query($connection, $query);
     if (@$get_details->num_rows > 0) {
@@ -113,10 +110,11 @@
             $cart_user_id = $row['cart_user_id'];
             $cart_qty = $row['cart_qty'];
             if ($previous_category != $item_category) {
+
     ?>
 
     <!-- ?Test -->
-    <div class="shopping-section-heading">
+    <div class="shopping-section-heading mt-5">
         <h1><?php echo $item_category ?></h1>
     </div>
     <?php $previous_category = $item_category;
@@ -125,7 +123,6 @@
     <div class="shopping-section-wrapper">
         <div class="shopping-section-card">
             <img src="<?php echo $item_image;  ?>" alt="" />
-
             <div class="shopping-section-product-details">
                 <!-- Item ID -->
                 <input type="text" class="item_id" hidden name="item_id" value="<?php echo $item_id ?>"

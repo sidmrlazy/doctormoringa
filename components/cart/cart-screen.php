@@ -126,36 +126,26 @@ if (@$get_details->num_rows > 0) {
                     </div>
 
                     <div class="form-floating m-1 user-details">
-                        <input required class="form-control" placeholder="City" type="number" minlength="10"
+                        <input required class="form-control" placeholder="City" type="text" minlength="10"
                             id="floatingInput" name="user_city" value="<?php echo $user_city; ?>">
                         <label for="floatingInput">City</label>
                     </div>
                 </div>
+
                 <div class="inner-headings">
-                    <div class="user-details">
-                        <p id="user-details-heading">State</p>
-                        <input required type="text" minlength="3" name="user_state" value="<?php echo $user_state; ?>">
+                    <div class="form-floating m-1 user-details">
+                        <input required class="form-control" placeholder="State" type="text" minlength="2"
+                            id="floatingInput" name="user_address" value="<?php echo $user_address; ?>">
+                        <label for="floatingInput">Address</label>
                     </div>
 
-                    <div class="user-details">
-                        <p id="user-details-heading">City</p>
-                        <input required type="text" minlength="3" name="user_city" value="<?php echo $user_city; ?>">
+                    <div class="form-floating m-1 user-details">
+                        <input required class="form-control" placeholder="Email" type="email" minlength="2"
+                            id="floatingInput" name="user_email" value="<?php echo $user_email; ?>">
+                        <label for="floatingInput">Email - ID</label>
                     </div>
                 </div>
-                <div class="inner-headings">
 
-                    <div class="user-details">
-                        <p id="user-details-heading">Address</p>
-                        <input required type="text" minlength="5" name="user_address"
-                            value="<?php echo $user_address; ?>">
-                    </div>
-
-                    <div class="user-details">
-                        <p id="user-details-heading">Email-id</p>
-                        <input required type="text" minlength="5" name="user_email" value="<?php echo $user_email; ?>">
-                    </div>
-
-                </div>
 
                 <!-- <a href="checkout" type="submit" name="edit" class="checkout-btn">Edit</a> -->
             </div>
