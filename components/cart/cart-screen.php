@@ -63,7 +63,7 @@ if (@$get_details->num_rows > 0) {
         <?php
             while ($row = mysqli_fetch_assoc($get_details)) {
                 $item_category = $row['item_category'];
-                $item_image = $row['item_image'];
+                $item_image = "admin/assets/images/products/" . $row['item_image'];
                 // $item_filename_back = $row['item_filename_back'];
                 $item_name = $row['item_name'];
                 $item_id = $row['item_id'];
@@ -77,7 +77,7 @@ if (@$get_details->num_rows > 0) {
             ?>
         <div class="main-cart">
             <div class="cart-product-img">
-                <img src="assets/images/background/moringa-leaves.jpg" alt="">
+                <img src="<?php echo $item_image;  ?>" alt="" />
             </div>
             <div class="cart-product-details">
                 <h3><?php echo $item_category; ?></h3>
@@ -152,7 +152,7 @@ if (@$get_details->num_rows > 0) {
             <div class="col-md-6 m-1 pricing-tab">
                 <div class="inner-headings">
                     <p id="heading">Subtotal</p>
-                    <p><?php echo $all_total_price; ?></p>
+                    <p><?php echo "₹" . $all_total_price; ?></p>
                     <input hidden type="text" minlength="5" name="all_total_price"
                         value="<?php echo $all_total_price; ?>">
 
@@ -162,7 +162,7 @@ if (@$get_details->num_rows > 0) {
                     <p id="heading">Shipping</p>
                     <p><?php
                             $delivery_chearge = 60;
-                            echo $delivery_chearge; ?>
+                            echo "₹" . $delivery_chearge; ?>
                     </p>
                     <input hidden type="text" minlength="5" name="delivery_chearge"
                         value="<?php echo $delivery_chearge; ?>">
@@ -173,7 +173,7 @@ if (@$get_details->num_rows > 0) {
                     <p id="heading">Grand Total</p>
                     <p><?php
                             $gross_total = $all_total_price + $delivery_chearge;
-                            echo $gross_total; ?>
+                            echo "₹" . $gross_total; ?>
                         <input hidden type="text" minlength="5" name="gross_total" value="<?php echo $gross_total; ?>">
 
                     </p>
@@ -181,7 +181,7 @@ if (@$get_details->num_rows > 0) {
                 <!-- Use this button when developing the functionality -->
                 <!-- <button type="submit" name="" class="checkout-btn">Proceed to Checkout</button> -->
                 <input type="text" name="user_id" hidden value="<?php echo $user_id; ?>">
-                <input type="submit" name="submit" value='Proceed to Checkout' />
+                <input class="checkout-btn" type="submit" name="submit" value='Proceed to Checkout' />
             </div>
         </div>
         <?php } else {

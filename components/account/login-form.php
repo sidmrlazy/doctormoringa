@@ -48,6 +48,7 @@
                     $_SESSION['USER_LOGIN'] = 'yes';
                     $_SESSION['USER_ID'] = $row['user_id'];
                     $_SESSION['user_contact'] = $row['user_contact'];
+                    $_SESSION['user_name'] = $row['user_name'];
 
                     // if (isset($_SESSION['WISHLIST_ID']) && $_SESSION['WISHLIST_ID'] != '') {
                     //     wishlist_add($connection, $_SESSION['USER_ID'], $_SESSION['WISHLIST_ID']);
@@ -58,6 +59,7 @@
                     $_SESSION["loggedin"] = true;
                     $_SESSION["user_id"] = $row['user_id'];
                     $_SESSION["user_contact"] = $row['user_contact'];
+                    $_SESSION["user_name"] = $row['user_name'];
                     // Redirect user to welcome page
                     // header("location: index.php");
                     echo "<div class='alert alert-success' role='alert'>

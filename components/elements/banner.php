@@ -4,8 +4,8 @@
         <div class="carousel-item active">
             <div class="banner m-3">
                 <div class="col-md-6 col-xs-12 banner-content">
-                    <h1>Fresh Vegetables Big Discounts</h1>
-                    <p>Save upto 50% off on your first order</p>
+                    <h1>Moringa products for healthy life</h1>
+                    <p>Sourced directly from the farmers</p>
                 </div>
                 <div class="col-md-6 banner-img">
                     <img src="assets/images/background/banner-1.png" alt="" class="img-fluid">
@@ -16,8 +16,8 @@
         <div class="carousel-item">
             <div class="banner m-3" id="banner-red">
                 <div class="col-md-6 col-xs-2 banner-content">
-                    <h1>Fresh Vegetables Big Discounts</h1>
-                    <p>Save upto 50% off on your first order</p>
+                    <h1>Scientifically researched moringa products</h1>
+                    <p>Live a healthier, fitter & beautiful life</p>
                 </div>
                 <div class="col-md-6 banner-img">
                     <img src="assets/images/background/banner-1.png" alt="" class="img-fluid">

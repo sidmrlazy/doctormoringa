@@ -186,6 +186,16 @@ input[type="number"] {
   left: 0;
   font-size: 12px;
 }
+.badge-color {
+  color: #fff !important;
+  background-color: #44ad40;
+  margin-left: 5px;
+}
+.cart-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 /* =========== Navbar =========== */
 .navbar {
@@ -283,7 +293,7 @@ input[type="number"] {
 .banner-content h1 {
   font-size: 66px;
   font-weight: 600 !important;
-  line-height: 55px;
+  line-height: 70px;
 }
 .banner-img {
   max-width: 100%;
@@ -577,7 +587,7 @@ input[type="number"] {
   border-radius: 10px;
   padding: 20px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   margin-bottom: 10px;
 }
@@ -633,6 +643,7 @@ input[type="number"] {
   font-weight: 800;
   font-size: 30px;
   margin-left: 20px;
+  width: 100%;
 }
 .final-section {
   display: flex;
@@ -968,6 +979,10 @@ input[type="number"] {
   margin-top: 50px;
   margin-bottom: 150px;
 }
+.shopping-section h1 {
+  font-weight: bold;
+  color: #44ad40;
+}
 .shopping-section-heading h1 {
   font-weight: 700;
   color: #5bb336;
@@ -990,6 +1005,7 @@ input[type="number"] {
   width: 350px;
   height: auto;
   flex: 1 1 1 300px;
+  text-decoration: none;
 }
 .shopping-section-card img {
   width: 200px;
@@ -1349,7 +1365,7 @@ input[type="number"] {
     align-items: flex-start;
   }
   .banner-content h1 {
-    font-size: 30px !important;
+    font-size: 20px !important;
     font-weight: bolder;
     line-height: 30px;
   }

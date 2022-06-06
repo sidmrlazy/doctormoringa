@@ -6,16 +6,40 @@
     <div class="col-md-4">
         <div class="top-nav-row">
             <div class="top-nav-inner-row">
-                <a href="cart">
-                    <ion-icon name="cart-outline" class="top-nav-icon"></ion-icon>
+                <a href="cart" class="cart-button">
+
+                    <ion-icon name="cart-outline" class="top-nav-icon">
+                    </ion-icon>
                     <p>Cart</p>
+                    <?php
+                    include('admin/includes/server/config.php');
+
+                    $fetch_count_query = "SELECT * FROM `cart` JOIN `user` WHERE `cart_user_id` = `user_id`";
+                    $result = mysqli_query($connection, $fetch_count_query);
+
+                    if ($cart_row = mysqli_fetch_assoc($result)) {
+                        if (isset($_SESSION['USER_LOGIN'])) {
+                            $cart_products = mysqli_num_rows($result);
+                        } else {
+                            $cart_products = "";
+                        }
+                    }
+
+
+                    ?>
+                    <span class="badge badge-color badge-dark"><?php echo $cart_products ?></span>
                 </a>
             </div>
             <div class="top-nav-inner-row">
                 <?php
-                if (isset($_SESSION['user_contact'])) {
+                if (isset($_SESSION['user_name']) || isset($_SESSION['user_contact'])) {
+                    $user_name = $_SESSION['user_name'];
                     $user_contact = $_SESSION['user_contact'];
-                    echo "<a href='profile'><ion-icon name='person-outline' class='top-nav-icon'></ion-icon><p>$user_contact</p></a>";
+                    if ($user_name == null) {
+                        echo "<a href='profile'><ion-icon name='person-outline' class='top-nav-icon'></ion-icon><p>$user_contact</p></a>";
+                    } else {
+                        echo "<a href='profile'><ion-icon name='person-outline' class='top-nav-icon'></ion-icon><p>$user_name</p></a>";
+                    }
                 } else {
                     echo "<a href='login'><ion-icon name='person-outline' class='top-nav-icon'></ion-icon><p>Login | Register</p></a>";
                 }
@@ -23,7 +47,7 @@
             </div>
             <div class="top-nav-inner-row">
                 <?php
-                if (isset($_SESSION['user_contact'])) {
+                if (isset($_SESSION['user_name']) || isset($_SESSION['user_contact'])) {
                     echo "<a href='logout.php'><ion-icon name='log-out-outline' class='top-nav-icon'></ion-icon><p>Logout</p></a>";
                 } else {
                     echo "<a href='logout.php' class='d-none'><ion-icon name='log-out-outline' class='top-nav-icon'></ion-icon><p>Logout</p></a>";
