@@ -5,85 +5,139 @@
             <h1>Create an Account</h1>
             <p>Already have an account? <span><a href="login">Login</a></span></p>
         </div>
-        <form action="" method="POST">
-            <?php
-            include('admin/includes/server/config.php');
-            if (isset($_POST['submit'])) {
-                $user_name = $_POST['user_name'];
-                $user_password = $_POST['user_password'];
-                $user_confirm_password = $_POST['user_confirm_password'];
-                $user_contact = $_POST['user_contact'];
-                $user_email = $_POST['user_email'];
-                $user_type = "2";
-                if (
-                    $user_name == ""
-                ) {
-                    echo "<div class='alert alert-danger' role='alert'>Please enter your name!</div>";
-                } else if ($user_password == "" || $user_confirm_password == "") {
-                    echo "<div class='alert alert-danger' role='alert'>Looks like you missed out the password or confirm password fields!</div>";
-                } else if ($user_contact == "") {
-                    echo "<div class='alert alert-danger' role='alert'>We need your mobile number!</div>";
-                } else {
-                    if ($user_password != $user_confirm_password) {
-                        echo "<div class='alert alert-danger' role='alert'>Oops! Passwords do not match.</div>";
-                    } else {
-                        $secure_password = password_hash($user_password, PASSWORD_BCRYPT);
-                        $query = "INSERT INTO user (
-                                user_name, 
-                                user_password, 
-                                user_contact, 
-                                user_email, 
-                                user_type
-                                ) VALUES(
-                                    '$user_name', 
-                                    '$secure_password',
-                                    '$user_contact',
-                                    '$user_email',
-                                    '$user_type'                                    
-                                    )";
-                        $result = mysqli_query($connection, $query);
 
-                        if (!$result) {
-                            echo "<div class='alert alert-danger' role='alert'>Something went wrong!</div>";
+        <?php
+
+        require_once "server/config.php";
+
+        $user_contact = $user_password = $confirm_user_password = "";
+        $user_contact_err = $user_password_err = $confirm_user_password_err = "";
+
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            if (empty(trim($_POST["user_contact"]))) {
+                $user_contact_err = "Please enter User Contact.";
+            } else {
+                $sql = "SELECT user_id FROM user WHERE user_contact = ?";
+                if ($stmt = mysqli_prepare($connection, $sql)) {
+                    mysqli_stmt_bind_param($stmt, "s", $param_user_contact);
+                    $param_user_contact = trim($_POST["user_contact"]);
+                    if (mysqli_stmt_execute($stmt)) {
+                        mysqli_stmt_store_result($stmt);
+                        if (mysqli_stmt_num_rows($stmt) == 1) {
+                            $user_contact_err = "This Mobile number is already registered with us. Please Login";
                         } else {
-                            echo "<div class='alert alert-success' role='alert'>Welcome!</div>";
+                            $user_contact = trim($_POST["user_contact"]);
                         }
+                    } else {
+                        echo "Oops! Something went wrong. Please try again later.";
                     }
+                    mysqli_stmt_close($stmt);
                 }
             }
 
-            ?>
+            if (empty(trim($_POST["user_password"]))) {
+                $user_password_err = "Please enter a password.";
+            } elseif (strlen(trim($_POST["user_password"])) < 6) {
+                $user_password_err = "Password must have atleast 6 characters.";
+            } else {
+                $user_password = trim($_POST["user_password"]);
+            }
+
+            if (empty(trim($_POST["confirm_user_password"]))) {
+                $confirm_user_password_err = "Please confirm password.";
+            } else {
+                $confirm_user_password = trim($_POST["confirm_user_password"]);
+                if (empty($user_password_err) && ($user_password != $confirm_user_password)) {
+                    $confirm_user_password_err = "Password did not match.";
+                }
+            }
+
+            if (empty($user_contact_err) && empty($user_password_err) && empty($confirm_user_password_err)) {
+
+                $sql = "INSERT INTO user (user_contact, user_password, user_type) VALUES (?, ?, 2)";
+                if ($stmt = mysqli_prepare($connection, $sql)) {
+                    mysqli_stmt_bind_param($stmt, "ss", $param_user_contact, $param_user_password);
+                    $param_user_contact = $user_contact;
+                    // $param_user_password = password_hash($user_password, PASSWORD_DEFAULT);
+                    $param_user_password = $user_password;
+                    if (mysqli_stmt_execute($stmt)) {
+                        header("location: login.php");
+                    } else {
+                        echo "Oops! Something went wrong. Please try again later.";
+                    }
+                    mysqli_stmt_close($stmt);
+                }
+            }
+
+            mysqli_close($connection);
+        }
+        ?>
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
             <div class="form-floating mb-3">
-                <input name="user_name" type="text" class="form-control" id="floatingInput" placeholder="Username">
-                <label for="floatingInput">Full Name</label>
-            </div>
-            <div class="form-floating mb-3">
-                <input type="number" name="user_contact" class="form-control" id="floatingContactAddress"
-                    placeholder="+91 XXXXXXXXXX">
+                <input type="number" name="user_contact" value="<?php echo $user_contact; ?>"
+                    class="form-control <?php echo (!empty($user_contact_err)) ? 'is-invalid' : ''; ?> "
+                    id="floatingContactAddress" placeholder="+91 XXXXXXXXXX">
                 <label for="floatingInput">Mobile Number</label>
             </div>
             <div class="form-floating mb-3">
-                <input type="email" name="user_email" class="form-control" id="floatingEmailAddress"
-                    placeholder="name@example.com">
-                <label for="floatingInput">Email address</label>
-            </div>
-            <div class="form-floating mb-3">
-                <input type="password" name="user_password" class="form-control" id="floatingPassword"
-                    placeholder="Password">
+                <input type="password" name="user_password" value="<?php echo $user_password; ?>"
+                    class="form-control <?php echo (!empty($user_password_err)) ? 'is-invalid' : ''; ?>"
+                    id="floatingPassword" placeholder="Password">
                 <label for="floatingPassword">Password</label>
             </div>
             <div class="form-floating mb-3">
-                <input type="password" name="user_confirm_password" class="form-control" id="floatingConfirmPassword"
-                    placeholder="Confirm Password">
+                <input type="password" value="<?php echo $confirm_user_password; ?>" name="confirm_user_password"
+                    class="form-control <?php echo (!empty($confirm_user_password_err)) ? 'is-invalid' : ''; ?>"
+                    id="floatingConfirmPassword" placeholder="Confirm Password">
                 <label for="floatingPassword">Confirm Password</label>
             </div>
 
-            <!-- <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="user_tnc" id="flexCheckDefault">
-                <label class="form-check-label" name="user_tnc" value="1" for="flexCheckDefault">
-                    I agree to Terms & Conditions
-                </label>
+            <!-- <div class="form-floating mb-3">
+                <input name="user_name " type="text" class="form-control " id="floatingInput" placeholder="user_name">
+                <label for="floatingInput">Full Name</label>
             </div> -->
+
+            <!-- <div class="form-floating mb-3">
+                <input type="email" name="user_email" class="form-control" id="floatingEmailAddress"
+                    placeholder="name@example.com">
+                <label for="floatingInput">Email address</label>
+            </div> -->
+
+
+            <!-- <div class="form-floating mb-3">
+                <select name="user_state" class="form-select" id="floatingSelect"
+                    aria-label="Floating label select example">
+                    <option selected>---- Select State ----</option>
+                    <option name="user_state" value="UP">One</option>
+                    <option name="user_state" value="UK">Two</option>
+                    <option name="user_state" value="Kashmir">Three</option>
+                </select>
+                <label for="floatingSelect">State</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <select class="form-select" name="user_city" id="floatingSelect"
+                    aria-label="Floating label select example">
+                    <option selected>---- Select City ----</option>
+                    <option name="user_city" value="Lucknow">One</option>
+                    <option name="user_city" value="Bareilly">Two</option>
+                    <option name="user_city" value="Almorah">Three</option>
+                </select>
+                <label for="floatingSelect">City</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <textarea class="form-control" name="user_address" placeholder="Leave a comment here"
+                    id="floatingTextarea2" style="height: 100px"></textarea>
+                <label for="floatingTextarea2">Full Address</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input name="user_pincode" type="text" class="form-control" id="floatingInput"
+                    placeholder="Full Address">
+                <label for="floatingInput">Pincode</label>
+            </div> -->
+
             <button type="submit" class="register-btn" value="submit" name="submit">SUBMIT</button>
             <p class="text-center mt-2">By creating this account you accept our Terms & Conditions</p>
         </form>

@@ -14,7 +14,7 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
-/* ================ Login Form ================ */
+/* ================================================ Login Form ================================================ */
 .login-section {
   display: flex;
   justify-content: center;
@@ -64,7 +64,7 @@ input[type="number"] {
   height: auto !important;
 }
 
-/* ================ Navbar ================ */
+/* ================================================ Navbar ================================================ */
 .navbar {
   background-color: #00000000 !important;
 }
@@ -94,7 +94,7 @@ input[type="number"] {
   background-color: #00000000 !important;
 }
 
-/* ================ Side Nav ================ */
+/* ================================================ Side Nav ================================================ */
 .side-nav-custom {
   border-right: 1px solid #e7e7e7e7;
   height: 100%;
@@ -205,7 +205,7 @@ input[type="number"] {
   line-height: 1.25;
 } */
 
-/* ================ Users ================ */
+/* ================================================ Users ================================================ */
 .user-section {
   margin-top: 20px;
   margin-left: 150px !important;
@@ -218,15 +218,7 @@ input[type="number"] {
 .card {
   padding: 30px;
 }
-.custom-form-button {
-  width: 100%;
-  margin-top: 10px;
-  height: 50px;
-  background-color: #5bb336 !important;
-  font-size: 20px !important;
-  font-weight: 900 !important;
-  border: 0 !important;
-}
+
 .lottie-container {
   display: flex;
   justify-content: center;
@@ -268,7 +260,7 @@ input[type="number"] {
   height: 100px !important;
 }
 
-/* ================ Users ================ */
+/* ================================================ Orders ================================================ */
 .new-order-tab {
   background: rgb(59, 139, 24);
   background: linear-gradient(
@@ -293,8 +285,120 @@ input[type="number"] {
   margin-right: 20px;
 }
 
-/* ================ Inventory ================ */
-.inventory-table-img {
+/* ================================================ Inventory ================================================ */
+.inventory-section {
+  margin-left: 200px !important;
+  margin-top: 30px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.invenotry-card {
+  flex: 1 1 1 200px;
+  margin: 5px;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #fff;
+}
+.inventory-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid #e7e7e7;
+  border-radius: 10px;
+  padding: 10px;
+  width: 250px;
+  height: 250px;
+}
+.inventory-details img {
+  width: 150px;
+  height: auto;
+}
+.inventory-details input {
+  border: 0;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  color: #000;
+}
+.inventory-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
+}
+.edit-btn {
+  width: 100%;
+  border: 1px solid #5bb336;
+  background-color: #00000000;
+  border-radius: 5px;
+  padding: 5px;
+  color: #5bb336;
+  font-weight: bold;
+  margin: 2px;
+}
+.edit-btn:hover {
+  background-color: #5bb336;
+  color: #fff;
+  transition: 0.5s all ease-in-out;
+}
+.del-btn {
+  width: 100%;
+  border: 1px solid #a84632;
+  background-color: #00000000;
+  border-radius: 5px;
+  padding: 5px;
+  color: #a84632;
+  font-weight: bold;
+  margin: 2px;
+}
+.del-btn:hover {
+  background-color: #a84632;
+  color: #fff;
+  transition: 0.5s all ease-in-out;
+}
+.product-image-section img {
+  width: 100%;
+  height: auto;
+}
+.edit-form-btn-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  margin-top: 15px;
+}
+.custom-form-button {
+  width: 100%;
+  height: 50px;
+  background-color: #5bb336 !important;
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  border: 0 !important;
+  margin: 5px;
+}
+.delete-button-edit {
+  width: 100%;
+  height: 50px;
+  background-color: #a84632 !important;
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  padding: 10px;
+  border: 0 !important;
+  margin: 5px;
+  color: #fff;
+}
+.no-products {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+}
+/* .inventory-table-img {
   width: 50px !important;
   height: auto;
   display: flex;
@@ -306,4 +410,4 @@ input[type="number"] {
   justify-content: center;
   align-items: center;
   width: 200px !important;
-}
+} */

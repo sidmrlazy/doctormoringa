@@ -1,4 +1,4 @@
-<footer class="footer-section">
+<footer class="w-100 footer-section mt-5">
     <div class="footer-section-col col-md-3">
         <a href="index">
             <img src="assets/images/logo/logo.png" alt="">
@@ -13,7 +13,7 @@
 
         <div class="footer-row">
             <ion-icon name="headset" id="footer-icon"></ion-icon>
-            <p>+91 9876543210</p>
+            <p>+91 88403 46183</p>
         </div>
 
         <div class="footer-row">
@@ -56,7 +56,10 @@
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
 <!-- Custom JavaScript -->
-<script src="assets/js/custom.js"></script>
+<script type="text/javascript" src="assets/js/custom.js"></script>
+
+
+
 
 </body>
 
