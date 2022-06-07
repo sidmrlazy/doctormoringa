@@ -1717,7 +1717,6 @@ input[type="number"] {
   }
 
   /* ========= Shop ========= */
-  /* ========= Shop ========= */
   .shop-section-heading {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -1821,11 +1820,11 @@ input[type="number"] {
     font-weight: bold;
   }
   .add-cart-btn {
-    width: 100px;
     border: 1px solid #44ad40;
     padding: 5px;
     color: #44ad40;
     border-radius: 5px;
+    width: 100px !important;
   }
   .add-cart-btn:hover {
     color: #fff;

@@ -36,7 +36,7 @@
                           `item_weight`='$item_weight',
                           `item_ingredients`='$item_ingredients',
                           `item_benefits`='$item_benefits',
-                          `item_category`='$item_usage',
+                          `item_usage`='$item_usage',
                           `item_price`='$item_price',
                           `item_category`='$item_category' 
                           WHERE `item_id` = $item_id";
