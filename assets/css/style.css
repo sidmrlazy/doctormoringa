@@ -1831,4 +1831,56 @@ input[type="number"] {
     color: #fff;
     background-color: #44ad40;
   }
+
+  /* =================== PRODUCT DETAILS =================== */
+  .modal-header {
+    width: 100%;
+  }
+  .modal-header p {
+    font-weight: bold;
+    color: #44ad40;
+    font-size: 24px;
+  }
+  .product-card-xl {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center !important;
+    flex-direction: column !important;
+    margin-top: 20px;
+    overflow-x: hidden !important; /* Hide horizontal scrollbar */
+  }
+  .product-card-xl-img {
+    border: 1px solid #e7e7e7;
+    border-radius: 10px;
+    margin-right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100% !important;
+    height: auto;
+  }
+  .product-cat-xl {
+    font-size: 14px !important;
+    color: #777;
+    margin: 0 !important;
+    margin-top: 10px !important;
+  }
+  .product-name-xl {
+    font-weight: 600;
+    font-size: 36px !important;
+    color: #44ad40;
+    margin-bottom: 20px !important;
+    line-height: 40px !important;
+  }
+  .product-weight-xl {
+    font-size: 14px !important;
+    color: #777;
+    margin-top: 5px !important;
+  }
+  .product-price-xl {
+    font-size: 44px !important;
+    font-weight: bolder;
+    color: #44ad40;
+  }
 }
