@@ -1687,7 +1687,7 @@ input[type="number"] {
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
-    padding: 0 !important;
+    padding: 30px !important;
     width: 100%;
   }
 

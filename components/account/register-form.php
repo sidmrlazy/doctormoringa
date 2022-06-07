@@ -91,53 +91,6 @@
                     id="floatingConfirmPassword" placeholder="Confirm Password">
                 <label for="floatingPassword">Confirm Password</label>
             </div>
-
-            <!-- <div class="form-floating mb-3">
-                <input name="user_name " type="text" class="form-control " id="floatingInput" placeholder="user_name">
-                <label for="floatingInput">Full Name</label>
-            </div> -->
-
-            <!-- <div class="form-floating mb-3">
-                <input type="email" name="user_email" class="form-control" id="floatingEmailAddress"
-                    placeholder="name@example.com">
-                <label for="floatingInput">Email address</label>
-            </div> -->
-
-
-            <!-- <div class="form-floating mb-3">
-                <select name="user_state" class="form-select" id="floatingSelect"
-                    aria-label="Floating label select example">
-                    <option selected>---- Select State ----</option>
-                    <option name="user_state" value="UP">One</option>
-                    <option name="user_state" value="UK">Two</option>
-                    <option name="user_state" value="Kashmir">Three</option>
-                </select>
-                <label for="floatingSelect">State</label>
-            </div>
-
-            <div class="form-floating mb-3">
-                <select class="form-select" name="user_city" id="floatingSelect"
-                    aria-label="Floating label select example">
-                    <option selected>---- Select City ----</option>
-                    <option name="user_city" value="Lucknow">One</option>
-                    <option name="user_city" value="Bareilly">Two</option>
-                    <option name="user_city" value="Almorah">Three</option>
-                </select>
-                <label for="floatingSelect">City</label>
-            </div>
-
-            <div class="form-floating mb-3">
-                <textarea class="form-control" name="user_address" placeholder="Leave a comment here"
-                    id="floatingTextarea2" style="height: 100px"></textarea>
-                <label for="floatingTextarea2">Full Address</label>
-            </div>
-
-            <div class="form-floating mb-3">
-                <input name="user_pincode" type="text" class="form-control" id="floatingInput"
-                    placeholder="Full Address">
-                <label for="floatingInput">Pincode</label>
-            </div> -->
-
             <button type="submit" class="register-btn" value="submit" name="submit">SUBMIT</button>
             <p class="text-center mt-2">By creating this account you accept our Terms & Conditions</p>
         </form>
