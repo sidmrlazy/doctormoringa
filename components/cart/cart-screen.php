@@ -59,7 +59,6 @@ if (@$get_details->num_rows > 0) {
     </div>
 
     <form class="w-100" action="save_order_details" method="POST">
-
         <?php
             while ($row = mysqli_fetch_assoc($get_details)) {
                 $item_category = $row['item_category'];
@@ -126,7 +125,7 @@ if (@$get_details->num_rows > 0) {
                     </div>
 
                     <div class="form-floating m-1 user-details">
-                        <input required class="form-control" placeholder="City" type="text" minlength="10"
+                        <input required class="form-control" placeholder="City" type="text" minlength="2"
                             id="floatingInput" name="user_city" value="<?php echo $user_city; ?>">
                         <label for="floatingInput">City</label>
                     </div>
@@ -182,11 +181,15 @@ if (@$get_details->num_rows > 0) {
                 <!-- <button type="submit" name="" class="checkout-btn">Proceed to Checkout</button> -->
                 <input type="text" name="user_id" hidden value="<?php echo $user_id; ?>">
                 <input class="checkout-btn" type="submit" name="submit" value='Proceed to Checkout' />
+
+                <div class="d-flex justify-content-center align-items-center payment-section">
+                    <p class="mt-5">Secure Payment Gateways</p>
+                    <img src="assets/images/icons/payment-method.png" alt="">
+                </div>
             </div>
         </div>
         <?php } else {
-
-            echo "<center> Cart is Empty </center>";
+            echo "<lottie-player src='https://assets8.lottiefiles.com/packages/lf20_fzoupjne.json' class='d-flex justofy-content-center align-items-center w-100' background='transparent'  speed='1'  style='width: 300px; height: 300px;' loop autoplay></lottie-player>";
         } ?>
 
 

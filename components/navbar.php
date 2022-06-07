@@ -14,20 +14,37 @@
                     <?php
                     include('admin/includes/server/config.php');
 
-                    $fetch_count_query = "SELECT * FROM `cart` JOIN `user` WHERE `cart_user_id` = `user_id`";
-                    $result = mysqli_query($connection, $fetch_count_query);
+                    if (isset($_SESSION['USER_LOGIN'])) {
+                        // $fetch_count_query = "SELECT * FROM `cart` JOIN `user` WHERE `cart_user_id` = `user_id`";
+                        $fetch_count_query = "SELECT count(*) FROM `cart` JOIN `user` WHERE `cart_user_id` = `user_id`";
 
-                    if ($cart_row = mysqli_fetch_assoc($result)) {
-                        if (isset($_SESSION['USER_LOGIN'])) {
-                            $cart_products = mysqli_num_rows($result);
-                        } else {
-                            $cart_products = "";
+                        $result = mysqli_query($connection, $fetch_count_query);
+
+                        while ($row = mysqli_fetch_array($result)) {
+                            $product_count = $row['count(*)'];
+
+
+
+                            // if ($result) {
+                            //     while($result)
+                            //     $product_count = mysqli_num_rows($result);
+                            // } else {
+                            //     $product_count = ""
+
+
+                            // if ($cart_row = mysqli_fetch_assoc($result)) {
+                            //     $cart_products_count = $row['cart_id'];
+                            //     $cart_products = mysqli_num_rows($cart_products_count);
+                            // } else {
+                            //     $cart_products = "";
+                            // }
+                    ?>
+                    <span class="badge badge-color badge-dark"><?php echo $product_count ?></span>
+                    <?php
                         }
                     }
 
-
                     ?>
-                    <span class="badge badge-color badge-dark"><?php echo $cart_products ?></span>
                 </a>
             </div>
             <div class="top-nav-inner-row">
