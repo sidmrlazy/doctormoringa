@@ -25,13 +25,13 @@
         <div class="best-seller-card-content">
             <p><?php echo $item_category; ?></p>
             <h5><?php echo $item_name; ?></h5>
-            <div>
+            <!-- <div>
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star"></span>
                 <span class="fa fa-star"></span>
-            </div>
+            </div> -->
 
             <div class="best-seller-mrp-section">
                 <p><?php echo "₹" . $item_price; ?></p>

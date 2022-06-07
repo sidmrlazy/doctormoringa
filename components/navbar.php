@@ -17,27 +17,9 @@
                     if (isset($_SESSION['USER_LOGIN'])) {
                         // $fetch_count_query = "SELECT * FROM `cart` JOIN `user` WHERE `cart_user_id` = `user_id`";
                         $fetch_count_query = "SELECT count(*) FROM `cart` JOIN `user` WHERE `cart_user_id` = `user_id`";
-
                         $result = mysqli_query($connection, $fetch_count_query);
-
                         while ($row = mysqli_fetch_array($result)) {
                             $product_count = $row['count(*)'];
-
-
-
-                            // if ($result) {
-                            //     while($result)
-                            //     $product_count = mysqli_num_rows($result);
-                            // } else {
-                            //     $product_count = ""
-
-
-                            // if ($cart_row = mysqli_fetch_assoc($result)) {
-                            //     $cart_products_count = $row['cart_id'];
-                            //     $cart_products = mysqli_num_rows($cart_products_count);
-                            // } else {
-                            //     $cart_products = "";
-                            // }
                     ?>
                     <span class="badge badge-color badge-dark"><?php echo $product_count ?></span>
                     <?php
@@ -85,14 +67,14 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mx-auto me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="index">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="shop">Shop</a>
                 </li>
-                <li class="nav-item dropdown">
+                <!-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         Browse All Category
@@ -110,36 +92,36 @@
                         ?>
                         <li class="dropdown-row">
                             <img src="assets/images/category-icons/<?php echo $category_image
-                                                                            ?>" />
+                                                                    ?>" />
                             <a class="dropdown-item" href="shop">Doctor Moringa for
                                 <?php echo $category_name;
-                                        ?></a>
+                                ?></a>
                         </li>
                         <?php
                             }
                         }
                         ?>
 
-                        <!-- Mobile View -->
-                        <?php
-                        include('server/config.php');
-                        $query = "SELECT * FROM category";
-                        $result = $connection->query($query);
-                        if ($result->num_rows > 0) {
-                            while ($row = $result->fetch_assoc()) {
-                                $category_image = $row['category_image'];
-                                $category_name =  $row['category_name'];
+                       
+                <?php
+                include('server/config.php');
+                $query = "SELECT * FROM category";
+                $result = $connection->query($query);
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        $category_image = $row['category_image'];
+                        $category_name =  $row['category_name'];
 
-                        ?>
-                        <li class="mobile"><a class="dropdown-item" href="#">Doctor Moringa for
-                                <?php echo $category_name;
-                                        ?></a></li>
-                        <?php
-                            }
-                        }
-                        ?>
-                    </ul>
-                </li>
+                ?>
+                <li class="mobile"><a class="dropdown-item" href="#">Doctor Moringa for
+                        <?php echo $category_name;
+                        ?></a></li>
+                <?php
+                    }
+                }
+                ?>
+            </ul>
+            </li> -->
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
