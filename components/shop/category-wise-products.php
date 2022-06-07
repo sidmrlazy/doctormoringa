@@ -22,7 +22,7 @@
             exit;
         }
 
-        $fetch_details_query = "SELECT * FROM user";
+        $fetch_details_query = "SELECT * FROM user WHERE `user_id` = $user_id ";
         $get_details = mysqli_query($connection, $fetch_details_query);
 
         while ($row = mysqli_fetch_assoc($get_details)) {

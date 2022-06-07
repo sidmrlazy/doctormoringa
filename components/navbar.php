@@ -14,9 +14,15 @@
                     <?php
                     include('admin/includes/server/config.php');
 
+                    if (!empty($_SESSION['user_id'])) {
+                        $user_id = $_SESSION['user_id'];
+                    } else {
+                        $user_id = 0;
+                    }
+                    $quantity = 1;
+
                     if (isset($_SESSION['USER_LOGIN'])) {
-                        // $fetch_count_query = "SELECT * FROM `cart` JOIN `user` WHERE `cart_user_id` = `user_id`";
-                        $fetch_count_query = "SELECT count(*) FROM `cart` JOIN `user` WHERE `cart_user_id` = `user_id`";
+                        $fetch_count_query = "SELECT count(*) FROM `cart` JOIN `user` WHERE `user_id` = $user_id";
                         $result = mysqli_query($connection, $fetch_count_query);
                         while ($row = mysqli_fetch_array($result)) {
                             $product_count = $row['count(*)'];
