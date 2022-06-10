@@ -23,7 +23,8 @@
                 <div class="collapse" id="orders-collapse">
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                         <li><a href="#" class="link-dark rounded">New Orders</a></li>
-                        <li><a href="#" class="link-dark rounded">Past Orders</a></li>
+                        <li><a href="past-orders.php" class="link-dark rounded">Past Orders</a></li>
+                        <li><a href="#" class="link-dark rounded">Transactions</a></li>
                     </ul>
                 </div>
             </li>

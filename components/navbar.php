@@ -22,16 +22,22 @@
                     $quantity = 1;
 
                     if (isset($_SESSION['USER_LOGIN'])) {
-                        $fetch_count_query = "SELECT count(*) FROM `cart` JOIN `user` WHERE `user_id` = $user_id";
-                        $result = mysqli_query($connection, $fetch_count_query);
+                        $fetch_user_contact = "SELECT * FROM `user` WHERE `user_id`=" .  $user_id;
+                        $result = mysqli_query($connection, $fetch_user_contact);
                         while ($row = mysqli_fetch_array($result)) {
-                            $product_count = $row['count(*)'];
+                            $user_id = $row['user_id'];
+                            $fetch_product_count = "SELECT count(*) FROM `cart` WHERE `cart_user_id`=" . $user_id;
+                            $product_count_result = mysqli_query($connection, $fetch_product_count);
+                            if ($product_count_result) {
+                                while ($row = mysqli_fetch_assoc($product_count_result)) {
+                                    $product_count = $row['count(*)'];
+                                }
+                            }
                     ?>
                     <span class="badge badge-color badge-dark"><?php echo $product_count ?></span>
                     <?php
                         }
                     }
-
                     ?>
                 </a>
             </div>
@@ -73,7 +79,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav mx-auto me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="index">Home</a>
                 </li>

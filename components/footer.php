@@ -36,7 +36,9 @@
 
     <div class="footer-section-col col-md-3">
         <h4 id="mobile-footer-header">Account</h4>
-        <li>Sign In</li>
+        <a href="login">
+            <li>Sign In | Register</li>
+        </a>
         <li>View Cart</li>
         <li>Track Order </li>
     </div>

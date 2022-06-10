@@ -14,6 +14,15 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
+::-moz-selection {
+  /* Code for Firefox */
+  background: #5bb336;
+}
+
+::selection {
+  background: #5bb336;
+}
+
 /* ================================================ Login Form ================================================ */
 .login-section {
   display: flex;
@@ -204,6 +213,61 @@ input[type="number"] {
 .lh-tight {
   line-height: 1.25;
 } */
+/* ================================================ Inventory ================================================ */
+.dashboard-tab {
+  margin-left: 250px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.tabs#green {
+  border: 1px solid #e7e7e7;
+  background-color: #fff;
+  width: 250px;
+  height: 120px;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  background: rgb(91, 179, 54);
+  background: linear-gradient(
+    90deg,
+    rgba(91, 179, 54, 1) 0%,
+    rgba(50, 153, 46, 0.8099614845938375) 35%
+  );
+  margin: 5px;
+}
+.tabs#blue {
+  border: 1px solid #e7e7e7;
+  background-color: #fff;
+  width: 250px;
+  height: 120px;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  background: rgb(42, 76, 194);
+  background: linear-gradient(
+    90deg,
+    rgba(42, 76, 194, 1) 0%,
+    rgba(55, 113, 170, 0.8827906162464986) 41%
+  );
+  margin: 5px;
+}
+.tabs p {
+  margin: 0;
+  color: #fff;
+}
+.tabs h1 {
+  margin: 0;
+  font-weight: bold;
+  color: #fff;
+}
 
 /* ================================================ Users ================================================ */
 .user-section {
@@ -284,7 +348,61 @@ input[type="number"] {
   color: #fff;
   margin-right: 20px;
 }
-
+/* ================================================ Past Orders ================================================ */
+.past-orders-section {
+  margin-left: 220px !important;
+  margin-top: 25px;
+}
+.past-orders-section-header {
+  font-size: 24px;
+  font-weight: 500;
+  color: #777;
+}
+.past-order-card {
+  width: 98%;
+  border: 1px solid #e7e7e7e7;
+  border-radius: 5px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: #fff;
+  margin-bottom: 20px;
+}
+.customer-name {
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+}
+.label {
+  font-size: 14px;
+  color: #777;
+  margin: 0;
+}
+.response {
+  font-size: 20px;
+  font-weight: 500;
+  color: #000;
+  margin: 0 !important;
+}
+.status-paid {
+  background-color: #5bb336;
+  padding: 2px;
+  border-radius: 5px;
+  color: #126328;
+  font-weight: bold;
+  width: 80px;
+  text-align: center;
+}
+.status-fail {
+  background-color: #e05b4f;
+  padding: 2px;
+  border-radius: 5px;
+  color: #7a1f17;
+  font-weight: bold;
+  width: 80px;
+  text-align: center;
+}
 /* ================================================ Inventory ================================================ */
 .inventory-section {
   margin-left: 200px !important;

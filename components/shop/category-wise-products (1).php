@@ -1,7 +1,7 @@
 <!-- shopping-section start -->
 <div class="shopping-section">
     <?php
-    include('admin/includes/server/config.php');
+
     if (!empty($_SESSION['user_id'])) {
         $user_id = $_SESSION['user_id'];
     } else {
@@ -9,7 +9,7 @@
     }
     $quantity = 1;
 
-
+    include('admin/includes/server/config.php');
     if (isset($_POST['add_to_cart'])) {
         if (!isset($_SESSION['user_contact'])) {
             echo "<script type='text/javascript'>
@@ -22,7 +22,7 @@
             exit;
         }
 
-        $fetch_details_query = "SELECT * FROM `user` WHERE `user_id`=" . $user_id;
+        $fetch_details_query = "SELECT * FROM user WHERE id=" . $user_id;
         $get_details = mysqli_query($connection, $fetch_details_query);
 
         while ($row = mysqli_fetch_assoc($get_details)) {
@@ -121,117 +121,21 @@
                 }
 
     ?>
-    <!-- Product Details Modal Start -->
+
+    <!-- ?Test  2-->
+
+    <h1><?php echo '<div class="shopping-section-heading cl-sm-12">' . $item_category . '</div>' ?></h1>
+
     <?php
-                include('admin/includes/server/config.php');
-                if (isset($_POST['read_more'])) {
-                    $cart_item_id = $_POST['item_id'];
-                    $fetch_product_details_query = "SELECT * FROM items WHERE item_id = $cart_item_id";
-                    $product_details_result = mysqli_query($connection, $fetch_product_details_query);
+                $previous_category = $item_category;
 
-                    while ($row = mysqli_fetch_array($product_details_result)) {
-                        $item_category = $row['item_category'];
-                        $item_image = "admin/assets/images/products/" . $row['item_image'];
-                        $item_name = $row['item_name'];
-                        $item_id = $row['item_id'];
-                        $item_ingredients = $row['item_ingredients'];
-                        $item_usage = $row['item_usage'];
-                        $item_benefits = $row['item_benefits'];
-                        $item_weight = $row['item_weight'];
-                        $item_price = $row['item_price'];
-                    }
-                ?>
-
-    <!-- Product Details Modal Start -->
-    <div class="modal" id="productModal" tabindex="-1">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content ">
-                <div class="modal-header">
-                    <p>Product ID: <?php echo $item_id; ?> </p>
-                    <a href="shop" class="btn-close" aria-label="Close"></a>
-                </div>
-                <div class="modal-body">
-                    <div class="product-card-xl">
-                        <div class="product-card-xl-img col-md-4">
-                            <img src="<?php echo $item_image; ?>" alt="<?php echo $item_name; ?>">
-                        </div>
-                        <div class="col-md-6">
-                            <p class="product-cat-xl"><?php echo $item_category; ?></p>
-                            <h1 class="product-name-xl"><?php echo $item_name; ?></h1>
-                            <p class="product-weight-xl">Weight: <?php echo $item_weight; ?></p>
-
-                            <p class="product-price-xl"> ₹<?php echo $item_price; ?></p>
-
-                            <!-- Inner Nav -->
-                            <ul class="nav nav-tabs mt-3" id="myTab" role="tablist">
-                                <li class="nav-item tab-item" role="presentation">
-                                    <button class="nav-link  active" id="ingredients-tab" data-bs-toggle="tab"
-                                        data-bs-target="#ingredients" type="button" role="tab"
-                                        aria-controls="ingredients" aria-selected="true">Ingredients</button>
-                                </li>
-                                <li class="nav-item tab-item" role="presentation">
-                                    <button class="nav-link " id="benefits-tab" data-bs-toggle="tab"
-                                        data-bs-target="#benefits" type="button" role="tab" aria-controls="benefits"
-                                        aria-selected="false">Benefits</button>
-                                </li>
-                                <li class="nav-item tab-item" role="presentation">
-                                    <button class="nav-link " id="usage-tab" data-bs-toggle="tab"
-                                        data-bs-target="#usage" type="button" role="tab" aria-controls="usage"
-                                        aria-selected="false">Usage</button>
-                                </li>
-                            </ul>
-                            <div class="tab-content" id="myTabContent">
-                                <!-- ============= ingredients ============= -->
-                                <div class="tab-pane fade show active" id="ingredients" role="tabpanel"
-                                    aria-labelledby="ingredients-tab">
-                                    <div class="accordion-body">
-                                        <div class="w-100 custom-card">
-                                            <p><?php echo $item_ingredients; ?></p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="tab-pane fade show " id="benefits" role="tabpanel"
-                                    aria-labelledby="benefits-tab">
-                                    <div class="accordion-body">
-                                        <div class="w-100 custom-card">
-                                            <p><?php echo $item_benefits; ?></p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="tab-pane fade show " id="usage" role="tabpanel" aria-labelledby="usage-tab">
-                                    <div class="accordion-body">
-                                        <div class="w-100 custom-card">
-                                            <p><?php echo $item_usage; ?></p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <!-- Inner Nav -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <?php
-                    echo "<script type='text/javascript'>
-    $(document).ready(function() {
-        $('#productModal').modal('show');
-    });
-    </script>";
-                }
-                ?>
-    <!-- Product Details Modal End -->
-
-    <h1 class="mt-5"><?php echo '<div class="shopping-section-heading cl-sm-12">' . $item_category . '</div>' ?></h1>
-    <?php $previous_category = $item_category;
                 echo '<div class="shopping-section-wrapper">';
             } ?>
 
-    <form method="POST" action="" class="shopping-section-card m-1">
+
+
+
+    <div class="shopping-section-card">
         <img src="<?php echo $item_image;  ?>" alt="" />
 
         <div class="shopping-section-product-details">
@@ -240,16 +144,16 @@
                 placeholder="<?php echo $item_id ?>" />
 
             <!-- Item Name -->
-            <input type="text" readonly name="item_name" class="product_name" value="<?php echo $item_name ?>" />
+            <input type="text" name="item_name" class="product_name" value="<?php echo $item_name ?>" />
 
             <!-- Item Weight -->
-            <input type="text" readonly name="item_weight" class="product-weight" value="<?php echo $item_weight ?>" />
+            <input type="text" name="item_weight" class="product-weight" value="<?php echo $item_weight ?>" />
         </div>
 
         <div class="shopping-action-section">
             <!-- Item Price -->
-            <input type="text" class="product_price" readonly name="item_price" value="₹<?php echo $item_price ?>"
-                placeholder="₹<?php echo $item_price ?>" />
+            <input type="text" class="product_price" readonly name="item_price" value="<?php echo "₹" . $item_price ?>"
+                placeholder="<?php echo "₹" . $item_price ?>" />
 
             <?php if (!empty($cart_user_id) && $cart_user_id == $user_id) { ?>
 
@@ -338,7 +242,7 @@
                     placeholder="<?php echo $item_id ?>" />
 
                 <input type="text" class="product_price w-100" hidden name="item_price"
-                    value="₹ <?php echo $item_price ?>" placeholder="₹ <?php echo $item_price ?>" />
+                    value="<?php echo "₹" . $item_price ?>" placeholder="<?php echo "₹" . $item_price ?>" />
 
                 <input type="number" name="item_qty" hidden id="number" value="<?php
                                                                                             if (!empty($cart_user_id) && $cart_user_id == $user_id) {
@@ -351,18 +255,21 @@
                 <button type="submit" name="add_to_cart" class="btn add-btn add-cart-btn">
                     Add
                 </button>
-                <button type="submit" name="read_more" class="btn add-btn add-cart-btn">
-                    Read More
-                </button>
             </form>
             <?php } ?>
         </div>
-    </form>
+    </div>
 
 
     <!-- </div> -->
     <?php
+            // if ($previous_category != $item_category) {
+            //     echo $previous_category."wrap endddddddddddddd.......... <div>
+            //         </div>";
+            //     $previous_category = $item_category;
 
+            //     $change =2;
+            // } 
 
         }
     }
@@ -371,3 +278,6 @@
     </div>";
 
     ?>
+    <!-- </div> -->
+
+    <!-- isko theek karna hai, aise ki saara data category wise -->
