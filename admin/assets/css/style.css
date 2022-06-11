@@ -224,8 +224,8 @@ input[type="number"] {
 .tabs#green {
   border: 1px solid #e7e7e7;
   background-color: #fff;
-  width: 250px;
-  height: 120px;
+  width: 300px;
+  height: 150px;
   padding: 10px;
   border-radius: 5px;
   display: flex;
@@ -243,8 +243,8 @@ input[type="number"] {
 .tabs#blue {
   border: 1px solid #e7e7e7;
   background-color: #fff;
-  width: 250px;
-  height: 120px;
+  width: 300px;
+  height: 150px;
   padding: 10px;
   border-radius: 5px;
   display: flex;
