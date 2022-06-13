@@ -1,15 +1,15 @@
 <?php
 // Production
-// $servername = "localhost";
-// $username = "u976956619_doctor_moringa";
-// $database = "u976956619_doctor_moringa";
-// $password = "Darthvader@order66";
+$servername = "localhost";
+$username = "u976956619_doctor_moringa";
+$database = "u976956619_doctor_moringa";
+$password = "Darthvader@order66";
 
 // Development
-$servername = "localhost";
-$username = "root";
-$database = "doctor_moringa";
-$password = "";
+// $servername = "localhost";
+// $username = "root";
+// $database = "doctor_moringa";
+// $password = "";
 
 // Validate Connection
 $connection = new mysqli($servername, $username, $password, $database);
