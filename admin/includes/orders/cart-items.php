@@ -17,9 +17,20 @@ if (isset($_POST['submit'])) {
 ?>
 <div class="cart-item-details">
 
+    <nav aria-label="breadcrumb breadcrumb-section mb-5">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="past-orders.php">Past Orders</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Order Details</li>
+        </ol>
+    </nav>
+
     <div class="cart-user-details">
         <div class="cart-element">
             <p class="">Order ID: </p>
+            <p class="cart-user-contact"><?php echo "DRM" . $generated_order . $order_id; ?></p>
+        </div>
+        <div class="cart-element">
+            <p class="">Payment ID: </p>
             <p class="cart-user-contact"><?php echo "DRM" . $generated_order . $order_id; ?></p>
         </div>
         <div class="cart-element">

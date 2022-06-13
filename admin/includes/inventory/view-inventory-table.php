@@ -1,4 +1,5 @@
 <div class="container inventory-section">
+
     <?php
     include('includes/server/config.php');
 
@@ -20,6 +21,7 @@
                 $previous_category = $item_category;
             }
     ?>
+
     <form action="edit-item.php" method="post">
         <div class="invenotry-card">
             <div class="inventory-details">

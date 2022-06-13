@@ -539,11 +539,23 @@ input[type="number"] {
   width: 200px !important;
 } */
 /* ================================================ CART ITEM DETAILS ================================================ */
+
 .cart-item-details {
   margin-left: 250px !important;
   margin-top: 10px;
   width: 80%;
   margin-bottom: 50px;
+}
+.breadcrumb {
+  border: 1px solid #e7e7e7 !important;
+  background-color: #54e37a !important;
+  padding: 20px !important;
+  margin-top: 50px !important;
+}
+.breadcrumb-item a {
+  text-decoration: none !important;
+  color: #777 !important;
+  font-weight: bold;
 }
 .cart-user-details {
   border: 1px solid #e7e7e7;

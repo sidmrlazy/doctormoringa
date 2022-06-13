@@ -1242,7 +1242,27 @@ input[type="number"] {
   margin: 0 !important;
   color: #000;
 }
-
+.profile-details {
+  padding: 20px;
+}
+.profile-details h5 {
+  margin-bottom: 20px;
+  color: #44ad40;
+  font-weight: bold;
+  font-size: 16px;
+}
+.customer-name {
+  font-weight: bold;
+  color: #000;
+  font-size: 24px;
+  margin: 0;
+}
+.profile-details-icons {
+  margin-right: 10px;
+}
+.para-details {
+  margin: 0;
+}
 /* =================== PRODUCT DETAILS =================== */
 .modal,
 .modal-dialog,
@@ -1327,6 +1347,54 @@ input[type="number"] {
   transition: 0.5s all ease-in-out;
 }
 
+/* =================== PAST ORDERS =================== */
+.past-orders-section {
+  border-top: 1px solid #e7e7e7;
+  padding: 50px;
+}
+.orderid {
+  margin: 0;
+}
+.orderid-res {
+  font-weight: bold;
+}
+.past-orders-inner-card {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.past-orders-img-box {
+  border: 1px solid #e7e7e7;
+  max-width: 200px;
+  max-height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+}
+.past-orders-img-box img {
+  width: 180px;
+  height: auto;
+}
+.history-product-name {
+  font-weight: bold;
+  font-size: 24px;
+  margin: 0;
+}
+.history-product-weight {
+  margin-left: 10px;
+}
+.weight-price {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.product-price {
+  font-weight: bold;
+  font-size: 24px;
+  color: #44ad40;
+  margin: 0;
+}
 /* =================== RESPONSIVE =================== */
 @media only screen and (max-width: 768px) {
   /* ======== Top Navbar ======== */
@@ -1869,5 +1937,11 @@ input[type="number"] {
     font-size: 44px !important;
     font-weight: bolder;
     color: #44ad40;
+  }
+  .past-orders-inner-card {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
   }
 }
