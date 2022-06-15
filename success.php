@@ -29,20 +29,24 @@ if (empty($_POST['razorpay_payment_id']) === false) {
 }
 
 if ($success === true) {
+    print_r($_POST);
     $razorpay_payment_id = mysqli_real_escape_string($connection, $_POST['razorpay_payment_id']);
     $razorpay_signature = mysqli_real_escape_string($connection, $_POST['razorpay_signature']);
     $razorpay_order_id = mysqli_real_escape_string($connection, $_POST['razorpay_order_id']);
+    $customer_order_id = mysqli_real_escape_string($connection, $_POST['customer_order_id']);
     $user_id = mysqli_real_escape_string($connection, $_SESSION['user_id']);
 
     $transaction_query = "INSERT INTO `transactions`(
         `transaction_user_id`, 
         `razorpay_payment_id`, 
         `razorpay_order_id`, 
-        `razorpay_signature`) VALUES (
+        `razorpay_signature`, 
+        `razorpay_customer_order_id`) VALUES (
             '$user_id',
             '$razorpay_payment_id',
             '$razorpay_order_id',
-            '$razorpay_signature' 
+            '$razorpay_signature',
+            '$customer_order_id'  
             )";
     $result = mysqli_query($connection, $transaction_query);
 

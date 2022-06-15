@@ -1,4 +1,5 @@
 <?php
+$final_order_id = '0';
 include('admin/includes/server/config.php');
 require('razorpay/src/Api.php');
 require('razorpay/Razorpay.php');
@@ -63,7 +64,7 @@ if (!empty($_POST["submit"])) {
         '0');";
 
     if (mysqli_query($connection, $query)) {
-        $order_id = mysqli_insert_id($connection);
+        $final_order_id  = $order_id = mysqli_insert_id($connection);
         $query = "SELECT * FROM `items` i JOIN cart c ON i.item_id=c.cart_item_id  AND c.cart_user_id='$user_id'";
         $get_details = mysqli_query($connection, $query);
         if (@$get_details->num_rows > 0) {
@@ -164,6 +165,7 @@ if (!empty($_POST["submit"])) {
     <input type="hidden" name="razorpay_payment_id" id="razorpay_payment_id">
     <input type="hidden" name="razorpay_signature" id="razorpay_signature">
     <input type="hidden" name="razorpay_order_id" id="razorpay_order_id">
+    <input type="hidden" name="customer_order_id" id="customer_order_id" value="<?php echo $final_order_id; ?>">
 </form>
 <script>
 var options = <?php echo $json ?>;
@@ -173,7 +175,7 @@ options.handler = function(response) {
     document.getElementById('razorpay_order_id').value = response.razorpay_order_id;
     document.razorpayform.submit();
 
-    // console.log(response.razorpay_order_id);
+    console.log(response.razorpay_order_id);
     // console.log(response.razorpay_payment_id);
     // console.log(response.razorpay_signature);
 };
