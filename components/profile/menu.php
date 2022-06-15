@@ -106,8 +106,10 @@
                             $item_category = $row['item_category'];
                 ?>
                 <div class="past-orders-section">
-                    <p class="orderid">Order ID: </p>
-                    <p class="orderid-res"><?php echo "DRM" . $generated_order . $order_id; ?></p>
+                    <div>
+                        <p class="orderid">Order ID: </p>
+                        <p class="orderid-res"><?php echo "DRM" . $generated_order . $order_id; ?></p>
+                    </div>
                     <div class="past-orders-inner-card">
                         <div class="past-orders-img-box">
                             <img src="<?php echo $item_image; ?>" alt="<?php echo $item_image; ?>">

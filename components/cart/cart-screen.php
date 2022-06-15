@@ -1,9 +1,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <?php
-// require('razorpay/src/Api.php');
-// require('razorpay/Razorpay.php');
-
-// use Razorpay\Api\Api;
+include('admin/includes/server/config.php');
 
 if (!empty($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];
@@ -14,127 +11,6 @@ $quantity = 1;
 $product_price = 0;
 $all_total_price = 0;
 
-include('admin/includes/server/config.php');
-if (!isset($_SESSION['user_contact'])) {
-    // header("location: login.php");
-    echo "<script type='text/javascript'>
-    $(document).ready(function() {
-    $('#loginModal').modal('show');
-    });
-    </script>";
-    include('components/footer.php');
-    exit;
-}
-if (!empty($_POST["submit"])) {
-    $user_id = $_POST['user_id'];
-    $order_user_name = $_POST['user_name'];
-    $order_user_contact = $_POST['user_contact'];
-    $order_user_state = $_POST['user_state'];
-    $order_user_city = $_POST['user_city'];
-    $order_user_address = $_POST['user_address'];
-    $order_user_email = $_POST['user_email'];
-    $all_total_price_post = $_POST['all_total_price'];
-    $delivery_chearge = $_POST['delivery_chearge'];
-    $gross_total = $_POST['gross_total'];
-    $order_time = time();
-
-    $quantity = 1;
-    $product_price = 0;
-    $all_total_price = 0;
-
-    $query = "INSERT INTO `uder_order` ( 
-        `order_id`, 
-        `order_user_id`, 
-        `order_user_name`, 
-        `order_user_contact`, 
-        `order_user_state`, 
-        `order_user_city`, 
-        `order_user_address`, 
-        `order_user_email`, 
-        `order_time`, 
-        `order_total_amount`, 
-        `order_tax`,
-        `order_gross_amount`, 
-        `order_status`) 
-    VALUES (
-        '',
-        '$user_id', 
-        '$order_user_name', 
-        '$order_user_contact', 
-        '$order_user_state', 
-        '$order_user_city', 
-        '$order_user_address', 
-        '$order_user_email', 
-        '$order_time', 
-        '$all_total_price_post', 
-        '$delivery_chearge' , 
-        '$gross_total', 
-        '0');";
-
-    if (mysqli_query($connection, $query)) {
-        $order_id = mysqli_insert_id($connection);
-        $query = "SELECT * FROM `items` i JOIN cart c ON i.item_id=c.cart_item_id  AND c.cart_user_id='$user_id'";
-        $get_details = mysqli_query($connection, $query);
-        if (@$get_details->num_rows > 0) {
-            $previous_category = "";
-
-            while ($row = mysqli_fetch_array($get_details)) {
-                $item_category = $row['item_category'];
-                $item_id = $row['item_id'];
-                $item_price = $row['item_price'];
-                $cart_qty = $row['cart_qty'];
-
-                $o_query = "INSERT INTO `uder_order_details` (
-                    `uder_order_details`, 
-                    `uod_order_id`, 
-                    `uod_item_id`, 
-                    `uod_item_cat`, 
-                    `uod_price`, 
-                    `uod_quantity`, 
-                    `uod_status`) 
-                VALUES (
-                    '', 
-                    '$order_id', 
-                    '$item_id', 
-                    '$item_category', 
-                    '$item_price', 
-                    '$cart_qty', 
-                    '0');";
-                $oq_details = mysqli_query($connection, $o_query);
-            }
-            $clear_cart = "DELETE FROM `cart` WHERE `cart_user_id`='$user_id'";
-            $cc_details = mysqli_query($connection, $clear_cart);
-
-            $key_id = 'rzp_test_0WPfYvs2tlQaLU';
-            $secret = 'rrPjT8zzOFtK0gSVxNBjCFEE';
-
-            if ($cc_details) {
-                echo "Open Payment Gateway";
-            } else {
-                die("PAYMENT FAILED!" . mysqli_error($connection));
-            }
-            // echo "we have recived your order details thank you for order with us!";
-        } else {
-            echo "Cart is empty";
-        }
-    }
-    if (mysqli_query($connection, $query)) {
-        $update_user_query = "UPDATE `user` SET `user_name`='$order_user_name',`user_email`='$order_user_email',`user_state`='$order_user_state',`user_city`='$order_user_city',`user_address`='$order_user_address',`user_type`= '2' WHERE `user_id` = '$user_id'";
-        $update_result = mysqli_query($connection, $update_user_query);
-
-        if (!$update_result) {
-            die("USER DETAILS WERE NOT UPDATED!" . mysqli_error($connection));
-        } else {
-            echo "User Details Updated";
-        }
-    } else {
-        echo "Error: " . $query . "<br>" . mysqli_error($connection);
-    }
-}
-// else {
-//     echo  "<center> <h1> No Post Data Found in cart, Go back and add product in cart </h1> </center>";
-
-// }
 // User Details
 $fetch_details_query = "SELECT * FROM `user` WHERE `user_id` = '$user_id'";
 $get_details = mysqli_query($connection, $fetch_details_query);
@@ -167,7 +43,7 @@ if (@$get_details->num_rows > 0) {
         </form>
     </div>
 
-    <form class="w-100" action="" method="POST">
+    <form class="w-100" action="pay.php" method="POST">
         <?php
             while ($row = mysqli_fetch_assoc($get_details)) {
                 $item_category = $row['item_category'];
