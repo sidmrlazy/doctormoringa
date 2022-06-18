@@ -221,7 +221,28 @@ input[type="number"] {
   justify-content: flex-start;
   align-items: center;
 }
+.tabs#red {
+  text-decoration: none !important;
+  border: 1px solid #e7e7e7;
+  background-color: #fff;
+  width: 300px;
+  height: 150px;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  background: rgb(233, 89, 80);
+  background: linear-gradient(
+    90deg,
+    rgba(233, 89, 80, 1) 24%,
+    rgba(190, 51, 43, 1) 51%
+  );
+  margin: 5px;
+}
 .tabs#green {
+  text-decoration: none !important;
   border: 1px solid #e7e7e7;
   background-color: #fff;
   width: 300px;
@@ -241,6 +262,7 @@ input[type="number"] {
   margin: 5px;
 }
 .tabs#blue {
+  text-decoration: none !important;
   border: 1px solid #e7e7e7;
   background-color: #fff;
   width: 300px;
@@ -272,7 +294,8 @@ input[type="number"] {
 /* ================================================ Users ================================================ */
 .user-section {
   margin-top: 20px;
-  margin-left: 150px !important;
+  margin-left: 100px !important;
+  width: 95% !important;
 }
 .user-section h1 {
   font-size: 20px;
@@ -624,4 +647,20 @@ input[type="number"] {
 .grand-total {
   font-weight: bold !important;
   font-size: 28px;
+}
+/* ================================================ TRANSACTIONS ================================================ */
+.transactions {
+  margin-top: 20px !important;
+  margin-left: 220px !important;
+  width: 83% !important;
+}
+
+/* ================================================ VIEW USERS SECTION ================================================ */
+.view-users-section {
+  margin-top: 20px;
+  margin-left: 100px;
+  border: 1px solid #e7e7e7;
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
 }

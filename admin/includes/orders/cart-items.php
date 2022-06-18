@@ -3,6 +3,7 @@ include 'includes/server/config.php';
 
 // GET CART DETAILS QUERY
 if (isset($_POST['submit'])) {
+
     // USER DETAILS
     $order_id = $_POST['order_id'];
     $order_user_name = $_POST['order_user_name'];
@@ -14,6 +15,13 @@ if (isset($_POST['submit'])) {
     $generated_order = str_replace(array(
         '\'', '"', ',', ';', '<', '-', " "
     ), '', $new_order_time);
+
+    $transaction_query = "SELECT * FROM `transactions` where `razorpay_customer_order_id` = $order_id";
+    $transaction_result = mysqli_query($connection, $transaction_query);
+
+    while ($row = mysqli_fetch_assoc($transaction_result)) {
+        $razorpay_payment_id = $row['razorpay_payment_id'];
+    }
 ?>
 <div class="cart-item-details">
 
@@ -31,15 +39,11 @@ if (isset($_POST['submit'])) {
         </div>
         <div class="cart-element">
             <p class="">Payment ID: </p>
-            <p class="cart-user-contact"><?php echo "DRM" . $generated_order . $order_id; ?></p>
+            <p class="cart-user-contact"><?php echo $razorpay_payment_id; ?></p>
         </div>
         <div class="cart-element">
             <p class="cart-user-name"><?php echo $order_user_name; ?></p>
             <p class="cart-user-contact"><?php echo $order_user_contact; ?></p>
-        </div>
-        <div class="cart-element">
-            <p class="cart-total-price">₹<?php echo $order_gross_amount; ?></p>
-            <p class="cart-order-time"><?php echo $new_order_time; ?></p>
         </div>
     </div>
 

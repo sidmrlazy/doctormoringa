@@ -27,6 +27,9 @@
         if ($order_time_stamp = $order_time) {
             $new_order_time =  gmdate("d-m-Y", $order_time_stamp);
         }
+        $generated_order = str_replace(array(
+            '\'', '"', ',', ';', '<', '-', " "
+        ), '', $new_order_time);
         $order_gross_amount = $row['order_gross_amount'];
         $order_total_amount = $row['order_total_amount'];
         $order_tax = $row['order_tax'];
@@ -43,7 +46,7 @@
         <div class="col-md-4">
             <div class="mb-3">
                 <p class="label">Order ID</p>
-                <p class="response"><?php echo $order_id; ?></p>
+                <p class="response"><?php echo "DRM" . $generated_order . $order_id; ?></p>
             </div>
 
             <div>

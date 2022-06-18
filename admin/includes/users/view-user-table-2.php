@@ -1,7 +1,7 @@
 <div class="container">
     <div class="container col-md-10 card user-section">
         <h1>View All Users</h1>
-        <table class="table table-striped">
+        <table class="table table-striped table-bordered">
             <thead>
                 <tr>
                     <th scope="col">User ID</th>
@@ -16,8 +16,10 @@
             <tbody>
                 <?php
                 include('includes/server/config.php');
+
                 $query = "SELECT * FROM `user`";
                 $get_users = mysqli_query($connection, $query);
+
                 while ($row = mysqli_fetch_assoc($get_users)) {
                     $user_id = $row['user_id'];
                     $user_name = $row['user_name'];
@@ -25,6 +27,7 @@
                     $user_contact = $row['user_contact'];
                     $user_city = $row['user_city'];
                     $user_type = $row['user_type'];
+
                 ?>
                 <tr>
                     <th scope="row"><?php echo $user_id ?></th>
@@ -41,6 +44,7 @@
                             ?></td>
                 </tr>
                 <?php
+
                 }
                 ?>
             </tbody>
