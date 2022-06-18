@@ -930,6 +930,15 @@ input[type="number"] {
 .payment-section img {
   width: 20%;
 }
+.bottom-footer {
+  border-top: 1px solid #e7e7e7e7 !important;
+  padding-top: 10px;
+}
+.bottom-footer a {
+  text-decoration: none;
+  color: #44ad40;
+  font-weight: bold;
+}
 
 /* =========== Register Section =========== */
 .register-section {

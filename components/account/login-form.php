@@ -144,9 +144,9 @@
                 <button class="register-btn" type="submit" value="Login" name="submit">LOGIN</button>
             </div>
 
-            <div class="register-header">
+            <!-- <div class="register-header">
                 <p>Forgot Password?<span><a href="regiser">Click Here </a></span></p>
-            </div>
+            </div> -->
 
         </form>
     </div>

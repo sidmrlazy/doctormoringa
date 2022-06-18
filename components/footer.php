@@ -49,6 +49,10 @@
         <li>Promotions</li>
     </div>
 </footer>
+<div class="mt-2 d-flex justify-content-center align-items-center bottom-footer">
+    <p>&#169; JVKS AGROTECH PVT. LTD | Designed & Developed by <a href="https://onlynus.com" target="_blank">Onlyn</a>
+    </p>
+</div>
 
 <!-- Ionicons -->
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
