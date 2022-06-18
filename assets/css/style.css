@@ -1404,6 +1404,37 @@ input[type="number"] {
   color: #44ad40;
   margin: 0;
 }
+.product-status-success {
+  background-color: #44ad40 !important;
+  border-radius: 2px !important;
+  padding: 2px !important;
+  color: #fff !important;
+  font-weight: bold !important;
+  width: 50px !important;
+  text-align: center !important;
+}
+.product-status-fail {
+  background-color: #bd5046 !important;
+  border-radius: 2px !important;
+  padding: 2px !important;
+  color: #fff !important;
+  font-weight: bold !important;
+  width: 200px !important;
+  text-align: center !important;
+}
+.product-status-fail-button {
+  background-color: #fff;
+  border: 1px solid #bd5046;
+  border-radius: 2px;
+  color: #bd5046;
+}
+.product-status-fail-button:hover {
+  background-color: #bd5046;
+  border: 1px solid #bd5046;
+  border-radius: 2px;
+  color: #fff;
+  transition: 0.2s all ease-in-out;
+}
 /* =================== RESPONSIVE =================== */
 @media only screen and (max-width: 768px) {
   /* ======== Top Navbar ======== */

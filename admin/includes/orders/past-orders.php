@@ -1,5 +1,5 @@
 <div class="past-orders-section">
-    <p class="past-orders-section-header mb-3">Past Orders</p>
+    <p class="past-orders-section-header mb-3">All Orders</p>
 
     <?php
     include 'includes/server/config.php';
@@ -64,7 +64,7 @@
             <div>
                 <p class="label">Payment Status</p>
                 <?php
-                    if ($order_status == "0") {
+                    if ($order_status == "1") {
                         echo "<p class='status-paid'>Paid</p>";
                     } else {
                         echo "<p class='status-fail'>Failed</p>";

@@ -17,7 +17,6 @@
             $result = mysqli_query($connection, $query);
 
             while ($row = mysqli_fetch_assoc($result)) {
-
                 // Transactions Table
                 $transaction_id = $row['transaction_id'];
                 $transaction_user_id = $row['transaction_user_id'];

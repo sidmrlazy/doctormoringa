@@ -53,19 +53,31 @@ if ($success === true) {
     if ($result) {
         $user_id = $_SESSION['user_id'];
 
-        $clear_cart = "DELETE FROM `cart` WHERE `cart_user_id`='$user_id'";
-        $cc_details = mysqli_query($connection, $clear_cart);
-        if ($cc_details) {
-            header('location:profile.php');
-            echo "Payment Successfull";
+        $get_order_query = "SELECT * FROM uder_order WHERE order_id = $customer_order_id";
+        $get_order_result = mysqli_query($connection, $get_order_query);
+
+        if ($get_order_result) {
+            $update_order_query = "UPDATE `uder_order` SET `order_status`='1' WHERE order_id = $customer_order_id";
+            $update_order_result = mysqli_query($connection, $update_order_query);
+
+            if ($update_order_result) {
+                $clear_cart_query = "DELETE FROM `cart` WHERE `cart_user_id`='$user_id'";
+                $clear_cart_result = mysqli_query($connection, $clear_cart_query);
+                if ($clear_cart_result) {
+                    header('location:profile.php');
+                    echo "Payment Successfull";
+                }
+            }
         } else {
-            die("PAYMENT FAILED!" . mysqli_error($connection));
+            $update_order_query = "UPDATE `uder_order` SET `order_status`='0' WHERE order_id = $customer_order_id";
+            $update_order_result = mysqli_query($connection, $update_order_query);
+
+            if (!$update_order_result) {
+                echo "Payment Failed";
+            } else {
+                die("PAYMENT FAILED!" . mysqli_error($connection));
+            }
         }
-        header('Location:profile.php');
-        echo "Payment Successfull";
-    } else {
-        echo "Payment Failed!";
-        die("ERROR" . mysqli_error($connection));
     }
 } else {
     $html = "<p>Your payment failed</p>

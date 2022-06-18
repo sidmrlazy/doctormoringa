@@ -16,12 +16,7 @@ if (isset($_POST['submit'])) {
         '\'', '"', ',', ';', '<', '-', " "
     ), '', $new_order_time);
 
-    $transaction_query = "SELECT * FROM `transactions` where `razorpay_customer_order_id` = $order_id";
-    $transaction_result = mysqli_query($connection, $transaction_query);
 
-    while ($row = mysqli_fetch_assoc($transaction_result)) {
-        $razorpay_payment_id = $row['razorpay_payment_id'];
-    }
 ?>
 <div class="cart-item-details">
 
@@ -39,7 +34,20 @@ if (isset($_POST['submit'])) {
         </div>
         <div class="cart-element">
             <p class="">Payment ID: </p>
+            <?php
+                $transaction_query = "SELECT * FROM `transactions` where `razorpay_customer_order_id` = $order_id";
+                $transaction_result = mysqli_query($connection, $transaction_query);
+
+                while ($row = mysqli_fetch_assoc($transaction_result)) {
+                    $razorpay_payment_id = $row['razorpay_payment_id'];
+
+                    if ($razorpay_payment_id !== $razorpay_payment_id) { ?>
+
+            <p class="cart-user-contact">Payment Unsuccessfull</p>
+            <?php } else { ?>
             <p class="cart-user-contact"><?php echo $razorpay_payment_id; ?></p>
+            <?php }
+                } ?>
         </div>
         <div class="cart-element">
             <p class="cart-user-name"><?php echo $order_user_name; ?></p>

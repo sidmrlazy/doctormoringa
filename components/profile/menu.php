@@ -121,6 +121,23 @@
                                 <p class="history-product-weight">(<?php echo $item_weight; ?>)</p>
                             </div>
                             <p class="product-price">₹<?php echo $item_price; ?></p>
+
+                            <?php
+                                        if ($order_status == 0) {
+                                        ?>
+                            <p class='product-status-fail'>Payment Failed</p>
+
+                            <!-- <button class='product-status-fail-button'>Retry</button> -->
+                            <?php
+                                        } else if ($order_status == 1) {
+                                        ?>
+
+                            <p class='product-status-success'>Paid</p>
+                            <?php
+                                        }
+                                        ?>
+
+
                         </div>
                     </div>
                 </div>
