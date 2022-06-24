@@ -94,7 +94,9 @@
                         $uod_item_id = $row['uod_item_id'];
                         $uod_price = $row['uod_price'];
                         $uod_quantity = $row['uod_quantity'];
+                        $shipping = 60;
 
+                        $new_value = $uod_quantity * $uod_price + $shipping;
                         $get_item_details = "SELECT * FROM `items` WHERE item_id = $uod_item_id";
                         $get_item_details_result = mysqli_query($connection, $get_item_details);
                         while ($row = mysqli_fetch_assoc($get_item_details_result)) {
@@ -120,7 +122,17 @@
                                 <p><?php echo $item_category; ?></p>
                                 <p class="history-product-weight">(<?php echo $item_weight; ?>)</p>
                             </div>
-                            <p class="product-price">₹<?php echo $item_price; ?></p>
+
+
+
+                            <!-- Star Rating System Start -->
+                            <div class="weight-price">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                </div>
+                            </div>
+                            <!-- Star Rating System End -->
+                            <p class="product-price">₹<?php echo $new_value; ?></p>
 
                             <?php
                                         if ($order_status == 0) {
@@ -133,6 +145,7 @@
                                         ?>
 
                             <p class='product-status-success'>Paid</p>
+
                             <?php
                                         }
                                         ?>

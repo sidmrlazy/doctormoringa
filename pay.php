@@ -99,7 +99,6 @@ if (!empty($_POST["submit"])) {
             $user_contact = $_POST['user_contact'];
             $user_email = $_POST['user_email'];
             $total_amount = $_POST['gross_total'];
-            // $total_amount = $_POST['gross_total'];
 
             $keyId = 'rzp_test_0WPfYvs2tlQaLU';
             $keySecret = 'rrPjT8zzOFtK0gSVxNBjCFEE';
@@ -120,7 +119,7 @@ if (!empty($_POST["submit"])) {
                 "key" => $keyId,
                 "amount" => $amount,
                 "name" => 'DOCTOR MORINGA',
-                "description" => 'TEST',
+                "description" => 'GOODNESS OF THE MIRACLE TREE',
                 "image" => "assets/images/logo/logo.png",
                 "prefill" => [
                     "name" => $user_name,

@@ -74,8 +74,8 @@
         </form>
     </div>
 
-    <div class="col-md-4 lottie-container">
+    <!-- <div class="col-md-4 lottie-container">
         <lottie-player src="https://assets7.lottiefiles.com/packages/lf20_ab0pxvgc.json" background="transparent"
             speed="1" class="lottie" loop autoplay></lottie-player>
-    </div>
+    </div> -->
 </div>

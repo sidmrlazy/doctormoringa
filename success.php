@@ -29,7 +29,7 @@ if (empty($_POST['razorpay_payment_id']) === false) {
 }
 
 if ($success === true) {
-    print_r($_POST);
+    // print_r($_POST);
     $razorpay_payment_id = mysqli_real_escape_string($connection, $_POST['razorpay_payment_id']);
     $razorpay_signature = mysqli_real_escape_string($connection, $_POST['razorpay_signature']);
     $razorpay_order_id = mysqli_real_escape_string($connection, $_POST['razorpay_order_id']);
@@ -59,13 +59,11 @@ if ($success === true) {
         if ($get_order_result) {
             $update_order_query = "UPDATE `uder_order` SET `order_status`='1' WHERE order_id = $customer_order_id";
             $update_order_result = mysqli_query($connection, $update_order_query);
-
             if ($update_order_result) {
                 $clear_cart_query = "DELETE FROM `cart` WHERE `cart_user_id`='$user_id'";
                 $clear_cart_result = mysqli_query($connection, $clear_cart_query);
                 if ($clear_cart_result) {
-                    header('location:profile.php');
-                    echo "Payment Successfull";
+                    header('location:payment-success.php');
                 }
             }
         } else {
@@ -73,8 +71,6 @@ if ($success === true) {
             $update_order_result = mysqli_query($connection, $update_order_query);
 
             if (!$update_order_result) {
-                echo "Payment Failed";
-            } else {
                 die("PAYMENT FAILED!" . mysqli_error($connection));
             }
         }

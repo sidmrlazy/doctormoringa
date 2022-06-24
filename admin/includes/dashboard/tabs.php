@@ -1,6 +1,17 @@
 <div class="dashboard-tab">
+    <?php
+    include 'includes/server/config.php';
+    $get_orders_query = "SELECT SUM(order_gross_amount) FROM `uder_order`";
+    $result = mysqli_query($connection, $get_orders_query);
 
-
+    foreach ($result as $row) {
+        $count = $row['SUM(order_gross_amount)']; ?>
+    <a href="past-orders.php" id="red" class="tabs">
+        <p>Total Sale</p>
+        <h1><?php echo "₹" . $count; ?></h1>
+    </a>
+    <?php
+    } ?>
     <?php
     include 'includes/server/config.php';
     $get_orders_query = "SELECT * FROM `uder_order`";

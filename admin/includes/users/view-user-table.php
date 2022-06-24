@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="container col-md-10 card user-section">
+    <div class="container col-md-10 card view-user-section">
         <h1>View All Users</h1>
         <table class="table table-striped">
             <thead>

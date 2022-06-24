@@ -37,7 +37,7 @@
                 </button>
                 <div class="collapse" id="users-collapse">
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                        <li><a href="add-users.php" class="link-dark rounded">Add Users</a></li>
+                        <!-- <li><a href="add-users.php" class="link-dark rounded">Add Users</a></li> -->
                         <li><a href="view-users.php" class="link-dark rounded">View Users</a></li>
                     </ul>
                 </div>

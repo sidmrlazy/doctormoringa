@@ -1,5 +1,5 @@
 * {
-  font-family: "Raleway", sans-serif;
+  font-family: "Roboto Mono", monospace;
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -292,9 +292,14 @@ input[type="number"] {
 }
 
 /* ================================================ Users ================================================ */
-.user-section {
+.view-user-section {
   margin-top: 20px;
   margin-left: 100px !important;
+  width: 100% !important;
+}
+.user-section {
+  margin-top: 20px;
+  margin-left: 200px !important;
   width: 95% !important;
 }
 .user-section h1 {

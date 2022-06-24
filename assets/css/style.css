@@ -1435,7 +1435,82 @@ input[type="number"] {
   color: #fff;
   transition: 0.2s all ease-in-out;
 }
-/* =================== RESPONSIVE =================== */
+/* =================== PAYMENT SUCCESS =================== */
+.payment-success {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 50px;
+  width: 100%;
+}
+.payment-success h1 {
+  font-weight: bold;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+.payment-success-lottie {
+  width: 200px;
+  height: 200px;
+}
+.payment-success-redirect {
+  text-decoration: none;
+  color: #44ad40;
+  border: 1px solid #44ad40;
+  border-radius: 5px;
+  padding: 10px;
+}
+.payment-success-redirect:hover {
+  text-decoration: none;
+  color: #fff;
+  background-color: #44ad40;
+  border: 1px solid #44ad40;
+  border-radius: 5px;
+  padding: 10px;
+  transition: 0.2s all ease-in-out;
+}
+
+/* =================== STAR RATING =================== */
+.form-check-input {
+  content: url("../images/icons/star-outline.svg") !important;
+  border: 0;
+  font-size: 24px !important;
+  margin: 0;
+  padding: 0;
+  color: yellow;
+}
+
+/* ===================
+===================
+===================
+===================
+===================
+===================
+=================== 
+===================
+===================
+===================
+===================
+===================
+===================
+===================
+===================
+==== RESPONSIVE === 
+===================
+===================
+===================
+===================
+===================
+=================== 
+===================
+===================
+===================
+===================
+===================
+===================
+===================
+===================
+=================== */
 @media only screen and (max-width: 768px) {
   /* ======== Top Navbar ======== */
   .top-navbar {

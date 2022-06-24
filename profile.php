@@ -1,3 +1,4 @@
+<?php include('components/profile/success-modal.php') ?>
 <?php include('components/header.php') ?>
 <?php include('components/navbar.php') ?>
 <?php include('components/profile/menu.php') ?>
