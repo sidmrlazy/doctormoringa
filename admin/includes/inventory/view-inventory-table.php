@@ -16,6 +16,7 @@
             $item_description = $row['item_description'];
             $item_benefits = $row['item_benefits'];
             $item_usage = $row['item_usage'];
+            $item_weight = $row['item_weight'];
             $item_name = $row['item_name'];
             $item_price = $row['item_price'];
 
@@ -36,12 +37,13 @@
         <input type="text" hidden name="item_price" value="<?php echo $item_price ?>">
         <input type="text" hidden name="item_weight" value="<?php echo $item_weight ?>">
         <!-- ==================== DISPLAYING PRODUCT IMAGE AND NAME ==================== -->
-        <div class="admin-section-row-start">
+        <div class="admin-section-row-start mb-3">
             <img class="admin-section-img-20-bordered mr-5" src="assets/images/products/<?php echo $item_image ?>">
             <div class="admin-section-col-start">
                 <input class="admin-input product" type="text" name="item_name" value="<?php echo $item_name ?>">
                 <input class="admin-input category" type="text" name="item_category"
                     value="<?php echo $item_category ?>">
+                <input class="admin-input category" type="text" name="item_category" value="<?php echo $item_weight ?>">
                 <button class="btn btn-primary confirm-button-md" name="edit" value="edit" type="submit">Edit
                     Product
                     Details</button>
