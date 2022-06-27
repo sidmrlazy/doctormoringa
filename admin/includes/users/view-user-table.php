@@ -1,7 +1,7 @@
 <div class="container section-wrapper">
     <div class="container w-100 col-md-10 ">
         <p class="section-heading">View All Users</p>
-        <p class="section-details">View all customer transactions below</p>
+        <p class="section-details">View all customers below</p>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -18,7 +18,7 @@
             <tbody>
                 <?php
                 include('includes/server/config.php');
-                $query = "SELECT * FROM `user`";
+                $query = "SELECT * FROM `user` WHERE `user_type` = '2'";
                 $get_users = mysqli_query($connection, $query);
                 while ($row = mysqli_fetch_assoc($get_users)) {
                     $user_id = $row['user_id'];

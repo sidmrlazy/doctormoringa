@@ -6,7 +6,7 @@
 
     foreach ($result as $row) {
         $count = $row['SUM(order_gross_amount)']; ?>
-    <a href="past-orders.php" id="red" class="tabs">
+    <a href="transactions.php" id="red" class="tabs">
         <p>Total Sale</p>
         <h1><?php echo "₹" . $count; ?></h1>
     </a>

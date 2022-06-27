@@ -176,6 +176,9 @@ input[type="number"] {
   border: 0 !important;
   width: 100%;
 }
+.admin-flex {
+  flex: 1 !important;
+}
 .admin-section-img-20-bordered {
   width: 20% !important;
   height: auto !important;
@@ -190,6 +193,10 @@ input[type="number"] {
 .category {
   margin-bottom: 20px;
   color: #777 !important;
+}
+.admin-table-img img {
+  width: 100px !important;
+  height: auto !important;
 }
 /* ================================================ BUTTONS ================================================ */
 .confirm-button {
@@ -220,6 +227,17 @@ input[type="number"] {
   flex: 1;
   margin: 10px;
 }
+.confirm-button-table {
+  background-color: #fff;
+  border: 1px solid #5bb336 !important;
+  color: #5bb336 !important;
+  border-radius: 3px !important;
+}
+.confirm-button-table:hover {
+  background-color: #5bb336;
+  border: 1px solid #5bb336 !important;
+  color: #fff !important;
+}
 .edit-button {
   margin-top: 20px;
   margin: 10px;
@@ -231,6 +249,7 @@ input[type="number"] {
   font-size: 18px !important;
   flex: 1;
 }
+
 /* ================================================ Dashboard ================================================ */
 .dashboard-tab {
   margin-left: 20px;

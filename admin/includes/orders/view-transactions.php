@@ -8,6 +8,7 @@
                 <th scope="col">Transaction Date & Time</th>
                 <th scope="col">Order ID</th>
                 <th scope="col">Payment ID</th>
+                <th scope="col">Order Value</th>
                 <th scope="col">Customer Name</th>
             </tr>
         </thead>
@@ -29,19 +30,23 @@
                 $user_id = $row['user_id'];
                 $user_name = $row['user_name'];
 
-                if ($transaction_user_id = $user_id) {
-                    $user_name = $user_name;
-            ?>
+                $get_amount = "SELECT * FROM uder_order WHERE order_user_id = $user_id";
+                $get_amount_result = mysqli_query($connection, $get_amount);
+
+                while ($row = mysqli_fetch_assoc($get_amount_result)) {
+                    $amount = $row['order_gross_amount']; ?>
             <tr>
                 <th scope="row"><?php echo $transaction_id; ?></th>
                 <td><?php echo $payment_time; ?></td>
                 <td><?php echo "DRMXXXXXXXX" . $razorpay_customer_order_id; ?></td>
                 <td><?php echo $razorpay_payment_id; ?></td>
+                <td><?php echo $amount; ?></td>
                 <td><?php echo $user_name; ?></td>
             </tr>
             <?php
                 }
             }
+
             ?>
         </tbody>
     </table>
