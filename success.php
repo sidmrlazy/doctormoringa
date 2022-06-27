@@ -57,7 +57,7 @@ if ($success === true) {
         $get_order_result = mysqli_query($connection, $get_order_query);
 
         if ($get_order_result) {
-            $update_order_query = "UPDATE `uder_order` SET `order_status`='1' WHERE order_id = $customer_order_id";
+            $update_order_query = "UPDATE `uder_order` SET `order_status`='1', `order_tracking_status`='1' WHERE order_id = $customer_order_id";
             $update_order_result = mysqli_query($connection, $update_order_query);
             if ($update_order_result) {
                 $clear_cart_query = "DELETE FROM `cart` WHERE `cart_user_id`='$user_id'";

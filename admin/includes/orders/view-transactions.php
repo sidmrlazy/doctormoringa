@@ -4,12 +4,13 @@
     <table class="mt-3 table table-striped">
         <thead>
             <tr>
-                <th scope="col">S.No</th>
-                <th scope="col">Transaction Date & Time</th>
-                <th scope="col">Order ID</th>
-                <th scope="col">Payment ID</th>
-                <th scope="col">Order Value</th>
-                <th scope="col">Customer Name</th>
+                <th scope="col">S.NO</th>
+                <th scope="col">TRANSACTION TIMESTAMP</th>
+                <th scope="col">ORDER ID</th>
+                <th scope="col">PAYMENT ID</th>
+                <th scope="col">ORDER VALUE</th>
+                <th scope="col">CUSTOMER</th>
+                <th scope="col">ORDER STATUS</th>
             </tr>
         </thead>
         <tbody>
@@ -34,6 +35,7 @@
                 $get_amount_result = mysqli_query($connection, $get_amount);
 
                 while ($row = mysqli_fetch_assoc($get_amount_result)) {
+                    $order_tracking_status = $row['order_tracking_status'];
                     $amount = $row['order_gross_amount']; ?>
             <tr>
                 <th scope="row"><?php echo $transaction_id; ?></th>
@@ -42,6 +44,20 @@
                 <td><?php echo $razorpay_payment_id; ?></td>
                 <td><?php echo $amount; ?></td>
                 <td><?php echo $user_name; ?></td>
+                <?php
+                        if ($order_tracking_status == "1") { ?>
+                <td>
+                    <p class="pending">PENDING CONFIRMATION</p>
+                </td>
+                <?php } else if ($order_tracking_status == "2") { ?>
+                <td>
+                    <p class="confirmed">CONFIRMED & BEING PACKED</p>
+                </td>
+                <?php } else if ($order_tracking_status == "3") { ?>
+                <td>
+                    <p class="shipped">ORDER SHIPPED</p>
+                </td>
+                <?php } ?>
             </tr>
             <?php
                 }

@@ -1,6 +1,29 @@
 <?php
 include 'includes/server/config.php';
 
+if (isset($_POST['confirm'])) {
+    $uod_order_id = $_POST['uod_order_id'];
+    $update_order = "UPDATE `uder_order` SET `order_tracking_status`='2' WHERE `order_id` = $uod_order_id";
+    $update_order_result = mysqli_query($connection, $update_order);
+
+    if ($update_order_result) {
+        echo "<div class='alert w-100 alert-success' role='alert'>ORDER CONFIRMED</div>";
+    } else {
+        echo die("<div class='alert w-100 alert-success' role='alert'>ORDER STATUS COULD NOT BE CHANGED</div>" . mysqli_error($connection));
+    }
+}
+if (isset($_POST['ship'])) {
+    $uod_order_id = $_POST['uod_order_id'];
+    $update_order = "UPDATE `uder_order` SET `order_tracking_status`='3' WHERE `order_id` = $uod_order_id";
+    $update_order_result = mysqli_query($connection, $update_order);
+
+    if ($update_order_result) {
+        echo "<div class='alert w-100 alert-success' role='alert'>ORDER SHIPPED</div>";
+    } else {
+        echo die("<div class='alert w-100 alert-success' role='alert'>ORDER STATUS COULD NOT BE CHANGED</div>" . mysqli_error($connection));
+    }
+}
+
 // GET CART DETAILS QUERY
 if (isset($_POST['submit'])) {
     // USER DETAILS
@@ -35,12 +58,9 @@ if (isset($_POST['submit'])) {
                     <?php
                         $transaction_query = "SELECT * FROM `transactions` where `razorpay_customer_order_id` = $order_id";
                         $transaction_result = mysqli_query($connection, $transaction_query);
-
                         while ($row = mysqli_fetch_assoc($transaction_result)) {
                             $razorpay_payment_id = $row['razorpay_payment_id'];
-
                             if ($razorpay_payment_id !== $razorpay_payment_id) { ?>
-
                     <td>Payment Unsuccessfull</>
                         <?php } else { ?>
                     <td><?php echo $razorpay_payment_id; ?></td>
@@ -76,6 +96,7 @@ if (isset($_POST['submit'])) {
                         $uod_item_id = $row['uod_item_id'];
                         $uod_price = $row['uod_price'];
                         $uod_quantity = $row['uod_quantity'];
+                        $uod_order_id = $row['uod_order_id'];
 
                         $get_item_details = "SELECT * FROM `items` WHERE item_id = $uod_item_id";
                         $get_item_details_result = mysqli_query($connection, $get_item_details);
@@ -96,6 +117,48 @@ if (isset($_POST['submit'])) {
                     <td><?php echo $uod_quantity; ?></td>
                     <td><?php echo $item_price; ?></td>
                 </tr>
+                <div class="table-responsive mt-3">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">DELIVERY CHARGES</th>
+                                <th scope="col">GROSS AMOUNT</th>
+                                <th scope="col">GRAND TOTAL</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="row"><?php echo "₹" .  $order_tax; ?></td>
+                                <td><?php echo "₹" .  $order_total_amount; ?></td>
+                                <td class="font-weight-bold"><?php echo "₹" .  $order_gross_amount; ?></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <form action="" method="POST">
+                        <input type="text" hidden name="uod_order_id" value="<?php echo  $uod_order_id ?>">
+                        <?php
+                                    $get_tracking_status = "SELECT * FROM `uder_order` WHERE order_id = $uod_order_id";
+                                    $get_tracking_result = mysqli_query($connection, $get_tracking_status);
+                                    while ($row = mysqli_fetch_assoc($get_tracking_result)) {
+                                        $order_tracking_status = $row['order_tracking_status'];
+
+
+                                    ?>
+                        <?php
+                                        if ($order_tracking_status == '1') { ?>
+                        <button type="submit" name="confirm" value="confirm" class="confirm-button-md">Confirm
+                            Order</button>
+                        <?php } else if ($order_tracking_status == '2') { ?>
+
+                        <button type="submit" name="ship" value="ship" class="confirm-button-md">SHIP
+                            ORDER</button>
+                        <?php
+                                        }
+                                    }
+                                    ?>
+                    </form>
+                </div>
                 <?php
                         }
                     }
@@ -104,23 +167,6 @@ if (isset($_POST['submit'])) {
             </tbody>
         </table>
     </div>
-    <div class="table-responsive mt-3">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th scope="col">DELIVERY CHARGES</th>
-                    <th scope="col">GROSS AMOUNT</th>
-                    <th scope="col">GRAND TOTAL</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td scope="row"><?php echo "₹" .  $order_tax; ?></td>
-                    <td><?php echo "₹" .  $order_total_amount; ?></td>
-                    <td class="font-weight-bold"><?php echo "₹" .  $order_gross_amount; ?></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+
 
 </div>

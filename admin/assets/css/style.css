@@ -249,7 +249,46 @@ input[type="number"] {
   font-size: 18px !important;
   flex: 1;
 }
-
+.payment-paid {
+  border: 1px solid #5bb336;
+  text-align: center;
+  border-radius: 3px;
+  background-color: #5bb336;
+  font-weight: bold;
+  color: #fff;
+}
+.payment-fail {
+  border: 1px solid #a84c32;
+  text-align: center;
+  border-radius: 3px;
+  background-color: #a84c32;
+  font-weight: bold;
+  color: #fff;
+}
+.pending {
+  border: 1px solid #a84c32;
+  text-align: center;
+  border-radius: 3px;
+  background-color: #a84c32;
+  font-weight: bold;
+  color: #fff;
+}
+.confirmed {
+  border: 1px solid #1e5f94;
+  text-align: center;
+  border-radius: 3px;
+  background-color: #1e5f94;
+  font-weight: bold;
+  color: #fff;
+}
+.shipped {
+  border: 1px solid #5bb336;
+  text-align: center;
+  border-radius: 3px;
+  background-color: #fff;
+  font-weight: bold;
+  color: #5bb336;
+}
 /* ================================================ Dashboard ================================================ */
 .dashboard-tab {
   margin-left: 20px;

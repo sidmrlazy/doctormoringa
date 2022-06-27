@@ -10,6 +10,7 @@
                 <th scope="col">ORDER DATE</th>
                 <th scope="col">ORDER VALUE</th>
                 <th scope="col">PAYMENT STATUS</th>
+                <th scope="col">ORDER STATUS</th>
                 <th scope="col">ACTION</th>
             </tr>
         </thead>
@@ -47,21 +48,32 @@
                 $order_total_amount = $row['order_total_amount'];
                 $order_tax = $row['order_tax'];
                 $order_status = $row['order_status'];
+                $order_tracking_status = $row['order_tracking_status'];
             ?>
             <tr>
                 <th scope="row"><?php echo "DRM" . $generated_order . $order_id; ?></th>
                 <td><?php echo $order_user_name; ?></td>
                 <td><?php echo $order_user_contact; ?></td>
                 <td><?php echo $new_order_time; ?></td>
+
                 <td><?php echo "₹" . $order_gross_amount; ?></td>
+
                 <td><?php
                         if ($order_status == "1") {
-                            echo "<p class='status-paid'>Paid</p>";
+                            echo "<p class='payment-paid'>Paid</p>";
                         } else {
-                            echo "<p class='status-fail'>Failed</p>";
+                            echo "<p class='payment-fail'>Failed</p>";
                         }
                         ?></td>
-
+                <td><?php
+                        if ($order_tracking_status == "1") {
+                            echo "<p class='pending'>CONFIRMATION PENDING</p>";
+                        } else if ($order_tracking_status == "2") {
+                            echo "<p class='confirmed'>CONFIRMED & BEING PACKED</p>";
+                        } else if ($order_tracking_status == "3") {
+                            echo "<p class='shipped'>ORDER SHIPPED</p>";
+                        }
+                        ?></td>
                 <form action="cart-item-details.php" method="POST">
                     <input hidden type="text" name="order_id" value="<?php echo $order_id; ?>"
                         placeholder="<?php echo $order_id; ?>">
