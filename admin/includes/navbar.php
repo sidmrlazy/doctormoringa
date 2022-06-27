@@ -9,95 +9,93 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <!-- <li class="nav-item">
+                <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="dashboard.php">
-                        <ion-icon name="home-outline" class="outer-nav-icon"></ion-icon>Home
+                        Dashboard
                     </a>
-                </li> -->
+                </li>
 
-                <!-- <li class="nav-item dropdown">
+                <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        <ion-icon name="cart-outline" class="outer-nav-icon"></ion-icon>Orders
+                        Orders
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">
-                                <ion-icon name="bag-add-outline" class="inner-nav-icon"></ion-icon>New Orders
+                        <li><a class="dropdown-item" href="past-orders.php">
+                                All Orders
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="#">
-                                <ion-icon name="bag-check-outline" class="inner-nav-icon"></ion-icon>Completed Orders
+                            <a class="dropdown-item" href="transactions.php">
+                                Transactions
                             </a>
                         </li>
 
                     </ul>
-                </li> -->
+                </li>
 
-                <!-- <li class="nav-item dropdown">
+
+                <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        <ion-icon name="people-outline" class="outer-nav-icon"></ion-icon>Users
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="view-users.php">
-                                <ion-icon name="people-circle-outline" class="inner-nav-icon"></ion-icon>View Users
-                            </a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="add-users.php">
-                                <ion-icon name="person-add-outline" class="inner-nav-icon"></ion-icon>Add Users
-                            </a>
-                        </li>
 
-                    </ul>
-                </li> -->
-
-                <!-- <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        <ion-icon name="apps-outline" class="outer-nav-icon"></ion-icon>
                         Inventory
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="add-category.php">
-                                <ion-icon class="inner-nav-icon" name="duplicate-outline"></ion-icon>Add Category
+                                Add Category
                             </a></li>
                         <li><a class="dropdown-item" href="view-category.php">
-                                <ion-icon class="inner-nav-icon" name="options-outline"></ion-icon>View Category
+                                View Category
                             </a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
                         <li><a class="dropdown-item" href="add-items.php">
-                                <ion-icon class="inner-nav-icon" name="fast-food-outline"></ion-icon>Add Items
+                                Add Products
                             </a></li>
                         <li><a class="dropdown-item" href="view-inventory.php">
-                                <ion-icon class="inner-nav-icon" name="receipt-outline"></ion-icon>View Inventory
+                                View all products
                             </a></li>
                     </ul>
-                </li> -->
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Users
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="view-users.php">
+                                View Users
+                            </a>
+                        </li>
+                        <!-- <li>
+                            <a class="dropdown-item" href="add-users.php">
+                                Add Users
+                            </a>
+                        </li> -->
 
-                <!-- <li class="nav-item">
-                    <a class="nav-link" href="#">Inventory</a>
-                </li> -->
+                    </ul>
+                </li>
+
             </ul>
+
             <form class="d-flex">
                 <ul class="navbar-nav ml-auto me-auto mb-2 mb-lg-0">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            <ion-icon name="key-outline" class="outer-nav-icon"></ion-icon>
+
                             <?php echo $_SESSION["user_name"]; ?>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="#">
-                                    <ion-icon name="people-circle-outline" class="inner-nav-icon"></ion-icon>Profile
+                                    Profile
                                 </a>
                             </li>
                             <li>
                                 <a class="dropdown-item" href="#">
-                                    <ion-icon name="headset-outline" class="inner-nav-icon"></ion-icon>Contact
+                                    Contact
                                     Support
                                 </a>
                             </li>
@@ -106,7 +104,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="logout.php">
-                            <ion-icon name="log-out-outline" class="outer-nav-icon"></ion-icon> Logout
+                            Logout
                         </a>
                     </li>
                 </ul>

@@ -1,6 +1,7 @@
-<div class="container">
-    <div class="container col-md-10 card view-user-section">
-        <h1>View All Users</h1>
+<div class="container section-wrapper">
+    <div class="container w-100 col-md-10 ">
+        <p class="section-heading">View All Users</p>
+        <p class="section-details">View all customer transactions below</p>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -10,6 +11,7 @@
                     <th scope="col">Contact</th>
                     <th scope="col">City</th>
                     <th scope="col">User Type</th>
+                    <th scope="col">No. of Orders</th>
                     <!-- <th scope="col">Action</th> -->
                 </tr>
             </thead>
@@ -25,6 +27,11 @@
                     $user_contact = $row['user_contact'];
                     $user_city = $row['user_city'];
                     $user_type = $row['user_type'];
+
+                    $count_query = "SELECT * FROM `uder_order` WHERE `order_user_id` = $user_id";
+                    $count_result = mysqli_query($connection, $count_query);
+
+                    $count = mysqli_num_rows($count_result);
                 ?>
                 <tr>
                     <th scope="row"><?php echo $user_id ?></th>
@@ -39,6 +46,7 @@
                                 echo 'Customer';
                             }
                             ?></td>
+                    <td><?php echo $count; ?></td>
                 </tr>
                 <?php
                 }

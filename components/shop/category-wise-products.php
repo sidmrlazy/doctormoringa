@@ -135,12 +135,12 @@
                         $item_name = $row['item_name'];
                         $item_id = $row['item_id'];
                         $item_ingredients = $row['item_ingredients'];
+                        $item_description = $row['item_description'];
                         $item_usage = $row['item_usage'];
                         $item_benefits = $row['item_benefits'];
                         $item_weight = $row['item_weight'];
                         $item_price = $row['item_price'];
-                    }
-                ?>
+                    } ?>
 
     <!-- Product Details Modal Start -->
     <div class="modal" id="productModal" tabindex="-1">
@@ -170,6 +170,11 @@
                                         aria-controls="ingredients" aria-selected="true">Ingredients</button>
                                 </li>
                                 <li class="nav-item tab-item" role="presentation">
+                                    <button class="nav-link " id="description-tab" data-bs-toggle="tab"
+                                        data-bs-target="#description" type="button" role="tab"
+                                        aria-controls="description" aria-selected="false">Description</button>
+                                </li>
+                                <li class="nav-item tab-item" role="presentation">
                                     <button class="nav-link " id="benefits-tab" data-bs-toggle="tab"
                                         data-bs-target="#benefits" type="button" role="tab" aria-controls="benefits"
                                         aria-selected="false">Benefits</button>
@@ -181,12 +186,20 @@
                                 </li>
                             </ul>
                             <div class="tab-content" id="myTabContent">
-                                <!-- ============= ingredients ============= -->
+
                                 <div class="tab-pane fade show active" id="ingredients" role="tabpanel"
                                     aria-labelledby="ingredients-tab">
                                     <div class="accordion-body">
                                         <div class="w-100 custom-card">
                                             <p><?php echo $item_ingredients; ?></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade show " id="description" role="tabpanel"
+                                    aria-labelledby="description-tab">
+                                    <div class="accordion-body">
+                                        <div class="w-100 custom-card">
+                                            <p><?php echo $item_description; ?></p>
                                         </div>
                                     </div>
                                 </div>
@@ -235,8 +248,9 @@
         <img src="<?php echo $item_image;  ?>" alt="" />
 
         <div class="shopping-section-product-details">
+
             <!-- Item ID -->
-            <input type="text" class="item_id" hidden name="item_id" value="<?php echo $item_id ?>"
+            <input type="text" hidden class="item_id" hidden name="item_id" value="<?php echo $item_id ?>"
                 placeholder="<?php echo $item_id ?>" />
 
             <!-- Item Name -->

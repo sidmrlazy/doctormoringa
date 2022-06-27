@@ -1,4 +1,4 @@
-<div class="side-nav-custom ">
+<div class="side-nav-custom">
     <div class="flex-shrink-0 p-3 bg-white" style="width: 200px;">
         <ul class="list-unstyled ps-0">
             <li class="mb-1 side-nav-btn">

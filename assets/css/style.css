@@ -1024,7 +1024,82 @@ input[type="number"] {
   color: #777 !important;
 }
 
-/* ========= Shop ========= */
+/* ========= Shop Section Header ========= */
+.section-header-shop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  height: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.section-header-shop img {
+  width: 60%;
+  height: auto;
+}
+
+/* ========= Shop  ========= */
+/* .shop-category-section {
+  margin-top: 100px;
+  width: 100%;
+  border-bottom: 1px solid #e7e7e7;
+  padding-bottom: 20px;
+  margin-bottom: 30px !important;
+}
+.shop-category-section p {
+  margin: 0 !important;
+  color: #777;
+}
+.shop-category-section h1 {
+  font-weight: bold;
+  margin: 0 !important;
+  color: #44ad40 !important;
+}
+.grid {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  flex: 1 1 1 600px !important;
+  flex-flow: row wrap !important;
+  width: 100%;
+}
+.product-section {
+  flex: 1;
+  width: max-content !important;
+  height: 400px;
+  display: flex;
+  border: 1px solid #e7e7e7;
+  justify-content: center !important;
+  align-items: center !important;
+  flex-direction: column;
+  margin: 10px;
+  border-radius: 5px;
+}
+.product-section img {
+  width: 200px;
+  height: 200px;
+}
+.product-details-col {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px;
+  border-top: 1px solid #e7e7e7;
+}
+.product-details-col input {
+  border: 0 !important;
+  width: 100%;
+  margin: 0;
+  flex-wrap: wrap !important;
+}
+.product_name {
+  font-weight: bold;
+  color: #44ad40;
+  font-size: 20px;
+} */
+
 .shop-section-heading {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -1052,9 +1127,6 @@ input[type="number"] {
   color: #5bb336;
 }
 .shopping-section-wrapper {
-  /* display: flex;
-  justify-content: flex-start;
-  align-items: center; */
   margin-top: 30px;
   display: flex !important;
   flex-wrap: wrap;
@@ -1066,7 +1138,7 @@ input[type="number"] {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 350px;
+  width: 350px !important;
   height: auto;
   flex: 1 1 1 300px;
   text-decoration: none;
@@ -1085,9 +1157,13 @@ input[type="number"] {
   border-top: 1px solid #e7e7e7;
   margin-bottom: 40px;
 }
+.shopping-section-product-details input {
+  width: 100% !important;
+  height: auto;
+}
 .product_name {
   border: 0;
-  width: 100%;
+  width: 100% !important;
   font-weight: 600;
   color: #44ad40;
   font-size: 18px;

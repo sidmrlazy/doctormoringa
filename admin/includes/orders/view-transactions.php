@@ -1,6 +1,7 @@
-<div class="container transactions">
-    <p class="past-orders-section-header mb-3">View Transactions</p>
-    <table class="table table-striped mt-4">
+<div class="container section-wrapper">
+    <p class="section-heading">View Transactions</p>
+    <p class="section-details">View all customer transactions below</p>
+    <table class="mt-3 table table-striped">
         <thead>
             <tr>
                 <th scope="col">S.No</th>

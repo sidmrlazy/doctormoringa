@@ -1,5 +1,7 @@
-<div class="container mt-5 w-100 d-flex justify-content-center align-content-center">
-    <div class="container col-md-6" id="add-users">
+<div class="container section-wrapper">
+    <p class="section-heading">Add Category</p>
+    <p class="section-details">Add a product categroy by filling the form below</p>
+    <div class="mt-3" id="add-users">
         <form class="single-input-form" method="POST" enctype="multipart/form-data">
             <?php
             include 'includes/server/config.php';
@@ -41,12 +43,7 @@
                 <label for="floatingTextarea2">Description</label>
             </div>
 
-            <button type="submit" name="submit" class="btn btn-primary custom-form-button">Add</button>
+            <button type="submit" name="submit" class="btn btn-primary confirm-button">Add</button>
         </form>
-    </div>
-
-    <div class="col-md-4 lottie-container">
-        <lottie-player src="https://assets9.lottiefiles.com/private_files/lf30_ja4nw9sz.json" background="transparent"
-            speed="1" class="lottie" loop autoplay></lottie-player>
     </div>
 </div>
