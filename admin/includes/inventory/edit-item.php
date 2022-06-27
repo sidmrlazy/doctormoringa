@@ -42,7 +42,7 @@
                       WHERE `item_id` = $item_id";
         $update_result = mysqli_query($connection, $update_query);
         if (!$update_result) {
-            die("UPDATE QUERY FAILED!" . mysqli_error($connection));
+            die("Product could not be updated!" . mysqli_error($connection));
         } else {
             if (move_uploaded_file($item_image_temp, $folder)) {
                 $msg = "Image added";

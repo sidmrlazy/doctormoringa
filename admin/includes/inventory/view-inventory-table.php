@@ -27,8 +27,8 @@
     <!-- ==================== DISPLAYING PRODUCTS ==================== -->
     <form action="edit-item.php" method="POST" action="admin-section-card">
         <!-- ==================== HIDDEN ELEMENTS FOR SENDING VALUES TO EDIT ==================== -->
-        <input type="text" hidden name="item_image" value="<?php echo $item_image ?>">
         <input type="text" hidden name="item_id" value="<?php echo $item_id ?>">
+        <input type="text" hidden name="item_image" value="<?php echo $item_image ?>">
         <input type="text" hidden name="item_category" value="<?php echo $item_category ?>">
         <input type="text" hidden name="item_usage" value="<?php echo $item_usage ?>">
         <input type="text" hidden name="item_description" value="<?php echo $item_description ?>">
