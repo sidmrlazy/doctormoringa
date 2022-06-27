@@ -92,18 +92,22 @@
                     <td><button name="submit" type="submit" class="confirm-button-table">Details</button></td>
                 </form>
             </tr>
+
+            <?php
+            }
+            ?>
         </tbody>
     </table>
-    <?php
-            }
-?>
+
+
+
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
             <?php
-        for ($page_number = 1; $page_number <= $total_pages; $page_number++) {
-            echo '<li class="page-item"><a class="page-link" href="past-orders.php?page=' . $page_number . '">' . $page_number . ' </a></li>';
-        }
-        ?>
+            for ($page_number = 1; $page_number <= $total_pages; $page_number++) {
+                echo '<li class="page-item"><a class="page-link" href="past-orders.php?page=' . $page_number . '">' . $page_number . ' </a></li>';
+            }
+            ?>
         </ul>
     </nav>
 
