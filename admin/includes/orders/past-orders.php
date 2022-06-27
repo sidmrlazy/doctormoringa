@@ -18,7 +18,7 @@
             <?php
             include 'includes/server/config.php';
             // PAGINATION
-            $limit = 10;
+            $limit = 4;
             $get_orders_query = "SELECT * FROM uder_order";
             $result = mysqli_query($connection, $get_orders_query);
             $total_rows = mysqli_num_rows($result);
