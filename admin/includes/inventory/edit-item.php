@@ -2,17 +2,7 @@
 
     <?php
     include 'includes/server/config.php';
-    // Delete Function
-    if (isset($_POST['delete'])) {
-        $item_id = $_POST['item_id'];
-        $delete_query = "DELETE FROM items WHERE `item_id` = $item_id";
-        $delete_result = mysqli_query($connection, $delete_query);
-        if (!$delete_result) {
-            die("UPDATE QUERY FAILED!" . mysqli_error($connection));
-        } else {
-            echo '<div class="alert alert-success" role="alert">Product Deleted!</div>';
-        }
-    }
+
     // Update Function
     if (isset($_POST['update'])) {
         $item_id = $_POST['item_id'];
@@ -54,6 +44,18 @@
             echo '<div class="alert alert-success w-100" role="alert">Product details updated!</div>';
         }
     }
+    // Delete Function
+    if (isset($_POST['delete'])) {
+        $item_id = $_POST['item_id'];
+        $delete_query = "DELETE FROM items WHERE `item_id` = $item_id";
+        $delete_result = mysqli_query($connection, $delete_query);
+        if (!$delete_result) {
+            die("UPDATE QUERY FAILED!" . mysqli_error($connection));
+        } else {
+            echo '<div class="alert alert-success" role="alert">Product Deleted!</div>';
+        }
+    }
+
     // Fetch Product Details
     if (isset($_POST['edit'])) {
         $item_id = $_POST['item_id'];
