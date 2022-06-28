@@ -2156,6 +2156,11 @@ input[type="number"] {
     width: 100%;
     height: auto;
   }
+  .cart-product-details {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
   .cart-product-details h3 {
     font-size: 16px;
     color: #555;
