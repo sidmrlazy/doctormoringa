@@ -2160,6 +2160,7 @@ input[type="number"] {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
+    flex-direction: column !important;
   }
   .cart-product-details h3 {
     font-size: 16px;
