@@ -52,10 +52,8 @@ if ($success === true) {
 
     if ($result) {
         $user_id = $_SESSION['user_id'];
-
         $get_order_query = "SELECT * FROM uder_order WHERE order_id = $customer_order_id";
         $get_order_result = mysqli_query($connection, $get_order_query);
-
         if ($get_order_result) {
             $update_order_query = "UPDATE `uder_order` SET `order_status`='1', `order_tracking_status`='1' WHERE order_id = $customer_order_id";
             $update_order_result = mysqli_query($connection, $update_order_query);
@@ -69,7 +67,6 @@ if ($success === true) {
         } else {
             $update_order_query = "UPDATE `uder_order` SET `order_status`='0' WHERE order_id = $customer_order_id";
             $update_order_result = mysqli_query($connection, $update_order_query);
-
             if (!$update_order_result) {
                 die("PAYMENT FAILED!" . mysqli_error($connection));
             }
