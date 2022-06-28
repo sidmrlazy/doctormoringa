@@ -30,7 +30,7 @@
                       WHERE `item_id` = $item_id";
         $update_result = mysqli_query($connection, $update_query);
         if (!$update_result) {
-            die("Product could not be updated!" . mysqli_error($connection));
+            die("Product could not be updated!" . " " . mysqli_error($connection));
         } else {
             if (move_uploaded_file($item_image_temp, $folder)) {
                 $msg = "Image added";
@@ -87,7 +87,8 @@
         <div class="form-inner-row mt-3 mb-3">
             <img src="assets/images/products/<?php echo $item_image ?>" alt="">
             <div class="w-100 upload-section">
-                <input type="file" name="item_image" value="" class="form-control edit-image" id="inputGroupFile01">
+                <input type="file" name="item_image" value="<?php echo $item_image ?>" class="form-control edit-image"
+                    id="inputGroupFile01">
             </div>
         </div>
 
