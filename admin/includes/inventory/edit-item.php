@@ -6,7 +6,6 @@
     // Update Function
     if (isset($_POST['update'])) {
         $item_id = $_POST['item_id'];
-        $item_id = $_POST['item_id'];
         $item_name = $_POST['item_name'];
         $item_weight = $_POST['item_weight'];
         $item_description = $_POST['item_description'];
