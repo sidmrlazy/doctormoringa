@@ -4,4 +4,6 @@
 ?>
 <?php include('includes/dashboard/tabs.php')
 ?>
+<?php include('includes/dashboard/order-status.php')
+?>
 <?php include('includes/footer.php') ?>

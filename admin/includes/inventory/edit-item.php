@@ -47,7 +47,7 @@
     // Delete Function
     if (isset($_POST['delete'])) {
         $item_id = $_POST['item_id'];
-        $delete_query = "DELETE FROM items WHERE `item_id` = $item_id";
+        $delete_query = "DELETE FROM `items` WHERE `item_id` = $item_id";
         $delete_result = mysqli_query($connection, $delete_query);
         if (!$delete_result) {
             die("UPDATE QUERY FAILED!" . mysqli_error($connection));

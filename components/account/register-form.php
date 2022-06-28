@@ -61,7 +61,10 @@
                     // $param_user_password = password_hash($user_password, PASSWORD_DEFAULT);
                     $param_user_password = $user_password;
                     if (mysqli_stmt_execute($stmt)) {
-                        header("location: login.php");
+                        echo "<div class='alert alert-success' role='alert'>
+                        You have successfully registered! Please go back to login screen.
+                        </div>";
+                        // header("location: register.php");
                     } else {
                         echo "Oops! Something went wrong. Please try again later.";
                     }

@@ -1,4 +1,4 @@
-<div class="dashboard-tab">
+<div class="container section-wrapper dashboard-tab">
     <?php
     include 'includes/server/config.php';
     $get_orders_query = "SELECT SUM(order_gross_amount) FROM `uder_order`";

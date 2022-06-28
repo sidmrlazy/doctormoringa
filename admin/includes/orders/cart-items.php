@@ -7,9 +7,9 @@ if (isset($_POST['confirm'])) {
     $update_order_result = mysqli_query($connection, $update_order);
 
     if ($update_order_result) {
-        echo "<div class='alert w-100 alert-success' role='alert'>ORDER CONFIRMED</div>";
+        echo "<div class='container alert w-100 alert-success' role='alert'>ORDER CONFIRMED</div>";
     } else {
-        echo die("<div class='alert w-100 alert-success' role='alert'>ORDER STATUS COULD NOT BE CHANGED</div>" . mysqli_error($connection));
+        echo die("<div class='container  alert w-100 alert-success' role='alert'>ORDER STATUS COULD NOT BE CHANGED</div>" . mysqli_error($connection));
     }
 }
 if (isset($_POST['ship'])) {
@@ -18,9 +18,9 @@ if (isset($_POST['ship'])) {
     $update_order_result = mysqli_query($connection, $update_order);
 
     if ($update_order_result) {
-        echo "<div class='alert w-100 alert-success' role='alert'>ORDER SHIPPED</div>";
+        echo "<div class='container alert w-100 alert-success' role='alert'>ORDER SHIPPED</div>";
     } else {
-        echo die("<div class='alert w-100 alert-success' role='alert'>ORDER STATUS COULD NOT BE CHANGED</div>" . mysqli_error($connection));
+        echo die("<div class='container alert w-100 alert-success' role='alert'>ORDER STATUS COULD NOT BE CHANGED</div>" . mysqli_error($connection));
     }
 }
 
@@ -84,30 +84,32 @@ if (isset($_POST['submit'])) {
                     <th scope="col">WEIGHT</th>
                     <th scope="col">QTY</th>
                     <th scope="col">PRICE</th>
+                    <th scope="col">TOTAL PRICE</th>
                 </tr>
             </thead>
-            <tbody>
-                <?php
-                    // CART ITEMS ORDERED BY USER
-                    $show_all_items_query = "SELECT * FROM `uder_order_details` WHERE `uod_order_id` = $order_id";
-                    $new_result = mysqli_query($connection, $show_all_items_query);
-                    while ($row = mysqli_fetch_assoc($new_result)) {
-                        $uder_order_details = $row['uder_order_details'];
-                        $uod_item_id = $row['uod_item_id'];
-                        $uod_price = $row['uod_price'];
-                        $uod_quantity = $row['uod_quantity'];
-                        $uod_order_id = $row['uod_order_id'];
+            <?php
+                // CART ITEMS ORDERED BY USER
+                $show_all_items_query = "SELECT * FROM `uder_order_details` WHERE `uod_order_id` = $order_id";
+                $new_result = mysqli_query($connection, $show_all_items_query);
+                while ($row = mysqli_fetch_assoc($new_result)) {
+                    $uod_item_id = $row['uod_item_id'];
+                    $uod_price = $row['uod_price'];
+                    $uod_quantity = $row['uod_quantity'];
 
-                        $get_item_details = "SELECT * FROM `items` WHERE item_id = $uod_item_id";
-                        $get_item_details_result = mysqli_query($connection, $get_item_details);
-                        while ($row = mysqli_fetch_assoc($get_item_details_result)) {
-                            $item_id = $row['item_id'];
-                            $item_name = $row['item_name'];
-                            $item_weight = $row['item_weight'];
-                            $item_price = $row['item_price'];
-                            $item_image = "assets/images/products/" . $row['item_image'];
-                            $item_category = $row['item_category'];
-                    ?>
+                    $uod_total_price = $uod_price * $uod_quantity;
+                    $uod_order_id = $row['uod_order_id'];
+
+                    $get_item_details = "SELECT * FROM `items` WHERE item_id = $uod_item_id";
+                    $get_item_details_result = mysqli_query($connection, $get_item_details);
+                    while ($row = mysqli_fetch_assoc($get_item_details_result)) {
+                        $item_id = $row['item_id'];
+                        $item_name = $row['item_name'];
+                        $item_weight = $row['item_weight'];
+                        $item_price = $row['item_price'];
+                        $item_image = "assets/images/products/" . $row['item_image'];
+                        $item_category = $row['item_category']; ?>
+            <tbody>
+
                 <tr>
                     <td scope="row"><?php echo $item_id; ?></td>
                     <td class="admin-table-img"><img src="<?php echo $item_image; ?>" alt=""></td>
@@ -116,7 +118,12 @@ if (isset($_POST['submit'])) {
                     <td><?php echo $item_weight; ?></td>
                     <td><?php echo $uod_quantity; ?></td>
                     <td><?php echo $item_price; ?></td>
+                    <td><?php echo $uod_total_price; ?></td>
                 </tr>
+                <?php
+                    }
+                }
+                    ?>
                 <div class="table-responsive mt-3">
                     <table class="table table-striped">
                         <thead>
@@ -138,15 +145,15 @@ if (isset($_POST['submit'])) {
                     <form action="" method="POST">
                         <input type="text" hidden name="uod_order_id" value="<?php echo  $uod_order_id ?>">
                         <?php
-                                    $get_tracking_status = "SELECT * FROM `uder_order` WHERE order_id = $uod_order_id";
-                                    $get_tracking_result = mysqli_query($connection, $get_tracking_status);
-                                    while ($row = mysqli_fetch_assoc($get_tracking_result)) {
-                                        $order_tracking_status = $row['order_tracking_status'];
+                            $get_tracking_status = "SELECT * FROM `uder_order` WHERE order_id = $uod_order_id";
+                            $get_tracking_result = mysqli_query($connection, $get_tracking_status);
+                            while ($row = mysqli_fetch_assoc($get_tracking_result)) {
+                                $order_tracking_status = $row['order_tracking_status'];
 
 
-                                    ?>
+                            ?>
                         <?php
-                                        if ($order_tracking_status == '1') { ?>
+                                if ($order_tracking_status == '1') { ?>
                         <button type="submit" name="confirm" value="confirm" class="confirm-button-md">Confirm
                             Order</button>
                         <?php } else if ($order_tracking_status == '2') { ?>
@@ -154,17 +161,18 @@ if (isset($_POST['submit'])) {
                         <button type="submit" name="ship" value="ship" class="confirm-button-md">SHIP
                             ORDER</button>
                         <?php
-                                        }
-                                    }
-                                    ?>
+                                }
+
+                                ?>
                     </form>
                 </div>
-                <?php
-                        }
-                    }
-                }
-                ?>
+
             </tbody>
+            <?php
+                            }
+                        }
+
+                ?>
         </table>
     </div>
 
