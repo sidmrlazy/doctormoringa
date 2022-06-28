@@ -88,7 +88,7 @@
             <img src="assets/images/products/<?php echo $item_image ?>" alt="">
             <div class="w-100 upload-section">
                 <input type="file" name="item_image" value="<?php echo $item_image ?>" class="form-control edit-image"
-                    id="inputGroupFile01">
+                    id="inputGroupFile01" placeholder="<?php echo $item_image ?>">
             </div>
         </div>
 
