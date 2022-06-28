@@ -82,7 +82,7 @@ if (@$get_details->num_rows > 0) {
 
         if ($product_price > 0) { ?>
         <div class="final-section mt-4">
-            <div class="col-md-6 m-1 pricing-tab">
+            <div class="col-md-6 w-100 m-1 pricing-tab">
                 <h4>Shipping Address</h4>
                 <div class="inner-headings">
                     <div class="form-floating m-1 user-details">
@@ -129,7 +129,7 @@ if (@$get_details->num_rows > 0) {
 
                 <!-- <a href="checkout" type="submit" name="edit" class="checkout-btn">Edit</a> -->
             </div>
-            <div class="col-md-6 m-1 pricing-tab">
+            <div class="col-md-6 w-100 m-1 pricing-tab">
                 <div class="inner-headings">
                     <p id="heading">Subtotal</p>
                     <p><?php echo "₹" . $all_total_price; ?></p>
