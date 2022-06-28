@@ -2137,6 +2137,12 @@ input[type="number"] {
   }
 
   /* =========== Cart Section =========== */
+  /* =========== Cart Section =========== */
+  .cart-section {
+    padding: 10px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
   .main-cart {
     margin-top: 20px;
     border: 1px solid #e7e7e7e7;
