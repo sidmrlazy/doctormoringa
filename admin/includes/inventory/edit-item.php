@@ -18,7 +18,6 @@
         $item_image_temp = $_FILES["item_image"]["tmp_name"];
         $folder = "assets/images/products/" . $item_image;
         $update_query = "UPDATE `items` SET 
-                      `item_id`='$item_id',
                       `item_image`='$item_image',
                       `item_name`='$item_name',
                       `item_weight`='$item_weight',
