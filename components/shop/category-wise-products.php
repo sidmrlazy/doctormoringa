@@ -366,7 +366,7 @@
                     Add
                 </button>
                 <button type="submit" name="read_more" class="btn add-btn add-cart-btn">
-                    Read More
+                    Details
                 </button>
             </form>
             <?php } ?>
