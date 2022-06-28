@@ -254,7 +254,8 @@
                 placeholder="<?php echo $item_id ?>" />
 
             <!-- Item Name -->
-            <input type="text" readonly name="item_name" class="product_name" value="<?php echo $item_name ?>" />
+            <input type="text" readonly name="item_name" class="product_name"
+                style="height: 150px; width: 100%!important" value="<?php echo $item_name ?>" />
 
             <!-- Item Weight -->
             <input type="text" readonly name="item_weight" class="product-weight" value="<?php echo $item_weight ?>" />
