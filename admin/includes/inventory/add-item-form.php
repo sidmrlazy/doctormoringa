@@ -80,10 +80,10 @@
         </div>
 
         <div class="form-floating w-100 mb-3">
-            <textarea maxlength="150" class="form-control" type="text" name="item_description"
+            <textarea maxlength="400" class="form-control" type="text" name="item_description"
                 placeholder="Add Category Description" id="floatingTextarea2" style="height: 100px"></textarea>
             <label for="floatingTextarea2">Description</label>
-            <div class="mt-2">Max Character Limit: 150</div>
+            <div class="mt-2">Max Character Limit: 400</div>
         </div>
 
         <div class="form-floating w-100 mb-3">
@@ -95,17 +95,17 @@
         </div>
 
         <div class="form-floating w-100 mb-3">
-            <textarea maxlength="150" class="form-control" type="text" name="item_benefits"
+            <textarea maxlength="400" class="form-control" type="text" name="item_benefits"
                 placeholder="Add Category Description" id="floatingTextarea2" style="height: 100px"></textarea>
             <label for="floatingTextarea2">Benefits</label>
-            <div class="mt-2">Max Character Limit: 150</div>
+            <div class="mt-2">Max Character Limit: 400</div>
         </div>
 
         <div class="form-floating w-100 mb-3">
-            <textarea maxlength="150" class="form-control" type="text" name="item_usage"
+            <textarea maxlength="400" class="form-control" type="text" name="item_usage"
                 placeholder="Add Category Description" id="floatingTextarea2" style="height: 100px"></textarea>
             <label for="floatingTextarea2">Usage</label>
-            <div class="mt-2">Max Character Limit: 150</div>
+            <div class="mt-2">Max Character Limit: 400</div>
         </div>
 
         <div class="input-group mb-3 w-100">
