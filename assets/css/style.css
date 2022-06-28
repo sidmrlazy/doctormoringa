@@ -2202,4 +2202,11 @@ input[type="number"] {
     flex-direction: column !important;
     width: 100% !important;
   }
+  .cart-product-price p {
+    color: #44ad40;
+    font-weight: 800;
+    font-size: 30px;
+    margin-left: 0 !important;
+    width: 100%;
+  }
 }
