@@ -9,7 +9,7 @@
 ?>
 <?php include('components/elements/home-page-category-slider.php')
 ?>
-<?php //include('components/elements/best-sellers.php')
+<?php include('components/elements/best-sellers.php')
 ?>
 <?php //include('components/elements/blogs-carousel.php')
 ?>

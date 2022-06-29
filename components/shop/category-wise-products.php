@@ -251,8 +251,8 @@
         <div class="shopping-section-product-details">
 
             <!-- Item ID -->
-            <input type="text" hidden class="item_id" hidden name="item_id" value="<?php echo $item_id ?>"
-                placeholder="<?php echo $item_id ?>" />
+            <input id="<?php echo $item_id ?>" type="text" hidden class="item_id" hidden name="item_id"
+                value="<?php echo $item_id ?>" placeholder="<?php echo $item_id ?>" />
 
             <!-- Item Name -->
             <input type="text" readonly name="item_name" class="product_name" value="<?php echo $item_name ?>" />

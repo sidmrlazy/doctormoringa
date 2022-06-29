@@ -1,55 +1,52 @@
-<h1 class="section-label">Popular Products</h1>
-<div class="best-seller-section">
-    <?php
-    include('admin/includes/server/config.php');
-    $query = "SELECT uder_order_details, SUM(`uod_price`) * uod_quantity AS total FROM `uder_order_details` GROUP BY uder_order_details ORDER BY total DESC LIMIT 5";
-    $result = mysqli_query($connection, $query);
-
-    while ($row = mysqli_fetch_assoc($result)) {
-        $uder_order_details = $row['uder_order_details'];
-        $total = $row['total'];
-
-        $fetch_order_id = "SELECT * FROM `uder_order_details` WHERE uder_order_details = $uder_order_details";
-        $fetch_order_id_result = mysqli_query($connection, $fetch_order_id);
-
-        while ($row = mysqli_fetch_assoc($fetch_order_id_result)) {
-            $uod_item_id = $row['uod_item_id'];
-
-            $fetch_item_details = "SELECT * FROM `items` WHERE 'item_id' = $uod_item_id";
-            $fetch_item_result = mysqli_query($connection, $fetch_item_details);
-
-            while ($row = mysqli_fetch_assoc($fetch_item_result)) {
-                $item_name = $row['item_id'];
-                $item_image = "admin/assets/images/products/" . $row['item_image'];
-                $item_name = $row['item_name'];
-                $item_weight = $row['item_weight'];
-                $item_ingredients = $row['item_ingredients'];
-                $item_benefits = $row['item_benefits'];
-                $item_usage = $row['item_usage'];
-                $item_price = $row['item_price'];
-                $item_category = $row['item_category'];
-    ?>
-
-
-
-    <div class="best-product-card">
-        <img class="product-img" src="<?php echo $item_image; ?>" alt="">
-        <div class="best-seller-card-content">
-            <p><?php echo $item_category; ?></p>
-            <h5><?php echo $item_name; ?></h5>
-            <div class="best-seller-mrp-section">
-                <p><?php echo "₹" . $item_price; ?></p>
-                <a href="shop">
-                    <ion-icon name="cart-outline" id="cart-icon"></ion-icon>
-                    Add
-                </a>
+<div class="container mt-5 best-seller">
+    <h1 class="section-heading">Popular Products</h1>
+    <div id="popularProductsCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <?php
+                include('admin/includes/server/config.php');
+                $query = "SELECT * FROM `items`";
+                $result = mysqli_query($connection, $query);
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $item_id = $row['item_id'];
+                    $item_image = "admin/assets/images/products/" . $row['item_image'];
+                    $item_name = $row['item_name'];
+                    $item_weight = $row['item_weight'];
+                    $item_ingredients = $row['item_ingredients'];
+                    $item_benefits = $row['item_benefits'];
+                    $item_usage = $row['item_usage'];
+                    $item_price = $row['item_price'];
+                    $item_category = $row['item_category'];
+                ?>
+                <div class="product-card-homepage">
+                    <img src="<?php echo $item_image; ?>" alt="<?php echo $item_image; ?>">
+                    <div class="product-card-content-section">
+                        <p class="product-card-category"><?php echo $item_category; ?></p>
+                        <p class="product-card-item-name"><?php echo $item_name; ?></h5>
+                        </p>
+                        <div class="product-card-action-section">
+                            <p><?php echo "₹" . $item_price; ?></p>
+                            <a href="shop#<?php echo $item_id ?>">Details</a>
+                        </div>
+                    </div>
+                </div>
+                <?php
+                }
+                ?>
             </div>
         </div>
-    </div>
-    <?php
-            }
-        }
-    }
 
-    ?>
+        <button class="carousel-control-prev" type="button" data-bs-target="#popularProductsCarousel"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#popularProductsCarousel"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+
 </div>
