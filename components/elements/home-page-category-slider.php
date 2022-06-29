@@ -3,19 +3,16 @@
     include('admin/includes/server/config.php');
     $query = "SELECT * FROM category";
     $result = $connection->query($query);
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            $category_image = $row['category_image'];
-            $category_name =  $row['category_name'];
-
+    while ($row = mysqli_fetch_assoc($result)) {
+        $category_image = $row['category_image'];
+        $category_name =  $row['category_name'];
     ?>
-    <div class="inner-card" id="inner-card-pale">
+    <a href="shop<?php echo "#" . $category_name ?>.php" class="inner-card" id="inner-card-pale">
         <img src="assets/images/category-icons/<?php echo $category_image ?>" />
-        <!-- <img src="assets/images/category-icons/weight-loss.png" alt=""> -->
         <p class="text-center"><?php echo $category_name; ?></p>
-    </div>
+    </a>
     <?php
-        }
     }
+
     ?>
 </div>

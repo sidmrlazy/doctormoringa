@@ -33,4 +33,15 @@
         <p>Total Customers</p>
         <h1><?php echo $count; ?></h1>
     </a>
+
+    <?php
+    include 'includes/server/config.php';
+    $get_orders_query = "SELECT * FROM `items`";
+    $result = mysqli_query($connection, $get_orders_query);
+    $count = mysqli_num_rows($result);
+    ?>
+    <a href="view-users.php" id="blue" class="tabs">
+        <p>Total Products</p>
+        <h1><?php echo $count; ?></h1>
+    </a>
 </div>
