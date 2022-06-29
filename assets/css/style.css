@@ -528,9 +528,7 @@ input[type="number"] {
   font-size: 24px;
   margin-right: 5px;
 }
-.checked {
-  color: orange !important;
-} */
+*/
 
 /* =========== Shop Section =========== */
 .shop {
@@ -1410,6 +1408,10 @@ input[type="number"] {
 .para-details {
   margin: 0;
 }
+
+.star-rating#myRange {
+  color: yellow !important;
+}
 /* =================== PRODUCT DETAILS =================== */
 .modal,
 .modal-dialog,
@@ -1542,22 +1544,27 @@ input[type="number"] {
   color: #44ad40;
   margin: 0;
 }
+.button-row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
 .product-status-success {
   background-color: #44ad40 !important;
   border-radius: 2px !important;
-  padding: 2px !important;
+  padding: 5px !important;
   color: #fff !important;
   font-weight: bold !important;
-  width: 50px !important;
   text-align: center !important;
+  width: auto !important;
 }
 .product-status-fail {
   background-color: #bd5046 !important;
   border-radius: 2px !important;
-  padding: 2px !important;
+  padding: 5px !important;
   color: #fff !important;
   font-weight: bold !important;
-  width: 200px !important;
+  width: auto !important;
   text-align: center !important;
 }
 .product-status-fail-button {
@@ -1565,6 +1572,7 @@ input[type="number"] {
   border: 1px solid #bd5046;
   border-radius: 2px;
   color: #bd5046;
+  width: auto !important;
 }
 .product-status-fail-button:hover {
   background-color: #bd5046;
@@ -1572,6 +1580,21 @@ input[type="number"] {
   border-radius: 2px;
   color: #fff;
   transition: 0.2s all ease-in-out;
+}
+.rate-btn {
+  background-color: #2d4454;
+  margin-left: 10px;
+  text-decoration: none;
+  color: #fff;
+  padding: 5px;
+  border: 0 !important;
+}
+.rate-btn:hover {
+  background-color: #2d4454;
+  margin-left: 10px;
+  text-decoration: none;
+  color: #fff;
+  padding: 5px;
 }
 /* =================== PAYMENT SUCCESS =================== */
 .payment-success {
@@ -1608,14 +1631,86 @@ input[type="number"] {
   transition: 0.2s all ease-in-out;
 }
 
-/* =================== STAR RATING =================== */
-.form-check-input {
-  content: url("../images/icons/star-outline.svg") !important;
-  border: 0;
-  font-size: 24px !important;
+/* =================== COMMON SECTION =================== */
+.section-wrapper {
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+.insert-function-form {
+  border: 1px solid #e7e7e7;
+  padding: 20px;
+  border-radius: 5px;
+  margin-top: 20px !important;
+}
+.section-heading {
+  margin: 0 !important;
+  font-size: 22px !important;
+  font-weight: bold;
+}
+.section-details {
+  font-size: 18px;
+  margin: 0 !important;
+}
+
+/* =================== COMMON SECTION =================== */
+.feedback-section {
+  border: 1px solid #e7e7e7;
+  width: 100%;
+  border-radius: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: #fff;
+}
+.feedback-product-img {
+  border: 1px solid #e7e7e7;
+  width: 250px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.feedback-product-img img {
+  border-right: 1px solid #e7e7e7;
+  width: 200px;
+  height: auto;
+}
+.feedback-content {
+  margin-left: 20px;
+  display: flex;
+  justify-content: center !important;
+  align-items: flex-start;
+  flex-direction: column !important;
+  margin-top: 10px;
+}
+.feedback-item {
   margin: 0;
-  padding: 0;
-  color: yellow;
+  font-size: 18px;
+  font-weight: bold;
+}
+.feedback {
+  margin: 0;
+  font-size: 22px !important;
+  margin-bottom: 10px;
+}
+.feedback-by {
+  margin: 0;
+  font-size: 22px !important;
+  color: #44ad40;
+  font-weight: 500 !important;
+}
+
+/* =================== BUTTONS =================== */
+.submit-btn {
+  width: 100% !important;
+  background-color: #44ad40 !important;
+  text-align: center;
+  border: 0;
+  border-radius: 3px !important;
+  padding: 10px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 /* ===================
@@ -1814,7 +1909,7 @@ input[type="number"] {
   }
 
   /* =========== Bestseller Section =========== */
-  .carousel-item {
+  .carousel-item-new {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;

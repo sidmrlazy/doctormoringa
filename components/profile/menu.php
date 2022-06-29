@@ -1,3 +1,5 @@
+<button onclick="topFunction()" id="myBtn" title="Go to top" class="back-to-top">Back to Top</button>
+
 <div class="container mt-5 mb-5">
     <div class="accordion accordion-flush" id="accordionFlushExample">
         <div class="accordion-item">
@@ -107,6 +109,27 @@
                             $item_image = "admin/assets/images/products/" . $row['item_image'];
                             $item_category = $row['item_category'];
                 ?>
+                <!-- RATE PRODUCT MODAL START -->
+                <div class="modal" id="rateProductModal" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">RATE PRODUCT</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <img src="<?php echo $item_image; ?>" alt="<?php echo $item_image; ?>">
+                                <p>Modal body text goes here.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- RATE PRODUCT MODAL END -->
                 <div class="past-orders-section">
                     <div>
                         <p class="orderid">Order ID: </p>
@@ -122,35 +145,19 @@
                                 <p><?php echo $item_category; ?></p>
                                 <p class="history-product-weight">(<?php echo $item_weight; ?>)</p>
                             </div>
-
-
-
-                            <!-- Star Rating System Start -->
-                            <div class="weight-price">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                </div>
-                            </div>
-                            <!-- Star Rating System End -->
                             <p class="product-price">₹<?php echo $new_value; ?></p>
 
-                            <?php
-                                        if ($order_status == 0) {
-                                        ?>
-                            <p class='product-status-fail'>Payment Failed</p>
-
-                            <!-- <button class='product-status-fail-button'>Retry</button> -->
-                            <?php
-                                        } else if ($order_status == 1) {
-                                        ?>
-
-                            <p class='product-status-success'>Paid</p>
-
-                            <?php
-                                        }
-                                        ?>
-
-
+                            <div class="button-row">
+                                <?php if ($order_status == 0) { ?>
+                                <p class='product-status-fail '>Payment Failed</p>
+                                <?php } else if ($order_status == 1) { ?>
+                                <p class='product-status-success '>Paid</p>
+                                <?php } ?>
+                                <button type="button" class="btn btn-primary rate-btn" data-bs-toggle="modal"
+                                    data-bs-target="#rateProductModal">
+                                    Rate Product
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>

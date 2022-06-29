@@ -2,7 +2,7 @@
     <h1 class="section-heading">Popular Products</h1>
     <div id="popularProductsCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
-            <div class="carousel-item active">
+            <div class="carousel-item carousel-item-new active">
                 <?php
                 include('admin/includes/server/config.php');
                 $query = "SELECT * FROM `items` LIMIT 4";
