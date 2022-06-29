@@ -69,6 +69,10 @@
                                 View Users
                             </a>
                         </li>
+                        <li><a class="dropdown-item" href="view-feedback.php">
+                                View User Feedback
+                            </a>
+                        </li>
                         <!-- <li>
                             <a class="dropdown-item" href="add-users.php">
                                 Add Users
