@@ -5,7 +5,7 @@
             <div class="carousel-item active">
                 <?php
                 include('admin/includes/server/config.php');
-                $query = "SELECT * FROM `items`";
+                $query = "SELECT * FROM `items` LIMIT BY 4";
                 $result = mysqli_query($connection, $query);
                 while ($row = mysqli_fetch_assoc($result)) {
                     $item_id = $row['item_id'];
