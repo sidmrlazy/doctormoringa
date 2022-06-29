@@ -382,13 +382,11 @@ input[type="number"] {
 }
 .carousel-item {
   display: flex !important;
-  flex-wrap: wrap !important;
   justify-content: center;
   align-items: center;
   margin-top: 20px !important;
 }
 .product-card-homepage {
-  flex: 1 1 1 500px !important;
   width: 250px !important;
   height: 300px !important;
   border: 1px solid #e7e7e7;
