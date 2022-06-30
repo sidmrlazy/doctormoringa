@@ -73,8 +73,15 @@
                                 View User Feedback
                             </a>
                         </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
                         <li><a class="dropdown-item" href="creatives.php">
                                 Add Creatives
+                            </a>
+                        </li>
+                        <li><a class="dropdown-item" href="view-creatives.php">
+                                View All Creatives
                             </a>
                         </li>
                         <!-- <li>
