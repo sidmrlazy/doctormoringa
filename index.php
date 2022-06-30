@@ -11,6 +11,8 @@
 ?>
 <?php include('components/elements/best-sellers.php')
 ?>
+<?php include('components/elements/creatives.php')
+?>
 <?php //include('components/elements/blogs-carousel.php')
 ?>
 <?php //include('components/elements/newsletter.php')

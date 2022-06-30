@@ -1,6 +1,6 @@
 <div class="container section-wrapper">
-    <p class="section-heading">Give Feedback</p>
-    <p class="section-details">Give feedback on products that you have liked</p>
+    <p class="section-heading">Leave a review</p>
+    <p class="section-details">Leave a review on products that you have liked</p>
 
     <?php
     include('admin/includes/server/config.php');
@@ -21,7 +21,7 @@
             $feedback_user_contact = $user_contact;
             $feedback_content = mysqli_real_escape_string($connection, $_POST['feedback_content']);
             $feedback_item_id = $_POST['feedback_item_id'];
-            $feedback_status = "0";
+            $feedback_status = "Blocked";
             $add_feedback_query = "INSERT INTO `feedback`(
                 `feedback_user_id`, 
                 `feedback_user_name`, 
@@ -70,7 +70,7 @@
             <label for="floatingSelect">Works with selects</label>
         </div>
         <div class="form-floating mb-3">
-            <textarea class="form-control" name="feedback_content" placeholder="Leave a comment here"
+            <textarea maxlength="250" class="form-control" name="feedback_content" placeholder="Leave a comment here"
                 id="floatingTextarea2" style="height: 100px"></textarea>
             <label for="floatingTextarea2">Give Feedback</label>
         </div>

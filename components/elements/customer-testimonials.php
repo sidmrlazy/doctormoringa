@@ -2,7 +2,7 @@
     <h1 class="section-heading">Testimonials</h1>
     <?php
     include('admin/includes/server/config.php');
-    $query = 'SELECT * FROM `feedback`';
+    $query = "SELECT * FROM `feedback` WHERE feedback_status = 'Live'";
     $result = mysqli_query($connection, $query);
     while ($row = mysqli_fetch_assoc($result)) {
         $feedback_item_id = $row['feedback_item_id'];

@@ -148,7 +148,7 @@
                         <?php
                         if (!empty($_SESSION['user_id'])) {
                             $user_id = $_SESSION['user_id'];
-                            echo "<li class='dropdown-row'><a class='dropdown-item' href='testimonials'>Testimonials</a></li>";
+                            echo "<li class='dropdown-row'><a class='dropdown-item' href='testimonials'>Leave a review</a></li>";
                         } else {
                             $user_id = 0;
                         }
@@ -166,7 +166,7 @@
                         <?php
                         if (!empty($_SESSION['user_id'])) {
                             $user_id = $_SESSION['user_id'];
-                            echo "<li class='mobile'><a class='dropdown-item' href='#'>Testimonials</a></li>";
+                            echo "<li class='mobile'><a class='dropdown-item' href='#'>Leave a review</a></li>";
                         } else {
                             $user_id = 0;
                         }

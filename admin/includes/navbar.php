@@ -73,6 +73,10 @@
                                 View User Feedback
                             </a>
                         </li>
+                        <li><a class="dropdown-item" href="creatives.php">
+                                Add Creatives
+                            </a>
+                        </li>
                         <!-- <li>
                             <a class="dropdown-item" href="add-users.php">
                                 Add Users

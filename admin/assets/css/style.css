@@ -289,6 +289,13 @@ input[type="number"] {
   font-weight: bold;
   color: #5bb336;
 }
+.table-edit-btn {
+  width: 100%;
+  font-size: 14px !important;
+  background-color: #ed873e;
+  border: 0 !important;
+  border-radius: 3px !important;
+}
 /* ================================================ Dashboard ================================================ */
 .dashboard-tab {
   display: flex;

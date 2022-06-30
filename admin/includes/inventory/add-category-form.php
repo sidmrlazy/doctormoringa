@@ -9,6 +9,7 @@
                 $category_image = $_FILES["category_image"]["name"];
                 $temp_category_image = $_FILES["category_image"]["tmp_name"];
                 $folder = "assets/images/uploaded/" . $category_image;
+
                 $category_name = mysqli_real_escape_string($connection, $_POST['category_name']);
                 $category_description = mysqli_real_escape_string($connection, $_POST['category_description']);
 
