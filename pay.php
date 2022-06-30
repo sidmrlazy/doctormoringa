@@ -100,8 +100,8 @@ if (!empty($_POST["submit"])) {
             $user_email = $_POST['user_email'];
             $total_amount = $_POST['gross_total'];
 
-            $keyId = 'rzp_test_0WPfYvs2tlQaLU';
-            $keySecret = 'rrPjT8zzOFtK0gSVxNBjCFEE';
+            $keyId = 'rzp_live_X36ox2orkcP17P';
+            $keySecret = 'ubNUKggZVVYEEPvs9w5RMhj5';
 
             $api = new Api($keyId, $keySecret);
             $orderData = [
