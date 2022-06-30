@@ -1712,6 +1712,9 @@ input[type="number"] {
   -webkit-box-shadow: -1px 0px 8px -1px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: -1px 0px 8px -1px rgba(0, 0, 0, 0.75);
 }
+.section-no-background {
+  background: none !important;
+}
 .section-background {
   padding: 30px;
   background: rgb(68, 173, 64);
@@ -1720,6 +1723,10 @@ input[type="number"] {
     rgba(68, 173, 64, 1) 0%,
     rgba(21, 255, 13, 0.6138830532212884) 100%
   );
+  margin: 0 !important;
+  width: 100% !important;
+  margin-top: 50px !important;
+  margin-bottom: 50px !important;
 }
 .custom-image-wrapper {
   display: flex !important;
