@@ -27,11 +27,21 @@
 
     <div class="footer-section-col col-md-3">
         <h4 id="mobile-footer-header">Company</h4>
-        <li>About Us</li>
-        <li>Privacy Policy </li>
-        <li>Terms & Conditions</li>
-        <li>Contact Us</li>
-        <li>Career</li>
+        <a href="about">
+            <li>About Us</li>
+        </a>
+        <a href="">
+            <li>Privacy Policy </li>
+        </a>
+        <a href="">
+            <li>Terms & Conditions</li>
+        </a>
+        <a href="contact">
+            <li>Contact Us</li>
+        </a>
+        <a href="contact">
+            <li>Career</li>
+        </a>
     </div>
 
     <div class="footer-section-col col-md-3">
@@ -39,14 +49,22 @@
         <a href="login">
             <li>Sign In | Register</li>
         </a>
-        <li>View Cart</li>
-        <li>Track Order </li>
+        <a href="cart">
+            <li>View Cart</li>
+        </a>
+        <a href="profile#your-orders">
+            <li>Track Order </li>
+        </a>
     </div>
 
     <div class="footer-section-col col-md-3">
         <h4 id="mobile-footer-header">Business</h4>
-        <li>Franchisee Opportunity</li>
-        <li>Promotions</li>
+        <a href="contact">
+            <li>Franchisee Opportunity</li>
+        </a>
+        <a href="contact">
+            <li>Promotions</li>
+        </a>
     </div>
 </footer>
 <div class="mt-2 d-flex justify-content-center align-items-center bottom-footer">
