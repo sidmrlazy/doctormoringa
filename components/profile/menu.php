@@ -71,6 +71,23 @@
                 data-bs-parent="#accordionFlushExample">
                 <?php
                 include('admin/includes/server/config.php');
+
+                // RATING
+                if (isset($_POST['rate'])) {
+                    $user_id = $_POST['user_id'];
+                    $item_id = $_POST['item_id'];
+                    $rating = $_POST['rating'];
+
+                    $rate_query = "INSERT INTO `product_rating`(`user_id`, `item_id`, `rating`) VALUES ('$user_id','$item_id','$rating')";
+                    $rate_result = mysqli_query($connection, $rate_query);
+
+                    if (!$rate_result) {
+                        echo "<div class='alert alert-danger' role='alert'>Something went wrong!</div>";
+                    } else {
+                        echo "<div class='alert alert-success' role='alert'>THANK YOU FOR YOUR RATING!</div>";
+                    }
+                }
+
                 // GET ORDER DETAILS
                 $getQuery = "SELECT * FROM `uder_order` WHERE `order_user_id` = $user_id ORDER BY `order_id` DESC";
                 $result = mysqli_query($connection, $getQuery);
@@ -112,21 +129,42 @@
                 <!-- RATE PRODUCT MODAL START -->
                 <div class="modal" id="rateProductModal" tabindex="-1">
                     <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">RATE PRODUCT</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
+                        <form action="" method="POST">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Rate <?php echo $item_name  ?></h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body star-rating-col">
+                                    <!-- INSERT STAR RATING DETAILS -->
+                                    <input hidden type="text" value="<?php echo $user_id  ?>" name="user_id">
+                                    <input hidden type="text" value="<?php echo $item_id  ?>" name="item_id">
+                                    <input hidden type="text" value="rating" name="rating">
+                                    <!-- INSERT STAR RATING DETAILS -->
+                                    <img src="<?php echo $item_image; ?>" class="mb-5" alt="<?php echo $item_image; ?>">
+
+                                    <!-- Font Awesome -->
+                                    <script src="https://kit.fontawesome.com/c64574e452.js" crossorigin="anonymous">
+                                    </script>
+                                    <div class="ratings">
+                                        <i class="fa fa-star rating-color"></i>
+                                        <i class="fa fa-star rating-color"></i>
+                                        <i class="fa fa-star rating-color"></i>
+                                        <i class="fa fa-star rating-color"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" name="rate" value="rate" class="btn btn-primary">Submit
+                                        Rating</button>
+                                </div>
+
+
                             </div>
-                            <div class="modal-body">
-                                <img src="<?php echo $item_image; ?>" alt="<?php echo $item_image; ?>">
-                                <p>Modal body text goes here.</p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
-                            </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
                 <!-- RATE PRODUCT MODAL END -->

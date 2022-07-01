@@ -81,6 +81,8 @@
 
 <!-- Custom JavaScript -->
 <script type="text/javascript" src="assets/js/custom.js"></script>
+<script src="assets/js/rating.js"></script>
+
 
 
 <!-- Ajax -->
