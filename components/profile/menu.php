@@ -153,10 +153,10 @@
                                 <?php } else if ($order_status == 1) { ?>
                                 <p class='product-status-success '>Paid</p>
                                 <?php } ?>
-                                <button type="button" class="btn btn-primary rate-btn" data-bs-toggle="modal"
+                                <!-- <button type="button" class="btn btn-primary rate-btn" data-bs-toggle="modal"
                                     data-bs-target="#rateProductModal">
                                     Rate Product
-                                </button>
+                                </button> -->
                             </div>
                         </div>
                     </div>
