@@ -58,7 +58,7 @@
                     <p class="inactive-btn">Out Of Stock</p>
 
                     <?php
-                            } else {
+                            } else if ($item_status == '2') {
                             ?>
                     <p class="active-btn">In Stock</p>
                     <?php

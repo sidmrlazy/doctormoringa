@@ -5,15 +5,15 @@
 
     // Update Function
     if (isset($_POST['update'])) {
-        $item_id = $_POST['item_id'];
-        $item_name = $_POST['item_name'];
-        $item_weight = $_POST['item_weight'];
-        $item_description = $_POST['item_description'];
-        $item_ingredients = $_POST['item_ingredients'];
-        $item_benefits = $_POST['item_benefits'];
-        $item_usage = $_POST['item_usage'];
-        $item_price = $_POST['item_price'];
-        $item_category = $_POST['item_category'];
+        $item_id = mysqli_real_escape_string($connection, $_POST['item_id']);
+        $item_name = mysqli_real_escape_string($connection, $_POST['item_name']);
+        $item_weight = mysqli_real_escape_string($connection, $_POST['item_weight']);
+        $item_description = mysqli_real_escape_string($connection, $_POST['item_description']);
+        $item_ingredients = mysqli_real_escape_string($connection, $_POST['item_ingredients']);
+        $item_benefits = mysqli_real_escape_string($connection, $_POST['item_benefits']);
+        $item_usage = mysqli_real_escape_string($connection, $_POST['item_usage']);
+        $item_price = mysqli_real_escape_string($connection, $_POST['item_price']);
+        $item_category = mysqli_real_escape_string($connection, $_POST['item_category']);
         $item_status = $_POST['item_status'];
         $item_image = $_FILES["item_image"]["name"];
         $item_image_temp = $_FILES["item_image"]["tmp_name"];
