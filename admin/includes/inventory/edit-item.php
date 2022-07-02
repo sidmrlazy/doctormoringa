@@ -14,6 +14,7 @@
         $item_usage = $_POST['item_usage'];
         $item_price = $_POST['item_price'];
         $item_category = $_POST['item_category'];
+        $item_status = $_POST['item_status'];
         $item_image = $_FILES["item_image"]["name"];
         $item_image_temp = $_FILES["item_image"]["tmp_name"];
         $folder = "assets/images/products/" . $item_image;
@@ -26,7 +27,8 @@
                       `item_benefits`='$item_benefits',
                       `item_usage`='$item_usage',
                       `item_price`='$item_price',
-                      `item_category`='$item_category' 
+                      `item_category`='$item_category',
+                      `item_status`='$item_status'  
                       WHERE `item_id` = $item_id";
         $update_result = mysqli_query($connection, $update_query);
         if (!$update_result) {
@@ -67,6 +69,8 @@
         $item_usage = $_POST['item_usage'];
         $item_price = $_POST['item_price'];
         $item_category = $_POST['item_category'];
+        $item_status = $_POST['item_status'];
+
         $fetch_item_query = "SELECT * FROM `items` WHERE `item_id` = $item_id";
         $get_item = mysqli_query($connection, $fetch_item_query);
         while ($row = mysqli_fetch_assoc($get_item)) {
@@ -80,10 +84,12 @@
             $item_usage = $row['item_usage'];
             $item_price = $row['item_price'];
             $item_category = $row['item_category'];
+            $item_status = $row['item_status'];
 
     ?>
     <p class="section-heading">Edit Product</p>
     <p class="section-details">Edit product details below or delete the product</p>
+
     <form action="" method="POST" class="admin-form-section" enctype="multipart/form-data">
         <div class="form-inner-row mt-3 mb-3">
             <img src="assets/images/products/<?php echo $item_image ?>" alt="">
@@ -158,6 +164,23 @@
                         ?>
             </select>
             <label for="floatingSelect">Add into Category</label>
+        </div>
+
+
+        <div class="form-floating">
+            <select class="form-select" name="item_status" id="floatingSelect"
+                aria-label="Floating label select example">
+                <?php if ($item_status == '1') {
+                            $item_status = "Out Of Stock";
+                        } else if ($item_status == '2') {
+                            $item_status = "In Stock";
+                        ?>
+                <option selected><?php echo $item_status ?></option>
+                <?php } ?>
+                <option name="item_status" value="1">Out Of Stock</option>
+                <option name="item_status" value="2">In Stock</option>
+            </select>
+            <label for="floatingSelect">Product Status</label>
         </div>
 
         <div class="admin-section-row mt-3">

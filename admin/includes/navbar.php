@@ -84,6 +84,17 @@
                                 View All Creatives
                             </a>
                         </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="homepage-banner.php">
+                                Add Homepage Banners
+                            </a>
+                        </li>
+                        <li><a class="dropdown-item" href="view-homepage-banner.php">
+                                View Homepage Banners
+                            </a>
+                        </li>
                         <!-- <li>
                             <a class="dropdown-item" href="add-users.php">
                                 Add Users

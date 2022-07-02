@@ -141,7 +141,8 @@ if (@$get_details->num_rows > 0) {
                 <div class="inner-headings">
                     <p id="heading">Shipping</p>
                     <p><?php
-                            $delivery_chearge = 60;
+                            $delivery_chearge = 80;
+                            // $delivery_chearge_2 = 100;
                             echo "₹" . $delivery_chearge; ?>
                     </p>
                     <input hidden type="text" minlength="5" name="delivery_chearge"

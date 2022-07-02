@@ -19,13 +19,15 @@
             $item_weight = $row['item_weight'];
             $item_name = $row['item_name'];
             $item_price = $row['item_price'];
+            $item_status = $row['item_status'];
 
             if ($previous_category !== $item_category) {
                 $previous_category = $item_category;
             }
     ?>
+
     <!-- ==================== DISPLAYING PRODUCTS ==================== -->
-    <form action="edit-item.php" method="POST" action="admin-section-card">
+    <form action="edit-item.php" method="POST" class="admin-section-card">
         <!-- ==================== HIDDEN ELEMENTS FOR SENDING VALUES TO EDIT ==================== -->
         <input type="text" hidden name="item_id" value="<?php echo $item_id ?>">
         <input type="text" hidden name="item_image" value="<?php echo $item_image ?>">
@@ -36,22 +38,37 @@
         <input type="text" hidden name="item_ingredients" value="<?php echo $item_ingredients ?>">
         <input type="text" hidden name="item_price" value="<?php echo $item_price ?>">
         <input type="text" hidden name="item_weight" value="<?php echo $item_weight ?>">
+        <input type="text" hidden name="item_status" value="<?php echo $item_status ?>">
         <!-- ==================== DISPLAYING PRODUCT IMAGE AND NAME ==================== -->
         <div class="admin-section-row-start mb-3">
-            <img class="admin-section-img-20-bordered mr-5" src="assets/images/products/<?php echo $item_image ?>">
-            <div class="admin-section-col-start">
+            <img class=" admin-section-img-20-bordered mr-5" src="assets/images/products/<?php echo $item_image ?>">
+            <div class=" admin-section-col-start">
                 <input class="admin-input product" type="text" name="item_name" value="<?php echo $item_name ?>">
                 <input class="admin-input category" type="text" name="item_category"
                     value="<?php echo $item_category ?>">
                 <input class="admin-input category" type="text" name="item_category" value="<?php echo $item_weight ?>">
-                <button class="btn btn-primary confirm-button-md" name="edit" value="edit" type="submit">Edit
-                    Product
-                    Details</button>
+
+                <div class="d-flex justify-content-center align-items-center">
+                    <button class="btn btn-primary m-2 confirm-button-md" name="edit" value="edit" type="submit">Edit
+                        Product
+                        Details</button>
+                    <?php
+                            if ($item_status == '1') {
+                            ?>
+                    <p class="inactive-btn">Out Of Stock</p>
+
+                    <?php
+                            } else {
+                            ?>
+                    <p class="active-btn">In Stock</p>
+                    <?php
+                            } ?>
+                </div>
             </div>
         </div>
     </form>
-    <!-- ==================== DISPLAYING PRODUCTS ==================== -->
 
+    <!-- ==================== DISPLAYING PRODUCTS ==================== -->
     <?php
         }
     }

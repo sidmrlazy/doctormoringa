@@ -82,7 +82,7 @@ input[type="number"] {
   height: auto;
 }
 .nav-link {
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 600;
 }
 .nav-link:hover {
@@ -91,7 +91,7 @@ input[type="number"] {
   transition: all 0.5s;
 }
 .dropdown-item {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
 }
 .dropdown-item:hover {
@@ -134,6 +134,11 @@ input[type="number"] {
   border-radius: 5px;
   padding: 20px;
 }
+.admin-form-section-sm {
+  border: 1px solid #e7e7e7 !important;
+  border-radius: 5px !important;
+  padding: 20px !important;
+}
 .admin-section-card {
   width: 100% !important;
 }
@@ -141,6 +146,12 @@ input[type="number"] {
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
+}
+.admin-section-row-sm {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 50%;
 }
 .admin-section-row-bordered {
   display: flex !important;
@@ -162,6 +173,14 @@ input[type="number"] {
   flex-direction: column !important;
   width: 100% !important;
   height: 100%;
+}
+.admin-section-col-center-sm {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  flex-direction: column !important;
+  height: 100%;
+  padding: 10px;
 }
 .admin-section-col-start {
   display: flex !important;
@@ -185,12 +204,13 @@ input[type="number"] {
   border: 1px solid #e7e7e7;
 }
 .product {
-  font-size: 24px !important;
+  font-size: 20px !important;
   margin: 0 !important;
   font-weight: bold;
   color: #5bb336 !important;
 }
 .category {
+  font-size: 16px;
   margin-bottom: 20px;
   color: #777 !important;
 }
@@ -224,6 +244,16 @@ input[type="number"] {
   width: 350px;
   height: auto;
   border-radius: 5px !important;
+}
+.form-check-label {
+  font-size: 12px !important;
+}
+.inner-label {
+  font-size: 14px !important;
+  font-weight: bold;
+}
+.box {
+  border: 1px solid #e7e7e7;
 }
 /* ================================================ BUTTONS ================================================ */
 .confirm-button {
@@ -332,6 +362,19 @@ input[type="number"] {
   padding: 3px;
   color: #fff;
 }
+.active-btn {
+  color: #5bb336;
+  border: 1px solid #5bb336;
+  border-radius: 3px;
+  padding: 3px;
+}
+.inactive-btn {
+  color: #a84c32;
+  border: 1px solid #a84c32;
+  border-radius: 3px;
+  padding: 3px;
+}
+
 /* ================================================ Dashboard ================================================ */
 .dashboard-tab {
   display: flex;
