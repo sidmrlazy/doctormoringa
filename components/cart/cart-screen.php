@@ -10,6 +10,7 @@ if (!empty($_SESSION['user_id'])) {
 $quantity = 1;
 $product_price = 0;
 $all_total_price = 0;
+$delivery_chearge = 0;
 
 // User Details
 $fetch_details_query = "SELECT * FROM `user` WHERE `user_id` = '$user_id'";
@@ -22,6 +23,12 @@ while ($row = mysqli_fetch_assoc($get_details)) {
     $user_city = $row['user_city'];
     $user_address = $row['user_address'];
     $user_pincode = $row['user_pincode'];
+
+    if ($user_city == 'Lucknow' || $user_city == 'Lucknow District') {
+        $delivery_chearge == 80;
+    } else if ($user_city !== 'Lucknow' || $user_city !== 'Lucknow District') {
+        $delivery_chearge == 80;
+    }
 }
 // Cart Data 
 $query = "SELECT * FROM `items` i LEFT JOIN cart c ON i.item_id=c.cart_item_id AND c.cart_user_id='$user_id'";
@@ -82,7 +89,7 @@ if (@$get_details->num_rows > 0) {
 
         if ($product_price > 0) { ?>
         <div class="final-section mt-4">
-            <div class="col-md-6 m-1 pricing-tab">
+            <div class="w-100 m-1 pricing-tab">
                 <h4>Shipping Address</h4>
                 <div class="inner-headings">
                     <div class="form-floating m-1 user-details">
@@ -98,18 +105,61 @@ if (@$get_details->num_rows > 0) {
                     </div>
                 </div>
 
-                <div class="inner-headings">
-                    <div class="form-floating m-1 user-details">
-                        <input required class="form-control" placeholder="State" type="text" minlength="2"
-                            id="floatingInput" name="user_state" value="<?php echo $user_state; ?>">
-                        <label for="floatingInput">State</label>
-                    </div>
+                <div class="form-floating m-1 user-details">
+                    <select class="form-select" name="user_state" id="floatingSelect"
+                        aria-label="Floating label select example">
+                        <option selected><?php echo $user_state; ?></option>
+                        <?php
+                            $curl = curl_init();
+                            curl_setopt_array($curl, array(
+                                CURLOPT_URL => 'https://api.countrystatecity.in/v1/countries/IN/states',
+                                CURLOPT_RETURNTRANSFER => true,
+                                CURLOPT_HTTPHEADER => array(
+                                    'X-CSCAPI-KEY: eTAxUGIyaElOSm5ldE9YdDhmQTJTaWMxbEVWUVFqR1hqblZRNmRyVw=='
+                                ),
+                            ));
+                            $response = curl_exec($curl);
+                            curl_close($curl);
+                            $response_json = json_decode($response);
+                            foreach ($response_json as $key) {
+                                $user_state =  $key->name; ?>
+                        <option required name="user_state" value="<?php echo $user_state; ?>"><?php echo $user_state; ?>
+                            <?php
+                            }
+                                ?>
+                        </option>
+                    </select>
+                    <label for="floatingSelect">Country</label>
+                </div>
 
-                    <div class="form-floating m-1 user-details">
-                        <input required class="form-control" placeholder="City" type="text" minlength="2"
-                            id="floatingInput" name="user_city" value="<?php echo $user_city; ?>">
-                        <label for="floatingInput">City</label>
-                    </div>
+                <div class="form-floating m-1 user-details">
+                    <select name="user_city" class="form-select" id="floatingSelect"
+                        aria-label="Floating label select example">
+                        <option selected><?php echo $user_city; ?></option>
+                        <?php
+                            $curl = curl_init();
+                            curl_setopt_array($curl, array(
+                                CURLOPT_URL => 'https://api.countrystatecity.in/v1/countries/IN/cities',
+                                CURLOPT_RETURNTRANSFER => true,
+                                CURLOPT_HTTPHEADER => array(
+                                    'X-CSCAPI-KEY: eTAxUGIyaElOSm5ldE9YdDhmQTJTaWMxbEVWUVFqR1hqblZRNmRyVw=='
+                                ),
+                            ));
+                            $response = curl_exec($curl);
+                            curl_close($curl);
+                            $response_json = json_decode($response);
+                            foreach ($response_json as $key) {
+                                $user_city =  $key->name; ?>
+
+
+                        <option required id="user_city" name="user_city" value="<?php echo $user_city; ?>">
+                            <?php echo $user_city; ?>
+                            <?php
+                            }
+                                ?>
+                        </option>
+                    </select>
+                    <label for="floatingSelect">City</label>
                 </div>
 
                 <div class="inner-headings">
@@ -126,47 +176,47 @@ if (@$get_details->num_rows > 0) {
                     </div>
                 </div>
 
+                <input hidden type="text" minlength="5" name="all_total_price" value="<?php echo $all_total_price; ?>">
 
-                <!-- <a href="checkout" type="submit" name="edit" class="checkout-btn">Edit</a> -->
-            </div>
-            <div class="col-md-6 m-1 pricing-tab">
-                <div class="inner-headings">
-                    <p id="heading">Subtotal</p>
-                    <p><?php echo "₹" . $all_total_price; ?></p>
-                    <input hidden type="text" minlength="5" name="all_total_price"
-                        value="<?php echo $all_total_price; ?>">
-
-                </div>
-
-                <div class="inner-headings">
-                    <p id="heading">Shipping</p>
-                    <p><?php
-                            $delivery_chearge = 80;
-                            // $delivery_chearge_2 = 100;
-                            echo "₹" . $delivery_chearge; ?>
-                    </p>
-                    <input hidden type="text" minlength="5" name="delivery_chearge"
-                        value="<?php echo $delivery_chearge; ?>">
-
-                </div>
-
-                <div class="inner-headings">
-                    <p id="heading">Grand Total</p>
-                    <p><?php
-                            $gross_total = $all_total_price + $delivery_chearge;
-                            echo "₹" . $gross_total; ?>
-                        <input hidden type="text" minlength="5" name="gross_total" value="<?php echo $gross_total; ?>">
-
-                    </p>
-                </div>
+                <input hidden type="text" minlength="5" name="delivery_chearge"
+                    value="<?php echo $delivery_chearge; ?>">
+                <?php
+                    $gross_total = $all_total_price + $delivery_chearge;
+                    // echo "₹" . $gross_total; 
+                    ?>
+                <input hidden type="text" minlength="5" name="gross_total" value="<?php echo $gross_total; ?>">
                 <input type="text" name="user_id" hidden value="<?php echo $user_id; ?>">
                 <input class="checkout-btn" type="submit" name="submit" value='Proceed to Checkout' />
-
                 <div class="d-flex justify-content-center align-items-center payment-section">
                     <p class="mt-5">Secure Payment Gateways</p>
                     <img src="assets/images/icons/payment-method.png" alt="">
                 </div>
+                <!-- <a href="checkout" type="submit" name="edit" class="checkout-btn">Edit</a> -->
             </div>
+            <!-- <div class="col-md-6 m-1 pricing-tab">
+                <div class="inner-headings">
+                    <p id="heading">Subtotal</p>
+                    <p><?php echo "₹" . $all_total_price; ?></p>
+                </div>
+
+                <div class="inner-headings">
+                    <p id="heading">Shipping</p>
+                    <p>
+                    </p>
+                </div>
+
+                <div class="inner-headings">
+                    <p id="heading">Grand Total</p>
+                    <p>
+
+
+                    </p>
+                </div>
+
+
+
+               
+            </div> -->
         </div>
         <?php } else {
             echo "<lottie-player src='https://assets8.lottiefiles.com/packages/lf20_fzoupjne.json' class='d-flex justofy-content-center align-items-center w-100' background='transparent'  speed='1'  style='width: 300px; height: 300px;' loop autoplay></lottie-player>";

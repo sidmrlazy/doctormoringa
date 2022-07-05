@@ -41,7 +41,7 @@
         <input type="text" hidden name="item_status" value="<?php echo $item_status ?>">
         <!-- ==================== DISPLAYING PRODUCT IMAGE AND NAME ==================== -->
         <div class="admin-section-row-start mb-3">
-            <img class=" admin-section-img-20-bordered mr-5" src="assets/images/products/<?php echo $item_image ?>">
+            <img class="admin-section-img-20-bordered mr-5" src="assets/images/products/<?php echo $item_image ?>">
             <div class=" admin-section-col-start">
                 <input class="admin-input product" type="text" name="item_name" value="<?php echo $item_name ?>">
                 <input class="admin-input category" type="text" name="item_category"

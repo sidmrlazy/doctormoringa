@@ -30,6 +30,24 @@ if (!empty($_POST["submit"])) {
     $gross_total = $_POST['gross_total'];
     $order_time = time();
 
+
+    if ($order_user_city !== 'Lucknow' || $order_user_city !== 'Lucknow District') {
+        $delivery_chearge == 100;
+    } else if ($order_user_city == 'Lucknow' || $order_user_city == 'Lucknow District') {
+        $delivery_chearge == 80;
+    }
+    // echo "USER CITY: " . $order_user_city;
+    // echo "<br>";
+    // echo "<br>";
+    // echo "DELIVERY CHARGE: " . $delivery_chearge;
+    // echo "<br>";
+    // echo "<br>";
+    // echo "Total: " . $gross_total;
+    // echo "<br>";
+    // echo "<br>";
+    // echo "Gross: " . $all_total_price_post;
+
+
     $quantity = 1;
     $product_price = 0;
     $all_total_price = 0;
@@ -75,6 +93,11 @@ if (!empty($_POST["submit"])) {
                 $item_id = $row['item_id'];
                 $item_price = $row['item_price'];
                 $cart_qty = $row['cart_qty'];
+                $cart_user_city = $row['cart_user_city'];
+
+                // if ($cart_user_city == 'Lucknow' || $cart_user_city == 'Lucknow District') {
+
+                // }
 
                 $o_query = "INSERT INTO `uder_order_details` (
                     `uder_order_details`, 
