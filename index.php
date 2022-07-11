@@ -3,6 +3,8 @@
 ?>
 <?php include('components/maintenance.php')
 ?>
+<?php include('components/traffic-tracker.php')
+?>
 <?php //include('components/navbar.php')
 ?>
 <?php //include('components/elements/banner.php')
