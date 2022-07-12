@@ -27,7 +27,7 @@ while ($row = mysqli_fetch_assoc($get_details)) {
     if ($user_city == 'Lucknow' || $user_city == 'Lucknow District') {
         $delivery_chearge == 80;
     } else if ($user_city !== 'Lucknow' || $user_city !== 'Lucknow District') {
-        $delivery_chearge == 80;
+        $delivery_chearge == 100;
     }
 }
 // Cart Data 
@@ -176,56 +176,56 @@ if (@$get_details->num_rows > 0) {
                     </div>
                 </div>
 
-                <input hidden type="text" minlength="5" name="all_total_price" value="<?php echo $all_total_price; ?>">
 
-                <input hidden type="text" minlength="5" name="delivery_chearge"
-                    value="<?php echo $delivery_chearge; ?>">
-                <?php
-                    $gross_total = $all_total_price + $delivery_chearge;
-                    // echo "₹" . $gross_total; 
-                    ?>
-                <input hidden type="text" minlength="5" name="gross_total" value="<?php echo $gross_total; ?>">
-                <input type="text" name="user_id" hidden value="<?php echo $user_id; ?>">
-                <input class="checkout-btn" type="submit" name="submit" value='Proceed to Checkout' />
-                <div class="d-flex justify-content-center align-items-center payment-section">
-                    <p class="mt-5">Secure Payment Gateways</p>
-                    <img src="assets/images/icons/payment-method.png" alt="">
-                </div>
                 <!-- <a href="checkout" type="submit" name="edit" class="checkout-btn">Edit</a> -->
             </div>
-            <!-- <div class="col-md-6 m-1 pricing-tab">
+            <div class="col-md-6 m-1 pricing-tab">
                 <div class="inner-headings">
                     <p id="heading">Subtotal</p>
                     <p><?php echo "₹" . $all_total_price; ?></p>
+                    <input hidden type="text" minlength="5" name="all_total_price"
+                        value="<?php echo $all_total_price; ?>">
+
                 </div>
 
                 <div class="inner-headings">
                     <p id="heading">Shipping</p>
-                    <p>
+                    <p><?php
+                            $delivery_chearge = 60;
+                            echo "₹" . $delivery_chearge; ?>
                     </p>
+                    <input hidden type="text" minlength="5" name="delivery_chearge"
+                        value="<?php echo $delivery_chearge; ?>">
+
                 </div>
 
                 <div class="inner-headings">
                     <p id="heading">Grand Total</p>
-                    <p>
-
+                    <p><?php
+                            $gross_total = $all_total_price + $delivery_chearge;
+                            echo "₹" . $gross_total; ?>
+                        <input hidden type="text" minlength="5" name="gross_total" value="<?php echo $gross_total; ?>">
 
                     </p>
                 </div>
+                <input type="text" name="user_id" hidden value="<?php echo $user_id; ?>">
+                <input class="checkout-btn" type="submit" name="submit" value='Proceed to Checkout' />
 
-
-
-               
-            </div> -->
+                <div class="d-flex justify-content-center align-items-center payment-section">
+                    <p class="mt-5">Secure Payment Gateways</p>
+                    <img src="assets/images/icons/payment-method.png" alt="">
+                </div>
+            </div>
         </div>
-        <?php } else {
+</div>
+<?php } else {
             echo "<lottie-player src='https://assets8.lottiefiles.com/packages/lf20_fzoupjne.json' class='d-flex justofy-content-center align-items-center w-100' background='transparent'  speed='1'  style='width: 300px; height: 300px;' loop autoplay></lottie-player>";
         } ?>
 
 
-    </form>
+</form>
 
-    <div>
+<div>
 
-    </div>
+</div>
 </div>

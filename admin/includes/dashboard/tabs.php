@@ -1,7 +1,7 @@
 <div class="container section-wrapper dashboard-tab">
     <?php
     include 'includes/server/config.php';
-    $get_orders_query = "SELECT SUM(order_gross_amount) FROM `uder_order`";
+    $get_orders_query = "SELECT SUM(order_gross_amount) FROM `uder_order` WHERE order_status = 1";
     $result = mysqli_query($connection, $get_orders_query);
 
     foreach ($result as $row) {

@@ -35,3 +35,16 @@ function decreaseValue() {
   value--;
   document.getElementById("number").value = value;
 }
+
+// Calculate Delivery Fee According to City
+function getDeliveryFee() {
+  var getCity = document.getElementById("user_city").value;
+  if (getCity === "Lucknow" || getCity === "Lucknow District") {
+    var fee = "₹" + 80;
+  } else if (getCity !== "Lucknow" || getCity !== "Lucknow District") {
+    var fee = "₹" + 100;
+  } else {
+    var fee = "Please select delivery city";
+  }
+  document.getElementById("deliveryFee").innerHTML = fee;
+}

@@ -30,22 +30,22 @@ if (!empty($_POST["submit"])) {
     $gross_total = $_POST['gross_total'];
     $order_time = time();
 
-
     if ($order_user_city !== 'Lucknow' || $order_user_city !== 'Lucknow District') {
         $delivery_chearge == 100;
     } else if ($order_user_city == 'Lucknow' || $order_user_city == 'Lucknow District') {
         $delivery_chearge == 80;
     }
-    // echo "USER CITY: " . $order_user_city;
-    // echo "<br>";
-    // echo "<br>";
-    // echo "DELIVERY CHARGE: " . $delivery_chearge;
-    // echo "<br>";
-    // echo "<br>";
-    // echo "Total: " . $gross_total;
-    // echo "<br>";
-    // echo "<br>";
-    // echo "Gross: " . $all_total_price_post;
+
+    echo "USER CITY: " . $order_user_city;
+    echo "<br>";
+    echo "<br>";
+    echo "DELIVERY CHARGE: " . $delivery_chearge;
+    echo "<br>";
+    echo "<br>";
+    echo "Total: " . $gross_total;
+    echo "<br>";
+    echo "<br>";
+    echo "Gross: " . $all_total_price_post;
 
 
     $quantity = 1;

@@ -19,5 +19,5 @@
 ?>
 <?php //include('components/elements/customer-testimonials.php')
 ?>
-<?php include('components/footer.php')
+<?php //include('components/footer.php')
 ?>
