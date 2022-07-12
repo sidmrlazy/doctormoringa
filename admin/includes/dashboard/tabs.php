@@ -51,7 +51,7 @@
     $result = mysqli_query($connection, $get_orders_query);
     $count = mysqli_num_rows($result);
     ?>
-    <a href="view-users.php" id="blue" class="tabs">
+    <a href="web-visitors.php" id="blue" class="tabs">
         <p>Website Visitors</p>
         <h1><?php echo $count; ?></h1>
     </a>
