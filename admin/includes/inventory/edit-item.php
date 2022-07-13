@@ -114,34 +114,35 @@
         </div>
 
         <div class="form-floating mb-5 w-100">
-            <input type="text" name="item_description" maxlength="800" class="form-control"
+            <input type="text" name="item_description" maxlength="2000" class="form-control"
                 value="<?php echo $item_description; ?>" id="floatingInput"
                 placeholder="<?php echo $item_description; ?>" style="height: 100px">
             <label for="floatingInput">Product Description</label>
-            <div class="mt-2 mb-3">Max Character Limit: 800</div>
+            <div class="mt-2 mb-3">Max Character Limit: 2000</div>
         </div>
 
         <div class="form-floating mb-5 w-100">
-            <input type="text" name="item_ingredients" maxlength="100" class="form-control"
+            <input type="text" name="item_ingredients" maxlength="400" class="form-control"
                 value="<?php echo $item_ingredients; ?>" id="floatingInput"
                 placeholder="<?php echo $item_ingredients; ?>" style="height: 100px">
             <label for="floatingInput">Product Ingredients</label>
-            <div class="mt-2 mb-3">Max Character Limit: 100</div>
+            <div class="mt-2 mb-3">Max Character Limit: 400</div>
         </div>
 
         <div class="form-floating w-100 mb-5">
-            <input type="text" name="item_benefits" maxlength="800" class="form-control"
+            <input type="text" name="item_benefits" maxlength="2000" class="form-control"
                 value="<?php echo $item_benefits; ?>" id="floatingInput" placeholder="<?php echo $item_benefits; ?>"
                 style="height: 100px;">
             <label for="floatingInput">Benefits</label>
-            <div class="mt-2 mb-3">Max Character Limit: 800</div>
+            <div class="mt-2 mb-3">Max Character Limit: 2000</div>
         </div>
 
         <div class="form-floating w-100 mb-5">
-            <input type="text" name="item_usage" maxlength="800" class="form-control" value="<?php echo $item_usage; ?>"
-                id="floatingInput" placeholder="<?php echo $item_usage; ?>" style="height: 100px;">
+            <input type="text" name="item_usage" maxlength="2000" class="form-control"
+                value="<?php echo $item_usage; ?>" id="floatingInput" placeholder="<?php echo $item_usage; ?>"
+                style="height: 100px;">
             <label for="floatingInput">Usage</label>
-            <div class="mt-2 mb-3">Max Character Limit: 800</div>
+            <div class="mt-2 mb-3">Max Character Limit: 2000</div>
         </div>
 
         <div class="form-floating w-100 mb-3">
