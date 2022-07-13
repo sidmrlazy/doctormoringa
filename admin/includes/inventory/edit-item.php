@@ -15,11 +15,10 @@
         $item_price = mysqli_real_escape_string($connection, $_POST['item_price']);
         $item_category = mysqli_real_escape_string($connection, $_POST['item_category']);
         $item_status = $_POST['item_status'];
-        $item_image = $_FILES["item_image"]["name"];
-        $item_image_temp = $_FILES["item_image"]["tmp_name"];
-        $folder = "assets/images/products/" . $item_image;
+        // $item_image = $_FILES["item_image"]["name"];
+        // $item_image_temp = $_FILES["item_image"]["tmp_name"];
+        // $folder = "assets/images/products/" . $item_image;
         $update_query = "UPDATE `items` SET 
-                      `item_image`='$item_image',
                       `item_name`='$item_name',
                       `item_weight`='$item_weight',
                       `item_description`='$item_description',
@@ -35,15 +34,18 @@
             echo mysqli_error($connection);
             // die("Product could not be updated!" . " " . mysqli_error($connection));
         } else {
-            if (move_uploaded_file($item_image_temp, $folder)) {
-                $msg = "Image added";
-                echo "<div class='alert w-100 alert-success' role='alert'>$msg</div>";
-            } else {
-                $msg = "Image upload failed";
-                echo "<div class='alert w-100 alert-danger' role='alert'>$msg</div>";
-            }
             echo '<div class="alert alert-success w-100" role="alert">Product details updated!</div>';
         }
+        //  else {
+        //     if (move_uploaded_file($item_image_temp, $folder)) {
+        //         $msg = "Image added";
+        //         echo "<div class='alert w-100 alert-success' role='alert'>$msg</div>";
+        //     } else {
+        //         $msg = "Image upload failed";
+        //         echo "<div class='alert w-100 alert-danger' role='alert'>$msg</div>";
+        //     }
+        //     
+        // }
     }
     // Delete Function
     if (isset($_POST['delete'])) {
@@ -91,13 +93,13 @@
     <p class="section-details">Edit product details below or delete the product</p>
 
     <form action="" method="POST" class="admin-form-section" enctype="multipart/form-data">
-        <div class="form-inner-row mt-3 mb-3">
+        <!-- <div class="form-inner-row mt-3 mb-3">
             <img src="assets/images/products/<?php echo $item_image ?>" alt="">
             <div class="w-100 upload-section">
                 <input type="file" name="item_image" value="<?php echo $item_image ?>" class="form-control edit-image"
                     id="inputGroupFile01" placeholder="<?php echo $item_image ?>">
             </div>
-        </div>
+        </div> -->
 
         <div class="form-floating mb-3 w-100">
             <input type="text" name="item_id" hidden class="form-control" value="<?php echo $item_id; ?>"
