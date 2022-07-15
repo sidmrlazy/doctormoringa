@@ -37,16 +37,7 @@ if (!empty($_POST["submit"])) {
         $delivery_chearge = 100;
     }
 
-
     $gross_total_new = $delivery_chearge  + $all_total_price_post;
-
-    // echo $order_user_city;
-    // echo "<br>";
-    // echo $all_total_price_post;
-    // echo "<br>";
-    // echo $gross_total_new;
-    // echo "<br>";
-    // echo $delivery_chearge;
 
     $quantity = 1;
     $product_price = 0;

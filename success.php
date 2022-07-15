@@ -36,15 +36,6 @@ if ($success === true) {
     $customer_order_id = mysqli_real_escape_string($connection, $_POST['customer_order_id']);
     $user_id = mysqli_real_escape_string($connection, $_SESSION['user_id']);
 
-    echo $razorpay_payment_id;
-    echo "<br>";
-    echo $razorpay_signature;
-    echo "<br>";
-    echo $razorpay_order_id;
-    echo "<br>";
-    echo $customer_order_id;
-    echo "<br>";
-    echo $user_id;
     $transaction_query = "INSERT INTO `transactions`(
         `transaction_user_id`, 
         `razorpay_payment_id`, 
