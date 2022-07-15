@@ -1,5 +1,4 @@
 <!-- Login Modal -->
-
 <div class="modal fade" id="loginModal" tabindex="-1">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">

@@ -13,10 +13,10 @@
     if (isset($_POST['add_to_cart'])) {
         if (!isset($_SESSION['user_contact'])) {
             echo "<script type='text/javascript'>
-             $(document).ready(function() {
-                 $('#loginModal').modal('show');
-             });
-             </script>";
+            $(document).ready(function() {
+                $('#loginModal').modal('show');
+            });
+            </script>";
 
             include('components/footer.php');
             exit;
