@@ -10,10 +10,10 @@ use Razorpay\Api\Api;
 if (!isset($_SESSION['user_contact'])) {
     // header("location: login.php");
     echo "<script type='text/javascript'>
-    $(document).ready(function() {
-    $('#loginModal').modal('show');
-    });
-    </script>";
+        $(document).ready(function() {
+        $('#loginModal').modal('show');
+        });
+        </script>";
     include('components/footer.php');
     exit;
 }
@@ -30,56 +30,56 @@ if (!empty($_POST["submit"])) {
     $gross_total = $_POST['gross_total'];
     $order_time = time();
 
-    if ($order_user_city !== 'Lucknow' || $order_user_city !== 'Lucknow District') {
-        $delivery_chearge == 100;
-    } else if ($order_user_city == 'Lucknow' || $order_user_city == 'Lucknow District') {
-        $delivery_chearge == 80;
+
+    if ($order_user_city == 'Lucknow' || $order_user_city == 'Lucknow District') {
+        $delivery_chearge = 80;
+    } else {
+        $delivery_chearge = 100;
     }
 
-    echo "USER CITY: " . $order_user_city;
-    echo "<br>";
-    echo "<br>";
-    echo "DELIVERY CHARGE: " . $delivery_chearge;
-    echo "<br>";
-    echo "<br>";
-    echo "Total: " . $gross_total;
-    echo "<br>";
-    echo "<br>";
-    echo "Gross: " . $all_total_price_post;
 
+    $gross_total_new = $delivery_chearge  + $all_total_price_post;
+
+    // echo $order_user_city;
+    // echo "<br>";
+    // echo $all_total_price_post;
+    // echo "<br>";
+    // echo $gross_total_new;
+    // echo "<br>";
+    // echo $delivery_chearge;
 
     $quantity = 1;
     $product_price = 0;
     $all_total_price = 0;
 
     $query = "INSERT INTO `uder_order` ( 
-        `order_id`, 
-        `order_user_id`, 
-        `order_user_name`, 
-        `order_user_contact`, 
-        `order_user_state`, 
-        `order_user_city`, 
-        `order_user_address`, 
-        `order_user_email`, 
-        `order_time`, 
-        `order_total_amount`, 
-        `order_tax`,
-        `order_gross_amount`, 
-        `order_status`) 
-    VALUES (
-        '',
-        '$user_id', 
-        '$order_user_name', 
-        '$order_user_contact', 
-        '$order_user_state', 
-        '$order_user_city', 
-        '$order_user_address', 
-        '$order_user_email', 
-        '$order_time', 
-        '$all_total_price_post', 
-        '$delivery_chearge' , 
-        '$gross_total', 
-        '0');";
+            `order_id`, 
+            `order_user_id`, 
+            `order_user_name`, 
+            `order_user_contact`, 
+            `order_user_state`, 
+            `order_user_city`, 
+            `order_user_address`, 
+            `order_user_email`, 
+            `order_time`, 
+            `order_total_amount`, 
+            `order_tax`,
+            `order_gross_amount`, 
+            `order_status`) 
+        VALUES (
+            '',
+            '$user_id', 
+            '$order_user_name', 
+            '$order_user_contact', 
+            '$order_user_state', 
+            '$order_user_city', 
+            '$order_user_address', 
+            '$order_user_email', 
+            '$order_time', 
+            '$all_total_price_post', 
+            '$delivery_chearge' , 
+            '$gross_total_new', 
+            '0');";
 
     if (mysqli_query($connection, $query)) {
         $final_order_id  = $order_id = mysqli_insert_id($connection);
@@ -95,33 +95,29 @@ if (!empty($_POST["submit"])) {
                 $cart_qty = $row['cart_qty'];
                 $cart_user_city = $row['cart_user_city'];
 
-                // if ($cart_user_city == 'Lucknow' || $cart_user_city == 'Lucknow District') {
-
-                // }
-
                 $o_query = "INSERT INTO `uder_order_details` (
-                    `uder_order_details`, 
-                    `uod_order_id`, 
-                    `uod_item_id`, 
-                    `uod_item_cat`, 
-                    `uod_price`, 
-                    `uod_quantity`, 
-                    `uod_status`) 
-                VALUES (
-                    '', 
-                    '$order_id', 
-                    '$item_id', 
-                    '$item_category', 
-                    '$item_price', 
-                    '$cart_qty', 
-                    '0');";
+                        `uder_order_details`, 
+                        `uod_order_id`, 
+                        `uod_item_id`, 
+                        `uod_item_cat`, 
+                        `uod_price`, 
+                        `uod_quantity`, 
+                        `uod_status`) 
+                    VALUES (
+                        '', 
+                        '$order_id', 
+                        '$item_id', 
+                        '$item_category', 
+                        '$item_price', 
+                        '$cart_qty', 
+                        '0');";
                 $oq_details = mysqli_query($connection, $o_query);
             }
             $user_id = $_POST['user_id'];
             $user_name = $_POST['user_name'];
             $user_contact = $_POST['user_contact'];
             $user_email = $_POST['user_email'];
-            $total_amount = $_POST['gross_total'];
+            $gross_total_new;
 
             $keyId = 'rzp_live_X36ox2orkcP17P';
             $keySecret = 'ubNUKggZVVYEEPvs9w5RMhj5';
@@ -129,7 +125,7 @@ if (!empty($_POST["submit"])) {
             $api = new Api($keyId, $keySecret);
             $orderData = [
                 'receipt' => rand(1000, 9999) . 'ORD',
-                'amount' => $total_amount * 100,
+                'amount' => $gross_total_new * 100,
                 'currency' => 'INR',
                 'payment_capture' => 1
             ];
@@ -172,12 +168,15 @@ if (!empty($_POST["submit"])) {
     } else {
         echo "Error: " . $query . "<br>" . mysqli_error($connection);
     }
+} else {
+
+    echo "No Post Submited";
 }
 ?>
 
 <?php include('components/header_without_session.php') ?>
 <?php include('components/navbar.php') ?>
-<div class="container mt-5 d-flex justify-content-center align-items-center">
+<div class="container mt-5 d-flex justify-content-center align-items-center flex-column">
     <button id="rzp-button1" class="btn btn-primary">Pay with Razorpay</button>
 </div>
 <?php include('components/footer.php') ?>
@@ -198,8 +197,8 @@ options.handler = function(response) {
     document.razorpayform.submit();
 
     console.log(response.razorpay_order_id);
-    // console.log(response.razorpay_payment_id);
-    // console.log(response.razorpay_signature);
+    console.log(response.razorpay_payment_id);
+    console.log(response.razorpay_signature);
 };
 var rzp = new Razorpay(options);
 document.getElementById('rzp-button1').onclick = function(e) {

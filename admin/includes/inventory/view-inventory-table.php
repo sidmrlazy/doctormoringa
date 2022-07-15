@@ -2,8 +2,10 @@
     <p class="section-heading">View all products</p>
     <p class="section-details">View | Edit | Delete products in your inventory added by you</p>
     <?php
-    // QUERY TO FETCH INVENTORY
+
     include('includes/server/config.php');
+
+    // QUERY TO FETCH INVENTORY
     $query = "SELECT * FROM `items`";
     $get_details = mysqli_query($connection, $query);
     if (@$get_details->num_rows > 0) {
@@ -27,46 +29,58 @@
     ?>
 
     <!-- ==================== DISPLAYING PRODUCTS ==================== -->
-    <form action="edit-item.php" method="POST" class="admin-section-card">
-        <!-- ==================== HIDDEN ELEMENTS FOR SENDING VALUES TO EDIT ==================== -->
-        <input type="text" hidden name="item_id" value="<?php echo $item_id ?>">
-        <input type="text" hidden name="item_image" value="<?php echo $item_image ?>">
-        <input type="text" hidden name="item_category" value="<?php echo $item_category ?>">
-        <input type="text" hidden name="item_usage" value="<?php echo $item_usage ?>">
-        <input type="text" hidden name="item_description" value="<?php echo $item_description ?>">
-        <input type="text" hidden name="item_benefits" value="<?php echo $item_benefits ?>">
-        <input type="text" hidden name="item_ingredients" value="<?php echo $item_ingredients ?>">
-        <input type="text" hidden name="item_price" value="<?php echo $item_price ?>">
-        <input type="text" hidden name="item_weight" value="<?php echo $item_weight ?>">
-        <input type="text" hidden name="item_status" value="<?php echo $item_status ?>">
-        <!-- ==================== DISPLAYING PRODUCT IMAGE AND NAME ==================== -->
-        <div class="admin-section-row-start mb-3">
-            <img class="admin-section-img-20-bordered mr-5" src="assets/images/products/<?php echo $item_image ?>">
-            <div class=" admin-section-col-start">
-                <input class="admin-input product" type="text" name="item_name" value="<?php echo $item_name ?>">
-                <input class="admin-input category" type="text" name="item_category"
-                    value="<?php echo $item_category ?>">
-                <input class="admin-input category" type="text" name="item_category" value="<?php echo $item_weight ?>">
+    <div class="d-flex justify-content-start align-items-start">
+        <form action="update-product-image.php" method="POST" class="product-img-section" enctype="multipart/form-data">
+            <img class="product-image" src="assets/images/products/<?php echo $item_image ?>">
 
-                <div class="d-flex justify-content-center align-items-center">
-                    <button class="btn btn-primary m-2 confirm-button-md" name="edit" value="edit" type="submit">Edit
-                        Product
-                        Details</button>
-                    <?php
-                            if ($item_status == '1') {
-                            ?>
-                    <p class="inactive-btn">Out Of Stock</p>
+            <!-- ==================== HIDDEN ELEMENTS FOR SENDING VALUES TO EDIT ==================== -->
+            <input type="text" hidden name="item_id" value="<?php echo $item_id; ?>">
+            <input type="text" hidden name="item_image" value="<?php echo $item_image; ?>">
+            <!-- ==================== HIDDEN ELEMENTS FOR SENDING VALUES TO EDIT ==================== -->
 
-                    <?php
-                            } else if ($item_status == '2') {
-                            ?>
-                    <p class="active-btn">In Stock</p>
-                    <?php
-                            } ?>
+            <button type="submit" name="edit" value="edit" class="btn update-btn-sm">Update Image</button>
+        </form>
+        <form action="edit-item.php" method="POST" class="admin-section-card">
+            <!-- ==================== HIDDEN ELEMENTS FOR SENDING VALUES TO EDIT ==================== -->
+            <input type="text" hidden name="item_id" value="<?php echo $item_id ?>">
+            <input type="text" hidden name="item_category" value="<?php echo $item_category ?>">
+            <input type="text" hidden name="item_usage" value="<?php echo $item_usage ?>">
+            <input type="text" hidden name="item_description" value="<?php echo $item_description ?>">
+            <input type="text" hidden name="item_benefits" value="<?php echo $item_benefits ?>">
+            <input type="text" hidden name="item_ingredients" value="<?php echo $item_ingredients ?>">
+            <input type="text" hidden name="item_price" value="<?php echo $item_price ?>">
+            <input type="text" hidden name="item_weight" value="<?php echo $item_weight ?>">
+            <input type="text" hidden name="item_status" value="<?php echo $item_status ?>">
+            <!-- ==================== DISPLAYING PRODUCT IMAGE AND NAME ==================== -->
+            <div class="admin-section-row-start mb-3">
+                <div class=" admin-section-col-start">
+                    <input class="admin-input product" type="text" name="item_name" value="<?php echo $item_name ?>">
+                    <input class="admin-input category" type="text" name="item_category"
+                        value="<?php echo $item_category ?>">
+                    <input class="admin-input category" type="text" name="item_category"
+                        value="<?php echo $item_weight ?>">
+
+                    <div class="d-flex justify-content-center align-items-center">
+                        <button class="btn btn-primary m-2 confirm-button-md" name="edit" value="edit"
+                            type="submit">Edit
+                            Product
+                            Details</button>
+                        <?php
+                                if ($item_status == '1') {
+                                ?>
+                        <p class="inactive-btn">Out Of Stock</p>
+
+                        <?php
+                                } else if ($item_status == '2') {
+                                ?>
+                        <p class="active-btn">In Stock</p>
+                        <?php
+                                } ?>
+                    </div>
                 </div>
             </div>
-        </div>
-    </form>
+        </form>
+    </div>
 
     <!-- ==================== DISPLAYING PRODUCTS ==================== -->
     <?php

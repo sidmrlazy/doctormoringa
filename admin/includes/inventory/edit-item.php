@@ -62,7 +62,7 @@
     // Fetch Product Details
     if (isset($_POST['edit'])) {
         $item_id = $_POST['item_id'];
-        $item_image = $_POST['item_image'];
+        // $item_image = $_POST['item_image'];
         $item_name = $_POST['item_name'];
         $item_weight = $_POST['item_weight'];
         $item_description = $_POST['item_description'];
@@ -77,7 +77,7 @@
         $get_item = mysqli_query($connection, $fetch_item_query);
         while ($row = mysqli_fetch_assoc($get_item)) {
             $item_id = $row['item_id'];
-            $item_image = $row['item_image'];
+            // $item_image = $row['item_image'];
             $item_name = $row['item_name'];
             $item_weight = $row['item_weight'];
             $item_description = $row['item_description'];

@@ -133,9 +133,9 @@ if (@$get_details->num_rows > 0) {
                 </div>
 
                 <div class="form-floating m-1 user-details">
-                    <select name="user_city" class="form-select" id="floatingSelect"
+                    <select id="user_city" name="user_city" class="form-select" onchange="getFee()"
                         aria-label="Floating label select example">
-                        <option selected><?php echo $user_city; ?></option>
+                        <option><?php echo $user_city; ?></option>
                         <?php
                             $curl = curl_init();
                             curl_setopt_array($curl, array(
@@ -150,17 +150,16 @@ if (@$get_details->num_rows > 0) {
                             $response_json = json_decode($response);
                             foreach ($response_json as $key) {
                                 $user_city =  $key->name; ?>
-
-
-                        <option required id="user_city" name="user_city" value="<?php echo $user_city; ?>">
+                        <option required name="user_city" value="<?php echo $user_city; ?>">
                             <?php echo $user_city; ?>
-                            <?php
-                            }
-                                ?>
                         </option>
+                        <?php
+                            }
+                            ?>
                     </select>
                     <label for="floatingSelect">City</label>
                 </div>
+
 
                 <div class="inner-headings">
                     <div class="form-floating m-1 user-details">
@@ -179,37 +178,41 @@ if (@$get_details->num_rows > 0) {
 
                 <!-- <a href="checkout" type="submit" name="edit" class="checkout-btn">Edit</a> -->
             </div>
+
+            <!-- Sub Total Start -->
             <div class="col-md-6 m-1 pricing-tab">
                 <div class="inner-headings">
                     <p id="heading">Subtotal</p>
                     <p><?php echo "₹" . $all_total_price; ?></p>
-                    <input hidden type="text" minlength="5" name="all_total_price"
-                        value="<?php echo $all_total_price; ?>">
-
                 </div>
+                <!-- Sub Total End -->
 
+                <!-- Delivery Fee Start -->
+                <?php $delivery_chearge = 0; ?>
                 <div class="inner-headings">
                     <p id="heading">Shipping</p>
-                    <p><?php
-                            $delivery_chearge = 60;
-                            echo "₹" . $delivery_chearge; ?>
-                    </p>
-                    <input hidden type="text" minlength="5" name="delivery_chearge"
-                        value="<?php echo $delivery_chearge; ?>">
-
+                    <p id="delivery_chearge"></p>
                 </div>
+                <!-- Delivery Fee End -->
 
+                <!-- Grand Total Start -->
+                <?php $gross_total = $all_total_price + $delivery_chearge; ?>
                 <div class="inner-headings">
                     <p id="heading">Grand Total</p>
-                    <p><?php
-                            $gross_total = $all_total_price + $delivery_chearge;
-                            echo "₹" . $gross_total; ?>
-                        <input hidden type="text" minlength="5" name="gross_total" value="<?php echo $gross_total; ?>">
-
-                    </p>
+                    <p id="gross_total"></p>
                 </div>
-                <input type="text" name="user_id" hidden value="<?php echo $user_id; ?>">
+                <!-- Grand Total End -->
+
+                <!-- Values to being sent to Razorpay (pay.php) Start -->
+                <input type="text" hidden name="user_id" value="<?php echo $user_id; ?>">
+                <input type="text" hidden name="all_total_price" value="<?php echo $all_total_price; ?>"
+                    id="all_total_price">
+
+                <input type="text" hidden name="delivery_chearge" value="<?php echo $delivery_chearge; ?>">
+                <input type="text" hidden name="gross_total" value="<?php echo $gross_total; ?>">
                 <input class="checkout-btn" type="submit" name="submit" value='Proceed to Checkout' />
+                <!-- Values to being sent to Razorpay (pay.php) End -->
+
 
                 <div class="d-flex justify-content-center align-items-center payment-section">
                     <p class="mt-5">Secure Payment Gateways</p>

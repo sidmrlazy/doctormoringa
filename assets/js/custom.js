@@ -36,15 +36,23 @@ function decreaseValue() {
   document.getElementById("number").value = value;
 }
 
-// Calculate Delivery Fee According to City
-function getDeliveryFee() {
-  var getCity = document.getElementById("user_city").value;
-  if (getCity === "Lucknow" || getCity === "Lucknow District") {
-    var fee = "₹" + 80;
-  } else if (getCity !== "Lucknow" || getCity !== "Lucknow District") {
-    var fee = "₹" + 100;
-  } else {
-    var fee = "Please select delivery city";
+function getFee() {
+  var city = document.getElementById("user_city").value;
+  var deliveryFee = 0;
+  if (city == "Lucknow" || city == "Lucknow District") {
+    var deliveryFee = 80;
+  } else if (city != "Lucknow" || city != "Lucknow District") {
+    var deliveryFee = 100;
   }
-  document.getElementById("deliveryFee").innerHTML = fee;
+  document.getElementById("delivery_chearge").innerHTML = "₹" + deliveryFee;
+
+  var grossTotal = document.getElementById("all_total_price").value;
+
+  document.getElementById("gross_total").innerHTML =
+    parseInt(deliveryFee) + parseInt(grossTotal);
 }
+
+//  function calculations() {
+//   var city = document.getElementById("user_city").value;
+
+// }
