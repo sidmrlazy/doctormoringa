@@ -143,18 +143,21 @@
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="about">Who we are</a></li>
                         <li><a class="dropdown-item" href="contact">Contact</a></li>
-                        <?php
-                        if (!empty($_SESSION['user_id'])) {
-                            $user_id = $_SESSION['user_id'];
-                            echo "<li class='dropdown-row'><a class='dropdown-item' href='testimonials'>Leave a review</a></li>";
-                        } else {
-                            $user_id = 0;
-                        }
 
-
-                        ?>
                     </ul>
                 </li>
+
+                <?php
+                if (!empty($_SESSION['user_id'])) {
+                    $user_id = $_SESSION['user_id']; ?>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="testimonials">Leave a Review</a>
+                </li>
+                <?php
+                } else {
+                    $user_id = 0;
+                }
+                ?>
             </ul>
             <div class="top-nav-support-section">
                 <ion-icon name="headset-outline" class="earphone"></ion-icon>
