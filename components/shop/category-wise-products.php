@@ -239,7 +239,7 @@
                 ?>
     <!-- Product Details Modal End -->
 
-    <h1 id="<?php echo $item_category; ?>" class="mt-5">
+    <h1 id="<?php echo $category_name; ?>" class="mt-5">
         <?php echo '<div class="shopping-section-heading cl-sm-12">' . $item_category . '</div>' ?></h1>
     <?php $previous_category = $item_category;
                 echo '<div class="shopping-section-wrapper">';
