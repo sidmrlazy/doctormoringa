@@ -221,7 +221,7 @@ input[type="number"] {
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
 }
-.dropdown-row {
+/* .dropdown-row {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -232,9 +232,9 @@ input[type="number"] {
 .dropdown-row img {
   width: 30px;
   height: auto;
-}
+} */
 .mobile {
-  display: none;
+  display: none !important;
 }
 
 /* =========== About Section =========== */
@@ -1987,7 +1987,7 @@ input[type="number"] {
     display: none;
   }
   .mobile {
-    display: initial;
+    display: initial !important;
   }
 
   /* =========== Banner Section =========== */

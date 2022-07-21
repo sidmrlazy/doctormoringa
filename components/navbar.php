@@ -125,7 +125,7 @@
                         $category_name =  $row['category_name'];
 
                 ?>
-                <li class="mobile"><a class="dropdown-item" href="#">Doctor Moringa for
+                <li class="mobile-nav"><a class="dropdown-item" href="#">Doctor Moringa for
                         <?php echo $category_name;
                         ?></a></li>
                 <?php
@@ -137,14 +137,12 @@
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="true">
+                        data-bs-toggle="dropdown" aria-expanded="false">
                         About
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li class="dropdown-row"><a class="dropdown-item" href="about">Who we are</a></li>
-                        <li class="dropdown-row"><a class="dropdown-item" href="contact">Contact</a></li>
-                        <li class="mobile"><a class="dropdown-item" href="#">Who we are</a></li>
-                        <li class="mobile"><a class="dropdown-item" href="#">Contact</a></li>
+                        <li><a class="dropdown-item" href="about">Who we are</a></li>
+                        <li><a class="dropdown-item" href="contact">Contact</a></li>
                         <?php
                         if (!empty($_SESSION['user_id'])) {
                             $user_id = $_SESSION['user_id'];
@@ -155,27 +153,6 @@
 
 
                         ?>
-
-                        <!-- <li class="dropdown-row"><a class="dropdown-item" href="contact">Career</a></li>
-                        <li class="dropdown-row"><a class="dropdown-item" href="contact">Partner with us</a></li>
-                        <li><img src="assets/images/background/moringa-leaves.jpg" alt="" class="dropdown-image">
-                        </li> -->
-
-                        <li class="mobile"><a class="dropdown-item" href="#">Who we are</a></li>
-                        <li class="mobile"><a class="dropdown-item" href="#">Contact</a></li>
-                        <?php
-                        if (!empty($_SESSION['user_id'])) {
-                            $user_id = $_SESSION['user_id'];
-                            echo "<li class='mobile'><a class='dropdown-item' href='#'>Leave a review</a></li>";
-                        } else {
-                            $user_id = 0;
-                        }
-
-
-                        ?>
-
-                        <!-- <li class="mobile"><a class="dropdown-item" href="#">Career</a></li>
-                        <li class="mobile"><a class="dropdown-item" href="#">Partner with us</a></li> -->
                     </ul>
                 </li>
             </ul>
