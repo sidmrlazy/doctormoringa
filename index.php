@@ -9,11 +9,11 @@
 ?>
 <?php include('components/elements/home-page-category-slider.php')
 ?>
-
-<?php include('components/elements/best-sellers.php')
-?>
 <?php include('components/elements/filler-2.php')
 ?>
+<?php include('components/elements/best-sellers.php')
+?>
+
 <?php include('components/elements/creatives.php')
 ?>
 <?php include('components/elements/filler-1.php')
