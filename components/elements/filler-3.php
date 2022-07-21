@@ -1,7 +1,7 @@
 <div class="container">
     <div class="filler-heading-section">
         <h2>Miracles of Moringa</h2>
-        <p>Here’s a look at diseases that Moringa is helpful in Treating/Preventing</p>
+        <p class="text-center">Here’s a look at diseases that Moringa is helpful in Treating/Preventing</p>
     </div>
 
     <div class="grid-card-container">
