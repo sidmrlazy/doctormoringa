@@ -2687,4 +2687,13 @@ input[type="number"] {
   .filler-2 img {
     margin-bottom: 10px !important;
   }
+  .content-card-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #e7e7e7 !important;
+    border-radius: 5px !important;
+    padding: 20px;
+    flex-direction: column !important;
+  }
 }
