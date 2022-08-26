@@ -14,30 +14,34 @@
         </thead>
         <tbody>
             <?php
-            $fetch_live_orders = "SELECT * FROM `uder_order` WHERE `order_tracking_status` = '2' OR `order_tracking_status` = '1'";
+            $fetch_live_orders = "SELECT * FROM `customer_order` WHERE `customer_order_tracking_status` = '0'";
             $fetch_live_orders_result = mysqli_query($connection, $fetch_live_orders);
 
             while ($row = mysqli_fetch_assoc($fetch_live_orders_result)) {
-                $order_id = $row['order_id'];
-                $order_user_name = $row['order_user_name'];
-                $order_user_contact = $row['order_user_contact'];
-                $order_tracking_status = $row['order_tracking_status'];
+                $customer_order_id = $row['customer_order_id'];
+                $customer_order_user_name = $row['customer_order_user_name'];
+                $customer_order_user_contact = $row['customer_order_user_contact'];
+                $customer_order_tracking_status = $row['customer_order_tracking_status'];
             ?>
             <tr>
-                <th scope="row"><?php echo $order_id ?></th>
-                <td><?php echo $order_user_name ?></td>
-                <td><?php echo $order_user_contact ?></td>
-                <?php if ($order_tracking_status == '1') { ?>
+                <th scope="row"><?php echo $customer_order_id ?></th>
+                <td><?php echo $customer_order_user_name ?></td>
+                <td><?php echo $customer_order_user_contact ?></td>
+                <?php if ($customer_order_tracking_status == '0') { ?>
                 <td>
                     <p class="pending">Pending Confirmation</p>
                 </td>
-                <?php } else if ($order_tracking_status == '2') { ?>
+                <?php } else if ($customer_order_tracking_status == '1') { ?>
                 <td>
-                    <p class="shipped">Order Confirmed & Being Packed</p>
+                    <p class="pending">Order Confirmed</p>
                 </td>
-                <?php } else { ?>
+                <?php } else if ($customer_order_tracking_status == '2') { ?>
                 <td>
-                    <p class="pending">Unable to get status</p>
+                    <p class="pending">Order Packed</p>
+                </td>
+                <?php } else if ($customer_order_tracking_status == '3') { ?>
+                <td>
+                    <p class="shipped">Order Packed</p>
                 </td>
                 <?php } ?>
             </tr>

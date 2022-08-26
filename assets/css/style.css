@@ -54,6 +54,279 @@ input[type="number"] {
   font-weight: 600;
 }
 
+/* =========== NEW SHOP =========== */
+.product-section-header h1 {
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: #777;
+}
+.product-section {
+  padding: 20px;
+}
+.product-grid-wrapper {
+  display: flex !important;
+  flex-wrap: wrap !important;
+}
+.grid-card {
+  max-width: 300px;
+  width: 100%;
+  height: 400px !important;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column !important;
+  margin: 5px;
+}
+.grid-card-img-holder {
+  max-width: 70% !important;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.grid-card-img-holder img {
+  width: 100% !important;
+  height: auto;
+}
+.grid-card-product-name {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 10px;
+  line-height: 22px;
+  margin: 0 !important;
+}
+.grid-card-product-name:hover {
+  color: #5bb336 !important;
+  transition: 0.3s all ease-in-out !important;
+}
+.grid-card-row {
+  display: flex;
+  justify-content: center !important;
+  align-items: flex-end !important;
+  width: 100%;
+}
+.price {
+  font-size: 22px;
+  font-weight: bold;
+  margin-left: 15px !important;
+  margin-right: 2px;
+  color: #5bb336 !important;
+}
+.grid-btn-holder {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+}
+.grid-cart-btn {
+  border: 0;
+  border-radius: 5px;
+  background-color: #5bb336;
+  width: 180px !important;
+  height: 40px;
+  color: #fff;
+  font-weight: 600;
+
+  margin: 2px;
+}
+.grid-cart-btn:hover {
+  background-image: url("../images/icons/cart.svg");
+  background-repeat: no-repeat !important;
+  background-size: 25px;
+  background-position: center;
+  background-color: #fff;
+  border: 1px solid #5bb336;
+  transition: 0.3s all ease-in-out;
+  font-size: 0 !important;
+  color: #fff;
+}
+.grid-cart-dropdown {
+  width: 100px !important;
+
+  margin: 2px;
+}
+.added-btn {
+  background-color: #777;
+  border-radius: 5px;
+  text-align: center;
+  padding: 10px;
+  color: #fff;
+  font-weight: 700;
+}
+
+/* =========== CHECKOUT SCREEN =========== */
+.checkout-screen-row {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.checkout-left {
+  display: flex !important;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column !important;
+  padding: 20px;
+}
+.checkout-left h3 {
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 20px !important;
+}
+.checkout-right {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: flex-start;
+  flex-direction: column !important;
+  padding: 20px;
+  background-color: #e7e7e7;
+  height: 100% !important;
+}
+.checkout-right h3 {
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 20px !important;
+}
+.checkout-order-details-section {
+  background-color: #fff !important;
+  width: 100% !important;
+  padding: 20px;
+}
+.receipt-header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.receipt-header h5 {
+  flex: 1;
+  font-weight: 600 !important;
+  font-size: 16px;
+}
+.receipt-header #subtotal-header-qty {
+  text-align: right !important;
+}
+.receipt-header #subtotal-header-price {
+  text-align: right !important;
+}
+.order-details {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #e7e7e7e7;
+  padding-top: 10px;
+}
+.order-details-holder {
+  display: flex;
+  justify-content: flex-start !important;
+  align-items: center;
+  flex: 1;
+}
+.order-details-holder p {
+  font-weight: 600;
+  line-height: 22px;
+}
+.order-details-btn-holder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+.order-details-price-holder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn-holder {
+  border: 2px solid #e7e7e7;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.dec-btn {
+  background-color: #fff;
+  border: 0;
+  width: 30px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  color: #5bb336;
+  font-weight: bold;
+}
+.order-qty {
+  margin: 0;
+  width: 30px;
+  text-align: center !important;
+  border: 0;
+}
+.inc-btn {
+  background-color: #fff;
+  border: 0;
+  width: 30px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  color: #5bb336;
+  font-weight: bold;
+}
+.order-price {
+  text-align: right !important;
+  width: 100%;
+}
+.order-details-calc {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #e7e7e7;
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.order-label {
+  flex: 1;
+  font-weight: bold !important;
+}
+.order-calc {
+  flex: 1;
+  text-align: right;
+  font-weight: 600;
+  font-size: 20px;
+}
+.continue-btn {
+  width: 100%;
+  text-align: center;
+  background-color: #5bb336 !important;
+  border: 0 !important;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 15px;
+}
+.empty-cart-section {
+  width: 100%;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column !important;
+}
+.empty-cart-section img {
+  width: 30% !important;
+  height: auto;
+  margin-bottom: 15px;
+}
+.empty-cart-section p {
+  font-weight: bold;
+  font-size: 22px !important;
+}
+
 /* =========== Maintenance =========== */
 .under-maintenance {
   display: flex;
@@ -256,6 +529,13 @@ input[type="number"] {
 }
 
 /* =========== Banner Section =========== */
+.banner-vid {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  width: 100% !important;
+  height: 300px;
+}
 #myBtn {
   display: none; /* Hidden by default */
   position: fixed; /* Fixed/sticky position */
@@ -2694,6 +2974,14 @@ input[type="number"] {
     border: 1px solid #e7e7e7 !important;
     border-radius: 5px !important;
     padding: 20px;
+    flex-direction: column !important;
+  }
+
+  /* =========== CHECKOUT SCREEN =========== */
+  .checkout-screen-row {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
     flex-direction: column !important;
   }
 }

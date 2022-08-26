@@ -7,38 +7,43 @@
         <div class="top-nav-row">
             <div class="top-nav-inner-row">
                 <a href="cart" class="cart-button">
-
                     <ion-icon name="cart-outline" class="top-nav-icon">
                     </ion-icon>
                     <p>Cart</p>
                     <?php
                     include('admin/includes/server/config.php');
 
+                    $token = session_id();
                     if (!empty($_SESSION['user_id'])) {
                         $user_id = $_SESSION['user_id'];
+                        $token = $_SESSION['session_id'];
                     } else {
                         $user_id = 0;
                     }
                     $quantity = 1;
 
-                    if (isset($_SESSION['USER_LOGIN'])) {
-                        $fetch_user_contact = "SELECT * FROM `user` WHERE `user_id`=" .  $user_id;
-                        $result = mysqli_query($connection, $fetch_user_contact);
-                        while ($row = mysqli_fetch_array($result)) {
-                            $user_id = $row['user_id'];
-                            $fetch_product_count = "SELECT count(*) FROM `cart` WHERE `cart_user_id`=" . $user_id;
-                            $product_count_result = mysqli_query($connection, $fetch_product_count);
-                            if ($product_count_result) {
-                                while ($row = mysqli_fetch_assoc($product_count_result)) {
-                                    $product_count = $row['count(*)'];
-                                }
-                            }
-                    ?>
-                    <span class="badge badge-color badge-dark"><?php echo $product_count ?></span>
-                    <?php
+                    $query = "SELECT * FROM `customer_cart` WHERE cart_user_id = '$token' AND cart_status = 1";
+                    $result = mysqli_query($connection, $query);
+                    $count = mysqli_num_rows($result);
+                    if (!$result) {
+                        die(mysqli_error($connection));
+                    } else {
+                        $cart_user_id = "";
+                        $cart_status = "";
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            $cart_user_id = $row['cart_user_id'];
+                            $cart_status = $row['cart_status'];
                         }
                     }
                     ?>
+                    <?php
+                    if ($cart_status == 1) {
+                    ?>
+                    <span class="badge badge-color badge-dark"><?php echo $count ?></span>
+                    <?php } else if ($cart_status == 2) { ?>
+                    <span class="badge badge-color badge-dark d-none"><?php echo $count ?></span>
+                    <?php } ?>
+
                 </a>
             </div>
             <div class="top-nav-inner-row">
@@ -52,7 +57,7 @@
                         echo "<a href='profile'><ion-icon name='person-outline' class='top-nav-icon'></ion-icon><p>$user_name</p></a>";
                     }
                 } else {
-                    echo "<a href='login'><ion-icon name='person-outline' class='top-nav-icon'></ion-icon><p>Login | Register</p></a>";
+                    // echo "<a href='login'><ion-icon name='person-outline' class='top-nav-icon'></ion-icon><p>Login | Register</p></a>";
                 }
                 ?>
             </div>

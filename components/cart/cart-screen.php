@@ -1,234 +1,159 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<?php
-include('admin/includes/server/config.php');
+<div class="container-fluid mt-5">
+    <form action="" method="POST" class="checkout-screen-row w-100">
 
-if (!empty($_SESSION['user_id'])) {
-    $user_id = $_SESSION['user_id'];
-} else {
-    $user_id = 0;
-}
-$quantity = 1;
-$product_price = 0;
-$all_total_price = 0;
-$delivery_chearge = 0;
-
-// User Details
-$fetch_details_query = "SELECT * FROM `user` WHERE `user_id` = '$user_id'";
-$get_details = mysqli_query($connection, $fetch_details_query);
-while ($row = mysqli_fetch_assoc($get_details)) {
-    $user_name = $row['user_name'];
-    $user_contact = $row['user_contact'];
-    $user_email = $row['user_email'];
-    $user_state = $row['user_state'];
-    $user_city = $row['user_city'];
-    $user_address = $row['user_address'];
-    $user_pincode = $row['user_pincode'];
-
-    if ($user_city == 'Lucknow' || $user_city == 'Lucknow District') {
-        $delivery_chearge == 80;
-    } else if ($user_city !== 'Lucknow' || $user_city !== 'Lucknow District') {
-        $delivery_chearge == 100;
-    }
-}
-// Cart Data 
-$query = "SELECT * FROM `items` i LEFT JOIN cart c ON i.item_id=c.cart_item_id AND c.cart_user_id='$user_id'";
-$get_details = mysqli_query($connection, $query);
-if (@$get_details->num_rows > 0) {
-    $previous_category = "";
-?>
-<div class="container-fluid mt-5 cart-section">
-    <div class="cart-heading-section">
-        <!-- <p>There are total <?php echo $num_rows; ?> products in your cart</p> -->
-        <form action="remove_from_cart.php" method="post">
-            <input type="text" class="item_id" hidden name="item_id" value="0" />
-            <input type="text" class="clear" hidden name="clear" value="1" />
-            <input type="text" class="user_id" hidden name="user_id" value="<?php echo $user_id ?>" />
-            <button type="submit" class="cart-remove-btn">
-                <ion-icon name="trash-outline"></ion-icon>
-                <p>Clear Cart</p>
-            </button>
-        </form>
-    </div>
-
-    <form class="w-100" action="pay.php" method="POST">
-        <?php
-            while ($row = mysqli_fetch_assoc($get_details)) {
-                $item_category = $row['item_category'];
-                $item_image = "admin/assets/images/products/" . $row['item_image'];
-                $item_name = $row['item_name'];
-                $item_id = $row['item_id'];
-                $item_price = $row['item_price'];
-                $cart_user_id = $row['cart_user_id'];
-                $cart_qty = $row['cart_qty'];
-                if (!empty($cart_user_id) && $cart_user_id == $user_id) {
-
-            ?>
-        <div class="main-cart">
-            <div class="cart-product-img">
-                <img src="<?php echo $item_image;  ?>" alt="" />
-            </div>
-            <div class="cart-product-details">
-                <h3><?php echo $item_category; ?></h3>
-                <h1><?php echo $item_name; ?></h1>
-                <p><?php //echo $item_description; 
-                                ?> </p>
-                <h5>Quantity: <?php echo $cart_qty; ?></h5>
-            </div>
-            <div class="cart-product-price">
-                <p>₹<?php
-                                $product_price = $item_price * $cart_qty;
-                                $all_total_price = $all_total_price + $product_price;
-                                echo $product_price; ?>
-                </p>
-            </div>
-        </div>
-        <?php
+        <!-- ============ ORDER DETAILS SECTION START ============ -->
+        <div class="col-md-6 checkout-right">
+            <h3>YOUR ORDER </h3>
+            <div class="checkout-order-details-section">
+                <div class="receipt-header mb-3">
+                    <h5>PRODUCT</h5>
+                    <h5 id="subtotal-header">QTY</h5>
+                    <h5 id="subtotal-header">SUBTOTAL</h5>
+                </div>
+                <?php
+                if (!empty($_SESSION['user_id'])) {
+                    $user_id = $_SESSION['user_id'];
+                    $token = $_SESSION['session_id'];
+                } else {
+                    $user_id = 0;
                 }
-            }
-        }
 
-        if ($product_price > 0) { ?>
-        <div class="final-section mt-4">
-            <div class="w-100 m-1 pricing-tab">
-                <h4>Shipping Address</h4>
-                <div class="inner-headings">
-                    <div class="form-floating m-1 user-details">
-                        <input required class="form-control" placeholder="Full Name" type="text" minlength="2"
-                            id="floatingInput" name="user_name" value="<?php echo $user_name; ?>">
-                        <label for="floatingInput">Customer Name</label>
-                    </div>
+                $query = "SELECT * FROM `cart` WHERE cart_user_id = '$token'";
+                $result = mysqli_query($connection, $query);
+                $count = mysqli_num_rows($result);
+                $temp_subtotal = 0;
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $cart_id = $row['cart_id'];
+                    $cart_item_name = $row['cart_item_name'];
+                    $cart_item_id = $row['cart_item_id'];
+                    $cart_price = $row['cart_price'];
+                    $cart_qty = $row['cart_qty'];
+                    $temp_subtotal = $cart_price + $temp_subtotal;
 
-                    <div class="form-floating m-1 user-details">
-                        <input required class="form-control" placeholder="+91 XXXXX XXXXX" type="number" minlength="10"
-                            id="floatingInput" name="user_contact" value="<?php echo $user_contact; ?>">
-                        <label for="floatingInput">Mobile Number</label>
-                    </div>
+                    $get_item = "SELECT * FROM `items` WHERE item_id = $cart_item_id";
+                    $get_result = mysqli_query($connection, $get_item);
+                    $item_weight = "";
+                    while ($row = mysqli_fetch_assoc($get_result)) {
+                        $item_weight = $row['item_weight'];
+                    }
+
+
+                ?>
+                <div class="order-details">
+                    <p><?php echo $cart_item_name .  "(" . $item_weight . ")" ?></p>
+                    <p id="order-price"><?php echo " X " . "(" . $cart_qty . ")" ?></p>
+                    <p id="order-price">₹<?php echo $cart_price; ?></p>
                 </div>
+                <?php }
 
-                <div class="form-floating m-1 user-details">
-                    <select class="form-select" name="user_state" id="floatingSelect"
-                        aria-label="Floating label select example">
-                        <option selected><?php echo $user_state; ?></option>
-                        <?php
-                            $curl = curl_init();
-                            curl_setopt_array($curl, array(
-                                CURLOPT_URL => 'https://api.countrystatecity.in/v1/countries/IN/states',
-                                CURLOPT_RETURNTRANSFER => true,
-                                CURLOPT_HTTPHEADER => array(
-                                    'X-CSCAPI-KEY: eTAxUGIyaElOSm5ldE9YdDhmQTJTaWMxbEVWUVFqR1hqblZRNmRyVw=='
-                                ),
-                            ));
-                            $response = curl_exec($curl);
-                            curl_close($curl);
-                            $response_json = json_decode($response);
-                            foreach ($response_json as $key) {
-                                $user_state =  $key->name; ?>
-                        <option required name="user_state" value="<?php echo $user_state; ?>"><?php echo $user_state; ?>
-                            <?php
-                            }
-                                ?>
-                        </option>
-                    </select>
-                    <label for="floatingSelect">Country</label>
+                ?>
+                <div class="order-details">
+                    <p class="fw-bold">Subtotal</p>
+
+                    <p id="order-price-final">₹<?php echo $temp_subtotal; ?></p>
                 </div>
-
-                <div class="form-floating m-1 user-details">
-                    <select id="user_city" name="user_city" class="form-select" onchange="getFee()"
-                        aria-label="Floating label select example">
-                        <option><?php echo $user_city; ?></option>
-                        <?php
-                            $curl = curl_init();
-                            curl_setopt_array($curl, array(
-                                CURLOPT_URL => 'https://api.countrystatecity.in/v1/countries/IN/cities',
-                                CURLOPT_RETURNTRANSFER => true,
-                                CURLOPT_HTTPHEADER => array(
-                                    'X-CSCAPI-KEY: eTAxUGIyaElOSm5ldE9YdDhmQTJTaWMxbEVWUVFqR1hqblZRNmRyVw=='
-                                ),
-                            ));
-                            $response = curl_exec($curl);
-                            curl_close($curl);
-                            $response_json = json_decode($response);
-                            foreach ($response_json as $key) {
-                                $user_city =  $key->name; ?>
-                        <option required name="user_city" value="<?php echo $user_city; ?>">
-                            <?php echo $user_city; ?>
-                        </option>
-                        <?php
-                            }
-                            ?>
-                    </select>
-                    <label for="floatingSelect">City</label>
+                <div class="order-details">
+                    <p class="fw-bold">Delivery Charge</p>
+                    <p id="order-price-final">₹</p>
                 </div>
-
-
-                <div class="inner-headings">
-                    <div class="form-floating m-1 user-details">
-                        <input required class="form-control" placeholder="State" type="text" minlength="2"
-                            id="floatingInput" name="user_address" value="<?php echo $user_address; ?>">
-                        <label for="floatingInput">Address</label>
-                    </div>
-
-                    <div class="form-floating m-1 user-details">
-                        <input required class="form-control" placeholder="Email" type="email" minlength="2"
-                            id="floatingInput" name="user_email" value="<?php echo $user_email; ?>">
-                        <label for="floatingInput">Email - ID</label>
-                    </div>
-                </div>
-
-
-                <!-- <a href="checkout" type="submit" name="edit" class="checkout-btn">Edit</a> -->
-            </div>
-
-            <!-- Sub Total Start -->
-            <div class="col-md-6 m-1 pricing-tab">
-                <div class="inner-headings">
-                    <p id="heading">Subtotal</p>
-                    <p><?php echo "₹" . $all_total_price; ?></p>
-                </div>
-                <!-- Sub Total End -->
-
-                <!-- Delivery Fee Start -->
-                <?php $delivery_chearge = 0; ?>
-                <div class="inner-headings">
-                    <p id="heading">Shipping</p>
-                    <p id="delivery_chearge"></p>
-                </div>
-                <!-- Delivery Fee End -->
-
-                <!-- Grand Total Start -->
-                <?php $gross_total = $all_total_price + $delivery_chearge; ?>
-                <div class="inner-headings">
-                    <p id="heading">Grand Total</p>
-                    <p id="gross_total"></p>
-                </div>
-                <!-- Grand Total End -->
-
-                <!-- Values to being sent to Razorpay (pay.php) Start -->
-                <input type="text" hidden name="user_id" value="<?php echo $user_id; ?>">
-                <input type="text" hidden name="all_total_price" value="<?php echo $all_total_price; ?>"
-                    id="all_total_price">
-
-                <input type="text" hidden name="delivery_chearge" value="<?php echo $delivery_chearge; ?>">
-                <input type="text" hidden name="gross_total" value="<?php echo $gross_total; ?>">
-                <input class="checkout-btn" type="submit" name="submit" value='Proceed to Checkout' />
-                <!-- Values to being sent to Razorpay (pay.php) End -->
-
-
-                <div class="d-flex justify-content-center align-items-center payment-section">
-                    <p class="mt-5">Secure Payment Gateways</p>
-                    <img src="assets/images/icons/payment-method.png" alt="">
+                <div class="order-details">
+                    <p class="fw-bold">Grand Total</p>
+                    <p id="order-price-final">₹</p>
                 </div>
             </div>
         </div>
-</div>
-<?php } else {
-            echo "<lottie-player src='https://assets8.lottiefiles.com/packages/lf20_fzoupjne.json' class='d-flex justofy-content-center align-items-center w-100' background='transparent'  speed='1'  style='width: 300px; height: 300px;' loop autoplay></lottie-player>";
-        } ?>
+        <!-- ============ ORDER DETAILS SECTION end ============ -->
+
+        <!-- ============ USER DETAILS SECTION START ============ -->
+        <div class="col-md-6 checkout-left">
+            <h3>BILLING & SHIPPING</h3>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput">Full Name</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Contact Number</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput">E-Mail</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                    <option selected>Select State</option>
+                    <?php
+                    $curl = curl_init();
+                    curl_setopt_array($curl, array(
+                        CURLOPT_URL => 'https://api.countrystatecity.in/v1/countries/IN/states',
+                        CURLOPT_RETURNTRANSFER => true,
+                        CURLOPT_HTTPHEADER => array(
+                            'X-CSCAPI-KEY: eTAxUGIyaElOSm5ldE9YdDhmQTJTaWMxbEVWUVFqR1hqblZRNmRyVw=='
+                        ),
+                    ));
+                    $response = curl_exec($curl);
+                    curl_close($curl);
+                    $response_json = json_decode($response);
+                    foreach ($response_json as $key) {
+                        $user_state =  $key->name; ?>
+                    <option required name="user_state" value="<?php echo $user_state; ?>"><?php echo $user_state; ?>
+                        <?php
+                    }
+                        ?>
+                    </option>
+
+                </select>
+                <label for="floatingSelect">State</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                    <option selected>Select City</option>
+                    <?php
+                    $curl = curl_init();
+                    curl_setopt_array($curl, array(
+                        CURLOPT_URL => 'https://api.countrystatecity.in/v1/countries/IN/cities',
+                        CURLOPT_RETURNTRANSFER => true,
+                        CURLOPT_HTTPHEADER => array(
+                            'X-CSCAPI-KEY: eTAxUGIyaElOSm5ldE9YdDhmQTJTaWMxbEVWUVFqR1hqblZRNmRyVw=='
+                        ),
+                    ));
+                    $response = curl_exec($curl);
+                    curl_close($curl);
+                    $response_json = json_decode($response);
+                    foreach ($response_json as $key) {
+                        $user_city =  $key->name; ?>
+                    <option required name="user_city" value="<?php echo $user_city; ?>">
+                        <?php echo $user_city; ?>
+                    </option>
+                    <?php
+                    }
+                    ?>
+                </select>
+                <label for="floatingSelect">City</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <textarea class="form-control" placeholder="Enter Full Address" id="floatingTextarea2"
+                    style="height: 100px"></textarea>
+                <label for="floatingTextarea2">Address</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput">Pincode</label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Create an account?
+                </label>
+            </div>
+        </div>
+        <!-- ============ USER DETAILS SECTION END ============ -->
 
 
-</form>
-
-<div>
-
-</div>
+    </form>
 </div>

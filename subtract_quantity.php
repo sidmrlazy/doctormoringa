@@ -19,6 +19,4 @@ include('admin/includes/server/config.php');
     }
 
 
-header("Location: shop");
-
-?>
+header("Location:shop");

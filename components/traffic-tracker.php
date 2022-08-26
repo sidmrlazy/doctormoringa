@@ -9,7 +9,7 @@ while ($row = mysqli_fetch_assoc($fetch_visitor_result)) {
     $host_name = $row['traffic_host_name'];
 }
 $host_name;
-$traffic_page_name = "index.php";
+$traffic_page_name = "shop.php";
 $traffic_agent = $_SERVER['HTTP_USER_AGENT'];
 $traffic_ip = $_SERVER['REMOTE_ADDR'];
 $traffic_host_name = gethostbyaddr($_SERVER['REMOTE_ADDR']);

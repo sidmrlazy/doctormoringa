@@ -1,167 +1,108 @@
 <?php
-$final_order_id = '0';
+$customer_order_generated_id = '0';
 include('admin/includes/server/config.php');
 require('razorpay/src/Api.php');
 require('razorpay/Razorpay.php');
 session_start();
+$token = session_id();
+$_SESSION['session_id'] = $token;
+
+if (!empty($_SESSION['user_id'])) {
+    $user_id = $_SESSION['user_id'];
+    $token = $_SESSION['session_id'];
+} else {
+    $user_id = 0;
+    $token;
+}
 
 use Razorpay\Api\Api;
 
-if (!isset($_SESSION['user_contact'])) {
-    // header("location: login.php");
-    echo "<script type='text/javascript'>
-        $(document).ready(function() {
-        $('#loginModal').modal('show');
-        });
-        </script>";
-    include('components/footer.php');
-    exit;
-}
 if (!empty($_POST["submit"])) {
-    $user_id = $_POST['user_id'];
-    $order_user_name = $_POST['user_name'];
-    $order_user_contact = $_POST['user_contact'];
-    $order_user_state = $_POST['user_state'];
-    $order_user_city = $_POST['user_city'];
-    $order_user_address = $_POST['user_address'];
-    $order_user_email = $_POST['user_email'];
-    $all_total_price_post = $_POST['all_total_price'];
-    $delivery_chearge = $_POST['delivery_chearge'];
-    $gross_total = $_POST['gross_total'];
-    $order_time = time();
+    $cart_id = $_POST['cart_id'];
+    $customer_order_user_id = $_POST['cart_user_id'];
+    $customer_order_user_name = $_POST['cart_user_name'];
+    $customer_order_user_contact = $_POST['cart_user_contact'];
+    $customer_order_user_email = $_POST['cart_user_email'];
+    $customer_order_user_state = $_POST['cart_user_state'];
+    $customer_order_user_city = $_POST['cart_user_city'];
+    $customer_order_user_address = $_POST['cart_user_address'];
+    $customer_order_user_pincode = $_POST['cart_user_pincode'];
+    $customer_order_user_subtotal = $_POST['cart_user_subtotal'];
+    $customer_order_user_delivery = $_POST['cart_user_delivery_fee'];
+    $customer_order_user_grandtotal = $_POST['cart_user_grand_total'];
+    $customer_order_generated_id = $_POST['cart_user_order_id'];
+    $customer_order_payment_status = 0;
+    $customer_order_tracking_status = 0;
+    $customer_order_user_type = 2;
 
-
-    if ($order_user_city == 'Lucknow' || $order_user_city == 'Lucknow District') {
-        $delivery_chearge = 80;
-    } else {
-        $delivery_chearge = 100;
-    }
-
-    $gross_total_new = $delivery_chearge  + $all_total_price_post;
-
-    $quantity = 1;
-    $product_price = 0;
-    $all_total_price = 0;
-
-    $query = "INSERT INTO `uder_order` ( 
-            `order_id`, 
-            `order_user_id`, 
-            `order_user_name`, 
-            `order_user_contact`, 
-            `order_user_state`, 
-            `order_user_city`, 
-            `order_user_address`, 
-            `order_user_email`, 
-            `order_time`, 
-            `order_total_amount`, 
-            `order_tax`,
-            `order_gross_amount`, 
-            `order_status`) 
-        VALUES (
-            '',
-            '$user_id', 
-            '$order_user_name', 
-            '$order_user_contact', 
-            '$order_user_state', 
-            '$order_user_city', 
-            '$order_user_address', 
-            '$order_user_email', 
-            '$order_time', 
-            '$all_total_price_post', 
-            '$delivery_chearge' , 
-            '$gross_total_new', 
-            '0');";
+    $query = "INSERT INTO `customer_order`(
+        `customer_order_user_name`,
+        `customer_order_user_contact`,
+        `customer_order_user_email`,
+        `customer_order_user_state`,
+        `customer_order_user_city`,
+        `customer_order_user_address`,
+        `customer_order_user_pincode`,
+        `customer_order_user_subtotal`,
+        `customer_order_user_delivery`,
+        `customer_order_user_grandtotal`,
+        `customer_order_generated_id`,
+        `customer_order_payment_status`,
+        `customer_order_tracking_status`
+    )
+    VALUES(
+        '$customer_order_user_name',
+        '$customer_order_user_contact',
+        '$customer_order_user_email',
+        '$customer_order_user_state',
+        '$customer_order_user_city',
+        '$customer_order_user_address',
+        '$customer_order_user_pincode',
+        '$customer_order_user_subtotal',
+        '$customer_order_user_delivery',
+        $customer_order_user_grandtotal,
+        '$customer_order_generated_id',
+        '$customer_order_payment_status',
+        '$customer_order_tracking_status')";
 
     if (mysqli_query($connection, $query)) {
-        $final_order_id  = $order_id = mysqli_insert_id($connection);
-        $query = "SELECT * FROM `items` i JOIN cart c ON i.item_id=c.cart_item_id  AND c.cart_user_id='$user_id'";
-        $get_details = mysqli_query($connection, $query);
-        if (@$get_details->num_rows > 0) {
-            $previous_category = "";
+        $customer_order_generated_id  = $order_id = mysqli_insert_id($connection);
+        $customer_order_user_id;
 
-            while ($row = mysqli_fetch_array($get_details)) {
-                $item_category = $row['item_category'];
-                $item_id = $row['item_id'];
-                $item_price = $row['item_price'];
-                $cart_qty = $row['cart_qty'];
-                $cart_user_city = $row['cart_user_city'];
+        $keyId = 'rzp_test_0WPfYvs2tlQaLU';
+        $keySecret = 'rrPjT8zzOFtK0gSVxNBjCFEE';
 
-                $o_query = "INSERT INTO `uder_order_details` (
-                        `uder_order_details`, 
-                        `uod_order_id`, 
-                        `uod_item_id`, 
-                        `uod_item_cat`, 
-                        `uod_price`, 
-                        `uod_quantity`, 
-                        `uod_status`) 
-                    VALUES (
-                        '', 
-                        '$order_id', 
-                        '$item_id', 
-                        '$item_category', 
-                        '$item_price', 
-                        '$cart_qty', 
-                        '0');";
-                $oq_details = mysqli_query($connection, $o_query);
-            }
-            $user_id = $_POST['user_id'];
-            $user_name = $_POST['user_name'];
-            $user_contact = $_POST['user_contact'];
-            $user_email = $_POST['user_email'];
-            $gross_total_new;
+        $api = new Api($keyId, $keySecret);
+        $orderData = [
+            'receipt' => rand(1000, 9999) . 'ORD',
+            'amount' => $customer_order_user_grandtotal * 100,
+            'currency' => 'INR',
+            'payment_capture' => 1
+        ];
+        $razorpayOrder = $api->order->create($orderData);
+        $razorpayOrderId = $razorpayOrder['id'];
+        $_SESSION['razorpay_order_id'] = $razorpayOrderId;
+        $displayAmount = $amount = $orderData['amount'];
 
-            $keyId = 'rzp_live_X36ox2orkcP17P';
-            $keySecret = 'ubNUKggZVVYEEPvs9w5RMhj5';
+        $data = [
+            "key" => $keyId,
+            "amount" => $amount,
+            "name" => 'DOCTOR MORINGA',
+            "description" => 'GOODNESS OF THE MIRACLE TREE',
+            "image" => "https://doctormoringa.in/assets/images/logo/logo.png",
+            "prefill" => [
+                "name" => $customer_order_user_name,
+                "email" => $customer_order_user_email,
+                "contact" => $customer_order_user_contact,
+            ],
+            "theme" => [
+                "color" => "#44ad40"
+            ],
+            "order_id" => $razorpayOrderId,
+        ];
 
-            $api = new Api($keyId, $keySecret);
-            $orderData = [
-                'receipt' => rand(1000, 9999) . 'ORD',
-                'amount' => $gross_total_new * 100,
-                'currency' => 'INR',
-                'payment_capture' => 1
-            ];
-            $razorpayOrder = $api->order->create($orderData);
-            $razorpayOrderId = $razorpayOrder['id'];
-            $_SESSION['razorpay_order_id'] = $razorpayOrderId;
-            $displayAmount = $amount = $orderData['amount'];
-
-            $data = [
-                "key" => $keyId,
-                "amount" => $amount,
-                "name" => 'DOCTOR MORINGA',
-                "description" => 'GOODNESS OF THE MIRACLE TREE',
-                "image" => "assets/images/logo/logo.png",
-                "prefill" => [
-                    "name" => $user_name,
-                    "email" => $user_email,
-                    "contact" => $user_contact,
-                ],
-                "theme" => [
-                    "color" => "#44ad40"
-                ],
-                "order_id" => $razorpayOrderId,
-            ];
-
-            $json = json_encode($data);
-        } else {
-            echo "Cart is empty";
-        }
+        $json = json_encode($data);
     }
-    if (mysqli_query($connection, $query)) {
-        $update_user_query = "UPDATE `user` SET `user_name`='$order_user_name',`user_email`='$order_user_email',`user_state`='$order_user_state',`user_city`='$order_user_city',`user_address`='$order_user_address',`user_type`= '2' WHERE `user_id` = '$user_id'";
-        $update_result = mysqli_query($connection, $update_user_query);
-
-        if (!$update_result) {
-            die("USER DETAILS WERE NOT UPDATED!" . mysqli_error($connection));
-        } else {
-            echo "";
-        }
-    } else {
-        echo "Error: " . $query . "<br>" . mysqli_error($connection);
-    }
-} else {
-
-    echo "No Post Submited";
 }
 ?>
 
@@ -177,7 +118,12 @@ if (!empty($_POST["submit"])) {
     <input type="hidden" name="razorpay_payment_id" id="razorpay_payment_id">
     <input type="hidden" name="razorpay_signature" id="razorpay_signature">
     <input type="hidden" name="razorpay_order_id" id="razorpay_order_id">
-    <input type="hidden" name="customer_order_id" id="customer_order_id" value="<?php echo $final_order_id; ?>">
+    <input type="hidden" name="customer_order_generated_id" id="customer_order_generated_id"
+        value="<?php echo $customer_order_generated_id; ?>">
+    <input type="hidden" name="customer_order_user_id" id="customer_order_user_id" value="<?php echo $token; ?>">
+
+    <!-- User Data -->
+
 </form>
 <script>
 var options = <?php echo $json ?>;
@@ -187,9 +133,9 @@ options.handler = function(response) {
     document.getElementById('razorpay_order_id').value = response.razorpay_order_id;
     document.razorpayform.submit();
 
-    console.log(response.razorpay_order_id);
-    console.log(response.razorpay_payment_id);
-    console.log(response.razorpay_signature);
+    // console.log(response.razorpay_order_id);
+    // console.log(response.razorpay_payment_id);
+    // console.log(response.razorpay_signature);
 };
 var rzp = new Razorpay(options);
 document.getElementById('rzp-button1').onclick = function(e) {

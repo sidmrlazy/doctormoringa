@@ -16,7 +16,7 @@
         <tbody>
             <?php
             include('includes/server/config.php');
-            $query = "SELECT * FROM `transactions` JOIN `user` WHERE transactions.transaction_user_id = user.user_id";
+            $query = "SELECT * FROM `transactions`";
             $result = mysqli_query($connection, $query);
 
             while ($row = mysqli_fetch_assoc($result)) {
