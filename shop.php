@@ -100,7 +100,7 @@
                 $item_status = $row['item_status']; ?>
 
         <form action="" id="categoryForm" method="POST" class="grid-card">
-            <div class="grid-card-img-holder">
+            <div id="#<?php echo $item_id ?>" class="grid-card-img-holder">
                 <img src="<?php echo $item_image ?>" alt="">
             </div>
             <p class="grid-card-product-name"><?php echo $item_name; ?></p>

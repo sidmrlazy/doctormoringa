@@ -13,15 +13,15 @@ console.log(video);
         <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 4"></button>
     </div>
     <div class="carousel-inner">
-        <div class="carousel-item centered-carousel active" data-bs-interval="3000">
-            <video class="banner-vid" autoplay controls id="bannerVid">
+        <a href="shop.php#2" class="carousel-item centered-carousel active" data-bs-interval="3000">
+            <img src="assets/images/banners/offer.jpg" class="d-block img-fluid" alt="...">
+            <!-- <video class="banner-vid" autoplay controls id="bannerVid">
                 <source src="assets/video/vid-1.mp4" type="video/mp4">
                 <source src="movie.ogg" type="video/ogg">
-            </video>
-        </div>
+            </video> -->
+        </a>
         <div class="carousel-item centered-carousel" data-bs-interval="3000">
             <img src="assets/images/banners/1.png" class="d-block img-fluid" alt="...">
-
         </div>
         <div class="carousel-item centered-carousel" data-bs-interval="2000">
             <img src="assets/images/banners/2.png" class="d-block img-fluid" alt="...">
