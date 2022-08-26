@@ -5,7 +5,7 @@ $username = "u976956619_doctor_moringa";
 $database = "u976956619_doctor_moringa";
 $password = "Darthvader@order66";
 
-// Development
+// Development Test
 // $servername = "localhost";
 // $username = "root";
 // $database = "doctor_moringa";
