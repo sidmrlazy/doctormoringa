@@ -66,7 +66,7 @@
         $category_name = $row['category_name'];
 
         // FETCH PRODUCTS
-        $query = "SELECT * FROM `items` WHERE item_category = '$category_name'";
+        $query = "SELECT * FROM `items` WHERE item_category = '$category_name' AND `item_status` = 1";
         $result = mysqli_query($connection, $query);
         $count = mysqli_num_rows($result);
 
