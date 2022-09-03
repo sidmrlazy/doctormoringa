@@ -1,11 +1,10 @@
 <?php include('includes/header.php') ?>
 <?php include('includes/navbar.php') ?>
-<?php //include('includes/side-nav.php') 
-?>
+<?php include('includes/side-nav.php')  ?>
 <?php
 include 'includes/server/config.php'; ?>
 
-<div class="container section-wrapper">
+<div class="container section-container mt-3">
     <?php
     include 'includes/server/config.php';
 

@@ -9,6 +9,14 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
+::-webkit-file-upload-button {
+  display: none;
+}
+
+::file-selector-button {
+  display: none;
+}
+
 /* Firefox */
 input[type="number"] {
   -moz-appearance: textfield;
@@ -21,6 +29,10 @@ input[type="number"] {
 
 ::selection {
   background: #5bb336;
+}
+.hr-line {
+  margin-top: 5px !important;
+  margin-bottom: 5px !important;
 }
 
 /* ================================================ Login Form ================================================ */
@@ -73,9 +85,61 @@ input[type="number"] {
   height: auto !important;
 }
 
-/* ================================================ Navbar ================================================ */
+/* ========================== Side Navbar ========================== */
+.side-nav-custom {
+  border-radius: 5px;
+  position: fixed;
+  width: 220px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  height: 100%;
+  background-color: #fff;
+  left: 0;
+  margin-top: 50px;
+  margin-left: 10px;
+  padding: 15px;
+  z-index: 999;
+}
+.side-nav-brand {
+  max-width: 200px;
+  max-height: 80px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.side-nav-brand img {
+  width: 80px;
+  height: auto;
+}
+.outer-nav-icon {
+  margin-right: 5px;
+  font-size: 14px;
+  color: #5bb336;
+}
+.side-nav-text {
+  color: #777 !important;
+  font-size: 12px !important;
+  font-weight: 400 !important;
+}
+.side-nav-header {
+  margin-top: 10px;
+  margin-bottom: 5px !important;
+  font-size: 10px;
+  color: #777;
+  font-weight: 500;
+}
+/* ========================== Navbar ========================== */
+.mob-nav {
+  visibility: hidden;
+}
 .navbar {
-  background-color: #00000000 !important;
+  background-color: #fff !important;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  border-bottom: 2px solid #5bb336;
+  position: fixed !important;
+  width: 100%;
+  z-index: 999;
+  top: 0;
 }
 .navbar-brand img {
   width: 25%;
@@ -99,6 +163,62 @@ input[type="number"] {
   font-weight: bold;
   transition: all 0.5s;
   background-color: #00000000 !important;
+}
+
+/* ========================== Main Dashboard ========================== */
+.section-container {
+  position: static !important;
+  width: 80% !important;
+  left: 0;
+  right: 0;
+  margin-left: 240px !important;
+}
+.section-container p {
+  margin: 5px;
+  font-size: 14px;
+  margin-top: 50px;
+}
+.tab-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+.dashboard-tab {
+  max-width: 200px;
+  max-height: 100px;
+  width: 100%;
+  height: 100px;
+  text-decoration: none !important;
+  color: #000;
+  flex-direction: column;
+  border: 1px solid #e7e7e7;
+  margin: 5px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  display: flex !important;
+  justify-content: center !important;
+  align-items: flex-start;
+  padding: 10px;
+}
+.dashboard-tab-label {
+  margin: 0 !important;
+  font-size: 12px;
+  width: 100%;
+}
+.dashboard-tab-res {
+  font-weight: 600;
+  margin: 0 !important;
+  width: 100%;
+  font-size: 22px !important;
+}
+.section-flex {
+  display: flex;
+}
+
+/* ========================== Dashboard Table ========================== */
+.table-heading {
+  font-size: 14px;
+  font-weight: 500;
 }
 
 /* ================================================ COMMON ELEMENTS ================================================ */
@@ -280,6 +400,45 @@ input[type="number"] {
 .update-img {
   width: 300px !important;
   height: 200px !important;
+}
+.image-upload-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  justify-content: flex-start;
+}
+.image-upload-box {
+  width: 117px;
+  height: 117px;
+  border: 1px solid #e7e7e7;
+  border-radius: 5px;
+  margin: 3px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  flex-direction: column !important;
+}
+.img-upload-btn {
+  font-size: 0px !important;
+  width: 100%;
+  border: 0 !important;
+  background-image: url("../images/icons/cloud-upload-outline.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  justify-content: center !important;
+  align-items: center !important;
+  height: 30px;
+  text-align: center;
+  color: #777;
+}
+.img-label {
+  text-align: left !important;
+  font-size: 16px !important;
+  width: 100%;
+  margin-bottom: 5px;
 }
 /* ================================================ BUTTONS ================================================ */
 .confirm-button {
@@ -483,4 +642,31 @@ input[type="number"] {
   margin: 0;
   font-weight: bold;
   color: #fff;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .side-nav-custom {
+    display: none !important;
+  }
+  .section-container {
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+  .tab-grid {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .dashboard-tab {
+    max-width: 100%;
+    max-height: 100px;
+    width: 100%;
+    height: 100px;
+  }
+  .section-flex {
+    width: 100% !important;
+    display: flex;
+    flex-direction: column;
+    margin-right: 0 !important;
+  }
 }

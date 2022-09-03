@@ -81,9 +81,9 @@ input[type="number"] {
 .grid-card-img-holder {
   max-width: 70% !important;
   height: auto;
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
 }
 .grid-card-img-holder img {
   width: 100% !important;

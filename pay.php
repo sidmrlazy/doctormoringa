@@ -72,6 +72,9 @@ if (!empty($_POST["submit"])) {
         $keyId = 'rzp_live_X36ox2orkcP17P';
         $keySecret = 'ubNUKggZVVYEEPvs9w5RMhj5';
 
+        // $keyId = 'rzp_test_0WPfYvs2tlQaLU';
+        // $keySecret = 'rrPjT8zzOFtK0gSVxNBjCFEE';
+
         $api = new Api($keyId, $keySecret);
         $orderData = [
             'receipt' => rand(1000, 9999) . 'ORD',
