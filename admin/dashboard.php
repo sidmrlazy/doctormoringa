@@ -55,7 +55,7 @@
             $count_live = mysqli_num_rows($get_live_items_r);
             ?>
             <div class="dashboard-tab">
-                <p class="dashboard-tab-label">Total Products</p>
+                <p class="dashboard-tab-label">Live Products/ Total Products</p>
                 <p class="dashboard-tab-res"><?php echo $count_live . "/" . $count; ?></p>
             </div>
 
