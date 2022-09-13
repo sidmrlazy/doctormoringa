@@ -198,14 +198,14 @@
                 <select class="form-select" name="item_status" id="floatingSelect"
                     aria-label="Floating label select example">
                     <?php if ($item_status == '1') {
-                                $item_status = "Out Of Stock";
-                            } else if ($item_status == '2') {
                                 $item_status = "In Stock";
+                            } else if ($item_status == '2') {
+                                $item_status = "Out of Stock";
                             ?>
                     <option selected><?php echo $item_status ?></option>
                     <?php } ?>
-                    <option name="item_status" value="1">Out Of Stock</option>
-                    <option name="item_status" value="2">In Stock</option>
+                    <option name="item_status" value="1">In Stock</option>
+                    <option name="item_status" value="2">Out of Stock</option>
                 </select>
                 <label for="floatingSelect">Product Status</label>
             </div>

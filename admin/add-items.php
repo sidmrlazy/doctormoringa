@@ -16,7 +16,7 @@
 
             $item_price = mysqli_real_escape_string($connection, $_POST['item_price']);
             $item_category = mysqli_real_escape_string($connection, $_POST['item_category']);
-            $item_status = 1;
+            $item_status = 2;
 
             $item_image =  $_FILES['item_image']['name'];
             $item_image_temp = $_FILES['item_image']['tmp_name'];

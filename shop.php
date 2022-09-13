@@ -77,6 +77,8 @@
             while ($row = mysqli_fetch_assoc($result)) {
                 $item_category = $row['item_category'];
 
+                $new_item_category = trim($item_category, "");
+
 
                 // IF CATEGORY HAS NOT BEEN PRINTED ONCE
                 if ($user_category !== $item_category) {
@@ -85,7 +87,7 @@
                     $user_category = $item_category; ?>
 
     <!-- ========= PRODUCT CATEGORY START ========= -->
-    <div class="product-section-header mt-5 mb-4">
+    <div id="<?php echo $new_item_category ?>" class="product-section-header mt-5 mb-4">
         <h1><?php echo $item_category; ?></h1>
     </div>
     <!-- ========= PRODUCT CATEGORY END ========= -->

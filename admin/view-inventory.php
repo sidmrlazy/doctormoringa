@@ -88,12 +88,13 @@
                             <?php
                                     if ($item_status == '1') {
                                     ?>
-                            <p class="inactive-btn">Out Of Stock</p>
 
+                            <p class="active-btn">In Stock</p>
                             <?php
                                     } else if ($item_status == '2') {
                                     ?>
-                            <p class="active-btn">In Stock</p>
+                            <p class="inactive-btn">Out Of Stock</p>
+
                             <?php
                                     } ?>
                         </div>

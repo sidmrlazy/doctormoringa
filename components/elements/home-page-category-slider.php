@@ -6,10 +6,12 @@
     while ($row = mysqli_fetch_assoc($result)) {
         $category_image = $row['category_image'];
         $category_name =  $row['category_name'];
+        $new_category_name = trim($category_name, " ");
+
     ?>
-    <a href="shop#<?php echo $category_name; ?>" class="inner-card" id="inner-card-pale">
+    <a href="shop#<?php echo $category_name  ?>" class="inner-card" id="inner-card-pale">
         <img src="assets/images/category-icons/<?php echo $category_image ?>" />
-        <p class="text-center"><?php echo $category_name; ?></p>
+        <p class="text-center"><?php echo $new_category_name; ?></p>
     </a>
     <?php
     }
