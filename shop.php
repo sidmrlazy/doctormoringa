@@ -113,8 +113,8 @@
                     ?>
 
         <form action="" id="categoryForm" method="POST" class="grid-card">
-            <div id="<?php echo $new_item_id ?>" class="grid-card-img-holder">
-                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="grid-card-img-holder">
+                <div id="<?php echo $new_item_id ?>" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <img src="<?php echo $item_image ?>" class="d-block w-100" alt="...">
