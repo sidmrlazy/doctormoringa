@@ -49,10 +49,14 @@
             $get_orders_query = "SELECT * FROM `items`";
             $result = mysqli_query($connection, $get_orders_query);
             $count = mysqli_num_rows($result);
+
+            $get_live_items = "SELECT * FROM `items` WHERE item_status = 1";
+            $get_live_items_r = mysqli_query($connection, $get_live_items);
+            $count_live = mysqli_num_rows($get_live_items_r);
             ?>
             <div class="dashboard-tab">
                 <p class="dashboard-tab-label">Total Products</p>
-                <p class="dashboard-tab-res"><?php echo $count; ?></p>
+                <p class="dashboard-tab-res"><?php echo $count_live . "/" . $count; ?></p>
             </div>
 
             <?php
