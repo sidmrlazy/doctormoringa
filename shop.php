@@ -107,7 +107,9 @@
                 $item_benefits = $row['item_benefits'];
                 $item_status = $row['item_status'];
 
-                $new_item_id = trim($item_name, "");
+                $item_id_name = "selector-" . $item_id;
+
+                $new_item_id = trim($item_id_name, "");
                     ?>
 
         <form action="" id="categoryForm" method="POST" class="grid-card">
