@@ -15,20 +15,20 @@
             $item_price = $row['item_price'];
             $item_category = $row['item_category'];
         ?>
-        <div class="grid-card">
-            <div class="product-card-homepage">
-                <img src="<?php echo $item_image; ?>" alt="<?php echo $item_image; ?>">
-                <div class="product-card-content-section">
-                    <p class="product-card-category"><?php echo $item_category; ?></p>
-                    <p class="product-card-item-name"><?php echo $item_name; ?></h5>
-                    </p>
-                    <div class="product-card-action-section">
-                        <p><?php echo "₹" . $item_price; ?></p>
-                        <a href="shop#<?php echo $item_id ?>">Details</a>
-                    </div>
+
+        <div class="product-card-homepage">
+            <img src="<?php echo $item_image; ?>" alt="<?php echo $item_image; ?>">
+            <div class="product-card-content-section">
+                <p class="product-card-category"><?php echo $item_category; ?></p>
+                <p class="product-card-item-name"><?php echo $item_name; ?></h5>
+                </p>
+                <div class="product-card-action-section">
+                    <p><?php echo "₹" . $item_price; ?></p>
+                    <a href="shop#<?php echo $item_id ?>">Details</a>
                 </div>
             </div>
         </div>
+
         <?php
         }
         ?>
