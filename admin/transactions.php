@@ -25,7 +25,7 @@
                     include('includes/server/config.php');
                     $query = "SELECT * FROM `transactions`";
                     $result = mysqli_query($connection, $query);
-
+                    $transaction_user_id = "";
                     while ($row = mysqli_fetch_assoc($result)) {
                         // Transactions Table
                         $transaction_id = $row['transaction_id'];
@@ -33,14 +33,14 @@
                         $razorpay_payment_id = $row['razorpay_payment_id'];
                         $razorpay_customer_order_id = $row['razorpay_customer_order_id'];
                         $payment_time = $row['payment_time'];
+                    }
+                    $get_amount = "SELECT * FROM `customer_order` WHERE `customer_order_generated_id` = '$transaction_user_id'";
+                    $get_amount_result = mysqli_query($connection, $get_amount);
 
-                        $get_amount = "SELECT * FROM customer_order WHERE customer_order_generated_id = '$transaction_user_id'";
-                        $get_amount_result = mysqli_query($connection, $get_amount);
-
-                        while ($row = mysqli_fetch_assoc($get_amount_result)) {
-                            $customer_order_tracking_status = $row['customer_order_tracking_status'];
-                            $customer_order_user_name = $row['customer_order_user_name'];
-                            $customer_order_user_grandtotal = $row['customer_order_user_grandtotal'];
+                    while ($row = mysqli_fetch_assoc($get_amount_result)) {
+                        $customer_order_tracking_status = $row['customer_order_tracking_status'];
+                        $customer_order_user_name = $row['customer_order_user_name'];
+                        $customer_order_user_grandtotal = $row['customer_order_user_grandtotal'];
 
                     ?>
                     <tr>
@@ -50,7 +50,7 @@
                         <td><?php echo "₹" . $customer_order_user_grandtotal; ?></td>
                         <td><?php echo $customer_order_user_name; ?></td>
                         <?php
-                                if ($customer_order_tracking_status == "0") { ?>
+                            if ($customer_order_tracking_status == "0") { ?>
                         <td>
                             <p class="pending">PENDING CONFIRMATION</p>
                         </td>
@@ -65,7 +65,7 @@
                         <?php } ?>
                     </tr>
                     <?php
-                        }
+
                     }
 
                     ?>
