@@ -66,14 +66,17 @@
         $category_name = $row['category_name'];
 
         // FETCH PRODUCTS
-        $query = "SELECT * FROM `items` WHERE item_category = '$category_name' AND `item_status` = 1";
+        $query = "SELECT * FROM `items` WHERE item_category = '$category_name' AND item_status = 1";
         $result = mysqli_query($connection, $query);
         $count = mysqli_num_rows($result);
+
+
 
         if ($count > 0) {
             $user_category = "";
             while ($row = mysqli_fetch_assoc($result)) {
                 $item_category = $row['item_category'];
+
 
                 // IF CATEGORY HAS NOT BEEN PRINTED ONCE
                 if ($user_category !== $item_category) {
@@ -100,7 +103,10 @@
                 $item_description = $row['item_description'];
                 $item_usage = $row['item_usage'];
                 $item_benefits = $row['item_benefits'];
-                $item_status = $row['item_status']; ?>
+                $item_status = $row['item_status'];
+
+
+                    ?>
 
         <form action="" id="categoryForm" method="POST" class="grid-card">
             <div id="#<?php echo $item_id ?>" class="grid-card-img-holder">

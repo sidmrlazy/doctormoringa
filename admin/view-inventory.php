@@ -95,7 +95,7 @@
         // IF NO INVENTORY FOUND THEN DISPLAYING LOTTIE
         else {
             ?>
-        <div class="no-products">
+        <div class="no-products mt-5">
             <div class="col-md-4 lottie-container">
                 <lottie-player src="https://assets8.lottiefiles.com/private_files/lf30_oqpbtola.json"
                     background="transparent" speed="1" class="lottie" loop autoplay></lottie-player>
