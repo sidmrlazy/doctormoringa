@@ -1,20 +1,34 @@
 <?php include('includes/header.php') ?>
 <?php include('includes/navbar.php') ?>
-<div class="d-flex mt-3">
+<div class="d-flex mt-3 container-fluid">
     <?php include('includes/side-nav.php') ?>
     <div class="container section-container">
-        <p>View all products</p>
 
         <?php
 
         include('includes/server/config.php');
 
-        // QUERY TO FETCH INVENTORY
+        $results_per_page = 5;
+
         $query = "SELECT * FROM `items`";
-        $get_details = mysqli_query($connection, $query);
-        if (@$get_details->num_rows > 0) {
+        $result = mysqli_query($connection, $query);
+        $number_of_result = mysqli_num_rows($result);
+
+        $number_of_page = ceil($number_of_result / $results_per_page);
+        if (!isset($_GET['page'])) {
+            $page = 1;
+        } else {
+            $page = $_GET['page'];
+        }
+
+        $page_first_result = ($page - 1) * $results_per_page;
+
+        // QUERY TO FETCH INVENTORY
+        $query_item = "SELECT * FROM `items` LIMIT " . $page_first_result . ',' . $results_per_page;
+        $get_details_r = mysqli_query($connection, $query_item);
+        if (@$get_details_r->num_rows > 0) {
             $previous_category = "";
-            while ($row = $get_details->fetch_assoc()) {
+            while ($row = $get_details_r->fetch_assoc()) {
                 $item_id = $row['item_id'];
                 $item_image = $row['item_image'];
                 $item_category = $row['item_category'];
@@ -88,13 +102,26 @@
             </form>
         </div>
 
+
+
         <!-- ==================== DISPLAYING PRODUCTS ==================== -->
         <?php
-            }
-        }
+            } ?>
+        <div class="d-flex justify-content-center align-items-center w-100">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <?php
+                        for ($page = 1; $page <= $number_of_page; $page++) {
+                            echo '<li class="page-item"><a class="page-link"  href="view-inventory.php?page=' . $page . '">' . $page . ' </a></li>';
+                        }
+                        ?>
+                </ul>
+            </nav>
+        </div>
+        <?php }
         // IF NO INVENTORY FOUND THEN DISPLAYING LOTTIE
         else {
-            ?>
+        ?>
         <div class="no-products mt-5">
             <div class="col-md-4 lottie-container">
                 <lottie-player src="https://assets8.lottiefiles.com/private_files/lf30_oqpbtola.json"

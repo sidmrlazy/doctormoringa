@@ -167,11 +167,10 @@ input[type="number"] {
 
 /* ========================== Main Dashboard ========================== */
 .section-container {
-  position: static !important;
-  width: 80% !important;
-  left: 0;
-  right: 0;
+  position: relative;
+  max-width: 100% !important;
   margin-left: 240px !important;
+  margin-top: 50px !important;
 }
 .section-container p {
   margin: 5px;
