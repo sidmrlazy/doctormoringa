@@ -107,11 +107,11 @@
                 $item_benefits = $row['item_benefits'];
                 $item_status = $row['item_status'];
 
-
+                $new_item_id = trim($item_id, "");
                     ?>
 
         <form action="" id="categoryForm" method="POST" class="grid-card">
-            <div id="#<?php echo $item_id ?>" class="grid-card-img-holder">
+            <div id="<?php echo $new_item_id ?>" class="grid-card-img-holder">
                 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
@@ -127,12 +127,12 @@
                             <img src="<?php echo $item_image_4 ?>" class="d-block w-100" alt="...">
                         </div>
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                    <button class="carousel-control-prev" type="button" data-bs-target="#<?php echo $new_item_id ?>"
                         data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                    <button class="carousel-control-next" type="button" data-bs-target="#<?php echo $new_item_id ?>"
                         data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
