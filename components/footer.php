@@ -30,10 +30,10 @@
         <a href="about">
             <li>About Us</li>
         </a>
-        <a href="">
+        <a href="privacy-policy.php">
             <li>Privacy Policy </li>
         </a>
-        <a href="">
+        <a href="assets/docs/TERMS AND CONDITIONS - DOCTOR MORINGA.docx">
             <li>Terms & Conditions</li>
         </a>
         <a href="contact">
