@@ -751,7 +751,11 @@ input[type="number"] {
   align-items: center;
 }
 .grid-card {
-  flex: 1 1 1 300px !important;
+  max-width: 300px !important;
+  max-height: 450px !important;
+  width: 300px !important;
+  height: 450px;
+  margin-bottom: 20px;
 }
 .section-heading {
   font-weight: bold !important;
