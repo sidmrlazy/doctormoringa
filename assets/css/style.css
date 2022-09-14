@@ -653,6 +653,8 @@ input[type="number"] {
   flex-direction: column;
 }
 .product-card-homepage img {
+  max-width: 250px;
+  max-height: 150px;
   width: auto !important;
   height: 150px !important;
   margin: 0 !important;
