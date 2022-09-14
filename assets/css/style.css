@@ -82,6 +82,12 @@ input[type="number"] {
   color: #000;
   border: 1px solid #e7e7e7;
 }
+.car-img {
+  max-width: 300px;
+  max-height: 200px;
+  width: 300px;
+  height: auto;
+}
 .grid-card:hover {
   color: #000;
 }
@@ -114,6 +120,7 @@ input[type="number"] {
   align-items: flex-end !important;
   width: 100%;
 }
+
 .price {
   font-size: 22px;
   font-weight: bold;

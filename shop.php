@@ -118,16 +118,16 @@
                 <div id="<?php echo $new_item_id ?>" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="<?php echo $item_image ?>" class="d-block w-100" alt="...">
+                            <img src="<?php echo $item_image ?>" class="d-block w-100 car-img" alt="...">
                         </div>
                         <div class="carousel-item">
-                            <img src="<?php echo $item_image_2 ?>" class="d-block w-100" alt="...">
+                            <img src="<?php echo $item_image_2 ?>" class="d-block w-100 car-img" alt="...">
                         </div>
                         <div class="carousel-item">
-                            <img src="<?php echo $item_image_3 ?>" class="d-block w-100" alt="...">
+                            <img src="<?php echo $item_image_3 ?>" class="d-block w-100 car-img" alt="...">
                         </div>
                         <div class="carousel-item">
-                            <img src="<?php echo $item_image_4 ?>" class="d-block w-100" alt="...">
+                            <img src="<?php echo $item_image_4 ?>" class="d-block w-100 car-img" alt="...">
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#<?php echo $new_item_id ?>"
