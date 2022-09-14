@@ -1,6 +1,6 @@
 <?php include('components/header.php') ?>
 <?php include('components/navbar.php') ?>
-<?php include('components/elements/conditional-login-modal.php')
+<?php // include('components/elements/conditional-login-modal.php')
 ?>
 <?php include('components/shop/section-header.php')
 ?>
@@ -113,7 +113,7 @@
 
                     ?>
 
-        <form action="" id="categoryForm" method="POST" class="grid-card">
+        <div id="categoryForm" class="grid-card">
             <div class="grid-card-img-holder">
                 <div id="<?php echo $new_item_id ?>" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
@@ -149,11 +149,6 @@
                 <p class="weight">(<?php echo $item_weight; ?>)</p>
             </div>
 
-            <!-- ========== SENDING CART ITEM DETAILS TO DATABASE ========== -->
-            <input type="text" name="cart_user_item_id" id="cart_item_id" value="<?php echo $item_id ?>" hidden>
-            <input type="text" name="cart_user_subtotal" id="cart_item_price" value="<?php echo $item_price ?>" hidden>
-            <input type="text" name="cart_user_id" id="cart_user_id" value="<?php echo $token ?>" hidden>
-
             <?php $fetch = "SELECT * FROM `customer_cart` WHERE cart_user_item_id = $item_id AND cart_user_id = '$token'";
                         $fetch_result = mysqli_query($connection, $fetch);
                         $cart_count = mysqli_num_rows($fetch_result);
@@ -170,7 +165,12 @@
             <?php } else { ?>
 
             <!-- ========= ADD TO CART START ========= -->
-            <div class="grid-btn-holder">
+            <form action="" method="POST" class="grid-btn-holder">
+                <!-- ========== SENDING CART ITEM DETAILS TO DATABASE ========== -->
+                <input type="text" name="cart_user_item_id" id="cart_item_id" value="<?php echo $item_id ?>" hidden>
+                <input type="text" name="cart_user_subtotal" id="cart_item_price" value="<?php echo $item_price ?>"
+                    hidden>
+                <input type="text" name="cart_user_id" id="cart_user_id" value="<?php echo $token ?>" hidden>
                 <button type="submit" name="submit" class="grid-cart-btn">Add to Cart</button>
                 <select class="form-select grid-cart-dropdown" name="cart_user_item_qty"
                     aria-label="Default select example">
@@ -181,12 +181,19 @@
                     <option value="4">4</option>
                     <option value="5">5</option>
                 </select>
-            </div>
+            </form>
             <!-- ========= ADD TO CART END ========= -->
+
+            <!-- ========= PRODUCT DETAILS START ========= -->
+            <form action="shop-product-details.php" method="POST" class="w-100 product-details-section">
+                <input type="text" name="cart_user_item_id" id="cart_item_id" value="<?php echo $item_id ?>" hidden>
+                <button type="submit" name="continue" class="know-more-btn">Know More</button>
+            </form>
+            <!-- ========= PRODUCT DETAILS END ========= -->
 
             <?php } ?>
             <span class="container"></span>
-        </form>
+        </div>
         <?php } ?>
     </div>
     <?php }
