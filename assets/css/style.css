@@ -80,7 +80,7 @@ input[type="number"] {
   margin: 5px;
   text-decoration: none;
   color: #000;
-  border: 1px solid #e7e7e7;
+  margin-bottom: 20px !important;
 }
 .car-img {
   max-width: 300px;
