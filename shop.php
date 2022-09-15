@@ -121,8 +121,8 @@
                             <img src="<?php echo $item_image ?>" class="d-block w-100 car-img" alt="...">
                         </div>
                         <?php if (!file_exists($item_image_2)) { ?>
-                        <div class="d-none carousel-item">
-                            <img src="<?php echo $item_image_2 ?>" class="d-block w-100 car-img" alt="...">
+                        <div class="carousel-item">
+                            <img src="<?php echo $item_image ?>" class="d-block w-100 car-img" alt="...">
                         </div>
                         <?php } else { ?>
                         <div class="carousel-item">
@@ -131,8 +131,8 @@
                         <?php } ?>
 
                         <?php if (!file_exists($item_image_3)) { ?>
-                        <div class="d-none carousel-item">
-                            <img src="<?php echo $item_image_3 ?>" class="d-block w-100 car-img" alt="...">
+                        <div class="carousel-item">
+                            <img src="<?php echo $item_image ?>" class="d-block w-100 car-img" alt="...">
                         </div>
                         <?php } else { ?>
                         <div class="carousel-item">
@@ -141,8 +141,8 @@
                         <?php  } ?>
 
                         <?php if (!file_exists($item_image_4)) { ?>
-                        <div class="d-none carousel-item">
-                            <img src="<?php echo $item_image_4 ?>" class="d-block w-100 car-img" alt="...">
+                        <div class="carousel-item">
+                            <img src="<?php echo $item_image ?>" class="d-block w-100 car-img" alt="...">
                         </div>
                         <?php } else { ?>
                         <div class="carousel-item">
