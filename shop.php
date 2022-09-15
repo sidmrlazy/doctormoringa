@@ -120,7 +120,10 @@
                         <div class="carousel-item active">
                             <img src="<?php echo $item_image ?>" class="d-block w-100 car-img" alt="...">
                         </div>
+
+                        <!-- ========= PRODUCT IMAGE 2 ========= -->
                         <?php if (!file_exists($item_image_2)) { ?>
+                        <P>FILE DOES NOT EXIST</P>
                         <div class="carousel-item">
                             <img src="<?php echo $item_image ?>" class="d-block w-100 car-img" alt="...">
                         </div>
@@ -130,6 +133,7 @@
                         </div>
                         <?php } ?>
 
+                        <!-- ========= PRODUCT IMAGE 3 ========= -->
                         <?php if (!file_exists($item_image_3)) { ?>
                         <div class="carousel-item">
                             <img src="<?php echo $item_image ?>" class="d-block w-100 car-img" alt="...">
@@ -140,6 +144,7 @@
                         </div>
                         <?php  } ?>
 
+                        <!-- ========= PRODUCT IMAGE 4 ========= -->
                         <?php if (!file_exists($item_image_4)) { ?>
                         <div class="carousel-item">
                             <img src="<?php echo $item_image ?>" class="d-block w-100 car-img" alt="...">
