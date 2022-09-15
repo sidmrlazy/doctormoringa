@@ -123,7 +123,6 @@
 
                         <!-- ========= PRODUCT IMAGE 2 ========= -->
                         <?php if (!file_exists($item_image_2)) { ?>
-                        <P>FILE DOES NOT EXIST</P>
                         <div class="carousel-item">
                             <img src="<?php echo $item_image ?>" class="d-block w-100 car-img" alt="...">
                         </div>
