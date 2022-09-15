@@ -30,7 +30,7 @@
             $previous_category = "";
             while ($row = $get_details_r->fetch_assoc()) {
                 $item_id = $row['item_id'];
-                $item_image = $row['item_image'];
+                $item_image = "assets/images/products/" . $row['item_image'];
                 $item_category = $row['item_category'];
                 $item_ingredients = $row['item_ingredients'];
                 $item_description = $row['item_description'];
@@ -46,21 +46,76 @@
                 }
         ?>
 
+        <div class="inventory-section">
+            <?php if (!file_exists($item_image)) { ?>
+            <form action="update-product-image.php" method="POST" enctype="multipart/form-data"
+                class="inventory-img-holder">
+                <input type="text" hidden name="item_id" value="<?php echo $item_id; ?>">
+                <input type="text" hidden name="item_image" value="<?php echo $item_image; ?>">
+                <ion-icon name="image-outline" class="broken-img-icon"></ion-icon>
+                <button type="submit" name="edit" class="inventory-img-change-btn">
+                    <ion-icon name="create-outline"></ion-icon>
+                </button>
+            </form>
+            <?php } else { ?>
+            <form action="update-product-image.php" method="POST" enctype="multipart/form-data"
+                class="inventory-img-holder">
+                <input type="text" hidden name="item_id" value="<?php echo $item_id; ?>">
+                <input type="text" hidden name="item_image" value="<?php echo $item_image; ?>">
+                <img src="<?php echo $item_image ?>" alt="">
+                <button type="submit" name="edit" class="inventory-img-change-btn">
+                    <ion-icon name="create-outline"></ion-icon>
+                </button>
+            </form>
+            <?php } ?>
+
+            <form action="edit-item.php" method="POST" class="inventory-content-holder">
+                <input type="text" hidden name="item_id" value="<?php echo $item_id ?>">
+                <input type="text" hidden name="item_name" value="<?php echo $item_name ?>">
+                <input type="text" hidden name="item_category" value="<?php echo $item_category ?>">
+                <input type="text" hidden name="item_usage" value="<?php echo $item_usage ?>">
+                <input type="text" hidden name="item_description" value="<?php echo $item_description ?>">
+                <input type="text" hidden name="item_benefits" value="<?php echo $item_benefits ?>">
+                <input type="text" hidden name="item_ingredients" value="<?php echo $item_ingredients ?>">
+                <input type="text" hidden name="item_price" value="<?php echo $item_price ?>">
+                <input type="text" hidden name="item_weight" value="<?php echo $item_weight ?>">
+                <input type="text" hidden name="item_status" value="<?php echo $item_status ?>">
+
+                <p class="inv-name"><?php echo $item_name ?></p>
+                <p class="inv-cat"><?php echo $item_category ?></p>
+                <p class="inv-price">₹<?php echo $item_price ?></p>
+                <p class="inv-weight"><?php echo $item_weight ?></p>
+
+                <?php if ($item_status == 1) { ?>
+                <div class="inv-btn-row">
+                    <p class="inv-active-stat">In Stock</p>
+                    <button type="submit" name="edit" class="inv-edit-btn">Edit</button>
+                </div>
+                <?php } else if ($item_status == 2) { ?>
+                <div class="inv-btn-row">
+                    <p class="inv-inactive-stat">Out of Stock</p>
+                    <button type="submit" name="edit" class="inv-edit-btn">Edit</button>
+                </div>
+                <?php  } ?>
+
+            </form>
+        </div>
+
         <!-- ==================== DISPLAYING PRODUCTS ==================== -->
-        <div class="d-flex justify-content-start align-items-start">
+        <!-- <div class="d-flex justify-content-start align-items-start">
             <form action="update-product-image.php" method="POST" class="product-img-section"
                 enctype="multipart/form-data">
                 <img class="product-image" src="assets/images/products/<?php echo $item_image ?>">
 
-                <!-- ==================== HIDDEN ELEMENTS FOR SENDING VALUES TO EDIT ==================== -->
+
                 <input type="text" hidden name="item_id" value="<?php echo $item_id; ?>">
                 <input type="text" hidden name="item_image" value="<?php echo $item_image; ?>">
-                <!-- ==================== HIDDEN ELEMENTS FOR SENDING VALUES TO EDIT ==================== -->
+
 
                 <button type="submit" name="edit" value="edit" class="btn update-btn-sm">Update Image</button>
             </form>
             <form action="edit-item.php" method="POST" class="admin-section-card">
-                <!-- ==================== HIDDEN ELEMENTS FOR SENDING VALUES TO EDIT ==================== -->
+
                 <input type="text" hidden name="item_id" value="<?php echo $item_id ?>">
                 <input type="text" hidden name="item_category" value="<?php echo $item_category ?>">
                 <input type="text" hidden name="item_usage" value="<?php echo $item_usage ?>">
@@ -70,7 +125,7 @@
                 <input type="text" hidden name="item_price" value="<?php echo $item_price ?>">
                 <input type="text" hidden name="item_weight" value="<?php echo $item_weight ?>">
                 <input type="text" hidden name="item_status" value="<?php echo $item_status ?>">
-                <!-- ==================== DISPLAYING PRODUCT IMAGE AND NAME ==================== -->
+
                 <div class="admin-section-row-start mb-3">
                     <div class=" admin-section-col-start">
                         <input class="admin-input product" type="text" name="item_name"
@@ -86,26 +141,22 @@
                                 Product
                                 Details</button>
                             <?php
-                                    if ($item_status == '1') {
-                                    ?>
+                            if ($item_status == '1') {
+                            ?>
 
                             <p class="active-btn">In Stock</p>
                             <?php
-                                    } else if ($item_status == '2') {
-                                    ?>
+                            } else if ($item_status == '2') {
+                            ?>
                             <p class="inactive-btn">Out Of Stock</p>
 
                             <?php
-                                    } ?>
+                            } ?>
                         </div>
                     </div>
                 </div>
             </form>
-        </div>
-
-
-
-        <!-- ==================== DISPLAYING PRODUCTS ==================== -->
+        </div> -->
         <?php
             } ?>
         <div class="d-flex justify-content-center align-items-center w-100">

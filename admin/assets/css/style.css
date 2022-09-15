@@ -164,7 +164,111 @@ input[type="number"] {
   transition: all 0.5s;
   background-color: #00000000 !important;
 }
-
+/* ========================== Admin Inventory Section ========================== */
+.inventory-section {
+  width: 100%;
+  border: 1px solid #e7e7e7;
+  border-radius: 5px;
+  padding: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: #fff;
+  margin-bottom: 10px;
+}
+.inventory-img-holder {
+  max-width: 150px;
+  max-height: 150px;
+  width: 150px;
+  height: 150px;
+  border: 1px solid #e7e7e7;
+  border-radius: 5px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+}
+.inventory-img-holder img {
+  max-width: 120px;
+  max-height: 120px;
+  width: 120px;
+  height: 120px;
+}
+.broken-img-icon {
+  font-size: 30px;
+  flex: 1;
+}
+.inventory-img-change-btn {
+  width: 100%;
+  border: 0;
+  font-size: 18px;
+}
+.inventory-img-change-btn:hover {
+  color: #fff;
+  background-color: #1e5f94;
+  transition: 0.3s all ease-in-out;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.inventory-content-holder {
+  flex: 1;
+  margin-left: 15px;
+}
+.inv-name {
+  margin: 0 !important;
+  font-size: 16px !important;
+  color: #000;
+}
+.inv-cat {
+  margin: 0 !important;
+  color: #777;
+}
+.inv-price {
+  margin: 0 !important;
+  color: #5bb336;
+  font-size: 20px !important;
+  font-weight: 600;
+}
+.inv-weight {
+  margin: 0 !important;
+  font-size: 16px;
+}
+.inv-btn-row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+.inv-active-stat {
+  margin: 0 !important;
+  margin-top: 15px !important;
+  width: 100px !important;
+  text-align: center;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #5bb336;
+  color: #fff;
+}
+.inv-inactive-stat {
+  margin: 0 !important;
+  margin-top: 15px !important;
+  width: 100px !important;
+  text-align: center;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: brown;
+  color: #fff;
+}
+.inv-edit-btn {
+  border: 0 !important;
+  width: 100px;
+  padding: 5px;
+  margin: 0 !important;
+  margin-left: 10px !important;
+  font-size: 14px;
+  border-radius: 5px;
+  background-color: #777;
+  color: #fff;
+}
 /* ========================== Main Dashboard ========================== */
 .section-container {
   position: relative;
