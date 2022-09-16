@@ -33,7 +33,7 @@
         <a href="privacy-policy.php">
             <li>Privacy Policy </li>
         </a>
-        <a href="assets/docs/TERMS AND CONDITIONS - DOCTOR MORINGA.docx">
+        <a href="assets/docs/TERMS AND CONDITIONS - DOCTOR MORINGA.pdf">
             <li>Terms & Conditions</li>
         </a>
         <a href="contact">
