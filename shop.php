@@ -133,25 +133,33 @@
                         </div>
 
                         <!-- ========= PRODUCT IMAGE 2 ========= -->
-                        <?php if (file_exists($item_image_2)) { ?>
+                        <?php if (!file_exists($item_image_2)) { ?>
                         <div class="carousel-item">
-                            <img src="<?php echo $item_image_2 ?>" class="d-block w-100 car-img" alt="...">
+                            <ion-icon name="image-outline" class="broken-img-icon"></ion-icon>
                         </div>
                         <?php } else { ?>
                         <div class="carousel-item">
-                            <ion-icon name="image-outline" class="broken-img-icon"></ion-icon>
+                            <img src="<?php echo $item_image_2 ?>" class="d-block w-100 car-img" alt="...">
                         </div>
                         <?php } ?>
 
                         <!-- ========= PRODUCT IMAGE 3 ========= -->
-                        <?php if (file_exists($item_image_3)) { ?>
+                        <?php if (!file_exists($item_image_3)) { ?>
+                        <div class="carousel-item">
+                            <ion-icon name="image-outline" class="broken-img-icon"></ion-icon>
+                        </div>
+                        <?php } else { ?>
                         <div class="carousel-item">
                             <img src="<?php echo $item_image_3 ?>" class="d-block w-100 car-img" alt="...">
                         </div>
                         <?php } ?>
 
                         <!-- ========= PRODUCT IMAGE 4 ========= -->
-                        <?php if (file_exists($item_image_4)) { ?>
+                        <?php if (!file_exists($item_image_4)) { ?>
+                        <div class="carousel-item">
+                            <ion-icon name="image-outline" class="broken-img-icon"></ion-icon>
+                        </div>
+                        <?php } else { ?>
                         <div class="carousel-item">
                             <img src="<?php echo $item_image_4 ?>" class="d-block w-100 car-img" alt="...">
                         </div>

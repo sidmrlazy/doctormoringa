@@ -22,6 +22,10 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+.broken-img-icon {
+  font-size: 30px;
+  flex: 1;
+}
 
 /* =========== Login Modal =========== */
 .login-lottie {
