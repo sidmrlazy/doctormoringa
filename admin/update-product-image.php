@@ -2,11 +2,9 @@
 <?php include('includes/navbar.php') ?>
 <div class="d-flex mt-3">
     <?php include('includes/side-nav.php') ?>
-
-
-    <div class="container section-container">
+    <div class="section-container">
         <input type="text" hidden name="item_id" value="<?php echo $item_id ?>">
-        <p>Click on the image box to change image</p>
+        <!-- <p>Click on the image box to change image</p> -->
 
         <?php
         include('includes/server/config.php');
@@ -22,7 +20,6 @@
             $update_result = mysqli_query($connection, $update_query);
             if (!$update_result) {
                 echo mysqli_error($connection);
-                // die("Product could not be updated!" . " " . mysqli_error($connection));
             } else {
                 if (!move_uploaded_file($item_image_temp, $folder)) {
                     die("<div class='alert w-100 alert-danger' role='alert'>Error changing Image 1</div>");
@@ -43,7 +40,6 @@
             $update_result = mysqli_query($connection, $update_query);
             if (!$update_result) {
                 echo mysqli_error($connection);
-                // die("Product could not be updated!" . " " . mysqli_error($connection));
             } else {
                 if (!move_uploaded_file($item_image_2_temp, $folder_2)) {
                     die("<div class='alert w-100 alert-danger' role='alert'>Error changing Image 2</div>");
@@ -64,7 +60,6 @@
             $update_result = mysqli_query($connection, $update_query);
             if (!$update_result) {
                 echo mysqli_error($connection);
-                // die("Product could not be updated!" . " " . mysqli_error($connection));
             } else {
                 if (!move_uploaded_file($item_image_3_temp, $folder_3)) {
                     die("<div class='alert w-100 alert-danger' role='alert'>Error changing Image 3</div>");
@@ -85,7 +80,6 @@
             $update_result = mysqli_query($connection, $update_query);
             if (!$update_result) {
                 echo mysqli_error($connection);
-                // die("Product could not be updated!" . " " . mysqli_error($connection));
             } else {
                 if (!move_uploaded_file($item_image_4_temp, $folder_4)) {
                     die("<div class='alert w-100 alert-danger' role='alert'>Error changing Image 4</div>");
@@ -93,128 +87,107 @@
                     echo "<div class='alert w-100 alert-success' role='alert'>Success</div>";
                 }
             }
-        }
+        } ?>
 
+        <div class="admin-inv-grid">
+            <?php
+            if (isset($_POST['edit'])) {
+                $item_id = $_POST['item_id'];
+                $item_image = $_POST['item_image'];
 
-        if (isset($_POST['edit'])) {
-            $item_id = $_POST['item_id'];
-            $item_image = $_POST['item_image'];
+                $query = "SELECT * FROM `items` WHERE item_id = $item_id";
+                $result = mysqli_query($connection, $query);
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $item_id = $row['item_id'];
+                    $item_image = "assets/images/products/" . $row['item_image'];
+                    $item_image_2 = "assets/images/products/" . $row['item_image_2'];
+                    $item_image_3 = "assets/images/products/" . $row['item_image_3'];
+                    $item_image_4 = "assets/images/products/" . $row['item_image_4'];
+            ?>
+            <form method="POST" enctype="multipart/form-data" action="" class="admin-inv-box">
+                <input type="text" name="item_id" value="<?php echo $item_id ?>" hidden>
 
-            $query = "SELECT * FROM `items` WHERE item_id = $item_id";
-            $result = mysqli_query($connection, $query);
-            while ($row = mysqli_fetch_assoc($result)) {
-                $item_id = $row['item_id'];
-                $item_image = "assets/images/products/" . $row['item_image'];
-                $item_image_2 = "assets/images/products/" . $row['item_image_2'];
-                $item_image_3 = "assets/images/products/" . $row['item_image_3'];
-                $item_image_4 = "assets/images/products/" . $row['item_image_4'];
-        ?>
-        <div class="section-flex">
-            <div class="card p-3 m-1 col-md-6">
-                <div class="image-upload-grid">
+                <?php if (!file_exists($item_image)) { ?>
+                <ion-icon name="image-outline" class="broken-img-icon"></ion-icon>
+                <?php } else { ?>
+                <img src="<?php echo $item_image ?>" alt="" class="admin-iv-img">
+                <?php } ?>
 
-                    <form method="POST" enctype="multipart/form-data" action="" class="image-upload-box form-floating">
-                        <div class="input-group mb-3">
-                            <input type="text" name="item_id" value="<?php echo $item_id ?>" hidden>
-                            <img src="<?php echo $item_image ?>" alt="" class="edit-update-img">
-                            <input type="file" name="item_image" value="<?php echo $item_image ?>"
-                                class="form-control edit-img-upload-btn">
-                        </div>
-                        <button type="submit" name="update_1" class="btn btn-sm btn-success">Change</button>
-                    </form>
-
-                    <form method="POST" enctype="multipart/form-data" action="" class="image-upload-box form-floating">
-                        <div class="input-group mb-3">
-                            <input type="text" name="item_id" value="<?php echo $item_id ?>" hidden>
-                            <img src="<?php echo $item_image_2 ?>" alt="" class="edit-update-img">
-                            <input type="file" name="item_image_2" value="" class="form-control edit-img-upload-btn">
-                        </div>
-                        <button type="submit" name="update_2" class="btn btn-sm btn-success">Change</button>
-                    </form>
-
-                    <form method="POST" enctype="multipart/form-data" action="" class="image-upload-box form-floating">
-                        <div class="input-group mb-3">
-                            <input type="text" name="item_id" value="<?php echo $item_id ?>" hidden>
-                            <img src="<?php echo $item_image_3 ?>" alt="" class="edit-update-img">
-                            <input type="file" name="item_image_3" value="" class="form-control edit-img-upload-btn">
-                        </div>
-                        <button type="submit" name="update_3" class="btn btn-sm btn-success">Change</button>
-                    </form>
-
-                    <form method="POST" enctype="multipart/form-data" action="" class="image-upload-box form-floating">
-                        <div class="input-group mb-3">
-                            <input type="text" name="item_id" value="<?php echo $item_id ?>" hidden>
-                            <img src="<?php echo $item_image_4 ?>" alt="" class="edit-update-img">
-                            <input type="file" name="item_image_4" value="" class="form-control edit-img-upload-btn">
-                        </div>
-                        <button type="submit" name="update_4" class="btn btn-sm btn-success">Change</button>
-                    </form>
+                <div class="mb-1 p-2">
+                    <label for="formFile" class="form-label">Click below to upload file</label>
+                    <input class="form-control" name="item_image" value="<?php echo $item_image ?>" type="file"
+                        id="formFile" placeholder="Click here to upload file">
                 </div>
-            </div>
-        </div>
-        <!-- <div class="w-100">
-            <form action="" method="POST" class="edit-update-img" enctype="multipart/form-data">
-                <p>Product Image 1</p>
-                <img src="<?php echo $item_image ?>" alt="">
-                <button>Update Image 1</button>
+                <div class="p-2 w-100">
+                    <button type="submit" name="update_1" class="mb-1 btn btn-outline-success w-100">Change
+                        Image</button>
+                </div>
             </form>
 
-            <form action="" method="POST" enctype="multipart/form-data">
-                <p>Product Image 2</p>
-                <img src="<?php echo $item_image_2 ?>" alt="">
+            <form method="POST" enctype="multipart/form-data" action="" class="admin-inv-box">
+                <input type="text" name="item_id" value="<?php echo $item_id ?>" hidden>
+
+                <?php if (!file_exists($item_image_2)) { ?>
+                <ion-icon name="image-outline" class="broken-img-icon"></ion-icon>
+                <?php } else { ?>
+                <img src="<?php echo $item_image_2 ?>" alt="" class="admin-iv-img">
+                <?php } ?>
+
+                <div class="mb-1 p-2">
+                    <label for="formFile" class="form-label">Click below to upload file</label>
+                    <input class="form-control" name="item_image_2" value="<?php echo $item_image_2 ?>" type="file"
+                        id="formFile" placeholder="Click here to upload file">
+                </div>
+                <div class="p-2 w-100">
+                    <button type="submit" name="update_2" class="mb-1 btn btn-outline-success w-100">Change
+                        Image</button>
+                </div>
             </form>
 
-            <form action="" method="POST" enctype="multipart/form-data">
-                <p>Product Image 3</p>
-                <img src="<?php echo $item_image_3 ?>" alt="">
+            <form method="POST" enctype="multipart/form-data" action="" class="admin-inv-box">
+                <input type="text" name="item_id" value="<?php echo $item_id ?>" hidden>
+
+                <?php if (!file_exists($item_image_3)) { ?>
+                <ion-icon name="image-outline" class="broken-img-icon"></ion-icon>
+                <?php } else { ?>
+                <img src="<?php echo $item_image_3 ?>" alt="" class="admin-iv-img">
+                <?php } ?>
+                <div class="mb-1 p-2">
+                    <label for="formFile" class="form-label">Click below to upload file</label>
+                    <input class="form-control" name="item_image_3" value="<?php echo $item_image_3 ?>" type="file"
+                        id="formFile" placeholder="Click here to upload file">
+                </div>
+                <div class="p-2 w-100">
+                    <button type="submit" name="update_3" class="mb-1 btn btn-outline-success w-100">Change
+                        Image</button>
+                </div>
             </form>
 
-            <form action="" method="POST" enctype="multipart/form-data">
-                <p>Product Image 4</p>
-                <img src="<?php echo $item_image_4 ?>" alt="">
+
+            <form method="POST" enctype="multipart/form-data" action="" class="admin-inv-box">
+                <input type="text" name="item_id" value="<?php echo $item_id ?>" hidden>
+
+                <?php if (!file_exists($item_image_4)) { ?>
+                <ion-icon name="image-outline" class="broken-img-icon"></ion-icon>
+                <?php } else { ?>
+                <img src="<?php echo $item_image_4 ?>" alt="" class="admin-iv-img">
+                <?php } ?>
+
+                <div class="mb-1 p-2">
+                    <label for="formFile" class="form-label">Click below to upload file</label>
+                    <input class="form-control" name="item_image_4" value="<?php echo $item_image_4 ?>" type="file"
+                        id="formFile" placeholder="Click here to upload file">
+                </div>
+                <div class="p-2 w-100">
+                    <button type="submit" name="update_4" class="mb-1 btn btn-outline-success w-100">Change
+                        Image</button>
+                </div>
             </form>
-        </div> -->
-        <!-- <form action="" method="POST" class="card p-4 col-md-8 mt-3" enctype="multipart/form-data">
-            <img src="<?php echo $item_image ?>" alt="" class="edit-update-img">
-
-            <div class="image-upload-grid">
-                <label class="img-label" for="floatingInput">Upload Product Images</label>
-                <div class="image-upload-box form-floating">
-                    <div class="input-group mb-3">
-                        <input type="file" name="item_image" value="" class="form-control img-upload-btn">
-                    </div>
-                </div>
-
-                <div class="image-upload-box form-floating">
-                    <div class="input-group mb-3">
-                        <input type="file" name="item_image_2" value="" class="form-control img-upload-btn">
-                    </div>
-                </div>
-
-                <div class="image-upload-box form-floating">
-                    <div class="input-group mb-3">
-                        <input type="file" name="item_image_3" value="" class="form-control img-upload-btn">
-                    </div>
-                </div>
-
-                <div class="image-upload-box form-floating">
-                    <div class="input-group mb-3">
-                        <input type="file" name="item_image_4" value="" class="form-control img-upload-btn">
-                    </div>
-                </div>
-            </div>
-
-            <div class="mb-3">
-                <label for="formFile" class="form-label">Upload New Image</label>
-                <input class="form-control" type="file" name="item_image" id="formFile">
-                <input type="text" hidden name="item_id" value="<?php echo $item_id ?>">
-            </div>
-            <button type="submit" name="update" class="update-button">Update Image</button>
-        </form> -->
-        <?php
+            <?php
+                }
             }
-        }
-        ?>
+            ?>
+        </div>
     </div>
 </div>
 

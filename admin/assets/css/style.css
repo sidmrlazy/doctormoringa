@@ -274,7 +274,8 @@ input[type="number"] {
   position: relative;
   max-width: 100% !important;
   margin-left: 240px !important;
-  margin-top: 50px !important;
+  margin-top: 0px !important;
+  margin-bottom: 20px;
 }
 .section-container p {
   margin: 5px;
@@ -507,12 +508,36 @@ input[type="number"] {
 .image-upload-grid {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 10px;
-  justify-content: flex-start;
+  margin-bottom: 5px;
+}
+.image-upload-box {
+  max-width: 200px;
+  max-height: 300px;
+  width: 200px;
+  height: 300px;
+  border: 1px solid #e7e7e7;
+  border-radius: 5px;
+  margin: 3px;
+  background-color: #fff;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding: 10px;
+  flex-direction: column !important;
+}
+.img-upload-box-input-group {
+  flex-direction: column;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .edit-update-img {
-  width: 50px;
-  height: 50px;
+  max-width: 150px;
+  max-height: 150px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 5px;
 }
 .edit-img-upload-btn {
   font-size: 0 !important;
@@ -527,19 +552,7 @@ input[type="number"] {
   text-align: center;
   color: #777;
 }
-.image-upload-box {
-  width: 117px;
-  height: 117px;
-  border: 1px solid #e7e7e7;
-  border-radius: 5px;
-  margin: 3px;
-  background-color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  flex-direction: column !important;
-}
+
 .img-upload-btn {
   font-size: 0px !important;
   width: 100%;
@@ -559,6 +572,32 @@ input[type="number"] {
   font-size: 16px !important;
   width: 100%;
   margin-bottom: 5px;
+}
+/* ================= ADMIN INVENTORY ================= */
+.admin-inv-grid {
+  display: flex;
+  flex-wrap: wrap !important;
+  margin-top: 50px !important;
+}
+.admin-inv-box {
+  width: 250px;
+  height: 330px;
+  border: 1px solid #e7e7e7;
+  background-color: #fff;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  margin-right: 10px;
+}
+.admin-iv-img {
+  max-width: 250px !important;
+  max-height: auto !important;
+}
+.admin-inv-select {
+  border: 1px solid #e7e7e7;
+  width: 250px !important;
+  padding: 10px;
 }
 /* ================================================ BUTTONS ================================================ */
 .confirm-button {
