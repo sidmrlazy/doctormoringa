@@ -2,10 +2,9 @@
 <?php include('includes/navbar.php') ?>
 <div class="d-flex mt-3 container-fluid">
     <?php include('includes/side-nav.php') ?>
-    <div class="container section-container">
+    <div class="container section-container mt-5">
 
         <?php
-
         include('includes/server/config.php');
 
         $results_per_page = 5;
