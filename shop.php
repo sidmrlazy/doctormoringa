@@ -118,9 +118,8 @@
                 <div id="<?php echo $new_item_id ?>" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <?php if (!file_exists($item_image)) { ?>
-                        <div class="carousel-item">
+                        <div class="carousel-item d-none">
                             <ion-icon name="image-outline" class="broken-img-icon"></ion-icon>
-
                         </div>
                         <?php } else { ?>
                         <div class="carousel-item">
