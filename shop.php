@@ -126,6 +126,10 @@
                         <div class="carousel-item">
                             <img src="<?php echo $item_image_2 ?>" class="d-block w-100 car-img" alt="...">
                         </div>
+                        <?php } else { ?>
+                        <div class="carousel-item">
+                            <ion-icon name="image-outline" class="broken-img-icon"></ion-icon>
+                        </div>
                         <?php } ?>
 
                         <!-- ========= PRODUCT IMAGE 3 ========= -->
