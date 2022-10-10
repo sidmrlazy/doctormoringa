@@ -2,9 +2,8 @@
 <?php include('includes/navbar.php') ?>
 <div class="d-flex mt-3">
     <?php include('includes/side-nav.php') ?>
-    <div class="section-container">
+    <div class="section-container w-100">
         <input type="text" hidden name="item_id" value="<?php echo $item_id ?>">
-        <!-- <p>Click on the image box to change image</p> -->
 
         <?php
         include('includes/server/config.php');
@@ -22,9 +21,9 @@
                 echo mysqli_error($connection);
             } else {
                 if (!move_uploaded_file($item_image_temp, $folder)) {
-                    die("<div class='alert w-100 alert-danger' role='alert'>Error changing Image 1</div>");
+                    die("<div class='alert w-100 alert-danger mt-5' role='alert'>Error changing Image 1</div>");
                 } else {
-                    echo "<div class='alert w-100 alert-success' role='alert'>Success</div>";
+                    echo "<div class='alert w-100 alert-success mt-5' role='alert'>Success</div>";
                 }
             }
         }
@@ -42,9 +41,9 @@
                 echo mysqli_error($connection);
             } else {
                 if (!move_uploaded_file($item_image_2_temp, $folder_2)) {
-                    die("<div class='alert w-100 alert-danger' role='alert'>Error changing Image 2</div>");
+                    die("<div class='alert w-100 alert-danger mt-5' role='alert'>Error changing Image 2</div>");
                 } else {
-                    echo "<div class='alert w-100 alert-success' role='alert'>Success</div>";
+                    echo "<div class='alert w-100 alert-success mt-5' role='alert'>Success</div>";
                 }
             }
         }
@@ -62,9 +61,9 @@
                 echo mysqli_error($connection);
             } else {
                 if (!move_uploaded_file($item_image_3_temp, $folder_3)) {
-                    die("<div class='alert w-100 alert-danger' role='alert'>Error changing Image 3</div>");
+                    die("<div class='alert w-100 alert-danger mt-5' role='alert'>Error changing Image 3</div>");
                 } else {
-                    echo "<div class='alert w-100 alert-success' role='alert'>Success</div>";
+                    echo "<div class='alert w-100 alert-success mt-5' role='alert'>Success</div>";
                 }
             }
         }
@@ -82,9 +81,9 @@
                 echo mysqli_error($connection);
             } else {
                 if (!move_uploaded_file($item_image_4_temp, $folder_4)) {
-                    die("<div class='alert w-100 alert-danger' role='alert'>Error changing Image 4</div>");
+                    die("<div class='alert w-100 alert-danger mt-5' role='alert'>Error changing Image 4</div>");
                 } else {
-                    echo "<div class='alert w-100 alert-success' role='alert'>Success</div>";
+                    echo "<div class='alert w-100 alert-success mt-5' role='alert'>Success</div>";
                 }
             }
         } ?>

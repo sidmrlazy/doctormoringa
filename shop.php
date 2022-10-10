@@ -118,7 +118,7 @@
                 <div id="<?php echo $new_item_id ?>" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <?php if (!file_exists($item_image)) { ?>
-                        <div class="carousel-item d-none active">
+                        <div class="carousel-item active">
                             <ion-icon name="image-outline" class="broken-img-icon"></ion-icon>
                         </div>
                         <?php } else { ?>
@@ -129,7 +129,7 @@
 
                         <!-- ========= PRODUCT IMAGE 2 ========= -->
                         <?php if (!file_exists($item_image_2)) { ?>
-                        <div class="carousel-item">
+                        <div class="carousel-item ">
                             <ion-icon name="image-outline" class="broken-img-icon"></ion-icon>
                         </div>
                         <?php } else { ?>
@@ -140,7 +140,7 @@
 
                         <!-- ========= PRODUCT IMAGE 3 ========= -->
                         <?php if (!file_exists($item_image_3)) { ?>
-                        <div class="carousel-item">
+                        <div class="carousel-item ">
                             <ion-icon name="image-outline" class="broken-img-icon"></ion-icon>
                         </div>
                         <?php } else { ?>
@@ -151,7 +151,7 @@
 
                         <!-- ========= PRODUCT IMAGE 4 ========= -->
                         <?php if (!file_exists($item_image_4)) { ?>
-                        <div class="carousel-item">
+                        <div class="carousel-item ">
                             <ion-icon name="image-outline" class="broken-img-icon"></ion-icon>
                         </div>
                         <?php } else { ?>
