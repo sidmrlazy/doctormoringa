@@ -805,6 +805,10 @@ input[type="number"] {
   justify-content: center !important;
   align-items: center !important;
 }
+.inner-card-grid-mobile {
+  display: flex !important;
+  flex-direction: row !important;
+}
 .inner-card {
   display: flex !important;
   justify-content: center !important;
@@ -827,6 +831,7 @@ input[type="number"] {
   font-weight: 700;
   margin-top: 15px;
 }
+
 #inner-card-pale {
   background-color: #f2fce4;
 }
@@ -2581,25 +2586,32 @@ input[type="number"] {
   .category-slider-mobile {
     display: initial !important;
   }
+  .inner-card-grid-mobile {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    width: 100% !important;
+  }
   .inner-card {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 100% !important;
-    height: 210px;
+    width: 150px !important;
+    height: 100px;
     border-radius: 10px;
-    margin: 10px;
-    padding: 0 !important;
+    padding: 20px !important;
   }
   .inner-card img {
-    width: 25% !important;
+    width: 50% !important;
+    margin: 0 !important;
   }
   .inner-card p {
-    font-weight: 700;
-    font-size: 18px;
-    margin-top: 15px;
+    font-weight: 500;
+    font-size: 16px;
     text-align: center;
+    line-height: 15px !important;
+    margin: 0;
+    margin-top: 5px !important;
   }
 
   /* .carousel-control-prev {
