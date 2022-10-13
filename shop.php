@@ -26,6 +26,7 @@
         $cart_user_item_qty = $_POST['cart_user_item_qty'];
         $cart_user_order_id = "DOCMOR" . $token;
         $cart_status = 1;
+        $cart_order_type = "1";
 
         if ($cart_user_item_qty == "Qty") {
             echo "<script>error();</script>";
@@ -36,7 +37,8 @@
              `cart_user_id`,
              `cart_user_item_qty`,
              `cart_user_order_id`,
-             `cart_status`
+             `cart_status`,
+             `cart_order_type`
          )
          VALUES(
              '$cart_user_item_id',
@@ -44,7 +46,8 @@
              '$token',
              '$cart_user_item_qty',
              '$cart_user_order_id',
-             '$cart_status'
+             '$cart_status',
+             '$cart_order_type'
          )";
             $insert_result = mysqli_query($connection, $insert_query);
             if (!$insert_result) {
@@ -69,8 +72,6 @@
         $query = "SELECT * FROM `items` WHERE item_category = '$category_name' AND item_status = 1";
         $result = mysqli_query($connection, $query);
         $count = mysqli_num_rows($result);
-
-
 
         if ($count > 0) {
             $user_category = "";

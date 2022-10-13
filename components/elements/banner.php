@@ -13,13 +13,13 @@ console.log(video);
         <!-- <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 4"></button> -->
     </div>
     <div class="carousel-inner">
-        <a href="shop.php#Beauty" class="carousel-item centered-carousel active" data-bs-interval="3000">
+        <a href="offers.php" class="carousel-item centered-carousel active" data-bs-interval="3000">
             <img src="assets/images/banners/4.jpeg" class="d-block img-fluid" alt="...">
         </a>
-        <a href="shop.php#Beauty" class="carousel-item centered-carousel" data-bs-interval="3000">
+        <a href="offers.php" class="carousel-item centered-carousel" data-bs-interval="3000">
             <img src="assets/images/banners/5.jpeg" class="d-block img-fluid" alt="...">
         </a>
-        <a href="shop.php#Beauty" class="carousel-item centered-carousel" data-bs-interval="2000">
+        <a href="offers.php" class="carousel-item centered-carousel" data-bs-interval="2000">
             <img src="assets/images/banners/6.jpeg" class="d-block img-fluid" alt="...">
 
         </a>

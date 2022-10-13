@@ -65,6 +65,20 @@
                 </a>
             </li>
 
+            <li class="nav-item ">
+                <a class="nav-link side-nav-text" aria-current="page" href="create-offer.php">
+                    <ion-icon name="ribbon" class="outer-nav-icon"></ion-icon>
+                    Create Offer
+                </a>
+            </li>
+
+            <li class="nav-item ">
+                <a class="nav-link side-nav-text" aria-current="page" href="view-offers.php">
+                    <ion-icon name="options" class="outer-nav-icon"></ion-icon>
+                    View Offers
+                </a>
+            </li>
+
             <hr class="hr-line">
             <p class="side-nav-header">Customers</p>
 

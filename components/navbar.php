@@ -1,3 +1,11 @@
+<div class="offer-marquee">
+    <p class="animate__animated animate__flash animate__infinite infinite">This october choose to 'Glow' with our
+        amazing <span>Moringa based
+            Beauty Products</span>
+        combo!
+    </p>
+</div>
+
 <div class="top-navbar">
     <div class="col-md-6 top-navbar-brand">
         <a href="index"><img src="assets/images/logo/logo.png" alt=""></a>
@@ -90,6 +98,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="shop">Shop</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="offers">Offers</a>
                 </li>
                 <!-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"

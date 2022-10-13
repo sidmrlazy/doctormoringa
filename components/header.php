@@ -39,6 +39,9 @@ session_start();
     <!-- StyleSheet -->
     <link rel="stylesheet" href="assets/css/style.css">
 
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
     <!-- Title -->
     <title>Products from the Miracle Tree</title>
 

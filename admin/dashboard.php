@@ -3,7 +3,7 @@
 <div class="d-flex mt-3">
     <?php include('includes/side-nav.php') ?>
 
-    <div class="container section-container">
+    <div class="container section-container mt-5">
         <p>Dashboard</p>
         <div class="tab-grid">
             <?php

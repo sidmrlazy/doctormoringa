@@ -20,11 +20,13 @@
     $fetch_cart_count = mysqli_num_rows($fetch_cart_status_res);
     $cart_status = "";
     while ($row = mysqli_fetch_assoc($fetch_cart_status_res)) {
+        $cart_id = $row['cart_id'];
         $cart_status = $row['cart_status'];
     }
 
     if ($fetch_cart_count > 0 && $cart_status == 1) {
     ?>
+
     <form action="pay.php" method="POST" class="checkout-screen-row w-100">
         <!-- ============ USER DETAILS SECTION START ============ -->
         <div class="col-md-6 checkout-left">
@@ -138,8 +140,7 @@
                     <h5 id="subtotal-header-price">SUBTOTAL</h5>
                 </div>
                 <?php
-
-                    $query = "SELECT * FROM `customer_cart` WHERE cart_user_id = '$token' AND cart_status = 1";
+                    $query = "SELECT * FROM `customer_cart` WHERE `cart_user_id` = '$token' AND `cart_status` = '1'";
                     $result = mysqli_query($connection, $query);
                     $count = mysqli_num_rows($result);
 
@@ -153,19 +154,39 @@
                         $cart_user_subtotal = $row['cart_user_subtotal'];
                         $cart_user_item_qty = $row['cart_user_item_qty'];
                         $cart_user_order_id = $row['cart_user_order_id'];
+                        $cart_order_type = $row['cart_order_type'];
 
-                        // Item Total
+                        // ITEM TOTAL
                         $temp_item_total = $cart_user_item_qty * $cart_user_subtotal;
 
                         // SUB TOTAL CALCULATION
                         $temp_subtotal = $temp_item_total + $temp_subtotal;
-
-                        $get_item = "SELECT * FROM `items` WHERE item_id = $cart_user_item_id";
-                        $get_result = mysqli_query($connection, $get_item);
                         $item_weight = "";
-                        while ($row = mysqli_fetch_assoc($get_result)) {
-                            $item_name = $row['item_name'];
-                            $item_weight = $row['item_weight'];
+                        if ($cart_order_type == 1) {
+                            $get_item = "SELECT * FROM `items` WHERE item_id = $cart_user_item_id";
+                            $get_result = mysqli_query($connection, $get_item);
+
+                            while ($row = mysqli_fetch_assoc($get_result)) {
+                                $item_name = $row['item_name'];
+                                $item_weight = $row['item_weight'];
+                            }
+                        }
+
+                        $offer_name = "";
+                        $item_weight_combo = "";
+                        if ($cart_order_type == 2) {
+                            $get_item = "SELECT * FROM `offer_main` WHERE offer_main_id = $cart_user_item_id";
+                            $get_result = mysqli_query($connection, $get_item);
+
+                            while ($row = mysqli_fetch_assoc($get_result)) {
+                                $offer_name = $row['offer_main_name'];
+                            }
+                            $fetch_item_dets = "SELECT * FROM `items` WHERE `item_category` = '$offer_name'";
+                            $fetch_item_res = mysqli_query($connection, $fetch_item_dets);
+
+                            while ($row = mysqli_fetch_assoc($fetch_item_res)) {
+                                $item_weight_combo = $row['item_weight'];
+                            }
                         }
                     ?>
                 <div class="order-details">
@@ -174,11 +195,16 @@
                     <input type="text" name="cart_user_id" value="<?php echo $cart_user_id; ?>" hidden>
                     <input type="text" name="cart_user_item_qty" value="<?php echo $cart_user_item_qty; ?>" hidden>
                     <div class="order-details-holder">
+                        <?php if ($cart_order_type == 1) { ?>
                         <p><?php echo $item_name .  " (" . $item_weight . ")" ?></p>
+                        <?php }
+                                if ($cart_order_type == 2) { ?>
+                        <p><?php echo $offer_name .  " (" . $item_weight_combo . ")" ?></p>
+                        <?php } ?>
                     </div>
 
                     <?php
-                            $fetch_qty = "SELECT * FROM `customer_cart` WHERE cart_user_id = '$token' AND cart_user_item_id = $cart_user_item_id";
+                            $fetch_qty = "SELECT * FROM `customer_cart` WHERE `cart_user_id` = '$token' AND `cart_user_item_id` = '$cart_user_item_id'";
                             $fetch_qty_res = mysqli_query($connection, $fetch_qty);
                             while ($row = mysqli_fetch_assoc($fetch_qty_res)) {
                                 $cart_user_item_qty = $row['cart_user_item_qty'];
@@ -214,6 +240,8 @@
 
                 <!-- <button type="submit" name="cart" class="continue-btn mt-3">Proceed to Checkout</button> -->
                 <input class="continue-btn mt-3" type="submit" name="submit" value='Proceed to Checkout' />
+                <p class="mt-3">Secure Payment Gateways</p>
+                <img src="assets/images/icons/payment-method.png" alt="">
             </div>
         </div>
         <!-- ============ ORDER DETAILS SECTION end ============ -->

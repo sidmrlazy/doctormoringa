@@ -277,10 +277,16 @@ input[type="number"] {
   margin-top: 0px !important;
   margin-bottom: 20px;
 }
+.section-container h5 {
+  margin: 0;
+  color: #000;
+  margin-top: 50px !important;
+  font-weight: 600;
+}
 .section-container p {
-  margin: 5px;
+  margin: 0;
   font-size: 14px;
-  margin-top: 50px;
+  margin-bottom: 10px;
 }
 .tab-grid {
   display: flex;
@@ -599,7 +605,37 @@ input[type="number"] {
   width: 250px !important;
   padding: 10px;
 }
-/* ================================================ BUTTONS ================================================ */
+
+/* ================= OFFER ================= */
+.offer-second-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #e7e7e7;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #fff;
+  background-color: #5bb336;
+  padding: 20px;
+}
+.active-offer p {
+  color: #fff;
+  background-color: green !important;
+  margin: 0;
+  width: fit-content !important;
+  padding: 3px;
+  border-radius: 2px;
+}
+.deactive-offer p {
+  color: #fff;
+  background-color: red !important;
+  margin: 0;
+  width: fit-content !important;
+  padding: 3px;
+  border-radius: 2px;
+}
+
+/* ================= BUTTONS ================= */
 .confirm-button {
   margin-top: 20px;
   width: 100%;
