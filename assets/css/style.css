@@ -579,6 +579,20 @@ input[type="number"] {
   margin-left: 5px;
 }
 /* =========== Top Navbar =========== */
+.top-nav-social-icon {
+  font-size: 30px !important;
+  color: green !important;
+  margin: 0;
+  margin: 5px;
+  text-decoration: none;
+}
+.top-nav-social-icon:hover {
+  font-size: 30px !important;
+  color: #44ad40 !important;
+  margin: 0;
+  margin: 5px;
+  transition: 0.3s all ease-in-out !important;
+}
 .top-navbar {
   display: flex;
   justify-content: center;

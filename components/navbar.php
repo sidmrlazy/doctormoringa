@@ -80,6 +80,17 @@
             </div>
         </div>
     </div>
+
+    <div class="col-md-2">
+        <a href="https://www.facebook.com/DrMoringaIndia/?paipv=0&eav=AfYrvC3umg9s0jj1ywhG51DGUJ8xxymMWVpIj5MgZ_I9srRGHnqUTIBuTefKw-GKfso&_rdr"
+            target="_blank" class="top-nav-social-icon">
+            <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+        <a href="https://instagram.com/drmoringaindia?igshid=YmMyMTA2M2Y=" target="_blank" class="top-nav-social-icon">
+            <ion-icon name="logo-instagram"></ion-icon>
+        </a>
+
+    </div>
 </div>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
@@ -102,55 +113,6 @@
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="offers">Offers</a>
                 </li>
-                <!-- <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Browse All Category
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <?php
-                        include('server/config.php');
-                        $query = "SELECT * FROM category";
-                        $result = $connection->query($query);
-                        if ($result->num_rows > 0) {
-                            while ($row = $result->fetch_assoc()) {
-                                $category_image = $row['category_image'];
-                                $category_name =  $row['category_name'];
-
-                        ?>
-                        <li class="dropdown-row">
-                            <img src="assets/images/category-icons/<?php echo $category_image
-                                                                    ?>" />
-                            <a class="dropdown-item" href="shop">Doctor Moringa for
-                                <?php echo $category_name;
-                                ?></a>
-                        </li>
-                        <?php
-                            }
-                        }
-                        ?>
-
-                       
-                <?php
-                include('server/config.php');
-                $query = "SELECT * FROM category";
-                $result = $connection->query($query);
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        $category_image = $row['category_image'];
-                        $category_name =  $row['category_name'];
-
-                ?>
-                <li class="mobile-nav"><a class="dropdown-item" href="#">Doctor Moringa for
-                        <?php echo $category_name;
-                        ?></a></li>
-                <?php
-                    }
-                }
-                ?>
-            </ul>
-            </li> -->
-
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
